@@ -1,0 +1,118 @@
+/* 
+  Localizable.strings
+  TTLockSourceCodeDemo
+
+  Created by Jinbo Lu on 2019/5/6.
+  Copyright © 2019 Sciener. All rights reserved.
+*/
+
+
+"Permanent date" = "永久日期";
+"Success" = "成功";
+"Clear" = "清空";
+"Bound lock" = "绑定的智能锁";
+"Number" = "数量";
+"Gateway upgrade" = "网关升级";
+"Delete Gateway" = "删除网关";
+"Do you want to delete it ?" = "是否删除？";
+"Cancel" = "取消";
+"Delete" = "删除";
+"Unlock" = "开锁";
+"Lock" = "闭锁";
+"Reset eKey" = "重置电子钥匙";
+"Reset passcode" = "重置密码";
+"Get admin passcode" = "读取管理员密码";
+"Modify admin passcode" = "修改管理员密码";
+"Create custom passcode" = "设置自定密码";
+"Modify passcode" = "修改普通密码";
+"Delete passcode" = "删除密码";
+"Get all valid passcode" = "读取锁上使用过的有效密码";
+"Set admin erase passcode" = "设置管理员删除码";
+"Get passcode visible state" = "读取锁屏幕是否显示密码";
+"Set passcode visible state" = "设置锁屏幕是否显示密码";
+"Please enter new admin passcode" = "请输入新的管理员密码";
+"Please enter custom passcode" = "请输入自定义密码";
+"Please enter original passcode" = "请输入原来的密码";
+"Please enter new passcode" = "请输入新的密码";
+"Please enter the passcode you want to delete" = "请输入需要删除的密码";
+"Please enter admin erase passcode" = "请输入管理员删除码";
+"Passcode length 7 - 9 digits" = "密码长度 7 - 9 位";
+"Passcode length 4 - 9 digits" = "密码长度 4 - 9 位";
+"Sure" = "确定";
+"Please input Username" = "请输入账号";
+"Please input password" = "请输入密码";
+"Username" = "账号";
+"Password" = "密码";
+"Passcode" = "密码";
+"Log in" = "登录";
+"Reset lock" = "重置锁";
+"Ekey" = "电子钥匙";
+"IC card" = "IC卡";
+"Fingerprint" = "指纹";
+"Lock upgrade" = "锁升级";
+"Get lock log" = "读取锁操作记录";
+"Get electric quantity" = "读取锁电量";
+"Get lock special value" = "读取锁特征值";
+"Get lock version" = "读取锁版本";
+"Get lock state" = "读取锁开关状态";
+"Get lock time" = "读取锁时间";
+"Set lock time" = "设置锁时间";
+"Set lock NB-IoT" = "设置NB-IoT";
+"Get remote unlock switch state" = "读取远程开锁";
+"Set remote unlock switch state" = "设置远程开锁";
+"Get lock audio switch state" = "读取锁音频开关";
+"Set lock audio switch state" = "设置锁音频开关";
+"Get automatic locking periodic time" = "读取自动闭锁时间";
+"Set automatic locking periodic time" = "设置自动闭锁时间";
+"Set passage mode" = "设置常开模式";
+"Delete passage mode" = "删除常开模式";
+"Clear passage mode" = "清空常开模式";
+"Start date" = "开始日期";
+"End date" = "结束日期";
+"Add IC card" = "添加IC卡";
+"Add" = "添加";
+"Please set start date" = "请先设置开始日期";
+"End date must be greater than start date" = "结束日期必须大于开始日期";
+"Already the latest version" = "已是最新版本";
+"Version number:" = "版本号:";
+"New version" = "有新版本";
+"Upgrade" = "升级";
+"The gateway version is unknown. Re-add the gateway to get the version information" = "网关版本未知，重新添加网关可获取到版本信息";
+"Upgrade successed" = "升级成功";
+"Retry" = "重试";
+"Offline retry" = "离线重试";
+"Failure" = "失败";
+"Online" = "在线";
+"Offline" = "离线";
+"Lock" = "锁";
+"Gateway" = "网关";
+"Please connect to the wireless network first" = "手机请先连接无线网";
+"WiFi password" = "WiFi密码";
+"Please enter the password for WiFi" = "请输入WiFi的密码";
+"Account password" = "账号密码";
+"Please enter your account password" = "请输入你的账号密码";
+"Empty data" = "信息不能为空";
+"Press and hold the gateway reset button. When the red and green lights flash alternately, click “Add”" = "长按网关重置键，红、绿灯交替闪烁时，点击”添加“";
+"Next" = "下一步";
+"After the gateway is powered back on, click ”Add“" = "网关重新通电后，点击“添加”";
+"WiFi name error" = "WiFi名称错误";
+"WiFi password error" = "WiFi密码错误";
+"Connection timed out, exited add mode" = "连接超时，已退出添加模式";
+"Add lock" = "添加锁";
+"Check for updates" = "检查更新";
+"Unknown lock version" = "未知锁版本";
+"Year" = "年";
+"Month" = "月";
+"Day" = "日";
+"Hour" = "时";
+"minute" = "分";
+"Select gateway" = "选择网关";
+"Select WiFi" = "选择WiFi";
+"Add fingerprint" = "添加指纹";
+"Remaining compressions: %ld" = "剩余按压次数: %ld";
+"gateway Name" = "网关名称";
+"Please enter gateway name" = "请输入网关名称";
+
+
+
+

@@ -1,0 +1,32 @@
+//
+//  TTLockDemoPrefixHeader.pch
+//  TTLockSourceCodeDemo
+//
+//  Created by Jinbo Lu on 2019/4/19.
+//  Copyright © 2019 Sciener. All rights reserved.
+//
+
+#import "UIView+Extension.h"
+#import <Masonry/Masonry.h>
+#import "KeyModel.h"
+#import "LockModel.h"
+#import "NetUtil.h"
+#import <TTLock/TTLock.h>
+#import "NSDate+Extension.h"
+
+#define RELOAD_LOCK_TABLE_NOTIFICATION @"reloadLockTableNotification"
+#define RELOAD_EKEY_TABLE_NOTIFICATION @"reloadEkeyTableNotification"
+#define RELOAD_CARD_TABLE_NOTIFICATION @"reloadCardTableNotification"
+#define RELOAD_FINGERPRINT_TABLE_NOTIFICATION @"reloadFingerprintTableNotification"
+
+
+#define NOTIF_ADD(n,f) [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(f) name:n object:nil]
+#define NOTIF_POST(n,i) [[NSNotificationCenter defaultCenter] postNotificationName:n object:nil userInfo:i]
+#define NOTIF_REMV()        [[NSNotificationCenter defaultCenter] removeObserver:self]
+
+#define LS(localized) (NSLocalizedString(localized, nil))
+
+#define RGBFromHexadecimal(value) [UIColor colorWithRed:((float)((value & 0xFF0000) >> 16))/255.0 green:((float)((value & 0xFF00) >> 8))/255.0 blue:((float)(value & 0xFF))/255.0 alpha:1.0]
+#define RGB_A(r,g,b,a) [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:a]
+#define RGB(r,g,b) RGB_A(r,g,b,1.0)
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self

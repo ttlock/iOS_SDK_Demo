@@ -1,0 +1,6 @@
+framework module TTLockGateway {
+  umbrella header "TTLockGateway.h"
+
+  export *
+  module * { export * }
+}

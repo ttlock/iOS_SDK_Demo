@@ -1,0 +1,6 @@
+framework module TTLock {
+  umbrella header "TTLock.h"
+
+  export *
+  module * { export * }
+}

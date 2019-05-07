@@ -1,0 +1,6 @@
+framework module TTLockDFU {
+  umbrella header "TTLockDFU.h"
+
+  export *
+  module * { export * }
+}
