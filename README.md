@@ -50,8 +50,8 @@ Initialize TTLock in the method{ didFinishLaunchingWithOptions} in AppDelegate (
 ### Scene: Unlock
 ```objective-c
  [TTLock controlLockWithControlAction:TTControlActionUnlock lockData:lockData success:^(long long lockTime, NSInteger electricQuantity, long long uniqueId) {
-        [self.view showToast:LS(@"Success")];
+        NSLog(@"##############  Unlock successed power: %ld  ##############",(long)electricQuantity);
     } failure:^(TTError errorCode, NSString *errorMsg) {
-        [self.view showToast:errorMsg];
+        NSLog(@"##############  Unlock failed errorMsg: %@  ##############",errorMsg);
     }];
 ```
