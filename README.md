@@ -17,15 +17,15 @@ First, add the following line to your Podfile:
 <br>pod 'TTLockGateway'（ If you need to support first generation gateway ）
 <br>end
 
-Second, install TTLock into your project:
+Second, pod install
 
-pod install
+
 
 ## Introduction
 
 ### TTLock
 TTLock has been designed to communicate with devices by mobile phone bluetooth.
-TTGateway supports second generation gateway.
+<br>TTGateway supports second generation gateway.
 
 ### TTLockDFU (Device Firmware Upgrade)
 TTLockDFU has been designed to make it easy to upgrade devices into your application by mobile phone bluetooth.
@@ -58,6 +58,7 @@ Initialize TTLock in the method{ didFinishLaunchingWithOptions} in AppDelegate (
 ### Dynamic frameworks are uploaded to AppStore
   ![](http://ikennd.ac/pictures/iTC-Unsupported-Archs.png)
   First step:Add a Run Script step to your build steps, put it after your step to embed frameworks, set it to use /bin/sh and enter the following script:
+  
   ```js
   APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
   
@@ -103,6 +104,7 @@ Initialize TTLock in the method{ didFinishLaunchingWithOptions} in AppDelegate (
   
   done
   ```
+  
   The script will look through your built application’s Frameworks folder and make sure only the architectures you’re building for are present in each Framework.
   <br>Second step:Add the path of the imported dynamic Frameworks to Input Files
   ![](https://github.com/ttlock/iOS_TTLock_Demo/blob/master/TTLockDemo/images/0F50B0D2-30E0-44AD-9112-F18A6CB8BE4.png)
