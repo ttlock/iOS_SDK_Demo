@@ -62,7 +62,7 @@ If you want to get log and set time immediately after unlocking, you can do the 
 - (void)unlockAndGetLogAndSetTime{
 
      //unlock
-    [TTLock controlLockWithControlAction:TTControlActionUnlock lockData:nil success:^(long long lockTime, NSInteger electricQuantity, long long uniqueId) {
+    [TTLock controlLockWithControlAction:TTControlActionUnlock lockData:lockData success:^(long long lockTime, NSInteger electricQuantity, long long uniqueId) {
         NSLog(@"##############  Unlock successed power: %ld  ##############",(long)electricQuantity);
     } failure:^(TTError errorCode, NSString *errorMsg) {
         NSLog(@"##############  Unlock failed errorMsg: %@  ##############",errorMsg);
