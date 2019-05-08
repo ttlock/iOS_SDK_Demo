@@ -59,7 +59,7 @@ Initialize TTLock in the method{ didFinishLaunchingWithOptions} in AppDelegate (
   ![](http://ikennd.ac/pictures/iTC-Unsupported-Archs.png)
   First step:Add a Run Script step to your build steps, put it after your step to embed frameworks, set it to use /bin/sh and enter the following script:
   
-  ```js
+```objective-c
   APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
   
   # This script loops through the frameworks embedded in the application and
@@ -103,7 +103,7 @@ Initialize TTLock in the method{ didFinishLaunchingWithOptions} in AppDelegate (
   mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
   
   done
-  ```
+```
   
   The script will look through your built application’s Frameworks folder and make sure only the architectures you’re building for are present in each Framework.
   <br>Second step:Add the path of the imported dynamic Frameworks to Input Files
