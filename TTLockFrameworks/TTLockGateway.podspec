@@ -9,6 +9,7 @@ s.platform      = :ios, "9.0"
 s.source        = { :git => "https://github.com/ttlock/iOS_SDK_Demo.git", :tag => "#{s.version}" }
 s.vendored_frameworks = "TTLockFrameworks/TTLockGateway.framework"
 s.preserve_paths      = "TTLockFrameworks/TTLockGateway.framework"
+s.swift_version    = '5.0'
 s.library       = "z"
 s.requires_arc  = true
 end

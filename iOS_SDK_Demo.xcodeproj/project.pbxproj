@@ -53,11 +53,11 @@
 		FC7EFF812281B2110003EF81 /* TTLockGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC7EFF822281B2110003EF81 /* TTLockDFU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; };
 		FC7EFF832281B2110003EF81 /* TTLockDFU.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FC7EFF872281B4D50003EF81 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF862281B4D50003EF81 /* TTLock.framework */; };
-		FC7EFF882281B4DB0003EF81 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF862281B4D50003EF81 /* TTLock.framework */; };
-		FC7EFF892281B4DB0003EF81 /* TTLock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF862281B4D50003EF81 /* TTLock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC8D1C0B22768DAC002E21D0 /* GatewayLockListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */; };
 		FC8D1C0E2276C6B2002E21D0 /* ChooseSSIDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D1C0D2276C6B2002E21D0 /* ChooseSSIDView.m */; };
+		FC94D9D7228266820035BB07 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; };
+		FC94D9D8228266B20035BB07 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; };
+		FC94D9D9228266B20035BB07 /* TTLock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCC800B822758F4B00A5C9B8 /* GuideGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800B722758F4B00A5C9B8 /* GuideGatewayViewController.m */; };
 		FCC800BB227590FF00A5C9B8 /* ChooseGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800BA227590FF00A5C9B8 /* ChooseGatewayViewController.m */; };
 		FCC800BE2275AEB300A5C9B8 /* GateWayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800BD2275AEB300A5C9B8 /* GateWayDetailViewController.m */; };
@@ -73,7 +73,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FC7EFF812281B2110003EF81 /* TTLockGateway.framework in Embed Frameworks */,
-				FC7EFF892281B4DB0003EF81 /* TTLock.framework in Embed Frameworks */,
+				FC94D9D9228266B20035BB07 /* TTLock.framework in Embed Frameworks */,
 				FC7EFF832281B2110003EF81 /* TTLockDFU.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -169,11 +169,11 @@
 		FC24AB552273071500EC47E7 /* FirmwareUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmwareUpdateModel.h; sourceTree = "<group>"; };
 		FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockDFU.framework; sourceTree = "<group>"; };
 		FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockGateway.framework; sourceTree = "<group>"; };
-		FC7EFF862281B4D50003EF81 /* TTLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLock.framework; sourceTree = "<group>"; };
 		FC8D1C0922768DAC002E21D0 /* GatewayLockListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayLockListModel.h; sourceTree = "<group>"; };
 		FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayLockListModel.m; sourceTree = "<group>"; };
 		FC8D1C0C2276C6B2002E21D0 /* ChooseSSIDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSSIDView.h; sourceTree = "<group>"; };
 		FC8D1C0D2276C6B2002E21D0 /* ChooseSSIDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSSIDView.m; sourceTree = "<group>"; };
+		FC94D9D6228266820035BB07 /* TTLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLock.framework; sourceTree = "<group>"; };
 		FCC800B522757B4A00A5C9B8 /* TTLockSourceCodeDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTLockSourceCodeDemo.entitlements; sourceTree = "<group>"; };
 		FCC800B622758F4B00A5C9B8 /* GuideGatewayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideGatewayViewController.h; sourceTree = "<group>"; };
 		FCC800B722758F4B00A5C9B8 /* GuideGatewayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideGatewayViewController.m; sourceTree = "<group>"; };
@@ -192,9 +192,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC7EFF882281B4DB0003EF81 /* TTLock.framework in Frameworks */,
-				FC7EFF872281B4D50003EF81 /* TTLock.framework in Frameworks */,
+				FC94D9D8228266B20035BB07 /* TTLock.framework in Frameworks */,
 				FC7EFF802281B2110003EF81 /* TTLockGateway.framework in Frameworks */,
+				FC94D9D7228266820035BB07 /* TTLock.framework in Frameworks */,
 				FC7EFF7F2281B20A0003EF81 /* TTLockGateway.framework in Frameworks */,
 				FC7EFF7D2281B1FF0003EF81 /* TTLockDFU.framework in Frameworks */,
 				FC7EFF822281B2110003EF81 /* TTLockDFU.framework in Frameworks */,
@@ -447,7 +447,7 @@
 		FC7EFEF5228195360003EF81 /* TTLockFrameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC7EFF862281B4D50003EF81 /* TTLock.framework */,
+				FC94D9D6228266820035BB07 /* TTLock.framework */,
 				FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */,
 				FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */,
 			);
