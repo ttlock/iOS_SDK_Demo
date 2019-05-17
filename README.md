@@ -27,6 +27,7 @@ Second, pod install
 ### TTLock
 TTLock has been designed to communicate with devices by mobile phone bluetooth.
 <br>TTGateway supports second generation gateway.
+<br>TTUtil provides methods to use specialValue and get type of lock.
 
 ### TTLockDFU (Device Firmware Upgrade)
 TTLockDFU has been designed to make it easy to upgrade devices into your application by mobile phone bluetooth.
