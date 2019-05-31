@@ -15,7 +15,6 @@ First, add the following line to your Podfile:
 <br>target 'YourAppTargetName' do
 <br>pod 'TTLock'
 <br>pod 'TTLockDFU'（ If you need to upgrade devices into your application ）
-<br>pod 'TTLockGateway'（ If you need to support first generation gateway ）
 <br>end
 
 Second, pod install
@@ -32,8 +31,6 @@ TTLock has been designed to communicate with devices by mobile phone bluetooth.
 ### TTLockDFU (Device Firmware Upgrade)
 TTLockDFU has been designed to make it easy to upgrade devices into your application by mobile phone bluetooth.
 
-### TTLockGateway
-TTLockGateway supports first generation gateway.
 
 ## Usage
 
