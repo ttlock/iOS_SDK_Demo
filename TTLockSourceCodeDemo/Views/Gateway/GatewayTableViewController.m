@@ -16,16 +16,18 @@
 @end
 
 @implementation GatewayTableViewController
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
      [self setupData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [self.view showToastLoading];
     [self setupData];
     [self setupView];
+  
 }
 
 - (void)setupView{

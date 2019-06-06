@@ -8,8 +8,8 @@
 
 #import "LockUpgradeViewController.h"
 #import "FirmwareUpdateModel.h"
-#import <TTLockDFU/TTLockDFU.h>
 #import "UserModel.h"
+#import <TTLockDFU/TTLockDFU.h>
 
 @interface LockUpgradeViewController ()
 @property (nonatomic, strong) LockModel *lockModel;

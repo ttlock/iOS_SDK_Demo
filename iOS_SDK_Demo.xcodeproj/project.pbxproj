@@ -36,50 +36,34 @@
 		4FC7DEEA226F056C00CFEEEA /* KMDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7DEE6226F056C00CFEEEA /* KMDatePicker.m */; };
 		4FC7DEEB226F056C00CFEEEA /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7DEE7226F056C00CFEEEA /* DateHelper.m */; };
 		4FC7DEEC226F056C00CFEEEA /* KMDatePickerDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7DEE8226F056C00CFEEEA /* KMDatePickerDateModel.m */; };
-		4FCF8FD022729F1200ABA614 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FCF22729F1200ABA614 /* RootViewController.m */; };
 		4FCF8FD42272A0FB00ABA614 /* GatewayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FD32272A0FB00ABA614 /* GatewayTableViewController.m */; };
 		4FCF8FD72272B16700ABA614 /* Gateway1AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FD62272B16700ABA614 /* Gateway1AddViewController.m */; };
-		4FCF8FDA2272B17400ABA614 /* Gateway2AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FD92272B17400ABA614 /* Gateway2AddViewController.m */; };
 		4FCF8FE02272B4C500ABA614 /* RoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FDF2272B4C500ABA614 /* RoundCornerButton.m */; };
 		4FCF8FE62272DF9D00ABA614 /* GatewayTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FE52272DF9D00ABA614 /* GatewayTypeTableViewController.m */; };
 		4FCF8FE92272F99D00ABA614 /* GatewayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FE82272F99D00ABA614 /* GatewayModel.m */; };
-		4FE306FC2271C14800AB5373 /* LockUpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FE306FB2271C14800AB5373 /* LockUpgradeViewController.m */; };
 		4FF3A0EF226EA59800340C8A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF3A0EE226EA59800340C8A /* Info.plist */; };
 		80F19A32A16C86DCFE35CDBD /* Pods_iOS_SDK_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976EC5982C8F3FCCDE92ED32 /* Pods_iOS_SDK_Demo.framework */; };
 		FC24AB562273071500EC47E7 /* FirmwareUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */; };
 		FC7EFF7D2281B1FF0003EF81 /* TTLockDFU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; };
-		FC7EFF7F2281B20A0003EF81 /* TTLockGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */; };
 		FC7EFF802281B2110003EF81 /* TTLockGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */; };
-		FC7EFF812281B2110003EF81 /* TTLockGateway.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FC7EFF822281B2110003EF81 /* TTLockDFU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; };
-		FC7EFF832281B2110003EF81 /* TTLockDFU.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC8D1C0B22768DAC002E21D0 /* GatewayLockListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */; };
-		FC8D1C0E2276C6B2002E21D0 /* ChooseSSIDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D1C0D2276C6B2002E21D0 /* ChooseSSIDView.m */; };
-		FC94D9D7228266820035BB07 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; };
 		FC94D9D8228266B20035BB07 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; };
-		FC94D9D9228266B20035BB07 /* TTLock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FCC800B822758F4B00A5C9B8 /* GuideGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800B722758F4B00A5C9B8 /* GuideGatewayViewController.m */; };
-		FCC800BB227590FF00A5C9B8 /* ChooseGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800BA227590FF00A5C9B8 /* ChooseGatewayViewController.m */; };
+		FCA6445B22A8ED1F0062463E /* KeypadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445122A8ED1E0062463E /* KeypadViewController.m */; };
+		FCA6445C22A8ED1F0062463E /* KeypadAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445422A8ED1E0062463E /* KeypadAddViewController.m */; };
+		FCA6445D22A8ED1F0062463E /* KeypadAddGuide2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445622A8ED1E0062463E /* KeypadAddGuide2ViewController.m */; };
+		FCA6445E22A8ED1F0062463E /* KeypadTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445722A8ED1E0062463E /* KeypadTableViewController.m */; };
+		FCA6445F22A8ED1F0062463E /* KeypadAddGuide1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445922A8ED1E0062463E /* KeypadAddGuide1ViewController.m */; };
+		FCA6446222A8ED400062463E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6446122A8ED400062463E /* HomeViewController.m */; };
+		FCA6446522A8EE7F0062463E /* LockUpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6446322A8EE7F0062463E /* LockUpgradeViewController.m */; };
+		FCA6447222A8EF260062463E /* GatewayUpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6446922A8EF260062463E /* GatewayUpgradeViewController.m */; };
+		FCA6447322A8EF260062463E /* Gateway2AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6446A22A8EF260062463E /* Gateway2AddViewController.m */; };
+		FCA6447422A8EF260062463E /* ChooseSSIDView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6446C22A8EF260062463E /* ChooseSSIDView.m */; };
+		FCA6447522A8EF260062463E /* GuideGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6446F22A8EF260062463E /* GuideGatewayViewController.m */; };
+		FCA6447622A8EF260062463E /* ChooseGatewayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6447122A8EF260062463E /* ChooseGatewayViewController.m */; };
+		FCA6447922A8EFE40062463E /* KeypadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6447822A8EFE40062463E /* KeypadModel.m */; };
 		FCC800BE2275AEB300A5C9B8 /* GateWayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800BD2275AEB300A5C9B8 /* GateWayDetailViewController.m */; };
 		FCC800C12275B43800A5C9B8 /* GatewayListLockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800C02275B43800A5C9B8 /* GatewayListLockTableViewController.m */; };
-		FCC930BD2274585300454DA8 /* GatewayUpgradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC930BC2274585300454DA8 /* GatewayUpgradeViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		FC7EFEFA228195550003EF81 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				FC7EFF812281B2110003EF81 /* TTLockGateway.framework in Embed Frameworks */,
-				FC94D9D9228266B20035BB07 /* TTLock.framework in Embed Frameworks */,
-				FC7EFF832281B2110003EF81 /* TTLockDFU.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4F27C1DE226EA12A000FB7CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,22 +124,16 @@
 		4FC7DEE6226F056C00CFEEEA /* KMDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDatePicker.m; sourceTree = "<group>"; };
 		4FC7DEE7226F056C00CFEEEA /* DateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateHelper.m; sourceTree = "<group>"; };
 		4FC7DEE8226F056C00CFEEEA /* KMDatePickerDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDatePickerDateModel.m; sourceTree = "<group>"; };
-		4FCF8FCE22729F1200ABA614 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		4FCF8FCF22729F1200ABA614 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FCF8FD22272A0FB00ABA614 /* GatewayTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayTableViewController.h; sourceTree = "<group>"; };
 		4FCF8FD32272A0FB00ABA614 /* GatewayTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayTableViewController.m; sourceTree = "<group>"; };
 		4FCF8FD52272B16700ABA614 /* Gateway1AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gateway1AddViewController.h; sourceTree = "<group>"; };
 		4FCF8FD62272B16700ABA614 /* Gateway1AddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gateway1AddViewController.m; sourceTree = "<group>"; };
-		4FCF8FD82272B17400ABA614 /* Gateway2AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gateway2AddViewController.h; sourceTree = "<group>"; };
-		4FCF8FD92272B17400ABA614 /* Gateway2AddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gateway2AddViewController.m; sourceTree = "<group>"; };
 		4FCF8FDE2272B4C500ABA614 /* RoundCornerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundCornerButton.h; sourceTree = "<group>"; };
 		4FCF8FDF2272B4C500ABA614 /* RoundCornerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundCornerButton.m; sourceTree = "<group>"; };
 		4FCF8FE42272DF9D00ABA614 /* GatewayTypeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayTypeTableViewController.h; sourceTree = "<group>"; };
 		4FCF8FE52272DF9D00ABA614 /* GatewayTypeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayTypeTableViewController.m; sourceTree = "<group>"; };
 		4FCF8FE72272F99D00ABA614 /* GatewayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayModel.h; sourceTree = "<group>"; };
 		4FCF8FE82272F99D00ABA614 /* GatewayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayModel.m; sourceTree = "<group>"; };
-		4FE306FA2271C14800AB5373 /* LockUpgradeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockUpgradeViewController.h; sourceTree = "<group>"; };
-		4FE306FB2271C14800AB5373 /* LockUpgradeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LockUpgradeViewController.m; sourceTree = "<group>"; };
 		4FF3A0EE226EA59800340C8A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66026471FCA3E154C8DE3C75 /* Pods-TTLockSourceCodeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTLockSourceCodeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTLockSourceCodeDemo/Pods-TTLockSourceCodeDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7515659158804CFCB9B58328 /* Pods-TTLockSourceCodeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTLockSourceCodeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTLockSourceCodeDemo/Pods-TTLockSourceCodeDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,20 +149,38 @@
 		FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockGateway.framework; sourceTree = "<group>"; };
 		FC8D1C0922768DAC002E21D0 /* GatewayLockListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayLockListModel.h; sourceTree = "<group>"; };
 		FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayLockListModel.m; sourceTree = "<group>"; };
-		FC8D1C0C2276C6B2002E21D0 /* ChooseSSIDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSSIDView.h; sourceTree = "<group>"; };
-		FC8D1C0D2276C6B2002E21D0 /* ChooseSSIDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSSIDView.m; sourceTree = "<group>"; };
 		FC94D9D6228266820035BB07 /* TTLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLock.framework; sourceTree = "<group>"; };
+		FCA6445122A8ED1E0062463E /* KeypadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadViewController.m; sourceTree = "<group>"; };
+		FCA6445222A8ED1E0062463E /* KeypadAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadAddViewController.h; sourceTree = "<group>"; };
+		FCA6445322A8ED1E0062463E /* KeypadAddGuide2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadAddGuide2ViewController.h; sourceTree = "<group>"; };
+		FCA6445422A8ED1E0062463E /* KeypadAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadAddViewController.m; sourceTree = "<group>"; };
+		FCA6445522A8ED1E0062463E /* KeypadAddGuide1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadAddGuide1ViewController.h; sourceTree = "<group>"; };
+		FCA6445622A8ED1E0062463E /* KeypadAddGuide2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadAddGuide2ViewController.m; sourceTree = "<group>"; };
+		FCA6445722A8ED1E0062463E /* KeypadTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadTableViewController.m; sourceTree = "<group>"; };
+		FCA6445822A8ED1E0062463E /* KeypadTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadTableViewController.h; sourceTree = "<group>"; };
+		FCA6445922A8ED1E0062463E /* KeypadAddGuide1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadAddGuide1ViewController.m; sourceTree = "<group>"; };
+		FCA6445A22A8ED1F0062463E /* KeypadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadViewController.h; sourceTree = "<group>"; };
+		FCA6446022A8ED400062463E /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		FCA6446122A8ED400062463E /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		FCA6446322A8EE7F0062463E /* LockUpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockUpgradeViewController.m; sourceTree = "<group>"; };
+		FCA6446422A8EE7F0062463E /* LockUpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockUpgradeViewController.h; sourceTree = "<group>"; };
+		FCA6446822A8EF260062463E /* GatewayUpgradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GatewayUpgradeViewController.h; sourceTree = "<group>"; };
+		FCA6446922A8EF260062463E /* GatewayUpgradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GatewayUpgradeViewController.m; sourceTree = "<group>"; };
+		FCA6446A22A8EF260062463E /* Gateway2AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gateway2AddViewController.m; sourceTree = "<group>"; };
+		FCA6446B22A8EF260062463E /* GuideGatewayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideGatewayViewController.h; sourceTree = "<group>"; };
+		FCA6446C22A8EF260062463E /* ChooseSSIDView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseSSIDView.m; sourceTree = "<group>"; };
+		FCA6446D22A8EF260062463E /* ChooseGatewayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseGatewayViewController.h; sourceTree = "<group>"; };
+		FCA6446E22A8EF260062463E /* Gateway2AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gateway2AddViewController.h; sourceTree = "<group>"; };
+		FCA6446F22A8EF260062463E /* GuideGatewayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideGatewayViewController.m; sourceTree = "<group>"; };
+		FCA6447022A8EF260062463E /* ChooseSSIDView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseSSIDView.h; sourceTree = "<group>"; };
+		FCA6447122A8EF260062463E /* ChooseGatewayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseGatewayViewController.m; sourceTree = "<group>"; };
+		FCA6447722A8EFE40062463E /* KeypadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadModel.h; sourceTree = "<group>"; };
+		FCA6447822A8EFE40062463E /* KeypadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadModel.m; sourceTree = "<group>"; };
 		FCC800B522757B4A00A5C9B8 /* TTLockSourceCodeDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TTLockSourceCodeDemo.entitlements; sourceTree = "<group>"; };
-		FCC800B622758F4B00A5C9B8 /* GuideGatewayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideGatewayViewController.h; sourceTree = "<group>"; };
-		FCC800B722758F4B00A5C9B8 /* GuideGatewayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideGatewayViewController.m; sourceTree = "<group>"; };
-		FCC800B9227590FF00A5C9B8 /* ChooseGatewayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseGatewayViewController.h; sourceTree = "<group>"; };
-		FCC800BA227590FF00A5C9B8 /* ChooseGatewayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseGatewayViewController.m; sourceTree = "<group>"; };
 		FCC800BC2275AEB300A5C9B8 /* GateWayDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GateWayDetailViewController.h; sourceTree = "<group>"; };
 		FCC800BD2275AEB300A5C9B8 /* GateWayDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GateWayDetailViewController.m; sourceTree = "<group>"; };
 		FCC800BF2275B43800A5C9B8 /* GatewayListLockTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayListLockTableViewController.h; sourceTree = "<group>"; };
 		FCC800C02275B43800A5C9B8 /* GatewayListLockTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayListLockTableViewController.m; sourceTree = "<group>"; };
-		FCC930BB2274585200454DA8 /* GatewayUpgradeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayUpgradeViewController.h; sourceTree = "<group>"; };
-		FCC930BC2274585300454DA8 /* GatewayUpgradeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayUpgradeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +190,7 @@
 			files = (
 				FC94D9D8228266B20035BB07 /* TTLock.framework in Frameworks */,
 				FC7EFF802281B2110003EF81 /* TTLockGateway.framework in Frameworks */,
-				FC94D9D7228266820035BB07 /* TTLock.framework in Frameworks */,
-				FC7EFF7F2281B20A0003EF81 /* TTLockGateway.framework in Frameworks */,
 				FC7EFF7D2281B1FF0003EF81 /* TTLockDFU.framework in Frameworks */,
-				FC7EFF822281B2110003EF81 /* TTLockDFU.framework in Frameworks */,
 				80F19A32A16C86DCFE35CDBD /* Pods_iOS_SDK_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +240,8 @@
 		4F27C1F4226EA12A000FB7CF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FCA6447722A8EFE40062463E /* KeypadModel.h */,
+				FCA6447822A8EFE40062463E /* KeypadModel.m */,
 				FC24AB552273071500EC47E7 /* FirmwareUpdateModel.h */,
 				FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */,
 				4F27C1FA226EA12A000FB7CF /* FingerprintModel.h */,
@@ -270,8 +265,9 @@
 		4F27C214226EA12A000FB7CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4FCF8FCE22729F1200ABA614 /* RootViewController.h */,
-				4FCF8FCF22729F1200ABA614 /* RootViewController.m */,
+				FCA6446022A8ED400062463E /* HomeViewController.h */,
+				FCA6446122A8ED400062463E /* HomeViewController.m */,
+				FCA6445022A8ECF40062463E /* WirelessKeypad */,
 				4FCF8FD122729F6A00ABA614 /* Gateway */,
 				4F27C215226EA12A000FB7CF /* Lock */,
 				4F27C22A226EA12A000FB7CF /* Login */,
@@ -376,8 +372,8 @@
 				4FCF8FE52272DF9D00ABA614 /* GatewayTypeTableViewController.m */,
 				FCC800BF2275B43800A5C9B8 /* GatewayListLockTableViewController.h */,
 				FCC800C02275B43800A5C9B8 /* GatewayListLockTableViewController.m */,
+				FCA6446622A8EF260062463E /* G2 */,
 				FCC800B022756D1000A5C9B8 /* G1 */,
-				FCC800B122756D1E00A5C9B8 /* G2 */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -425,8 +421,8 @@
 		4FE307022271C27A00AB5373 /* Upgrade */ = {
 			isa = PBXGroup;
 			children = (
-				4FE306FA2271C14800AB5373 /* LockUpgradeViewController.h */,
-				4FE306FB2271C14800AB5373 /* LockUpgradeViewController.m */,
+				FCA6446422A8EE7F0062463E /* LockUpgradeViewController.h */,
+				FCA6446322A8EE7F0062463E /* LockUpgradeViewController.m */,
 			);
 			path = Upgrade;
 			sourceTree = "<group>";
@@ -454,6 +450,48 @@
 			path = TTLockFrameworks;
 			sourceTree = "<group>";
 		};
+		FCA6445022A8ECF40062463E /* WirelessKeypad */ = {
+			isa = PBXGroup;
+			children = (
+				FCA6445522A8ED1E0062463E /* KeypadAddGuide1ViewController.h */,
+				FCA6445922A8ED1E0062463E /* KeypadAddGuide1ViewController.m */,
+				FCA6445322A8ED1E0062463E /* KeypadAddGuide2ViewController.h */,
+				FCA6445622A8ED1E0062463E /* KeypadAddGuide2ViewController.m */,
+				FCA6445222A8ED1E0062463E /* KeypadAddViewController.h */,
+				FCA6445422A8ED1E0062463E /* KeypadAddViewController.m */,
+				FCA6445822A8ED1E0062463E /* KeypadTableViewController.h */,
+				FCA6445722A8ED1E0062463E /* KeypadTableViewController.m */,
+				FCA6445A22A8ED1F0062463E /* KeypadViewController.h */,
+				FCA6445122A8ED1E0062463E /* KeypadViewController.m */,
+			);
+			path = WirelessKeypad;
+			sourceTree = "<group>";
+		};
+		FCA6446622A8EF260062463E /* G2 */ = {
+			isa = PBXGroup;
+			children = (
+				FCA6446722A8EF260062463E /* Upgrade */,
+				FCA6446A22A8EF260062463E /* Gateway2AddViewController.m */,
+				FCA6446B22A8EF260062463E /* GuideGatewayViewController.h */,
+				FCA6446C22A8EF260062463E /* ChooseSSIDView.m */,
+				FCA6446D22A8EF260062463E /* ChooseGatewayViewController.h */,
+				FCA6446E22A8EF260062463E /* Gateway2AddViewController.h */,
+				FCA6446F22A8EF260062463E /* GuideGatewayViewController.m */,
+				FCA6447022A8EF260062463E /* ChooseSSIDView.h */,
+				FCA6447122A8EF260062463E /* ChooseGatewayViewController.m */,
+			);
+			path = G2;
+			sourceTree = "<group>";
+		};
+		FCA6446722A8EF260062463E /* Upgrade */ = {
+			isa = PBXGroup;
+			children = (
+				FCA6446822A8EF260062463E /* GatewayUpgradeViewController.h */,
+				FCA6446922A8EF260062463E /* GatewayUpgradeViewController.m */,
+			);
+			path = Upgrade;
+			sourceTree = "<group>";
+		};
 		FCC800B022756D1000A5C9B8 /* G1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,31 +499,6 @@
 				4FCF8FD62272B16700ABA614 /* Gateway1AddViewController.m */,
 			);
 			path = G1;
-			sourceTree = "<group>";
-		};
-		FCC800B122756D1E00A5C9B8 /* G2 */ = {
-			isa = PBXGroup;
-			children = (
-				FCC800B622758F4B00A5C9B8 /* GuideGatewayViewController.h */,
-				FCC800B722758F4B00A5C9B8 /* GuideGatewayViewController.m */,
-				FCC800B9227590FF00A5C9B8 /* ChooseGatewayViewController.h */,
-				FCC800BA227590FF00A5C9B8 /* ChooseGatewayViewController.m */,
-				4FCF8FD82272B17400ABA614 /* Gateway2AddViewController.h */,
-				4FCF8FD92272B17400ABA614 /* Gateway2AddViewController.m */,
-				FC8D1C0C2276C6B2002E21D0 /* ChooseSSIDView.h */,
-				FC8D1C0D2276C6B2002E21D0 /* ChooseSSIDView.m */,
-				FCC930BA2274580000454DA8 /* Upgrade */,
-			);
-			path = G2;
-			sourceTree = "<group>";
-		};
-		FCC930BA2274580000454DA8 /* Upgrade */ = {
-			isa = PBXGroup;
-			children = (
-				FCC930BB2274585200454DA8 /* GatewayUpgradeViewController.h */,
-				FCC930BC2274585300454DA8 /* GatewayUpgradeViewController.m */,
-			);
-			path = Upgrade;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,7 +513,6 @@
 				4F61AF6C2255CE0A008979D2 /* Frameworks */,
 				4F61AF6D2255CE0A008979D2 /* Resources */,
 				B70D5586B27FF10C3406D85E /* [CP] Embed Pods Frameworks */,
-				FC7EFEFA228195550003EF81 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -630,45 +642,51 @@
 				4FC7DEEC226F056C00CFEEEA /* KMDatePickerDateModel.m in Sources */,
 				4FC7DEEB226F056C00CFEEEA /* DateHelper.m in Sources */,
 				FCC800C12275B43800A5C9B8 /* GatewayListLockTableViewController.m in Sources */,
-				FCC800B822758F4B00A5C9B8 /* GuideGatewayViewController.m in Sources */,
 				4F27C26E226EA12A000FB7CF /* FingerprintTableViewController.m in Sources */,
-				4FE306FC2271C14800AB5373 /* LockUpgradeViewController.m in Sources */,
+				FCA6445F22A8ED1F0062463E /* KeypadAddGuide1ViewController.m in Sources */,
 				4F27C272226EA12A000FB7CF /* UIView+Extension.m in Sources */,
 				4F27C26B226EA12A000FB7CF /* NavigationController.m in Sources */,
-				4FCF8FDA2272B17400ABA614 /* Gateway2AddViewController.m in Sources */,
 				4F27C269226EA12A000FB7CF /* LockViewController.m in Sources */,
-				4FCF8FD022729F1200ABA614 /* RootViewController.m in Sources */,
 				4F27C257226EA12A000FB7CF /* FingerprintModel.m in Sources */,
 				4F27C26D226EA12A000FB7CF /* ICCardViewController.m in Sources */,
 				4F27C268226EA12A000FB7CF /* LockTableViewController.m in Sources */,
 				4F27C26A226EA12A000FB7CF /* FingerprintViewController.m in Sources */,
 				4F27C256226EA12A000FB7CF /* main.m in Sources */,
 				4F27C259226EA12A000FB7CF /* ICCardModel.m in Sources */,
+				FCA6447622A8EF260062463E /* ChooseGatewayViewController.m in Sources */,
+				FCA6445B22A8ED1F0062463E /* KeypadViewController.m in Sources */,
 				FC24AB562273071500EC47E7 /* FirmwareUpdateModel.m in Sources */,
+				FCA6447522A8EF260062463E /* GuideGatewayViewController.m in Sources */,
 				4F27C25C226EA12A000FB7CF /* AppDelegate.m in Sources */,
 				4FC7DEEA226F056C00CFEEEA /* KMDatePicker.m in Sources */,
 				FCC800BE2275AEB300A5C9B8 /* GateWayDetailViewController.m in Sources */,
 				FC8D1C0B22768DAC002E21D0 /* GatewayLockListModel.m in Sources */,
 				4FCF8FE62272DF9D00ABA614 /* GatewayTypeTableViewController.m in Sources */,
-				FCC800BB227590FF00A5C9B8 /* ChooseGatewayViewController.m in Sources */,
-				FC8D1C0E2276C6B2002E21D0 /* ChooseSSIDView.m in Sources */,
 				4FCF8FD42272A0FB00ABA614 /* GatewayTableViewController.m in Sources */,
+				FCA6446522A8EE7F0062463E /* LockUpgradeViewController.m in Sources */,
 				4F27C26F226EA12A000FB7CF /* LoginViewController.m in Sources */,
 				4F27C26C226EA12A000FB7CF /* LockAddViewController.m in Sources */,
 				4FCF8FE92272F99D00ABA614 /* GatewayModel.m in Sources */,
-				FCC930BD2274585300454DA8 /* GatewayUpgradeViewController.m in Sources */,
+				FCA6447322A8EF260062463E /* Gateway2AddViewController.m in Sources */,
+				FCA6445D22A8ED1F0062463E /* KeypadAddGuide2ViewController.m in Sources */,
+				FCA6445C22A8ED1F0062463E /* KeypadAddViewController.m in Sources */,
 				4F27C25A226EA12A000FB7CF /* UserModel.m in Sources */,
 				4F27C266226EA12A000FB7CF /* KeyViewController.m in Sources */,
 				4FCF8FD72272B16700ABA614 /* Gateway1AddViewController.m in Sources */,
+				FCA6446222A8ED400062463E /* HomeViewController.m in Sources */,
 				4F27C254226EA12A000FB7CF /* NetUtil.m in Sources */,
+				FCA6445E22A8ED1F0062463E /* KeypadTableViewController.m in Sources */,
 				4F27C25B226EA12A000FB7CF /* LockModel.m in Sources */,
 				4F27C270226EA12A000FB7CF /* NSDate+Extension.m in Sources */,
+				FCA6447922A8EFE40062463E /* KeypadModel.m in Sources */,
 				4FCF8FE02272B4C500ABA614 /* RoundCornerButton.m in Sources */,
 				4F27C265226EA12A000FB7CF /* ICCardTableViewController.m in Sources */,
 				4F27C258226EA12A000FB7CF /* KeyModel.m in Sources */,
 				4F27C271226EA12A000FB7CF /* NSString+Extension.m in Sources */,
 				4FC7DEE9226F056C00CFEEEA /* NSDate+CalculateDay.m in Sources */,
+				FCA6447422A8EF260062463E /* ChooseSSIDView.m in Sources */,
 				4FC7DEDE226EEC0C00CFEEEA /* PasscodeViewController.m in Sources */,
+				FCA6447222A8EF260062463E /* GatewayUpgradeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -838,6 +856,38 @@
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/TTLockGateway/G1",
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/G1/SmartLinkSDK",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"ZIPFoundation\"",
+					"-framework",
+					"\"iOSDFULibrary\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = TTLock.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -873,6 +923,38 @@
 					"$(PROJECT_DIR)/TTLockManager/TTLockGateway/G1",
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/TTLockGateway/G1",
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/G1/SmartLinkSDK",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"IQKeyboardManager\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"MJExtension\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"ZIPFoundation\"",
+					"-framework",
+					"\"iOSDFULibrary\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = TTLock.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "UserModel.h"
-#import "RootViewController.h"
+#import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "NavigationController.h"
 
@@ -21,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    TTLock.printLog = YES;
     [TTLock setupBluetooth:^(TTBluetoothState state) {
         NSLog(@"##############  TTLock is working, bluetooth state: %ld  ##############",(long)state);
     }];
@@ -35,7 +36,7 @@
     [_window makeKeyAndVisible];
     
     if ([UserModel isLogin]) {
-        [self showLockTableViewController];
+        [self showHomeViewController];
     }else{
         [self showLoginViewController];
     }
@@ -45,8 +46,8 @@
     _window.rootViewController = [LoginViewController new];
 }
 
-- (void)showLockTableViewController{
-    NavigationController *naviegationController = [[NavigationController alloc] initWithRootViewController:[RootViewController new]];
+- (void)showHomeViewController{
+    NavigationController *naviegationController = [[NavigationController alloc] initWithRootViewController:[HomeViewController new]];
     _window.rootViewController = naviegationController;
 }
 

@@ -329,6 +329,8 @@ typedef NS_ENUM(long long, TTLockSpecialFunction)
     TTLockSpecialFunctionNoClock = 1 << 20,
     TTLockSpecialFunctionNoBroadcastInNormal = 1 << 21,
     TTLockSpecialFunctionPassageMode = 1 << 22,
+    TTLockSpecialFunctionTurnOffAutoLock = 1 << 23,
+    TTLockSpecialFunctionWirelessKeypad = 1 << 24,
 };
 
 @end

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name          = "TTLockGateway"
-s.version       = "3.0.0"
+s.version       = "3.0.1"
 s.summary       = "G1 SDK for iOS."
 s.homepage      = "https://github.com/ttlock/iOS_SDK_Demo"
 s.license       = { :type => "MIT", :file => "LICENSE" }
@@ -12,5 +12,6 @@ s.preserve_paths      = "TTLockFrameworks/TTLockGateway.framework"
 s.swift_version    = '5.0'
 s.library       = "z"
 s.requires_arc  = true
+s.xcconfig     = { "OTHER_LDFLAGS" => "-ObjC" }
 end
 

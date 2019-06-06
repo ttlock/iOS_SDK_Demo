@@ -183,7 +183,7 @@
 
 
 - (void)isInitSuccessWithMac:(NSString *)mac{
-   
+    
     [self.view showToastLoading];
     [NetUtil isInitSuccessWithGatewayNetMac:mac completion:^(id info, NSError *error) {
         if (error) {

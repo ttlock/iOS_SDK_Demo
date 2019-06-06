@@ -14,6 +14,6 @@
 
 - (void)showLoginViewController;
 
-- (void)showLockTableViewController;
+- (void)showHomeViewController;
 @end
 

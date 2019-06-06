@@ -8,8 +8,8 @@
 
 #import "GatewayUpgradeViewController.h"
 #import "FirmwareUpdateModel.h"
-#import <TTLockDFU/TTGatewayDFU.h>
 #import "UserModel.h"
+#import <TTLockDFU/TTLockDFU.h>
 
 @interface GatewayUpgradeViewController ()
 @property (nonatomic, strong)FirmwareUpdateModel *updateModel;

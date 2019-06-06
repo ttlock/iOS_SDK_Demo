@@ -127,4 +127,15 @@ typedef void(^RequestBlock)(id info, NSError* error);
                        firmwareRevision:(NSString*)firmwareRevision
                             networkName:(NSString *)networkName
                              completion:(RequestBlock) completion;
+
++(void)addWirelessKeypadName:(NSString *)name
+                      number:(NSString *)number
+                         mac:(NSString *)mac
+                specialValue:(long long)specialValue
+                      lockId:(NSNumber *)lockId
+                  completion:(RequestBlock) completion;
+
++ (void)deleteWirelessKeypadWithID:(NSString *)ID completion:(RequestBlock) completion;
+
++ (void)getWirelessKeypadListWithLockId:(NSNumber *)lockId completion:(RequestBlock) completion;
 @end

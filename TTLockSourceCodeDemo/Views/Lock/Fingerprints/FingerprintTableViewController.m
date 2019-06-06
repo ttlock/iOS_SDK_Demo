@@ -57,11 +57,11 @@
     [rightItemButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     [rightItemButton setTitle:@"+" forState:UIControlStateNormal];
     rightItemButton.titleLabel.font = [UIFont systemFontOfSize:35];
-    [rightItemButton addTarget:self action:@selector(addCardClick) forControlEvents:UIControlEventTouchUpInside];
+    [rightItemButton addTarget:self action:@selector(addFingerprintsClick) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightItemButton];
 }
 
-- (void)addCardClick{
+- (void)addFingerprintsClick{
     FingerprintViewController *vc = [[FingerprintViewController alloc] initWithLockModel:_lockModel];
     [self.navigationController pushViewController:vc animated:YES];
 }

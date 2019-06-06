@@ -18,6 +18,8 @@
 #define RELOAD_EKEY_TABLE_NOTIFICATION @"reloadEkeyTableNotification"
 #define RELOAD_CARD_TABLE_NOTIFICATION @"reloadCardTableNotification"
 #define RELOAD_FINGERPRINT_TABLE_NOTIFICATION @"reloadFingerprintTableNotification"
+#define RELOAD_KEYPAD_TABLE_NOTIFICATION @"reloadKeypadTableNotification"
+
 
 
 #define NOTIF_ADD(n,f) [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(f) name:n object:nil]

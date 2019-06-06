@@ -17,9 +17,9 @@
 + (NSString *)getSSID;
 
 /**
- Get the searched gateway
+ start Scan Gateway
  */
-+ (void)getScanGatewayWithBlock:(TTGatewayScanBlock)block;
++ (void)startScanGatewayWithBlock:(TTGatewayScanBlock)block;
 
 /**
  Stop Scan

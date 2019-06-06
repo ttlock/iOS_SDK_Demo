@@ -16,7 +16,6 @@
 
 @implementation LockAddViewController
 
-MJLogAllIvars;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,6 +60,12 @@ MJLogAllIvars;
 - (void)uploadLockData:(NSString *)lockData alias:(NSString *)alias{
     [NetUtil lockInitializeWithlockAlias:alias lockData:lockData completion:^(id info, NSError *error) {
         if (error){
+#warning if upload lockData failed, you should reset lock, otherwise the lock will can't be initialized again
+            [TTLock resetLockWithLockData:lockData success:^{
+                NSLog(@"reset lock success");
+            } failure:^(TTError errorCode, NSString *errorMsg) {
+                
+            }];
             [self.view showToastError:error];
             return;
         }
@@ -96,8 +101,13 @@ MJLogAllIvars;
     TTScanModel *scanModel = self.dataArray[indexPath.row];
     if (scanModel.isInited) return;
     
+    NSMutableDictionary *dict = @{}.mutableCopy;
+    dict[@"lockMac"] = scanModel.lockMac;
+    dict[@"lockName"] = scanModel.lockName;
+    dict[@"lockVersion"] = scanModel.lockVersion;
+    
     [self.view showToastLoading];
-    [TTLock initLockWithDict:scanModel.mj_keyValues success:^(NSString *lockData, long long specialValue) {
+    [TTLock initLockWithDict:dict success:^(NSString *lockData, long long specialValue) {
 #warning set the lock's alias
         NSString *alias = scanModel.lockName;
         [self uploadLockData:lockData alias:alias];

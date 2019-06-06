@@ -22,7 +22,7 @@
         self.dataArray = [NSMutableArray array];
     }
     // Do any additional setup after loading the view.
-    [TTGateway getScanGatewayWithBlock:^(TTGatewayScanModel *model) {
+    [TTGateway startScanGatewayWithBlock:^(TTGatewayScanModel *model) {
         if (model.RSSI == 127) {
             return ;
         }

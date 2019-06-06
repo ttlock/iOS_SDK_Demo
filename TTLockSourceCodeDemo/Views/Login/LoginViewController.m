@@ -47,7 +47,7 @@
         [userModel cacheToDisk];
         
         AppDelegate *appDelegate = (AppDelegate *)UIApplication.sharedApplication.delegate;
-        [appDelegate showLockTableViewController];
+        [appDelegate showHomeViewController];
     }];
 }
 

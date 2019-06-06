@@ -4,7 +4,7 @@
 //
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
-//
+//  version:3.0.1
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
@@ -18,20 +18,19 @@
 #import "TTSystemInfoModel.h"
 #import "TTUtil.h"
 #import "TTSecurityUtil.h"
+#import "TTWirelessKeypad.h"
+#import "TTWirelessKeypadScanModel.h"
+
 @interface TTLock : NSObject
-
-
 /**
  Print sdk log
  */
 @property (class, nonatomic, assign, getter=isPrintLog) BOOL printLog;
 
-
 /**
  Current Bluetooth state
  */
 @property (class, nonatomic, assign, readonly) TTBluetoothState bluetoothState;
-
 
 /**
   Wherher the Bluetooth is scanning
@@ -54,22 +53,22 @@
  */
 + (void)startScan:(TTScanBlock)scanBlock;
 
-
-
 /**
  Stop Bluetooth scanning
  */
 + (void)stopScan;
 
 #pragma mark - Lock basic operation
-
-
 /**
  Initialize the lock
 
- @param dict @{@"lockMac": xxx, @"lockVersion": xxx}
+ dict[@"hotelInfo"] = @"";
+ dict[@"floorNumber"] = @2;
+ dict[@"buildingNumber"] = @9;
+ 
+ @param dict @{@"lockMac": xxx, @"lockName": xxx, @"lockVersion": xxx}
  @param success A block invoked when the lock is initialize
- TTOper@param failure A block invoked when the operation fails
+ @param failure A block invoked when the operation fails
  */
 + (void)initLockWithDict:(NSDictionary *)dict
                  success:(TTInitLockSucceedBlock)success
@@ -754,6 +753,20 @@
 + (void)getAllValidFingerprintsWithLockData:(NSString *)lockData
                                     success:(TTGetAllFingerprintsSucceedBlock)success
                                     failure:(TTFailedBlock)failure;
+
+#pragma mark - DoorSensor
+- (void)setDoorSensorLockingSwitchOn:(BOOL)on
+                            lockData:(NSString *)lockData
+                             success:(TTSucceedBlock)success
+                             failure:(TTFailedBlock)failure;
+
+- (void)getDoorSensorLockingSwitchStateWithLockData:(NSString *)lockData
+                                            success:(TTGetSwitchStateSuccessBlock)success
+                                            failure:(TTFailedBlock)failure;
+
+- (void)getDoorSensorStateWithLockData:(NSString *)lockData
+                               success:(TTGetSwitchStateSuccessBlock)success
+                               failure:(TTFailedBlock)failure;
 
 #pragma mark - Wristband
 + (void)setWristbandKey:(NSString *)wristbandKey passcode:(NSString *)passcode lockData:(NSString *)lockData success:(TTSucceedBlock)success failure:(TTFailedBlock)failure;

@@ -12,6 +12,7 @@
 #import "PasscodeViewController.h"
 #import "FingerprintTableViewController.h"
 #import "LockUpgradeViewController.h"
+#import "KeypadTableViewController.h"
 
 typedef NS_ENUM(NSInteger,LockAction) {
     LockActionEkey,
@@ -19,6 +20,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
     LockActionICCard,
     LockActionFingerprint,
     LockActionUpgradeSystem,
+    LockActionWirelessKeypad,
     LockActionOperationLog,
     LockActionGetElectricQuantity,
     LockActionSetTime,
@@ -78,30 +80,32 @@ typedef NS_ENUM(NSInteger,LockAction) {
                               @{LS(@"IC card"):@(LockActionICCard)},
                               @{LS(@"Fingerprint"):@(LockActionFingerprint)}];
     
-    NSArray *dataSection1 = @[@{LS(@"Lock upgrade"):@(LockActionUpgradeSystem)}];
+    NSArray *dataSection1 = @[@{LS(@"Wireless Keypad"):@(LockActionWirelessKeypad)}];
     
-    NSArray *dataSection2 = @[@{LS(@"Get lock log"):@(LockActionOperationLog)},
+    NSArray *dataSection2 = @[@{LS(@"Lock upgrade"):@(LockActionUpgradeSystem)}];
+    
+    NSArray *dataSection3 = @[@{LS(@"Get lock log"):@(LockActionOperationLog)},
                               @{LS(@"Get electric quantity"):@(LockActionGetElectricQuantity)},
                               @{LS(@"Get lock special value"):@(LockActionGetSpecialValue)},
                               @{LS(@"Get lock version"):@(LockActionGetLockSystemInfo)},
                               @{LS(@"Get lock state"):@(LockActionGetLockSwitchSate)}];
     
-    NSArray *dataSection3 = @[@{LS(@"Get lock time"):@(LockActionGetTime)},
+    NSArray *dataSection4 = @[@{LS(@"Get lock time"):@(LockActionGetTime)},
                               @{LS(@"Set lock time"):@(LockActionSetTime)}];
     
-    NSArray *dataSection4 = @[@{LS(@"Set lock NB-IoT"):@(LockActionSetNB)}];
+    NSArray *dataSection5 = @[@{LS(@"Set lock NB-IoT"):@(LockActionSetNB)}];
     
-    NSArray *dataSection5 = @[@{LS(@"Get remote unlock switch state"):@(LockActionGetRemoteUnlcokSwitch)},
+    NSArray *dataSection6 = @[@{LS(@"Get remote unlock switch state"):@(LockActionGetRemoteUnlcokSwitch)},
                               @{LS(@"Set remote unlock switch state"):@(LockActionSetRemoteUnlcokSwitch)}
                               ];
     
-    NSArray *dataSection6 = @[@{LS(@"Get lock audio switch state"):@(LockActionGetAudio)},
+    NSArray *dataSection7 = @[@{LS(@"Get lock audio switch state"):@(LockActionGetAudio)},
                               @{LS(@"Set lock audio switch state"):@(LockActionSetAudio)}];
     
-    NSArray *dataSection7 = @[@{LS(@"Get automatic locking periodic time"):@(LockActionGetAutomaticLockingPeriodicTime)},
+    NSArray *dataSection8 = @[@{LS(@"Get automatic locking periodic time"):@(LockActionGetAutomaticLockingPeriodicTime)},
                               @{LS(@"Set automatic locking periodic time"):@(LockActionSetAutomaticLockingPeriodicTime)}];
     
-    NSArray *dataSection8 = @[@{LS(@"Set passage mode"):@(LockActionConfigPassageMode)},
+    NSArray *dataSection9 = @[@{LS(@"Set passage mode"):@(LockActionConfigPassageMode)},
                               @{LS(@"Delete passage mode"):@(LockActionDeletePassageMode)},
                               @{LS(@"Clear passage mode"):@(LockActionClearPassageMode)}];
     
@@ -114,10 +118,12 @@ typedef NS_ENUM(NSInteger,LockAction) {
                    dataSection5,
                    dataSection6,
                    dataSection7,
-                   dataSection8];
+                   dataSection8,
+                   dataSection9];
 }
 
 - (void)resetLockClick{
+    
     [self.view showToastLoading];
     [TTLock resetLockWithLockData:_lockModel.lockData success:^{
         [NetUtil deleteLockWithId:self.lockModel.lockId completion:^(id info, NSError *error) {
@@ -126,7 +132,10 @@ typedef NS_ENUM(NSInteger,LockAction) {
                 return ;
             }
             NOTIF_POST(RELOAD_LOCK_TABLE_NOTIFICATION, nil);
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.view showToast:LS(@"Delete") completion:^{
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            
         }];
     } failure:^(TTError errorCode, NSString *errorMsg) {
         [self.view showToast:errorMsg];
@@ -181,7 +190,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
     cell.accessoryView = nil;
     
     LockAction action = [[[_dataArray[indexPath.section][indexPath.row] allValues] firstObject] integerValue];
-    if (action <= LockActionUpgradeSystem) {
+    if (action <= LockActionWirelessKeypad) {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }else if (action == LockActionSetAudio){
         if (_audioSwitch == nil) {
@@ -269,6 +278,18 @@ typedef NS_ENUM(NSInteger,LockAction) {
         case LockActionUpgradeSystem:
         {
             LockUpgradeViewController *vc = [[LockUpgradeViewController alloc] initWithLockModel:_lockModel];
+            vc.title = cell.textLabel.text;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case LockActionWirelessKeypad:
+        {
+            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionWirelessKeypad];
+            if (!suportFunction) {
+                [self showToastAndLog:TTErrorMessageInvalidCommand];
+                return;
+            }
+            KeypadTableViewController *vc = [[KeypadTableViewController alloc] initWithLockModel:_lockModel];
             vc.title = cell.textLabel.text;
             [self.navigationController pushViewController:vc animated:YES];
         }
