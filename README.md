@@ -13,9 +13,9 @@ Xcode 10.2
 First, add the following line to your Podfile:
 <br>use_frameworks!
 <br>target 'YourAppTargetName' do
-<br>pod 'TTLock'
-<br>pod 'TTLockDFU'（ If you need to upgrade devices into your application ）
-<br>pod 'TTLockGateway'（ If you need to use Gateway ）
+<br>pod 'TTLock' #（Required）
+<br>pod 'TTLockDFU'  #（Optional）（ If you need to upgrade devices into your application ）
+<br>pod 'TTLockGateway' #（Optional）（ If you need to use Gateway ）
 <br>end
 
 Second, pod install
