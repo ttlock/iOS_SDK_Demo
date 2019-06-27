@@ -15,6 +15,7 @@ First, add the following line to your Podfile:
 <br>target 'YourAppTargetName' do
 <br>pod 'TTLock'
 <br>pod 'TTLockDFU'（ If you need to upgrade devices into your application ）
+<br>pod 'TTLockGateway'（ If you need to use gateway ）
 <br>end
 
 Second, pod install
