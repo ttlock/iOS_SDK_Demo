@@ -20,7 +20,10 @@ First, add the following line to your Podfile:
 
 Second, pod install
 
-
+### By Manually
+<br>1、Drag the corresponding frameworks into the project.
+<br>2、Find Target->Build Phases -> Link Binary With Libraries ,add CoreBluetooth.framework.
+<br>3、Important! Find Target->Build Settings -> Linking -> Other Linker Flags ,add -ObjC（If it already exists, there is no need to add it.）
 
 ## Introduction
 
