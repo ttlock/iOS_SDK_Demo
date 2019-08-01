@@ -318,7 +318,7 @@ typedef NS_ENUM(long long, TTLockSpecialFunction)
     TTLockSpecialFunctionLocking = 1 << 8,
     TTLockSpecialFunctionPasscodeVisible = 1 << 9,
     TTLockSpecialFunctionGatewayUnlock = 1 << 10,
-    TTLockSpecialFunctionGatewayFreezeAndUnfreeze = 1 << 11,
+    TTLockSpecialFunctionLockFreeze = 1 << 11,
     TTLockSpecialFunctionCyclePassword = 1 << 12,
     TTLockSpecialFunctionDoorSensor = 1 << 13,
     TTLockSpecialFunctionRemoteUnlockSwicth = 1 << 14,
@@ -331,6 +331,7 @@ typedef NS_ENUM(long long, TTLockSpecialFunction)
     TTLockSpecialFunctionPassageMode = 1 << 22,
     TTLockSpecialFunctionTurnOffAutoLock = 1 << 23,
     TTLockSpecialFunctionWirelessKeypad = 1 << 24,
+     TTLockSpecialFunctionLight = 1 << 25,
 };
 
 @end

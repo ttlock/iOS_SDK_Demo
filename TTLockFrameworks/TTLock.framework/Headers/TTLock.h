@@ -7,7 +7,6 @@
 //  version:3.0.1
 
 #import <Foundation/Foundation.h>
-#import <CoreBluetooth/CoreBluetooth.h>
 #import "TTBlocks.h"
 #import "TTGateway.h"
 #import "TTGatewayMacro.h"
@@ -37,14 +36,12 @@
  */
 @property (class, nonatomic, assign, readonly) BOOL isScanning;
 
-
-@property (class, nonatomic, assign, readonly)CBPeripheral * currentPeripheral;
 /**
  Setup Bluetooth
 
- @param bluetoothState A block invoked when the bluetooth setup finished
+ @param bluetoothStateObserver A block invoked when the bluetooth setup finished
  */
-+ (void)setupBluetooth:(TTBluetoothStateBlock)bluetoothState;
++ (void)setupBluetooth:(TTBluetoothStateBlock)bluetoothStateObserver;
 
 /**
  Start Bluetooth  scanning
@@ -61,10 +58,6 @@
 #pragma mark - Lock basic operation
 /**
  Initialize the lock
-
- dict[@"hotelInfo"] = @"";
- dict[@"floorNumber"] = @2;
- dict[@"buildingNumber"] = @9;
  
  @param dict @{@"lockMac": xxx, @"lockName": xxx, @"lockVersion": xxx}
  @param success A block invoked when the lock is initialize
