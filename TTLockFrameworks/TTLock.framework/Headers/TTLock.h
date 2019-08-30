@@ -4,7 +4,7 @@
 //
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
-//  version:3.0.1
+//  version:3.0.3
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -32,7 +32,7 @@
 @property (class, nonatomic, assign, readonly) TTBluetoothState bluetoothState;
 
 /**
-  Wherher the Bluetooth is scanning
+  Whether the Bluetooth is scanning
  */
 @property (class, nonatomic, assign, readonly) BOOL isScanning;
 
@@ -219,7 +219,7 @@
 
 
 /**
- get the lock remote unlock switch state
+ Get the lock remote unlock switch state
 
  @param lockData The lock data string used to operate lock
  @param success A block invoked when the lock remote unlock switch state is got
@@ -276,6 +276,16 @@
                           success:(TTSucceedBlock)success
                           failure:(TTFailedBlock)failure;
 
+/**
+ get all passage modes of the lock
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when all passage modes is got
+ @param failure A block invoked when the operation fails
+ */
++ (void)getPassageModesWithLockData:(NSString *)lockData
+                                   success:(TTGetPassageModelSuccessBlock)success
+                                   failure:(TTFailedBlock)failure;
 
 /**
  Delete passage mode
@@ -369,7 +379,7 @@
 /**
  Create custom passcode
 
- @param passcode The passcode is limitedto to 4 - 9 digits
+ @param passcode The passcode is limited to 4 - 9 digits
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
@@ -387,7 +397,7 @@
 /**
  Modify admin passcode
 
- @param adminPasscode The new admin passcode is limitedto to 4 - 9 digits
+ @param adminPasscode The new admin passcode is limited to 4 - 9 digits
  @param lockData The lock data string used to operate lock
  @param success A block invoked when admin passcode is modified
  @param failure A block invoked when the operation fails
@@ -501,7 +511,7 @@
  Moddify passcode or passcode valid date
 
  @param passcode The passcode need to be modified
- @param newPasscode The new passcode is used to replace first passcode. If you just want to modify valid date, the new passcode should be the same as the first passcode. New passcode is limited to 4 - 9 digits
+ @param newPasscode The new passcode is used to replace first passcode. If you just want to modify valid date, the new passcode should be nil. New passcode is limited to 4 - 9 digits
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock

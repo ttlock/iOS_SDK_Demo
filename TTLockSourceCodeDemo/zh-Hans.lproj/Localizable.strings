@@ -65,6 +65,7 @@
 "Get automatic locking periodic time" = "读取自动闭锁时间";
 "Set automatic locking periodic time" = "设置自动闭锁时间";
 "Set passage mode" = "设置常开模式";
+"Get passage mode" = "读取常开模式";
 "Delete passage mode" = "删除常开模式";
 "Clear passage mode" = "清空常开模式";
 "Start date" = "开始日期";

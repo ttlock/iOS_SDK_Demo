@@ -49,6 +49,6 @@ typedef void(^TTGetAllFingerprintsSucceedBlock)(NSString *allFingerprintsJsonStr
 typedef void(^TTGetSwitchStateSuccessBlock)(BOOL isOn);
 typedef void(^TTGetLockStatusSuccessBlock)(TTLockSwitchState state);
 
-typedef void(^TTGetPassageModelSuccessBlock)(NSString *record);
+typedef void(^TTGetPassageModelSuccessBlock)(NSString *passageModes);
 
 #endif /* TTBlocks_h */

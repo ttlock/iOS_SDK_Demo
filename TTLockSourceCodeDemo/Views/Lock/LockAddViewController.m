@@ -11,11 +11,19 @@
 #import "NetUtil.h"
 
 @interface LockAddViewController ()
-@property (nonatomic, strong) NSMutableArray<TTScanModel *> *dataArray;
+@property (nonatomic, strong) NSMutableArray<TTScanModel *> *scanModelArray;
+@property (nonatomic, strong) NSArray<TTScanModel *> *dataArray;
 @end
 
 @implementation LockAddViewController
 
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [TTLock stopScan];
+    [NSRunLoop cancelPreviousPerformRequestsWithTarget:self];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,36 +39,49 @@
 }
 
 - (void)setupData{
-    _dataArray = @[].mutableCopy;
-    __block long long interval = 0;
+    NSMutableArray *scanModelArray = @[].mutableCopy;
+    _scanModelArray = scanModelArray;
     [TTLock startScan:^(TTScanModel *scanModel) {
-        __block BOOL containScanModel = NO;
-        [self.dataArray enumerateObjectsUsingBlock:^(TTScanModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj.lockMac isEqualToString:scanModel.lockMac]) {
-                containScanModel = YES;
-                [obj mj_setKeyValues:scanModel];
-                *stop = YES;
+        BOOL dataArrayHasContainScanModel = NO;
+        for (TTScanModel *containModel in scanModelArray) {
+            if ([containModel.lockMac isEqualToString:scanModel.lockMac]) {
+                dataArrayHasContainScanModel = YES;
+                [containModel mj_setKeyValues:scanModel];//update model state
+                break;
             }
-        }];
-        if (!containScanModel) {
-            [self.dataArray addObject:scanModel];
+        }
+        if (!dataArrayHasContainScanModel) {
+            [scanModelArray addObject:scanModel];//add new model
         }
         
-        interval++;
-        if (interval % 20 == 0) {
-            [self.dataArray sortUsingComparator:^NSComparisonResult(TTScanModel *obj1, TTScanModel *obj2) {
-                return obj1.isInited > obj2.isInited ;
-            }];
-            [self.tableView reloadData];
+        NSMutableArray *disappearDataArray = @[].mutableCopy;
+        for (TTScanModel *model in scanModelArray) {
+            if (model.date.timeIntervalSinceNow < -5) {
+                [disappearDataArray addObject:model];
+            }
         }
+        [scanModelArray removeObjectsInArray:disappearDataArray];//delete objects that have not been scanned for a long time
     }];
+    
+    [self resetDataArrayEachSecond];
+}
+
+- (void)resetDataArrayEachSecond{
+    NSSortDescriptor *sort0 = [NSSortDescriptor sortDescriptorWithKey:@"isInited" ascending:YES];
+    NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@"RSSI" ascending:NO];
+    NSMutableArray *dataArray = [NSMutableArray arrayWithArray:_scanModelArray];
+    [dataArray sortUsingDescriptors:@[sort0,sort1]];
+    _dataArray = dataArray;
+    [self.tableView reloadData];
+    
+    [self performSelector:@selector(resetDataArrayEachSecond) withObject:nil afterDelay:1];
 }
 
 
 - (void)uploadLockData:(NSString *)lockData alias:(NSString *)alias{
     [NetUtil lockInitializeWithlockAlias:alias lockData:lockData completion:^(id info, NSError *error) {
         if (error){
-#warning if upload lockData failed, you should reset lock, otherwise the lock will can't be initialized again
+#warning You should reset the lock after upload lockData failed, otherwise the lock can't be initialized again
             [TTLock resetLockWithLockData:lockData success:^{
                 NSLog(@"reset lock success");
             } failure:^(TTError errorCode, NSString *errorMsg) {
@@ -69,7 +90,6 @@
             [self.view showToastError:error];
             return;
         }
-        [TTLock stopScan];
         NOTIF_POST(RELOAD_LOCK_TABLE_NOTIFICATION, nil);
         [self.view showToast:LS(@"Success") completion:^{
             [self.navigationController popViewControllerAnimated:YES];
@@ -106,6 +126,13 @@
     dict[@"lockName"] = scanModel.lockName;
     dict[@"lockVersion"] = scanModel.lockVersion;
     
+/* Only hotel lock need to be set
+ 
+    dict[@"hotelInfo"] = @"xxxx";
+    dict[@"buildingNumber"] = @10;
+    dict[@"floorNumber"] = @3;
+*/
+
     [self.view showToastLoading];
     [TTLock initLockWithDict:dict success:^(NSString *lockData, long long specialValue) {
 #warning set the lock's alias

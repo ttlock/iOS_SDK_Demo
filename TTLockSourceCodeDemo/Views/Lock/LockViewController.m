@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
     LockActionSetAudio,
     LockActionGetAudio,
     LockActionConfigPassageMode,
+    LockActionGetPassageMode,
     LockActionDeletePassageMode,
     LockActionClearPassageMode,
 };
@@ -106,6 +107,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
                               @{LS(@"Set automatic locking periodic time"):@(LockActionSetAutomaticLockingPeriodicTime)}];
     
     NSArray *dataSection9 = @[@{LS(@"Set passage mode"):@(LockActionConfigPassageMode)},
+                              @{LS(@"Get passage mode"):@(LockActionGetPassageMode)},
                               @{LS(@"Delete passage mode"):@(LockActionDeletePassageMode)},
                               @{LS(@"Clear passage mode"):@(LockActionClearPassageMode)}];
     
@@ -460,6 +462,16 @@ typedef NS_ENUM(NSInteger,LockAction) {
            
             [TTLock configPassageModeWithType:TTPassageModeTypeWeekly weekly:weekly monthly:nil startDate:startMinutes endDate:endMinutes lockData:_lockModel.lockData success:^{
                 [self showToastAndLog:LS(@"Success")];
+            } failure:^(TTError errorCode, NSString *errorMsg) {
+                [self showToastAndLog:errorMsg];
+            }];
+        }
+            break;
+            
+        case LockActionGetPassageMode:
+        {
+            [TTLock getPassageModesWithLockData:_lockModel.lockData success:^(NSString *passageModes) {
+                [self showToastAndLog:[NSString stringWithFormat:@"%@\n%@",LS(@"Success"),passageModes]];
             } failure:^(TTError errorCode, NSString *errorMsg) {
                 [self showToastAndLog:errorMsg];
             }];
