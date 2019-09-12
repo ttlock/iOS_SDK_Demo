@@ -24,16 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [IQKeyboardManager sharedManager].enable = YES;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    
     [self setupView];
 }
 
 - (void)loginClick{
+    NSString *username = _usernameTextField.text;
+    NSString *password = _passcodeTextField.text;
+    if (username.length == 0 || password.length == 0) return;
     
     [self.view showToastLoading];
-    
-    NSString *username = _usernameTextField.text;
-    NSString *password = [_passcodeTextField.text md5Encode];
-    [NetUtil loginUsername:username password:password completion:^(NSDictionary *info, NSError *error) {
+    [NetUtil loginUsername:username password:[password md5Encode] completion:^(NSDictionary *info, NSError *error) {
         if (error){
             [self.view showToastError:error];
             return ;
@@ -51,19 +54,22 @@
     }];
 }
 
+- (void)registerClick{
+    [self.view showToast:LS(@"Go to register a account from app TTLock") completion:^{
+        NSString *urlStr = @"https://apps.apple.com/cn/app/id1033046018";
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+    }];
+}
+
 - (void)setupView{
-    
-    [IQKeyboardManager sharedManager].enable = YES;
-    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
-   
-    _usernameTextField = [self setupTextFieldViewWithPlaceholder:LS(@"Please input Username")];
+    _usernameTextField = [self setupTextFieldViewWithPlaceholder:LS(@"Please input username")];
     _passcodeTextField = [self setupTextFieldViewWithPlaceholder:LS(@"Please input password")];
     
     UILabel *usernameLabel = [self setupLabelWithText:LS(@"Username")];
     UILabel *passcodeLabel = [self setupLabelWithText:LS(@"Password")];
     
     UIButton *loginButton = [UIButton new];
-    [loginButton setTitle:LS(@"Log in") forState:UIControlStateNormal];
+    [loginButton setTitle:LS(@"Sign in") forState:UIControlStateNormal];
     [loginButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     loginButton.layer.cornerRadius = 4;
     loginButton.layer.masksToBounds = YES;
@@ -71,6 +77,12 @@
     loginButton.layer.borderColor = UIColor.blackColor.CGColor;
     [loginButton addTarget:self action:@selector(loginClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:loginButton];
+    
+    UIButton *registerButton = [UIButton new];
+    [registerButton setTitle:LS(@"Sign up") forState:UIControlStateNormal];
+    [registerButton setTitleColor:UIColor.grayColor forState:UIControlStateNormal];
+    [registerButton addTarget:self action:@selector(registerClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:registerButton];
     
     [_usernameTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).inset(25);
@@ -94,8 +106,10 @@
         make.left.right.height.equalTo(self.usernameTextField);
         make.top.equalTo(self.passcodeTextField.mas_bottom).offset(65);
     }];
-    
-    
+    [registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.height.equalTo(loginButton);
+        make.top.equalTo(loginButton.mas_bottom).offset(15);
+    }];
 }
 
 - (UILabel *)setupLabelWithText:(NSString *)text{

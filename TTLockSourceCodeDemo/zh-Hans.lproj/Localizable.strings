@@ -39,12 +39,13 @@
 "Passcode length 7 - 9 digits" = "密码长度 7 - 9 位";
 "Passcode length 4 - 9 digits" = "密码长度 4 - 9 位";
 "Sure" = "确定";
-"Please input Username" = "请输入账号";
+"Please input username" = "请输入账号";
 "Please input password" = "请输入密码";
 "Username" = "账号";
 "Password" = "密码";
 "Passcode" = "密码";
-"Log in" = "登录";
+"Sign in" = "登录";
+"Sign up" = "注册";
 "Reset lock" = "重置锁";
 "Ekey" = "电子钥匙";
 "IC card" = "IC卡";
@@ -114,6 +115,7 @@
 "gateway Name" = "网关名称";
 "Please enter gateway name" = "请输入网关名称";
 "Wireless Keypad" = "无线键盘";
+"Go to register a account from app TTLock" = "请先在通通锁APP中注册一个账号,再来登录";
 
 
 
