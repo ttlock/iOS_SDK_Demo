@@ -77,25 +77,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TTWirelessKeypadScanModel *scanModel = _dataArray[indexPath.row];
     [self.view showToastLoading];
-    [TTWirelessKeypad initializeKeypadWithMac:scanModel.keypadMac factorydDate:@"" block:^(long long specialValue, TTKeypadStatus status) {
+    [TTWirelessKeypad initializeKeypadWithKeypadMac:scanModel.keypadMac lockMac:self.lockModel.lockMac block:^(NSString *wirelessKeypadFeatureValue, TTKeypadStatus status) {
         if (status != TTKeypadSuccess) {
             NSString *error = [NSString stringWithFormat:@"init keypad error ,code:%d",status];
             [self.view showToast:error];
         }else{
             NSString *wirelessKeypadName = [NSString stringWithFormat:@"Keypad-%ld",random()];
-            [NetUtil addWirelessKeypadName:wirelessKeypadName number:scanModel.keypadName mac:scanModel.keypadMac specialValue:specialValue lockId:self.lockModel.lockId completion:^(id info, NSError *error) {
+            [NetUtil addWirelessKeypadName:wirelessKeypadName number:scanModel.keypadName mac:scanModel.keypadMac wirelessKeypadFeatureValue:wirelessKeypadFeatureValue lockId:self.lockModel.lockId completion:^(id info, NSError *error) {
                 if (error) {
                     [self.view showToastError:error];
                     return ;
                 }
                 NOTIF_POST(RELOAD_KEYPAD_TABLE_NOTIFICATION, nil);
                 [self.view showToast:LS(@"Success") completion:^{
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [self.navigationController popToViewController:self.navigationController.viewControllers[self.navigationController.viewControllers.count - 3] animated:YES];
                 }];
                 
             }];
         }
     }];
+    
 }
 
 @end

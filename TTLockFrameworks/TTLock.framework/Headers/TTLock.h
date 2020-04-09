@@ -4,7 +4,7 @@
 //
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
-//  version:3.0.3
+//  version:3.0.4
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -20,6 +20,7 @@
 #import "TTWirelessKeypad.h"
 #import "TTWirelessKeypadScanModel.h"
 
+
 @interface TTLock : NSObject
 /**
  Print sdk log
@@ -30,6 +31,11 @@
  Current Bluetooth state
  */
 @property (class, nonatomic, assign, readonly) TTBluetoothState bluetoothState;
+
+/**
+ The current authorization of the manager
+ */
+@property(class, nonatomic, assign, readonly) TTManagerAuthorization authorization API_AVAILABLE(ios(13.0));
 
 /**
   Whether the Bluetooth is scanning
@@ -132,14 +138,13 @@
 
 /**
  Get the lock version
-
- @param lockData The lock data string used to operate lock
+ @param lockMac lockMac
  @param success A block invoked when the lock version is got
  @param failure A block invoked when the operation fails
  */
-+ (void)getLockVersionWithLockData:(NSString *)lockData
-                           success:(TTGetLockVersionSucceedBlock)success
-                           failure:(TTFailedBlock)failure;
++ (void)getLockVersionWithWithLockMac:(NSString *)lockMac
+                              success:(TTGetLockVersionSucceedBlock)success
+                              failure:(TTFailedBlock)failure;
 
 
 /**
@@ -316,7 +321,85 @@
                              success:(TTSucceedBlock)success
                              failure:(TTFailedBlock)failure;
 
+/**
+Set Lock Freeze State
+@param on        NO-off  YES-on
+@param lockData The lock data string used to operate lock
+@param success A block invoked when passage modes are cleared
+@param failure A block invoked when the operation fails
+*/
++ (void)setLockFreezeStateWithOn:(BOOL)on
+                        lockData:(NSString *)lockData
+                         success:(TTSucceedBlock)success
+                         failure:(TTFailedBlock)failure;
+/**
+Get Lock Freeze State
 
+@param lockData The lock data string used to operate lock
+@param success A block invoked when passage modes are cleared
+@param failure A block invoked when the operation fails
+*/
++ (void)getLockFreezeStateWithLockData:(NSString *)lockData
+                               success:(TTSucceedBlock)success
+                               failure:(TTFailedBlock)failure;
+/**
+Set Light Time
+@param time      Light Time
+@param lockData The lock data string used to operate lock
+@param success A block invoked when passage modes are cleared
+@param failure A block invoked when the operation fails
+*/
++ (void)setLightTime:(int)time
+            lockData:(NSString *)lockData
+             success:(TTSucceedBlock)success
+             failure:(TTFailedBlock)failure;
+/**
+Get Light Time
+
+@param lockData The lock data string used to operate lock
+@param success A block invoked when passage modes are cleared
+@param failure A block invoked when the operation fails
+*/
++ (void)getLightTimeWithLockData:(NSString *)lockData
+                         success:(TTSucceedBlock)success
+                         failure:(TTFailedBlock)failure;
+/**
+Set Lock Config
+ 
+@param type      TTLockConfigType
+@param lockData The lock data string used to operate lock
+@param success A block invoked when passage modes are cleared
+@param failure A block invoked when the operation fails
+*/
++ (void)setLockConfigWithType:(TTLockConfigType)type
+                           on:(BOOL)on
+                     lockData:(NSString *)lockData
+                      success:(TTSucceedBlock)success
+                      failure:(TTFailedBlock)failure;
+/**
+ Get Lock Config
+ 
+ @param type      TTLockConfigType
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when passage modes are cleared
+ @param failure A block invoked when the operation fails
+ */
++ (void)getLockConfigWithType:(TTLockConfigType)type
+                     lockData:(NSString *)lockData
+                      success:(TTSucceedBlock)success
+                      failure:(TTFailedBlock)failure;
+/**
+ Set Hotel Card Sector
+ @param sectorArr    sectorArr = @[] means all sectors can use. The sector value range is 0 - 15.
+                     Such as, sectorArr = @[0,3,15] means First, fourth and sixteenth sectors can use.
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when passage modes are cleared
+ @param failure A block invoked when the operation fails
+ */
++ (void)setHotelCardSectorWithSectorArr:(NSArray <NSNumber *>*)sectorArr
+                                lockData:(NSString *)lockData
+                                 success:(TTSucceedBlock)success
+                                 failure:(TTFailedBlock)failure;
 #pragma mark - Lock upgrade
 
 /**

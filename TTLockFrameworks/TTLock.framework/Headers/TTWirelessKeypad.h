@@ -21,7 +21,7 @@ typedef enum {
 
 typedef void(^TTKeypadScanBlock)(TTWirelessKeypadScanModel *model);
 
-typedef void(^TTInitializeKeypadBlock)(long long specialValue,TTKeypadStatus status);
+typedef void(^TTInitializeKeypadBlock)(NSString *wirelessKeypadFeatureValue,TTKeypadStatus status);
 
 /**
  start Scan Keypad
@@ -34,7 +34,8 @@ typedef void(^TTInitializeKeypadBlock)(long long specialValue,TTKeypadStatus sta
 /**
  initialize Keypad
  */
-+ (void)initializeKeypadWithMac:(NSString *)Mac factorydDate:(NSString *)factorydDate block:(TTInitializeKeypadBlock)block;
++ (void)initializeKeypadWithKeypadMac:(NSString *)KeypadMac lockMac:(NSString *)lockMac block:(TTInitializeKeypadBlock)block;
 
 @end
+
 

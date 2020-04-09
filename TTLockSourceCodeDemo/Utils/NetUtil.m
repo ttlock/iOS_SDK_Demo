@@ -499,24 +499,24 @@ static NSString *const AppDomain = @"AppDomain";
 +(void)addWirelessKeypadName:(NSString *)name
                       number:(NSString *)number
                          mac:(NSString *)mac
-                specialValue:(long long)specialValue
+                wirelessKeypadFeatureValue:wirelessKeypadFeatureValue
                       lockId:(NSNumber *)lockId
                   completion:(RequestBlock) completion{
     NSMutableDictionary *parame = [NetUtil initParame];
     parame[@"lockId"] = lockId;
-    parame[@"wirelessKeyboardNumber"] = number;
-    parame[@"wirelessKeyboardName"] = name;
-    parame[@"wirelessKeyboardMac"] = mac;
-    parame[@"wirelessKeyboardSpecialValue"] = @(specialValue);
-    [NetUtil apiPost:@"wirelessKeyboard/add" parameters:parame completion:^(id info, NSError *error) {
+    parame[@"wirelessKeypadNumber"] = number;
+    parame[@"wirelessKeypadName"] = name;
+    parame[@"wirelessKeypadMac"] = mac;
+    parame[@"wirelessKeypadFeatureValue"] = wirelessKeypadFeatureValue;
+    [NetUtil apiPost:@"wirelessKeypad/add" parameters:parame completion:^(id info, NSError *error) {
         completion(info,error);
     }];
 }
 
 + (void)deleteWirelessKeypadWithID:(NSString *)ID completion:(RequestBlock) completion{
     NSMutableDictionary *parame = [NetUtil initParame];
-    parame[@"wirelessKeyboardId"] = ID;
-    [NetUtil apiPost:@"wirelessKeyboard/delete" parameters:parame completion:^(id info, NSError *error) {
+    parame[@"wirelessKeypadId"] = ID;
+    [NetUtil apiPost:@"wirelessKeypad/delete" parameters:parame completion:^(id info, NSError *error) {
         completion(info,error);
     }];
 }
@@ -524,7 +524,7 @@ static NSString *const AppDomain = @"AppDomain";
 + (void)getWirelessKeypadListWithLockId:(NSNumber *)lockId completion:(RequestBlock) completion{
     NSMutableDictionary *parame = [NetUtil initParame];
     parame[@"lockId"] = lockId;
-    [NetUtil apiPost:@"wirelessKeyboard/listByLock" parameters:parame completion:^(id info, NSError *error) {
+    [NetUtil apiPost:@"wirelessKeypad/listByLock" parameters:parame completion:^(id info, NSError *error) {
         completion(info[@"list"],error);
     }];
 }

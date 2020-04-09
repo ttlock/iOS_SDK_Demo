@@ -134,6 +134,13 @@ typedef NS_ENUM(NSInteger, TTBluetoothState) {
     TTBluetoothStatePoweredOn,
 } ;
 
+typedef NS_ENUM(NSInteger, TTManagerAuthorization) {
+    TTManagerAuthorizationNotDetermined = 0,
+    TTManagerAuthorizationRestricted,
+    TTManagerAuthorizationDenied,
+    TTManagerAuthorizationAllowedAlways
+} NS_ENUM_AVAILABLE(10_15, 13_0);
+
 /*!
  *  @enum TTLockType
  *
@@ -331,7 +338,52 @@ typedef NS_ENUM(long long, TTLockSpecialFunction)
     TTLockSpecialFunctionPassageMode = 1 << 22,
     TTLockSpecialFunctionTurnOffAutoLock = 1 << 23,
     TTLockSpecialFunctionWirelessKeypad = 1 << 24,
-     TTLockSpecialFunctionLight = 1 << 25,
+    TTLockSpecialFunctionLight = 1 << 25,
+    TTLockSpecialFunctionHotelCardBlacklist = 1 << 26,
+    TTLockSpecialFunctionIdentityCard = 1 << 27,
+    TTLockSpecialFunctionTamperAlert = 1 << 28,
+    TTLockSpecialFunctionResetButton = 1 << 29,
+    TTLockSpecialFunctionPrivacyLock = 1 << 30,
+};
+
+typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
+    TTLockFeatureValuePasscode = 0,
+    TTLockFeatureValueICCard = 1,
+    TTLockFeatureValueFingerprint = 2,
+    TTLockFeatureValueWristband = 3,
+    TTLockFeatureValueAutoLock = 4,
+    TTLockFeatureValueDeletePasscode = 5,
+    TTLockFeatureValueManagePasscode = 7,
+    TTLockFeatureValueLocking = 8,
+    TTLockFeatureValuePasscodeVisible = 9,
+    TTLockFeatureValueGatewayUnlock = 10,
+    TTLockFeatureValueLockFreeze = 11,
+    TTLockFeatureValueCyclePassword = 12,
+    TTLockFeatureValueDoorSensor = 13,
+    TTLockFeatureValueRemoteUnlockSwicth = 14,
+    TTLockFeatureValueAudioSwitch = 15,
+    TTLockFeatureValueNBIoT = 16,
+    TTLockFeatureValueGetAdminPasscode = 18,
+    TTLockFeatureValueHotelCard = 19,
+    TTLockFeatureValueNoClock = 20,
+    TTLockFeatureValueNoBroadcastInNormal = 21,
+    TTLockFeatureValuePassageMode = 22,
+    TTLockFeatureValueTurnOffAutoLock = 23,
+    TTLockFeatureValueWirelessKeypad = 24,
+    TTLockFeatureValueLight = 25,
+    TTLockFeatureValueHotelCardBlacklist = 26,
+    TTLockFeatureValueIdentityCard = 27,
+    TTLockFeatureValueTamperAlert = 28,
+    TTLockFeatureValueResetButton = 29,
+    TTLockFeatureValuePrivacyLock = 30,
+    TTLockFeatureValueDeadLock = 32,
+    TTLockFeatureValueCycleCardOrFingerprint = 34,
+};
+typedef NS_ENUM(NSInteger ,TTLockConfigType) {
+    TTLockTamperAlert = 1,
+    TTLockResetButton,
+    TTLockPrivacyLock
+    
 };
 
 @end

@@ -77,7 +77,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     KeypadModel *keypadModel = self.dataArray[indexPath.row];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    cell.textLabel.text = keypadModel.wirelessKeyboardName;
+    cell.textLabel.text = keypadModel.wirelessKeypadName;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

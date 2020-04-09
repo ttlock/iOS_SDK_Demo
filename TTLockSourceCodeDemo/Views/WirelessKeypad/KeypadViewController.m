@@ -27,14 +27,14 @@
     
     _dataArray = @[LS(@"名称"),LS(@"MAC")];
     
-    self.title = _keypadModel.wirelessKeyboardName;
+    self.title = _keypadModel.wirelessKeypadName;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:LS(@"Delete") style:UIBarButtonItemStylePlain target:self action:@selector(deleteButtonClick)];
     self.tableView.tableFooterView = [UIView new];
 }
 
 - (void)deleteButtonClick{
     [self.view showToastLoading];
-    [NetUtil deleteWirelessKeypadWithID:_keypadModel.wirelessKeyboardId completion:^(id info, NSError *error) {
+    [NetUtil deleteWirelessKeypadWithID:_keypadModel.wirelessKeypadId completion:^(id info, NSError *error) {
         if (error) {
             [self.view showToastError:error];
             return ;
@@ -61,13 +61,13 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.detailTextLabel.text = _keypadModel.wirelessKeyboardName;
+            cell.detailTextLabel.text = _keypadModel.wirelessKeypadName;
             break;
         case 1:
-            cell.detailTextLabel.text = _keypadModel.wirelessKeyboardMac;
+            cell.detailTextLabel.text = _keypadModel.wirelessKeypadMac;
             break;
         case 2:
-            cell.detailTextLabel.text = _keypadModel.wirelessKeyboardNumber;
+            cell.detailTextLabel.text = _keypadModel.wirelessKeypadNumber;
             break;
             
         default:

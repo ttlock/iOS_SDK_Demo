@@ -234,7 +234,8 @@ typedef NS_ENUM(NSInteger,LockAction) {
             break;
         case LockActionPasscode:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionPasscode];
+            BOOL suportFunction = ([TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionPasscode]
+            || [TTUtil lockFeatureValue:_lockModel.wirelessKeypadFeatureValue suportFunction:TTLockFeatureValuePasscode]);
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;

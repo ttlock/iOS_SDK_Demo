@@ -14,12 +14,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber * lockId;
 @property (nonatomic, strong) NSString * lockName;
 @property (nonatomic, strong) NSString * lockAlias;
+@property (nonatomic, strong) NSString * lockMac;
 @property (nonatomic, strong) NSString *lockData;
 @property (nonatomic, assign) long long specialValue;
 @property (nonatomic, assign) NSInteger electricQuantity;
 @property (nonatomic, assign) NSInteger keyboardPwdVersion;
 @property (nonatomic, strong) NSDictionary *lockVersion;
 @property (nonatomic, strong) NSString *noKeyPwd;
+@property (nonatomic, strong) NSString *featureValue;
+@property (nonatomic, strong) NSString *wirelessKeypadFeatureValue;
 @end
 
 NS_ASSUME_NONNULL_END

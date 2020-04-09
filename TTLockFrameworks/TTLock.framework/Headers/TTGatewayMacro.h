@@ -13,13 +13,13 @@
 @interface TTGatewayMacro : NSObject
 
 #pragma mark --- G2
-typedef enum {
+typedef NS_ENUM(NSInteger, TTGatewayConnectStatus){
     TTGatewayConnectTimeout,
     TTGatewayConnectSuccess,
     TTGatewayConnectFail,
-}TTGatewayConnectStatus;
+};
 
-typedef enum {
+typedef NS_ENUM(NSInteger, TTGatewayStatus){
     TTGatewaySuccess = 0,
     TTGatewayFail = 1,
     TTGatewayWrongSSID = 3,
@@ -28,7 +28,10 @@ typedef enum {
     TTGatewayWrongAeskey = -2,
     TTGatewayNotConnect = -3,
     TTGatewayDisconnect = -4,
-}TTGatewayStatus;
+    TTGatewayFailConfigRouter = -5,
+    TTGatewayFailConfigServer = -6,
+    TTGatewayFailConfigAccount = -7,
+};
 
 typedef void(^TTGatewayScanBlock)(TTGatewayScanModel *model);
 typedef void(^TTGatewayConnectBlock)(TTGatewayConnectStatus connectStatus);

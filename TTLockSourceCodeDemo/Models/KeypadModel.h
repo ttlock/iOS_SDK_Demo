@@ -11,10 +11,10 @@
 
 
 @interface KeypadModel : NSObject
-@property (nonatomic, strong) NSString *wirelessKeyboardId;
-@property (nonatomic, strong) NSString *wirelessKeyboardNumber;
-@property (nonatomic, strong) NSString *wirelessKeyboardMac;
-@property (nonatomic, strong) NSString *wirelessKeyboardName;
+@property (nonatomic, strong) NSString *wirelessKeypadId;
+@property (nonatomic, strong) NSString *wirelessKeypadNumber;
+@property (nonatomic, strong) NSString *wirelessKeypadMac;
+@property (nonatomic, strong) NSString *wirelessKeypadName;
 @end
 
 

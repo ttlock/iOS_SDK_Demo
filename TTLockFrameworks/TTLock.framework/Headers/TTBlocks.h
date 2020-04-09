@@ -51,4 +51,8 @@ typedef void(^TTGetLockStatusSuccessBlock)(TTLockSwitchState state);
 
 typedef void(^TTGetPassageModelSuccessBlock)(NSString *passageModes);
 
+typedef void(^TTGetLockFreezeStateSuccessBlock) (BOOL isOn);
+typedef void(^TTGetLightTimeSuccessBlock) (int time);
+typedef void(^TTSetLockConfigSuccessBlock) (TTLockConfigType type);
+typedef void(^TTGetLockConfigSuccessBlock) (TTLockConfigType type,BOOL isOn);
 #endif /* TTBlocks_h */
