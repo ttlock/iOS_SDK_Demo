@@ -10,7 +10,6 @@
 #import "LockAddViewController.h"
 #import "LockViewController.h"
 #import "NetUtil.h"
-#import "KeyModel.h"
 
 @interface LockTableViewController ()
 @property (nonatomic, weak) LockAddViewController *addVC;
@@ -71,7 +70,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    KeyModel *keyModel = self.dataArray[indexPath.row];
+    LockModel *keyModel = self.dataArray[indexPath.row];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     cell.textLabel.text = keyModel.lockAlias;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"🔋%ld%%",(long)keyModel.electricQuantity];

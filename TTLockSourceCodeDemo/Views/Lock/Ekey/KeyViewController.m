@@ -11,7 +11,6 @@
 
 @interface KeyViewController ()
 @property (nonatomic, strong) NSArray *dataArray;
-@property (nonatomic, strong) KeyModel *keyModel;
 @property (nonatomic, strong) LockModel *lockModel;
 
 @property (nonatomic, assign) BOOL longPressed;
@@ -34,17 +33,9 @@
 }
 
 - (void)setupData{
-    [self.view showToastLoading];
-    [NetUtil adminKeyWithLockId:_lockModel.lockId pageIndex:1 completion:^(KeyModel *info, NSError *error) {
-        if (error){
-            [self.view showToastError:error];
-            return ;
-        }
-        [self.view hideToast];
-        self.keyModel = info;
-        self.dataArray= @[LS(@"Unlock"),LS(@"Lock")];
-        [self.tableView reloadData];
-    }];
+   
+    self.dataArray= @[LS(@"Unlock"),LS(@"Lock")];
+    
 }
 
 - (void)setupView{
@@ -79,7 +70,7 @@
 
 - (void)controlLockAction:(TTControlAction)acton{
     [self.view showToastLoading];
-    [TTLock controlLockWithControlAction:acton lockData:_keyModel.lockData success:^(long long lockTime, NSInteger electricQuantity, long long uniqueId) {
+    [TTLock controlLockWithControlAction:acton lockData:_lockModel.lockData success:^(long long lockTime, NSInteger electricQuantity, long long uniqueId) {
         [self.view showToast:LS(@"Success")];
     } failure:^(TTError errorCode, NSString *errorMsg) {
         [self.view showToast:errorMsg];

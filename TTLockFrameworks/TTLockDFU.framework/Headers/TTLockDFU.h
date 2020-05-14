@@ -25,10 +25,14 @@
  Do not support instructions to enter the upgrade, enter the password, upgrade again.
  */
 - (void)upgradeLockWithEnterPassword;
-
 - (void)pauseUpgrade; 
 - (void)restartUpgrade;
 - (BOOL)stopUpgrade;
 - (BOOL)paused;
 
+//only do dfu operation
+- (void)startDfuWithFirmwarePackage:(NSString *_Nonnull)firmwarePackage
+                           lockData:(NSString *_Nonnull)lockData
+                       successBlock:(TTLockDFUSuccessBlock _Nullable )sblock
+                          failBlock:(TTLockDFUFailBlock _Nullable )fblock;
 @end

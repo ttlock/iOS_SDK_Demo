@@ -21,14 +21,14 @@ typedef NS_ENUM( NSInteger, UpgradeOpration) {
 
 typedef NS_ENUM( NSInteger, UpgradeErrorCode) {
     UpgradeErrorCodePeripheralPoweredOff  = 1,
-    UpgradeErrorCodeConnectTimeout ,
-    UpgradeErrorCodeNetFail ,
-    UpgradeErrorNONeedUpgrade,
-    UpgradeErrorUnknownUpgradeVersion,
-    UpgradeErrorCodeEnterUpgradeState,
-    UpgradeErrorCodeUpgradeLockFail ,
-    UpgradeOprationPreparingError,
-    UpgradeOprationGetSpecialValueError
+    UpgradeErrorCodeConnectTimeout = 2,
+    UpgradeErrorCodeNetFail = 3,
+    UpgradeErrorNONeedUpgrade = 4,
+    UpgradeErrorUnknownUpgradeVersion = 5,
+    UpgradeErrorCodeEnterUpgradeState = 6,
+    UpgradeErrorCodeUpgradeLockFail = 7,
+    UpgradeOprationPreparingError = 8,
+    UpgradeOprationGetSpecialValueError = 9
 };
 
 typedef void(^TTLockDFUSuccessBlock)(UpgradeOpration type ,NSInteger process);
