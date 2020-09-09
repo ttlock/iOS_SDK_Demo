@@ -1,3 +1,6 @@
+## Developers Email list
+ttlock-developers-email-list@googlegroups.com
+
 ## Minimum iOS Target:
 iOS 9.0
 
