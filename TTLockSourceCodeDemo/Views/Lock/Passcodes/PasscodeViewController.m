@@ -80,11 +80,11 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
 
 - (void)resetPasscodeClick{
     [self.view showToastLoading];
-    [TTLock resetPasscodesWithLockData:_lockModel.lockData success:^(long long timestamp, NSString *passcodeInfo) {
-        [self showToastAndLog:LS(@"Success")];
-    } failure:^(TTError errorCode, NSString *errorMsg) {
-        [self showToastAndLog:errorMsg];
-    }];
+	[TTLock resetPasscodesWithLockData:_lockModel.lockData success:^(NSString *lockData) {
+		[self showToastAndLog:LS(@"Success")];
+	} failure:^(TTError errorCode, NSString *errorMsg) {
+		[self showToastAndLog:errorMsg];
+	}];
 }
 
 - (void)visiblePasscodeAction:(UISwitch *)visibleSwitch{
@@ -237,13 +237,12 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
             [self showToastAndLog:TTErrorMessageInvalidCommand];
             return;
         }
-        
         [self.view showToastLoading];
-        [TTLock getPasscodeVisibleSwitchWithLockData:_lockModel.lockData success:^(BOOL isOn) {
-            [self showToastAndLog:LS(@"Success")];
-        } failure:^(TTError errorCode, NSString *errorMsg) {
-            [self showToastAndLog:errorMsg];
-        }];
+		[TTLock getPasscodeVerificationParamsWithLockData:_lockModel.lockData success:^(NSString *lockData) {
+			[self showToastAndLog:LS(@"Success")];
+		} failure:^(TTError errorCode, NSString *errorMsg) {
+			[self showToastAndLog:errorMsg];
+		}];
     }else if (action == PasscodeActionGetAllValidPasscodes){
         [self.view showToastLoading];
         [TTLock getAllValidPasscodesWithLockData:_lockModel.lockData success:^(NSString *passcodes) {

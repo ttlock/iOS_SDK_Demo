@@ -22,6 +22,8 @@
 +(NSData*)encryptAESData:(NSData*)data keyBytes:(Byte*)key;
 +(NSData*)decryptToDataAESData:(NSData*)data keyBytes:(Byte*)key;
 
++(NSData *)encodeCRC8Password:(NSString *)password;
++(NSString *)decodeCRC8Password:(NSData *)data;
 
 //string -> data
 + (NSData*)encryptAESStr:(NSString*)string key:(NSString *)key;

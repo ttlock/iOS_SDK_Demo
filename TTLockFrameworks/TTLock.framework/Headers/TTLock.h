@@ -4,7 +4,7 @@
 //
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
-//  version:3.0.7
+//  version:3.1.0
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -148,16 +148,15 @@
 
 
 /**
- Get the lock special value
+ Get the lock feature value
 
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the lock special value is got
+ @param success A block invoked when the lock feature value is got
  @param failure A block invoked when the operation fails
  */
-+ (void)getLockSpecialValueWithLockData:(NSString *)lockData
-                                success:(TTGetSpecialValueSucceedBlock)success
++ (void)getLockFeatureValueWithLockData:(NSString *)lockData
+                                success:(TTGetFeatureValueSucceedBlock)success
                                 failure:(TTFailedBlock)failure;
-
 
 /**
  Get the lock system infomation
@@ -219,7 +218,7 @@
  */
 + (void)setRemoteUnlockSwitchOn:(BOOL)on
                        lockData:(NSString *)lockData
-                        success:(TTGetSpecialValueSucceedBlock)success
+                        success:(TTSetRemoteUnlockSwitchSuccessBlock)success
                         failure:(TTFailedBlock)failure;
 
 
@@ -233,31 +232,6 @@
 + (void)getRemoteUnlockSwitchWithLockData:(NSString *)lockData
                                   success:(TTGetSwitchStateSuccessBlock)success
                                   failure:(TTFailedBlock)failure;
-
-
-/**
- Set the lock audio switch
-
- @param on Audio switch on or off
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the lock audio switch is set
- @param failure A block invoked when the operation fails
- */
-+ (void)setAudioSwitchOn:(BOOL)on
-                lockData:(NSString *)lockData
-                 success:(TTSucceedBlock)success
-                 failure:(TTFailedBlock)failure;
-
-/**
- get the lock audio switch state
-
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the lock audio switch state is got
- @param failure A block invoked when the operation fails
- */
-+ (void)getAudioSwitchWithLockData:(NSString *)lockData
-                           success:(TTGetSwitchStateSuccessBlock)success
-                           failure:(TTFailedBlock)failure;
 
 
 /**
@@ -322,31 +296,10 @@
                              failure:(TTFailedBlock)failure;
 
 /**
-Set Lock Freeze State
-@param on        NO-off  YES-on
-@param lockData The lock data string used to operate lock
-@param success A block invoked when passage modes are cleared
-@param failure A block invoked when the operation fails
-*/
-+ (void)setLockFreezeStateWithOn:(BOOL)on
-                        lockData:(NSString *)lockData
-                         success:(TTSucceedBlock)success
-                         failure:(TTFailedBlock)failure;
-/**
-Get Lock Freeze State
-
-@param lockData The lock data string used to operate lock
-@param success A block invoked when passage modes are cleared
-@param failure A block invoked when the operation fails
-*/
-+ (void)getLockFreezeStateWithLockData:(NSString *)lockData
-                               success:(TTSucceedBlock)success
-                               failure:(TTFailedBlock)failure;
-/**
 Set Light Time
 @param time      Light Time
 @param lockData The lock data string used to operate lock
-@param success A block invoked when passage modes are cleared
+@param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
 */
 + (void)setLightTime:(int)time
@@ -357,18 +310,18 @@ Set Light Time
 Get Light Time
 
 @param lockData The lock data string used to operate lock
-@param success A block invoked when passage modes are cleared
+@param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
 */
 + (void)getLightTimeWithLockData:(NSString *)lockData
-                         success:(TTSucceedBlock)success
+                         success:(TTGetLightTimeSuccessBlock)success
                          failure:(TTFailedBlock)failure;
 /**
 Set Lock Config
  
 @param type      TTLockConfigType
 @param lockData The lock data string used to operate lock
-@param success A block invoked when passage modes are cleared
+@param success A block invoked when when the operation succeeds
 @param failure A block invoked when the operation fails
 */
 + (void)setLockConfigWithType:(TTLockConfigType)type
@@ -381,25 +334,43 @@ Set Lock Config
  
  @param type      TTLockConfigType
  @param lockData The lock data string used to operate lock
- @param success A block invoked when passage modes are cleared
+ @param success A block invoked when the operation succeeds
  @param failure A block invoked when the operation fails
  */
 + (void)getLockConfigWithType:(TTLockConfigType)type
                      lockData:(NSString *)lockData
-                      success:(TTSucceedBlock)success
+                      success:(TTGetLockConfigSuccessBlock)success
                       failure:(TTFailedBlock)failure;
 /**
  Set Hotel Card Sector
- @param sectorArr    sectorArr = @[] means all sectors can use. The sector value range is 0 - 15.
-                     Such as, sectorArr = @[0,3,15] means First, fourth and sixteenth sectors can use.
+ @param sector    sector = @[] means all sectors can use. The sector value range is 1 - 16.
+ Such as, sector = @"1,4,16" means First, fourth and sixteenth sectors can use.
  @param lockData The lock data string used to operate lock
- @param success A block invoked when passage modes are cleared
+ @param success A block invoked when the operation succeeds
  @param failure A block invoked when the operation fails
  */
-+ (void)setHotelCardSectorWithSectorArr:(NSArray <NSNumber *>*)sectorArr
-                                lockData:(NSString *)lockData
-                                 success:(TTSucceedBlock)success
-                                 failure:(TTFailedBlock)failure;
++ (void)setHotelCardSector:(NSString *)sector
+				  lockData:(NSString *)lockData
+				   success:(TTSucceedBlock)success
+				   failure:(TTFailedBlock)failure;
+
+/**
+Set Hotel Data
+
+@param hotelInfo hotel Info
+@param buildingNumber building Number
+@param floorNumber floor Number
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setHotelDataWithHotelInfo:(NSString *)hotelInfo
+				   buildingNumber:(int)buildingNumber
+					  floorNumber:(int)floorNumber
+						 lockData:(NSString *)lockData
+						  success:(TTSucceedBlock)success
+						  failure:(TTFailedBlock)failure;
+
 #pragma mark - Lock upgrade
 
 /**
@@ -454,7 +425,7 @@ Set Lock Config
  @param failure A block invoked when the operation fails
  */
 + (void)resetEkeyWithLockData:(NSString *)lockData
-                      success:(TTSucceedBlock)success
+                      success:(TTResetEkeySucceedBlock)success
                       failure:(TTFailedBlock)failure;
 
 #pragma mark - Passcode
@@ -537,7 +508,7 @@ Set Lock Config
  @param failure A block invoked when the operation fails
  */
 + (void)getPasscodeVerificationParamsWithLockData:(NSString *)lockData
-                                          success:(TTResetPasscodesSucceedBlock)success
+                                          success:(TTGetPasscodeVerificationParamsSucceedBlock)success
                                           failure:(TTFailedBlock)failure;
 
 
@@ -609,31 +580,6 @@ Set Lock Config
                success:(TTSucceedBlock)success
                failure:(TTFailedBlock)failure;
 
-
-/**
- Set passcode visible switch
-
- @param on Passcode visible switch on or off
- @param lockData The lock data string used to operate lock
- @param success A block invoked when passcode visible is set
- @param failure A block invoked when the operation fails
- */
-+ (void)setPasscodeVisibleSwitchOn:(BOOL)on
-                          lockData:(NSString *)lockData
-                           success:(TTSucceedBlock)success
-                           failure:(TTFailedBlock)failure;
-
-
-/**
- Get passcode visible switch state
-
- @param lockData The lock data string used to operate lock
- @param success A block invoked when passcode visible is got
- @param failure A block invoked when the operation fails
- */
-+ (void)getPasscodeVisibleSwitchWithLockData:(NSString *)lockData
-                                     success:(TTGetSwitchStateSuccessBlock)success
-                                     failure:(TTFailedBlock)failure;
 #pragma mark - IC card
 
 /**
@@ -727,6 +673,51 @@ Set Lock Config
                                success:(TTGetAllICCardsSucceedBlock)success
                                failure:(TTFailedBlock)failure;
 
+
+/**
+ Add cyclic IC card
+
+ @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid, If it's a permanent key, set 0
+ @param endDate The time when it is expired, If it's a permanent key, set 0
+ @param lockData The lock data string used to operate lock
+ @param progress A block invoked when card is adding
+ @param success A block invoked when card is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)addICCardWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+						startDate:(long long)startDate
+						  endDate:(long long)endDate
+						 lockData:(NSString *)lockData
+						 progress:(TTAddICProgressBlock)progress
+						  success:(TTAddICSucceedBlock)success
+						  failure:(TTFailedBlock)failure;
+
+/**
+ Modify cyclic IC card valid date
+
+ @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param cardNumber The card number you want to modify
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when card is modified
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyICCardValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+										cardNumber:(NSString *)cardNumber
+										 startDate:(long long)startDate
+										   endDate:(long long)endDate
+										  lockData:(NSString *)lockData
+										   success:(TTSucceedBlock)success
+										   failure:(TTFailedBlock)failure;
+
 #pragma mark - Fingerprint
 
 /**
@@ -736,6 +727,7 @@ Set Lock Config
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
  @param progress A block invoked when card is adding
+  currentCount == -1 || totalCount  == -1 means unknown,continue adding.
  @param success A block invoked when fingerprint is added
  @param failure A block invoked when the operation fails
  */
@@ -751,7 +743,7 @@ Set Lock Config
  Add new fingerprint by  writing fingerprint data to the lock
 
  @param fingerprintData The fingerprint data is obtained by the fingerprint collector
- @param tempFingerprintNumber <#tempFingerprintNumber description#>
+ @param tempFingerprintNumber tempFingerprintNumber
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
@@ -840,6 +832,94 @@ Set Lock Config
                                     success:(TTGetAllFingerprintsSucceedBlock)success
                                     failure:(TTFailedBlock)failure;
 
+/**
+ Add cyclic fingerprint by pressing finger on the lock
+
+ @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param progress A block invoked when card is adding
+  currentCount == -1 || totalCount  == -1 means unknown,continue adding.
+ @param success A block invoked when fingerprint is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)addFingerprintWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+							 startDate:(long long)startDate
+							   endDate:(long long)endDate
+							  lockData:(NSString *)lockData
+							  progress:(TTAddFingerprintProgressBlock)progress
+							   success:(TTAddFingerprintSucceedBlock)success
+							   failure:(TTFailedBlock)failure;
+
+
+/**
+ Modify cyclic fingerprint valid date
+
+ @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param fingerprintNumber The fingerprint number you want to modify
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when fingerprint is modified
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyFingerprintValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+									  fingerprintNumber:(NSString *)fingerprintNumber
+											  startDate:(long long)startDate
+												endDate:(long long)endDate
+											   lockData:(NSString *)lockData
+												success:(TTSucceedBlock)success
+												failure:(TTFailedBlock)failure;
+
+
+#pragma mark - Elevator
+
+/**
+Activate Elevator Floors
+ 
+@param floors elevator floors
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)activateElevatorFloors:(NSString *)floors
+					  lockData:(NSString *)lockData
+					   success:(TTActivateElevatorSuccessdBlock)success
+					   failure:(TTFailedBlock)failure;
+
+/**
+Set Elevator Controlable Floors
+ 
+@param floors elevator floors
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setElevatorControlableFloors:(NSString *)floors
+							lockData:(NSString *)lockData
+							 success:(TTSucceedBlock)success
+							 failure:(TTFailedBlock)failure;
+
+/**
+Set Elevator Work Mode
+ 
+@param workMode TTElevatorWorkMode
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setElevatorWorkMode:(TTElevatorWorkMode)workMode
+				   lockData:(NSString *)lockData
+					success:(TTSucceedBlock)success
+					failure:(TTFailedBlock)failure;
+
 #pragma mark - DoorSensor
 - (void)setDoorSensorLockingSwitchOn:(BOOL)on
                             lockData:(NSString *)lockData
@@ -859,5 +939,42 @@ Set Lock Config
 
 + (void)setWristbandKey:(NSString *)wristbandKey isOpen:(BOOL)isOpen success:(TTSucceedBlock)success failure:(TTFailedBlock)failure;
 + (void)setWristbandRssi:(int)rssi success:(TTSucceedBlock)success failure:(TTFailedBlock)failure;
+
+#pragma mark - deprecated
++ (void)getLockSpecialValueWithLockData:(NSString *)lockData
+                                success:(TTGetSpecialValueSucceedBlock)success
+                                failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,Use getLockFeatureValue")));
+
++ (void)setLockFreezeStateWithOn:(BOOL)on
+                        lockData:(NSString *)lockData
+                         success:(TTSucceedBlock)success
+                         failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setLockConfig")));
+
++ (void)getLockFreezeStateWithLockData:(NSString *)lockData
+                               success:(TTGetLockConfigSuccessBlock)success
+                               failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,getLockConfig")));
+
++ (void)setAudioSwitchOn:(BOOL)on
+                lockData:(NSString *)lockData
+                 success:(TTSucceedBlock)success
+                 failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setLockConfig")));
+
++ (void)getAudioSwitchWithLockData:(NSString *)lockData
+                           success:(TTGetLockConfigSuccessBlock)success
+                           failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,getLockConfig")));
+
++ (void)setPasscodeVisibleSwitchOn:(BOOL)on
+                          lockData:(NSString *)lockData
+                           success:(TTSucceedBlock)success
+                           failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setLockConfig")));
+
++ (void)getPasscodeVisibleSwitchWithLockData:(NSString *)lockData
+                                     success:(TTGetLockConfigSuccessBlock)success
+                                     failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,getLockConfig")));
+
++ (void)setHotelCardSectorWithSectorArr:(NSArray <NSNumber *>*)sectorArr
+							   lockData:(NSString *)lockData
+								success:(TTSucceedBlock)success
+								failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setHotelCardSector")));
 @end
 

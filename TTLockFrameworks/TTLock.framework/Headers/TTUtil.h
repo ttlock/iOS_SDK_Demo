@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (BOOL)lockSpecialValue:(long long)specialValue suportFunction:(TTLockSpecialFunction)function;
 
-+ (BOOL)lockFeatureValue:(NSString *)featureValue suportFunction:(TTLockFeatureValue)function;
++ (BOOL)lockFeatureValue:(NSString *)lockData suportFunction:(TTLockFeatureValue)function;
 
 + (TTLockType)getLockTypeWithLockVersion:(NSDictionary *)lockVersion;
 

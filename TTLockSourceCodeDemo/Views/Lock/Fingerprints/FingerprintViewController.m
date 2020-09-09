@@ -90,8 +90,8 @@
     long long startDate = _permanentDate ? 0 : _fingerprintModel.startDate;
     long long endDate = _permanentDate ? 0 : _fingerprintModel.endDate;
     [self.view showToastLoading];
-    [TTLock addFingerprintStartDate:startDate endDate:endDate lockData:_lockModel.lockData progress:^(TTAddFingerprintState state, NSInteger remanentPressTimes) {
-        NSString *text = [NSString stringWithFormat:LS(@"Remaining compressions: %ld"),(long)remanentPressTimes];
+    [TTLock addFingerprintStartDate:startDate endDate:endDate lockData:_lockModel.lockData progress:^(int currentCount, int totalCount) {
+        NSString *text = [NSString stringWithFormat:LS(@"Remaining compressions: %ld"),(long)totalCount-currentCount];
         [self.view showToast:text];
     } success:^(NSString *fingerprintNumber) {
         [NetUtil addFingerprintNumber:fingerprintNumber name:fingerprintNumber startDate:startDate endDate:endDate byGateway:NO lockId:self.lockModel.lockId completion:^(id info, NSError *error) {

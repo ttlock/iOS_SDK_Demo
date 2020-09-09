@@ -167,12 +167,11 @@ typedef NS_ENUM(NSInteger,LockAction) {
     }
     
     [self.view showToastLoading];
-    [TTLock setRemoteUnlockSwitchOn:YES lockData:_lockModel.lockData success:^(long long specialValue) {
-        [self showToastAndLog:[NSString stringWithFormat:@"SpecialValue:%lld", specialValue]];
-    } failure:^(TTError errorCode, NSString *errorMsg) {
-        [self showToastAndLog:errorMsg];
-    }];
-    
+	[TTLock setRemoteUnlockSwitchOn:YES lockData:_lockModel.lockData success:^(NSString *lockData) {
+		[self showToastAndLog:LS(@"Success")];
+	} failure:^(TTError errorCode, NSString *errorMsg) {
+		[self showToastAndLog:errorMsg];
+	}];
 }
 
 #pragma mark - Table view data source
@@ -445,11 +444,11 @@ typedef NS_ENUM(NSInteger,LockAction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
             }
-            [TTLock getAudioSwitchWithLockData:_lockModel.lockData success:^(BOOL isOn) {
-                [self showToastAndLog:[NSString stringWithFormat:@"Success\n switch: %@", isOn ? @"open" : @"close"]];
-            } failure:^(TTError errorCode, NSString *errorMsg) {
-                [self showToastAndLog:errorMsg];
-            }];
+			[TTLock getLockConfigWithType:TTLockSound lockData:_lockModel.lockData success:^(TTLockConfigType type, BOOL isOn) {
+				[self showToastAndLog:[NSString stringWithFormat:@"Success\n switch: %@", isOn ? @"open" : @"close"]];
+			} failure:^(TTError errorCode, NSString *errorMsg) {
+				[self showToastAndLog:errorMsg];
+			}];
         }
             break;
             

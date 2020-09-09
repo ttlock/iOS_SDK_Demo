@@ -55,17 +55,17 @@
 
 - (void)resetEkeyClick{
     [self.view showToastLoading];
-    [TTLock resetEkeyWithLockData:_lockModel.lockData success:^{
-        [NetUtil resetEKeyWithLockId:self.lockModel.lockId completion:^(id info, NSError *error) {
-            if (error) {
-                [self.view showToastError:error];
-                return ;
-            }
-            [self.view showToast:LS(@"Success")];
-        }];
-    } failure:^(TTError errorCode, NSString *errorMsg) {
-        [self.view showToast:errorMsg];
-    }];
+	[TTLock resetEkeyWithLockData:_lockModel.lockData success:^(NSString *lockData) {
+		[NetUtil resetEKeyWithLockId:self.lockModel.lockId completion:^(id info, NSError *error) {
+			if (error) {
+				[self.view showToastError:error];
+				return ;
+			}
+			[self.view showToast:LS(@"Success")];
+		}];
+	} failure:^(TTError errorCode, NSString *errorMsg) {
+		[self.view showToast:errorMsg];
+	}];
 }
 
 - (void)controlLockAction:(TTControlAction)acton{

@@ -170,6 +170,7 @@ typedef NS_ENUM(int, TTLockType)
     TTLockTypeCylinderLock  ,
     TTLockTypeRemoteControl  ,
     TTLockTypeHotelLock ,
+	TTLockTypeElevator
 };
 
 
@@ -377,13 +378,30 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueResetButton = 29,
     TTLockFeatureValuePrivacyLock = 30,
     TTLockFeatureValueDeadLock = 32,
-    TTLockFeatureValueCycleCardOrFingerprint = 34,
+    TTLockFeatureValueCyclicCardOrFingerprint = 34,
 };
+
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
-    TTLockTamperAlert = 1,
-    TTLockResetButton,
-    TTLockPrivacyLock
-    
+    TTLockSound = 1,
+    TTPasscodeVisible,
+    TTLockFreeze,
+    TTTamperAlert,
+    TTResetButton,
+    TTPrivacyLock,
+};
+
+/*!
+*  @enum TTElevatorWorkMode
+*
+*  @discussion Elevator Work Mode
+*
+*  @constant TTElevatorWorkModeActivateAllFloors           any floor can press by this hotel card
+*  @constant TTElevatorWorkModeActivateSpecificFloors      only floors corresponding to the card can be allowed to press
+*
+*/
+typedef NS_ENUM(int, TTElevatorWorkMode) {
+	TTElevatorWorkModeActivateAllFloors,
+	TTElevatorWorkModeActivateSpecificFloors
 };
 
 @end

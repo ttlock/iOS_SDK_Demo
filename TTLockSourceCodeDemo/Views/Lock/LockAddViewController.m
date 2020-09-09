@@ -134,7 +134,7 @@
 */
 
     [self.view showToastLoading];
-    [TTLock initLockWithDict:dict success:^(NSString *lockData, long long specialValue) {
+    [TTLock initLockWithDict:dict success:^(NSString *lockData) {
 #warning set the lock's alias
         NSString *alias = scanModel.lockName;
         [self uploadLockData:lockData alias:alias];
