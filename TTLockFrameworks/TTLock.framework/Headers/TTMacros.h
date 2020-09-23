@@ -170,7 +170,7 @@ typedef NS_ENUM(int, TTLockType)
     TTLockTypeCylinderLock  ,
     TTLockTypeRemoteControl  ,
     TTLockTypeHotelLock ,
-	TTLockTypeElevator
+	TTLockTypeLift
 };
 
 
@@ -379,6 +379,8 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValuePrivacyLock = 30,
     TTLockFeatureValueDeadLock = 32,
     TTLockFeatureValueCyclicCardOrFingerprint = 34,
+	TTLockFeatureValueFingerVein = 37,
+	TTLockFeatureValueNBAwake = 39,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -391,17 +393,28 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
 };
 
 /*!
-*  @enum TTElevatorWorkMode
+*  @enum TTLiftWorkMode
 *
-*  @discussion Elevator Work Mode
+*  @discussion Lift Work Mode
 *
-*  @constant TTElevatorWorkModeActivateAllFloors           any floor can press by this hotel card
-*  @constant TTElevatorWorkModeActivateSpecificFloors      only floors corresponding to the card can be allowed to press
+*  @constant TTLiftWorkModeActivateAllFloors           any floor can press by this hotel card
+*  @constant TTLiftWorkModeActivateSpecificFloors      only floors corresponding to the card can be allowed to press
 *
 */
-typedef NS_ENUM(int, TTElevatorWorkMode) {
-	TTElevatorWorkModeActivateAllFloors,
-	TTElevatorWorkModeActivateSpecificFloors
+typedef NS_ENUM(int, TTLiftWorkMode) {
+	TTLiftWorkModeActivateAllFloors,
+	TTLiftWorkModeModeActivateSpecificFloors
+};
+
+typedef NS_ENUM(NSInteger, TTNBAwakeMode) {
+	TTNBAwakeModeKeypad = 0,
+	TTNBAwakeModeCard = 1,
+	TTNBAwakeModeFingerprint = 2,
+};
+
+typedef NS_ENUM(NSInteger, TTNBAwakeTimeType) {
+	TTNBAwakeTimeTypePoint = 1,
+	TTNBAwakeTimeTypeInterval = 2,
 };
 
 @end

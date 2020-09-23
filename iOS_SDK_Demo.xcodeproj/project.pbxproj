@@ -856,7 +856,7 @@
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/TTLockGateway/G1",
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/G1/SmartLinkSDK",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -925,7 +925,7 @@
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/TTLockGateway/G1",
 					"$(PROJECT_DIR)/TTLockSourceCodeDemo/G1/SmartLinkSDK",
 				);
-				MARKETING_VERSION = 3.1.0;
+				MARKETING_VERSION = 3.1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

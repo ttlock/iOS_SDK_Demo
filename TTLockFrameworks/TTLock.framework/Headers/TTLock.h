@@ -4,7 +4,8 @@
 //
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
-//  version:3.1.0
+
+//  version:3.1.1
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -879,58 +880,111 @@ Set Hotel Data
 												failure:(TTFailedBlock)failure;
 
 
-#pragma mark - Elevator
+#pragma mark - Lift
 
 /**
-Activate Elevator Floors
+Activate Lift Floors
  
-@param floors elevator floors
+@param floors lift floors
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
 */
-+ (void)activateElevatorFloors:(NSString *)floors
-					  lockData:(NSString *)lockData
-					   success:(TTActivateElevatorSuccessdBlock)success
-					   failure:(TTFailedBlock)failure;
++ (void)activateLiftFloors:(NSString *)floors
+				  lockData:(NSString *)lockData
+				   success:(TTActivateLiftSuccessdBlock)success
+				   failure:(TTFailedBlock)failure;
 
 /**
-Set Elevator Controlable Floors
+Set Lift Controlable Floors
  
-@param floors elevator floors
+@param floors lift floors
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
 */
-+ (void)setElevatorControlableFloors:(NSString *)floors
++ (void)setLiftControlableFloors:(NSString *)floors
 							lockData:(NSString *)lockData
 							 success:(TTSucceedBlock)success
 							 failure:(TTFailedBlock)failure;
 
 /**
-Set Elevator Work Mode
+Set Lift Work Mode
  
-@param workMode TTElevatorWorkMode
+@param workMode TTLiftWorkMode
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
 */
-+ (void)setElevatorWorkMode:(TTElevatorWorkMode)workMode
++ (void)setLiftWorkMode:(TTLiftWorkMode)workMode
 				   lockData:(NSString *)lockData
 					success:(TTSucceedBlock)success
 					failure:(TTFailedBlock)failure;
 
+#pragma mark - NB Awake
+
+/**
+Set NB Awake Modes
+ 
+@param awakeModes enum TTNBAwakeMode ,such as @[TTNBAwakeModeKeypad,TTNBAwakeModeCard,TTNBAwakeModeFingerprint]
+                  awakeModes.count == 0, means no awake mode
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setNBAwakeModes:(NSArray <NSNumber *> *)awakeModes
+			   lockData:(NSString *)lockData
+				success:(TTSucceedBlock)success
+				failure:(TTFailedBlock)failure;
+
+/**
+Get NB Awake Modes
+ 
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)getNBAwakeModesWithLockData:(NSString *)lockData
+							success:(TTGetNBAwakeModesSuccessdBlock)success
+							failure:(TTFailedBlock)failure;
+
+/**
+Set NB Awake Modes
+ 
+@param awakeTimes awakeTimes.count must <= 10 ,awakeTimes.count == 0 means delete awakeTimes.
+                  type enum TTNBAwakeTimeType, minutes means minutes from 0 clock or time interval
+                  such as,@[@{@"type":@(TTNBAwakeTimeTypePoint),@"minutes":@100}]
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setNBAwakeTimes:(NSArray<NSDictionary *> *)awakeTimes
+			   lockData:(NSString *)lockData
+				success:(TTSucceedBlock)success
+				failure:(TTFailedBlock)failure;
+
+/**
+Get NB Awake Times
+ 
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)getNBAwakeTimesWithLockData:(NSString *)lockData
+							success:(TTGetNBAwakeTimesSuccessdBlock)success
+							failure:(TTFailedBlock)failure;
+
 #pragma mark - DoorSensor
-- (void)setDoorSensorLockingSwitchOn:(BOOL)on
++ (void)setDoorSensorLockingSwitchOn:(BOOL)on
                             lockData:(NSString *)lockData
                              success:(TTSucceedBlock)success
                              failure:(TTFailedBlock)failure;
 
-- (void)getDoorSensorLockingSwitchStateWithLockData:(NSString *)lockData
++ (void)getDoorSensorLockingSwitchStateWithLockData:(NSString *)lockData
                                             success:(TTGetSwitchStateSuccessBlock)success
                                             failure:(TTFailedBlock)failure;
 
-- (void)getDoorSensorStateWithLockData:(NSString *)lockData
++ (void)getDoorSensorStateWithLockData:(NSString *)lockData
                                success:(TTGetSwitchStateSuccessBlock)success
                                failure:(TTFailedBlock)failure;
 

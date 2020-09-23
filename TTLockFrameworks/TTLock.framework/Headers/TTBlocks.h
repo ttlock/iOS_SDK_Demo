@@ -59,10 +59,12 @@ typedef void(^TTGetLightTimeSuccessBlock) (int time);
 typedef void(^TTSetLockConfigSuccessBlock) (TTLockConfigType type);
 typedef void(^TTGetLockConfigSuccessBlock) (TTLockConfigType type,BOOL isOn);
 
-typedef void(^TTActivateElevatorSuccessdBlock)(long long lockTime, NSInteger electricQuantity, long long uniqueId);
+typedef void(^TTActivateLiftSuccessdBlock)(long long lockTime, NSInteger electricQuantity, long long uniqueId);
 
 typedef void(^TTGetHotelDataSuccessdBlock)(NSDictionary *hotelData);
 
+typedef void(^TTGetNBAwakeModesSuccessdBlock)(NSArray <NSNumber *> *awakeModes);
+typedef void(^TTGetNBAwakeTimesSuccessdBlock)(NSArray <NSDictionary*> *awakeTimes);
 
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) __attribute__((deprecated("SDK3.1.0,Use TTGetFeatureValueSucceedBlock")));
 
