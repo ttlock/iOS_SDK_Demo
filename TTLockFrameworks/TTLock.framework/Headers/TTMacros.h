@@ -380,6 +380,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueDeadLock = 32,
     TTLockFeatureValueCyclicCardOrFingerprint = 34,
 	TTLockFeatureValueFingerVein = 37,
+	TTLockFeatureValueBle5G = 38,
 	TTLockFeatureValueNBAwake = 39,
 };
 

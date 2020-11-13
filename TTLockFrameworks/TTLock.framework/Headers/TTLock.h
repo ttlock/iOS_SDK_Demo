@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.1.2
+//  version:3.1.3
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -478,7 +478,7 @@ Set Hotel Data
 /**
  Set admin erase passcode
 
- @param passcode  The erase passcode can delete all used passcode and it also limited to 4 - 9 digits
+ @param passcode  The erase passcode can delete all used passcode and it also limited to 7 - 9 digits
  @param lockData The lock data string used to operate lock
  @param success A block invoked when erase passcode is set
  @param failure A block invoked when the operation fails
@@ -650,6 +650,18 @@ Set Hotel Data
                    success:(TTSucceedBlock)success
                    failure:(TTFailedBlock)failure;
 
+/**
+ Report Loss Card
+
+ @param cardNumber The card number you want to report loss
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when card is reported loss
+ @param failure A block invoked when the operation fails
+ */
++ (void)reportLossCard:(NSString *)cardNumber
+			  lockData:(NSString *)lockData
+			   success:(TTSucceedBlock)success
+			   failure:(TTFailedBlock)failure;
 
 /**
  Clear all IC cards
@@ -885,7 +897,7 @@ Set Hotel Data
 /**
 Activate Lift Floors
  
-@param floors lift floors
+@param floors lift floors,connect with comma symbol,such as: @"1,2,3"
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
@@ -898,7 +910,7 @@ Activate Lift Floors
 /**
 Set Lift Controlable Floors
  
-@param floors lift floors
+@param floors lift floors,connect with comma symbol,such as: @"1,2,3"
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
