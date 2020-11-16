@@ -110,7 +110,7 @@
 		4F27C232226EA12A000FB7CF /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		4F27C233226EA12A000FB7CF /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		4F27C235226EA12A000FB7CF /* TTLockDemoPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLockDemoPrefixHeader.pch; sourceTree = "<group>"; };
-		4F61AF6F2255CE0A008979D2 /* TTLockSourceCodeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TTLockSourceCodeDemo.app; path = iOS_SDK_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F61AF6F2255CE0A008979D2 /* iOS_SDK_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_SDK_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F7AD0BE2280016C002A7B1A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4F7AD0C22280027C002A7B1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4F7AD0C42280027F002A7B1A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		4F61AF702255CE0A008979D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4F61AF6F2255CE0A008979D2 /* TTLockSourceCodeDemo.app */,
+				4F61AF6F2255CE0A008979D2 /* iOS_SDK_Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -520,7 +520,7 @@
 			);
 			name = iOS_SDK_Demo;
 			productName = TTLockManager;
-			productReference = 4F61AF6F2255CE0A008979D2 /* TTLockSourceCodeDemo.app */;
+			productReference = 4F61AF6F2255CE0A008979D2 /* iOS_SDK_Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -839,6 +839,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W384X4TB6S;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TTLockFrameworks",
@@ -908,6 +909,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W384X4TB6S;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				EXCLUDED_ARCHS = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TTLockFrameworks",
