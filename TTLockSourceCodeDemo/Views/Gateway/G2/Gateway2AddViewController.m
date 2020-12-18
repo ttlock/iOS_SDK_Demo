@@ -69,7 +69,7 @@
             [self.view showToast:LS(@"WiFi name error")];
             return;
         }
-        if (status == TTGatewayWrongSSID) {
+        if (status == TTGatewayWrongWifiPassword) {
             [self.view showToast:LS(@"WiFi password error")];
             return;
         }
