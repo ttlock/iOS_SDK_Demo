@@ -44,8 +44,8 @@
 /**
  initialize Gateway
 
- @param infoDic  @{@"SSID": xxx, @"wifiPwd": xxx, @"uid": xxx ,@"userPwd": xxx, @"gatewayName": xxx}
-
+ @param infoDic  @{@"SSID": xxx, @"wifiPwd": xxx, @"uid": xxx ,@"userPwd": xxx, @"gatewayName": xxx,@"serverAddress":xxx,@"portNumber":xxx}
+                 option  @"serverAddress",@"portNumber"
  */
 + (void)initializeGatewayWithInfoDic:(NSDictionary *)infoDic block:(TTInitializeGatewayBlock)block;
 

@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.1.3
+//  version:3.1.4
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -344,8 +344,8 @@ Set Lock Config
                       failure:(TTFailedBlock)failure;
 /**
  Set Hotel Card Sector
- @param sector    sector = @[] means all sectors can use. The sector value range is 1 - 16.
- Such as, sector = @"1,4,16" means First, fourth and sixteenth sectors can use.
+ @param sector  connect with comma symbol,Such as, sector = @"1,4,16" means First, fourth and sixteenth sectors can use.
+ sector = @"" means all sectors can use. The sector value range is 1 - 16.
  @param lockData The lock data string used to operate lock
  @param success A block invoked when the operation succeeds
  @param failure A block invoked when the operation fails
@@ -933,6 +933,7 @@ Set Lift Work Mode
 					success:(TTSucceedBlock)success
 					failure:(TTFailedBlock)failure;
 
+
 #pragma mark - NB Awake
 
 /**
@@ -985,6 +986,35 @@ Get NB Awake Times
 + (void)getNBAwakeTimesWithLockData:(NSString *)lockData
 							success:(TTGetNBAwakeTimesSuccessdBlock)success
 							failure:(TTFailedBlock)failure;
+
+
+#pragma mark - Power Saver
+
+/**
+Set Power Saver Work Mode
+ 
+@param workMode TTPowerSaverWorkMode
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setPowerSaverWorkMode:(TTPowerSaverWorkMode)workMode
+					 lockData:(NSString *)lockData
+					  success:(TTSucceedBlock)success
+					  failure:(TTFailedBlock)failure;
+
+/**
+Set Power Saver Controlable Lock
+ 
+@param lockMac the controlable lock mac
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setPowerSaverControlableLockWithLockMac:(NSString *)lockMac
+									   lockData:(NSString *)lockData
+										success:(TTSucceedBlock)success
+										failure:(TTFailedBlock)failure;
 
 #pragma mark - DoorSensor
 + (void)setDoorSensorLockingSwitchOn:(BOOL)on

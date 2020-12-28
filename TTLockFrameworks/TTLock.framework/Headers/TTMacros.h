@@ -42,7 +42,6 @@ UIKIT_EXTERN NSString * const  TTErrorMessageInFreezeMode;
 UIKIT_EXTERN NSString * const  TTErrorMessageInvalidClientPara;
 UIKIT_EXTERN NSString * const  TTErrorMessageLockIsLocked;
 UIKIT_EXTERN NSString * const  TTErrorMessageRecordNotExist;
-UIKIT_EXTERN NSString * const  TTErrorMessageNotSupportModifyPasscode;
 UIKIT_EXTERN NSString * const  TTErrorMessageBluetoothPoweredOff;
 UIKIT_EXTERN NSString * const  TTErrorMessageConnectionTimeout;
 UIKIT_EXTERN NSString * const  TTErrorMessageDisconnection;
@@ -95,7 +94,6 @@ typedef NS_ENUM(NSInteger, TTError)
     TTErrorLockIsLocked = 0x1E,
     TTErrorRecordNotExist = 0x1F,
     
-    TTErrorNotSupportModifyPasscode = 0x60,
     TTErrorBluetoothPoweredOff = 0x61,
     TTErrorConnectionTimeout = 0x62,
     TTErrorDisconnection = 0x63,
@@ -170,7 +168,8 @@ typedef NS_ENUM(int, TTLockType)
     TTLockTypeCylinderLock  ,
     TTLockTypeRemoteControl  ,
     TTLockTypeHotelLock ,
-	TTLockTypeLift
+	TTLockTypeLift,
+	TTLockTypePowerSaver
 };
 
 
@@ -405,6 +404,12 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
 typedef NS_ENUM(int, TTLiftWorkMode) {
 	TTLiftWorkModeActivateAllFloors,
 	TTLiftWorkModeModeActivateSpecificFloors
+};
+
+typedef NS_ENUM(int, TTPowerSaverWorkMode) {
+	TTPowerSaverWorkModeAllCards,
+	TTPowerSaverWorkModeHotelCard,
+	TTPowerSaverWorkModeRoomCard
 };
 
 typedef NS_ENUM(NSInteger, TTNBAwakeMode) {
