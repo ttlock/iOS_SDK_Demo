@@ -44,7 +44,9 @@
 /**
  initialize Gateway
 
- @param infoDic  @{@"SSID": xxx, @"wifiPwd": xxx, @"uid": xxx ,@"userPwd": xxx, @"gatewayName": xxx,@"serverAddress":xxx,@"portNumber":xxx}
+ @param infoDic  @{@"SSID": xxx, @"wifiPwd": xxx, @"uid": xxx ,@"userPwd": xxx, @"gatewayName": xxx, @"gatewayVersion": @2, @"serverAddress":xxx, @"portNumber":xxx}
+                 gatewayName  Cannot exceed 48 bytes, exceeding will be truncated
+				 gatewayVersion @2 means G2,@3 means G3,@4 means G4
                  option  @"serverAddress",@"portNumber"
  */
 + (void)initializeGatewayWithInfoDic:(NSDictionary *)infoDic block:(TTInitializeGatewayBlock)block;

@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.1.4
+//  version:3.1.5
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -584,22 +584,27 @@ Set Hotel Data
 #pragma mark - IC card
 
 /**
- Add new IC card
- 
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
+ Add cyclic IC card
+
+ @param cyclicConfig  cyclicConfig.count ==0 ,means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+					 startTime The time when it becomes valid (minutes from 0 clock)
+					 endTime  The time when it is expired (minutes from 0 clock)
+					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid, If it's a permanent key, set 0
+ @param endDate The time when it is expired, If it's a permanent key, set 0
  @param lockData The lock data string used to operate lock
  @param progress A block invoked when card is adding
  @param success A block invoked when card is added
  @param failure A block invoked when the operation fails
  */
-+ (void)addICCardStartDate:(long long)startDate
-                   endDate:(long long)endDate
-                  lockData:(NSString *)lockData
-                  progress:(TTAddICProgressBlock)progress
-                   success:(TTAddICSucceedBlock)success
-                   failure:(TTFailedBlock)failure;
-
++ (void)addICCardWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+						startDate:(long long)startDate
+						  endDate:(long long)endDate
+						 lockData:(NSString *)lockData
+						 progress:(TTAddICProgressBlock)progress
+						  success:(TTAddICSucceedBlock)success
+						  failure:(TTFailedBlock)failure;
 
 /**
  Recover IC card
@@ -618,10 +623,14 @@ Set Hotel Data
                     success:(TTAddICSucceedBlock)success
                     failure:(TTFailedBlock)failure;
 
-
 /**
- Modify IC card valid date
+ Modify cyclic IC card valid date
 
+ @param cyclicConfig cyclicConfig.count ==0 ,means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+					 startTime The time when it becomes valid (minutes from 0 clock)
+					 endTime  The time when it is expired (minutes from 0 clock)
+					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
  @param cardNumber The card number you want to modify
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
@@ -629,13 +638,13 @@ Set Hotel Data
  @param success A block invoked when card is modified
  @param failure A block invoked when the operation fails
  */
-+ (void)modifyICCardValidityPeriodWithCardNumber:(NSString *)cardNumber
-                                       startDate:(long long)startDate
-                                         endDate:(long long)endDate
-                                        lockData:(NSString *)lockData
-                                         success:(TTSucceedBlock)success
-                                         failure:(TTFailedBlock)failure;
-
++ (void)modifyICCardValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+										cardNumber:(NSString *)cardNumber
+										 startDate:(long long)startDate
+										   endDate:(long long)endDate
+										  lockData:(NSString *)lockData
+										   success:(TTSucceedBlock)success
+										   failure:(TTFailedBlock)failure;
 
 /**
  Delete IC card
@@ -687,55 +696,16 @@ Set Hotel Data
                                failure:(TTFailedBlock)failure;
 
 
-/**
- Add cyclic IC card
-
- @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
-                     startTime The time when it becomes valid (minutes from 0 clock)
-                     endTime  The time when it is expired (minutes from 0 clock)
-                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
- @param startDate The time when it becomes valid, If it's a permanent key, set 0
- @param endDate The time when it is expired, If it's a permanent key, set 0
- @param lockData The lock data string used to operate lock
- @param progress A block invoked when card is adding
- @param success A block invoked when card is added
- @param failure A block invoked when the operation fails
- */
-+ (void)addICCardWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
-						startDate:(long long)startDate
-						  endDate:(long long)endDate
-						 lockData:(NSString *)lockData
-						 progress:(TTAddICProgressBlock)progress
-						  success:(TTAddICSucceedBlock)success
-						  failure:(TTFailedBlock)failure;
-
-/**
- Modify cyclic IC card valid date
-
- @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
-                     startTime The time when it becomes valid (minutes from 0 clock)
-                     endTime  The time when it is expired (minutes from 0 clock)
-                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
- @param cardNumber The card number you want to modify
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param lockData The lock data string used to operate lock
- @param success A block invoked when card is modified
- @param failure A block invoked when the operation fails
- */
-+ (void)modifyICCardValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
-										cardNumber:(NSString *)cardNumber
-										 startDate:(long long)startDate
-										   endDate:(long long)endDate
-										  lockData:(NSString *)lockData
-										   success:(TTSucceedBlock)success
-										   failure:(TTFailedBlock)failure;
-
 #pragma mark - Fingerprint
 
 /**
- Add new fingerprint by pressing finger on the lock
+ Add  fingerprint by pressing finger on the lock
 
+ @param cyclicConfig cyclicConfig.count ==0 ,means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+					 startTime The time when it becomes valid (minutes from 0 clock)
+					 endTime  The time when it is expired (minutes from 0 clock)
+					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
@@ -744,13 +714,13 @@ Set Hotel Data
  @param success A block invoked when fingerprint is added
  @param failure A block invoked when the operation fails
  */
-+ (void)addFingerprintStartDate:(long long)startDate
-                        endDate:(long long)endDate
-                       lockData:(NSString *)lockData
-                       progress:(TTAddFingerprintProgressBlock)progress
-                        success:(TTAddFingerprintSucceedBlock)success
-                        failure:(TTFailedBlock)failure;
-
++ (void)addFingerprintWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+							 startDate:(long long)startDate
+							   endDate:(long long)endDate
+							  lockData:(NSString *)lockData
+							  progress:(TTAddFingerprintProgressBlock)progress
+							   success:(TTAddFingerprintSucceedBlock)success
+							   failure:(TTFailedBlock)failure;
 
 /**
  Add new fingerprint by  writing fingerprint data to the lock
@@ -791,8 +761,13 @@ Set Hotel Data
 
 
 /**
- Modify fingerprint valid date
+ Modify cyclic fingerprint valid date
 
+ @param cyclicConfig  cyclicConfig.count ==0 ,means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+					 startTime The time when it becomes valid (minutes from 0 clock)
+					 endTime  The time when it is expired (minutes from 0 clock)
+					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
  @param fingerprintNumber The fingerprint number you want to modify
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
@@ -800,13 +775,13 @@ Set Hotel Data
  @param success A block invoked when fingerprint is modified
  @param failure A block invoked when the operation fails
  */
-+ (void)modifyFingerprintValidityPeriodWithFingerprintNumber:(NSString *)fingerprintNumber
-                                                   startDate:(long long)startDate
-                                                     endDate:(long long)endDate
-                                                    lockData:(NSString *)lockData
-                                                     success:(TTSucceedBlock)success
-                                                     failure:(TTFailedBlock)failure;
-
++ (void)modifyFingerprintValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+									  fingerprintNumber:(NSString *)fingerprintNumber
+											  startDate:(long long)startDate
+												endDate:(long long)endDate
+											   lockData:(NSString *)lockData
+												success:(TTSucceedBlock)success
+												failure:(TTFailedBlock)failure;
 
 /**
  Delete fingerprint
@@ -844,52 +819,6 @@ Set Hotel Data
 + (void)getAllValidFingerprintsWithLockData:(NSString *)lockData
                                     success:(TTGetAllFingerprintsSucceedBlock)success
                                     failure:(TTFailedBlock)failure;
-
-/**
- Add cyclic fingerprint by pressing finger on the lock
-
- @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
-                     startTime The time when it becomes valid (minutes from 0 clock)
-                     endTime  The time when it is expired (minutes from 0 clock)
-					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param lockData The lock data string used to operate lock
- @param progress A block invoked when card is adding
-  currentCount == -1 || totalCount  == -1 means unknown,continue adding.
- @param success A block invoked when fingerprint is added
- @param failure A block invoked when the operation fails
- */
-+ (void)addFingerprintWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
-							 startDate:(long long)startDate
-							   endDate:(long long)endDate
-							  lockData:(NSString *)lockData
-							  progress:(TTAddFingerprintProgressBlock)progress
-							   success:(TTAddFingerprintSucceedBlock)success
-							   failure:(TTFailedBlock)failure;
-
-
-/**
- Modify cyclic fingerprint valid date
-
- @param cyclicConfig weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
-                     startTime The time when it becomes valid (minutes from 0 clock)
-                     endTime  The time when it is expired (minutes from 0 clock)
-					 such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
- @param fingerprintNumber The fingerprint number you want to modify
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param lockData The lock data string used to operate lock
- @param success A block invoked when fingerprint is modified
- @param failure A block invoked when the operation fails
- */
-+ (void)modifyFingerprintValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
-									  fingerprintNumber:(NSString *)fingerprintNumber
-											  startDate:(long long)startDate
-												endDate:(long long)endDate
-											   lockData:(NSString *)lockData
-												success:(TTSucceedBlock)success
-												failure:(TTFailedBlock)failure;
 
 
 #pragma mark - Lift
@@ -1016,6 +945,41 @@ Set Power Saver Controlable Lock
 										success:(TTSucceedBlock)success
 										failure:(TTFailedBlock)failure;
 
+/**
+ Get Unlock Direction
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+*/
++ (void)getUnlockDirectionWithLockData:(NSString *)lockData
+							   success:(TTGetUnlockDirectionSuccessdBlock)success
+							   failure:(TTFailedBlock)failure;
+
+/**
+ Set Unlock Direction
+ @param direction TTUnlockDirection
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+*/
++ (void)setUnlockDirection:(TTUnlockDirection)direction
+				  lockData:(NSString *)lockData
+				   success:(TTSucceedBlock)success
+				   failure:(TTFailedBlock)failure;
+
+/**
+ Get Accessory Electric Quantity
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+*/
++ (void)getAccessoryElectricQuantityWithType:(TTAccessoryType)type
+								accessoryMac:(NSString *)accessoryMac
+									lockData:(NSString *)lockData
+									 success:(TTGetAccessoryElectricQuantitySuccessdBlock)success
+									 failure:(TTFailedBlock)failure;
+
+
 #pragma mark - DoorSensor
 + (void)setDoorSensorLockingSwitchOn:(BOOL)on
                             lockData:(NSString *)lockData
@@ -1072,5 +1036,34 @@ Set Power Saver Controlable Lock
 							   lockData:(NSString *)lockData
 								success:(TTSucceedBlock)success
 								failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setHotelCardSector")));
+
++ (void)addFingerprintStartDate:(long long)startDate
+						endDate:(long long)endDate
+					   lockData:(NSString *)lockData
+					   progress:(TTAddFingerprintProgressBlock)progress
+						success:(TTAddFingerprintSucceedBlock)success
+						failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,addFingerprintWithCyclicConfig")));
+
++ (void)modifyFingerprintValidityPeriodWithFingerprintNumber:(NSString *)fingerprintNumber
+												   startDate:(long long)startDate
+													 endDate:(long long)endDate
+													lockData:(NSString *)lockData
+													 success:(TTSucceedBlock)success
+													 failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,modifyFingerprintValidityPeriodWithCyclicConfig")));
+
++ (void)addICCardStartDate:(long long)startDate
+				   endDate:(long long)endDate
+				  lockData:(NSString *)lockData
+				  progress:(TTAddICProgressBlock)progress
+				   success:(TTAddICSucceedBlock)success
+				   failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,addICCardWithCyclicConfig")));
+
++ (void)modifyICCardValidityPeriodWithCardNumber:(NSString *)cardNumber
+									   startDate:(long long)startDate
+										 endDate:(long long)endDate
+										lockData:(NSString *)lockData
+										 success:(TTSucceedBlock)success
+										 failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,modifyICCardValidityPeriodWithCyclicConfig")));
+
 @end
 

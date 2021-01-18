@@ -381,6 +381,9 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
 	TTLockFeatureValueFingerVein = 37,
 	TTLockFeatureValueBle5G = 38,
 	TTLockFeatureValueNBAwake = 39,
+	TTLockFeatureValueRecoverCyclePasscode = 40,
+	TTLockFeatureValueWirelessKeyFob = 41,
+	TTLockFeatureValueGetAccessoryElectricQuantity = 42,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -421,6 +424,16 @@ typedef NS_ENUM(NSInteger, TTNBAwakeMode) {
 typedef NS_ENUM(NSInteger, TTNBAwakeTimeType) {
 	TTNBAwakeTimeTypePoint = 1,
 	TTNBAwakeTimeTypeInterval = 2,
+};
+
+typedef NS_ENUM(int, TTUnlockDirection) {
+	TTUnlockDirectionLeft = 1,
+	TTUnlockDirectionRight
+};
+
+typedef NS_ENUM(int, TTAccessoryType) {
+	TTAccessoryTypeWirelessKeypad = 1,
+	TTAccessoryTypeWirelessKeyFob
 };
 
 @end

@@ -66,6 +66,8 @@
 	} failure:^(TTError errorCode, NSString *errorMsg) {
 		[self.view showToast:errorMsg];
 	}];
+	
+	
 }
 
 - (void)controlLockAction:(TTControlAction)acton{

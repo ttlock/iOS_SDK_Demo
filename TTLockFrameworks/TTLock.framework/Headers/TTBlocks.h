@@ -66,6 +66,10 @@ typedef void(^TTGetHotelDataSuccessdBlock)(NSDictionary *hotelData);
 typedef void(^TTGetNBAwakeModesSuccessdBlock)(NSArray <NSNumber *> *awakeModes);
 typedef void(^TTGetNBAwakeTimesSuccessdBlock)(NSArray <NSDictionary*> *awakeTimes);
 
+typedef void(^TTGetUnlockDirectionSuccessdBlock)(TTUnlockDirection direction);
+
+typedef void(^TTGetAccessoryElectricQuantitySuccessdBlock)(NSInteger electricQuantity, long long updateDate);
+
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) __attribute__((deprecated("SDK3.1.0,Use TTGetFeatureValueSucceedBlock")));
 
 #endif /* TTBlocks_h */
