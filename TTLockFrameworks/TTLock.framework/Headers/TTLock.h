@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.1.5
+//  version:3.1.6
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -935,7 +935,7 @@ Set Power Saver Work Mode
 /**
 Set Power Saver Controlable Lock
  
-@param lockMac the controlable lock mac
+@param lockMac the controlable lock mac, @"" or nil means no control Lock
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation succeeds
 @param failure A block invoked when the operation fails
