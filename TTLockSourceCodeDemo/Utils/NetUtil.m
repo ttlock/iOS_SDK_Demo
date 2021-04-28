@@ -31,11 +31,8 @@ static NSString *const AppDomain = @"AppDomain";
     NSMutableDictionary *parameters = [NetUtil initParame];
     parameters[@"username"] = username;
     parameters[@"password"] = password;
-    parameters[@"grant_type"] = @"password";
     parameters[@"client_id"] = TTAppkey;
     parameters[@"client_secret"] = TTAppSecret;
-    parameters[@"redirect_uri"] = TTRedirectUri;
-    parameters[@"clientId"] = nil;
 
     NSString *url = [NSString stringWithFormat:@"%@/oauth2/token",TTLockLoginURL];
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
