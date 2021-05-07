@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - deprecated
 
-+ (BOOL)lockSpecialValue:(long long)specialValue suportFunction:(TTLockSpecialFunction)function DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,modifyICCardValidityPeriodWithCyclicConfig");
++ (BOOL)lockSpecialValue:(long long)specialValue suportFunction:(TTLockSpecialFunction)function DEPRECATED_MSG_ATTRIBUTE("SDK3.1.8,lockFeatureValue:suportFunction");
 
 @end
 
