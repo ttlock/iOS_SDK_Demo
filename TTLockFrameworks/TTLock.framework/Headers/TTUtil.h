@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTMacros.h"
+#import <TTLock/TTMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TTUtil : NSObject
 
-+ (BOOL)lockSpecialValue:(long long)specialValue suportFunction:(TTLockSpecialFunction)function;
-
 + (BOOL)lockFeatureValue:(NSString *)lockData suportFunction:(TTLockFeatureValue)function;
 
 + (TTLockType)getLockTypeWithLockVersion:(NSDictionary *)lockVersion;
+
+#pragma mark - deprecated
+
++ (BOOL)lockSpecialValue:(long long)specialValue suportFunction:(TTLockSpecialFunction)function DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,modifyICCardValidityPeriodWithCyclicConfig");
 
 @end
 

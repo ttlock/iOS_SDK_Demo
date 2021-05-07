@@ -5,21 +5,20 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.1.7
+//  version:3.1.8
 
 #import <Foundation/Foundation.h>
-#import "TTBlocks.h"
-#import "TTGateway.h"
-#import "TTGatewayMacro.h"
-#import "TTGatewayScanModel.h"
-#import "TTSystemInfoModel.h"
-#import "TTMacros.h"
-#import "TTScanModel.h"
-#import "TTSystemInfoModel.h"
-#import "TTUtil.h"
-#import "TTSecurityUtil.h"
-#import "TTWirelessKeypad.h"
-#import "TTWirelessKeypadScanModel.h"
+#import <TTLock/TTBlocks.h>
+#import <TTLock/TTGateway.h>
+#import <TTLock/TTGatewayMacro.h>
+#import <TTLock/TTGatewayScanModel.h>
+#import <TTLock/TTSystemInfoModel.h>
+#import <TTLock/TTMacros.h>
+#import <TTLock/TTScanModel.h>
+#import <TTLock/TTSystemInfoModel.h>
+#import <TTLock/TTUtil.h>
+#import <TTLock/TTWirelessKeypad.h>
+#import <TTLock/TTWirelessKeypadScanModel.h>
 
 
 @interface TTLock : NSObject
@@ -41,7 +40,7 @@
 /**
   Whether the Bluetooth is scanning
  */
-@property (class, nonatomic, assign, readonly) BOOL isScanning;
+@property (class, nonatomic, assign, readonly) BOOL isScanning API_AVAILABLE(ios(9.0));
 
 /**
  Setup Bluetooth
@@ -143,7 +142,7 @@
  @param success A block invoked when the lock version is got
  @param failure A block invoked when the operation fails
  */
-+ (void)getLockVersionWithWithLockMac:(NSString *)lockMac
++ (void)getLockVersionWithLockMac:(NSString *)lockMac
                               success:(TTGetLockVersionSucceedBlock)success
                               failure:(TTFailedBlock)failure;
 
@@ -320,7 +319,8 @@ Get Light Time
 /**
 Set Lock Config
  
-@param type      TTLockConfigType
+@param type  TTLockConfigType
+@param on  switch on or off
 @param lockData The lock data string used to operate lock
 @param success A block invoked when when the operation succeeds
 @param failure A block invoked when the operation fails
@@ -342,35 +342,43 @@ Set Lock Config
                      lockData:(NSString *)lockData
                       success:(TTGetLockConfigSuccessBlock)success
                       failure:(TTFailedBlock)failure;
+
 /**
- Set Hotel Card Sector
- @param sector  connect with comma symbol,Such as, sector = @"1,4,16" means First, fourth and sixteenth sectors can use.
- sector = @"" means all sectors can use. The sector value range is 1 - 16.
+ Set Unlock Direction
+ @param direction TTUnlockDirection
  @param lockData The lock data string used to operate lock
  @param success A block invoked when the operation succeeds
  @param failure A block invoked when the operation fails
- */
-+ (void)setHotelCardSector:(NSString *)sector
+*/
++ (void)setUnlockDirection:(TTUnlockDirection)direction
 				  lockData:(NSString *)lockData
 				   success:(TTSucceedBlock)success
 				   failure:(TTFailedBlock)failure;
 
 /**
-Set Hotel Data
-
-@param hotelInfo hotel Info
-@param buildingNumber building Number
-@param floorNumber floor Number
-@param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
-@param failure A block invoked when the operation fails
+ Get Unlock Direction
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
 */
-+ (void)setHotelDataWithHotelInfo:(NSString *)hotelInfo
-				   buildingNumber:(int)buildingNumber
-					  floorNumber:(int)floorNumber
-						 lockData:(NSString *)lockData
-						  success:(TTSucceedBlock)success
-						  failure:(TTFailedBlock)failure;
++ (void)getUnlockDirectionWithLockData:(NSString *)lockData
+							   success:(TTGetUnlockDirectionSuccessdBlock)success
+							   failure:(TTFailedBlock)failure;
+
+/**
+ Get Accessory Electric Quantity
+ @param type TTAccessoryType
+ @param accessoryMac the Mac of  accessory
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+*/
++ (void)getAccessoryElectricQuantityWithType:(TTAccessoryType)type
+								accessoryMac:(NSString *)accessoryMac
+									lockData:(NSString *)lockData
+									 success:(TTGetAccessoryElectricQuantitySuccessdBlock)success
+									 failure:(TTFailedBlock)failure;
+
 
 #pragma mark - Lock upgrade
 
@@ -385,22 +393,6 @@ Set Hotel Data
                              success:(TTSucceedBlock)success
                              failure:(TTFailedBlock)failure;
 
-#pragma mark - NB-IoT
-
-/**
- Set the lock nb-iot
-
- @param serverAddress The server ip
- @param portNumber The server port
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the lock nb-iot is set
- @param failure A block invoked when the operation fails
- */
-+ (void)setNBServerAddress:(NSString *)serverAddress
-                portNumber:(NSString *)portNumber
-                  lockData:(NSString *)lockData
-                   success:(TTGetElectricQuantitySucceedBlock)success
-                   failure:(TTFailedBlock)failure;
 
 #pragma mark - Ekey
 
@@ -432,6 +424,45 @@ Set Hotel Data
 #pragma mark - Passcode
 
 /**
+ Modify admin passcode
+
+ @param adminPasscode The new admin passcode is limited to 4 - 9 digits
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when admin passcode is modified
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyAdminPasscode:(NSString *)adminPasscode
+				   lockData:(NSString *)lockData
+					success:(TTSucceedBlock)success
+					failure:(TTFailedBlock)failure;
+
+
+/**
+ Get admin passcode
+
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when admin passcode is got
+ @param failure A block invoked when the operation fails
+ */
++ (void)getAdminPasscodeWithLockData:(NSString *)lockData
+							 success:(TTGetAdminPasscodeSucceedBlock)success
+							 failure:(TTFailedBlock)failure;
+
+
+/**
+ Set admin erase passcode
+
+ @param passcode  The erase passcode can delete all used passcode and it also limited to 7 - 9 digits
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when erase passcode is set
+ @param failure A block invoked when the operation fails
+ */
++ (void)setAdminErasePasscode:(NSString *)passcode
+					 lockData:(NSString *)lockData
+					  success:(TTSucceedBlock)success
+					  failure:(TTFailedBlock)failure;
+
+/**
  Create custom passcode
 
  @param passcode The passcode is limited to 4 - 9 digits
@@ -448,45 +479,38 @@ Set Hotel Data
                      success:(TTSucceedBlock)success
                      failure:(TTFailedBlock)failure;
 
-
 /**
- Modify admin passcode
+ Moddify passcode or passcode valid date
 
- @param adminPasscode The new admin passcode is limited to 4 - 9 digits
+ @param passcode The passcode need to be modified
+ @param newPasscode The new passcode is used to replace first passcode. If you just want to modify valid date, the new passcode should be nil. New passcode is limited to 4 - 9 digits
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
- @param success A block invoked when admin passcode is modified
+ @param success A block invoked when passcode is modified
  @param failure A block invoked when the operation fails
  */
-+ (void)modifyAdminPasscode:(NSString *)adminPasscode
-                   lockData:(NSString *)lockData
-                    success:(TTSucceedBlock)success
-                    failure:(TTFailedBlock)failure;
-
-
-/**
- Get admin passcode
-
- @param lockData The lock data string used to operate lock
- @param success A block invoked when admin passcode is got
- @param failure A block invoked when the operation fails
- */
-+ (void)getAdminPasscodeWithLockData:(NSString *)lockData
-                             success:(TTGetAdminPasscodeSucceedBlock)success
-                             failure:(TTFailedBlock)failure;
++ (void)modifyPasscode:(NSString *)passcode
+		   newPasscode:(NSString *)newPasscode
+			 startDate:(long long)startDate
+			   endDate:(long long)endDate
+			  lockData:(NSString *)lockData
+			   success:(TTSucceedBlock)success
+			   failure:(TTFailedBlock)failure;
 
 
 /**
- Set admin erase passcode
+ Delete passcode
 
- @param passcode  The erase passcode can delete all used passcode and it also limited to 7 - 9 digits
+ @param passcode The passcode you want to delete it. Passcode is limited to 4 - 9 digits
  @param lockData The lock data string used to operate lock
- @param success A block invoked when erase passcode is set
+ @param success A block invoked when passcode is deleted
  @param failure A block invoked when the operation fails
  */
-+ (void)setAdminErasePasscode:(NSString *)passcode
-                     lockData:(NSString *)lockData
-                      success:(TTSucceedBlock)success
-                      failure:(TTFailedBlock)failure;
++ (void)deletePasscode:(NSString *)passcode
+			  lockData:(NSString *)lockData
+			   success:(TTSucceedBlock)success
+			   failure:(TTFailedBlock)failure;
 
 
 /**
@@ -500,18 +524,16 @@ Set Hotel Data
                            success:(TTResetPasscodesSucceedBlock)success
                            failure:(TTFailedBlock)failure;
 
-
 /**
- Get passcode data
+ Get all valid passcode
 
  @param lockData The lock data string used to operate lock
- @param success A block invoked when passcode data is got
+ @param success A block invoked when all valid passcode is got
  @param failure A block invoked when the operation fails
  */
-+ (void)getPasscodeVerificationParamsWithLockData:(NSString *)lockData
-                                          success:(TTGetPasscodeVerificationParamsSucceedBlock)success
-                                          failure:(TTFailedBlock)failure;
-
++ (void)getAllValidPasscodesWithLockData:(NSString *)lockData
+								 success:(TTGetLockAllPasscodeSucceedBlock)success
+								 failure:(TTFailedBlock)failure;
 
 /**
  Recover passcode
@@ -527,59 +549,26 @@ Set Hotel Data
  @param failure A block invoked when the operation fails
  */
 + (void)recoverPasscode:(NSString *)passcode
-            newPasscode:(NSString *)newPasscode
-           passcodeType:(TTPasscodeType)passcodeType
-              startDate:(long long)startDate
-                endDate:(long long)endDate
-              cycleType:(int)cycleType
-               lockData:(NSString *)lockData
-                success:(TTSucceedBlock)success
-                failure:(TTFailedBlock)failure;
-
-
+			newPasscode:(NSString *)newPasscode
+		   passcodeType:(TTPasscodeType)passcodeType
+			  startDate:(long long)startDate
+				endDate:(long long)endDate
+			  cycleType:(int)cycleType
+			   lockData:(NSString *)lockData
+				success:(TTSucceedBlock)success
+				failure:(TTFailedBlock)failure;
 
 /**
- Get all valid passcode
+ Get passcode data
 
  @param lockData The lock data string used to operate lock
- @param success A block invoked when all valid passcode is got
+ @param success A block invoked when passcode data is got
  @param failure A block invoked when the operation fails
  */
-+ (void)getAllValidPasscodesWithLockData:(NSString *)lockData
-                                 success:(TTGetLockAllPasscodeSucceedBlock)success
-                                 failure:(TTFailedBlock)failure;
++ (void)getPasscodeVerificationParamsWithLockData:(NSString *)lockData
+                                          success:(TTGetPasscodeVerificationParamsSucceedBlock)success
+                                          failure:(TTFailedBlock)failure;
 
-/**
- Delete passcode
-
- @param passcode The passcode you want to delete it. Passcode is limited to 4 - 9 digits
- @param lockData The lock data string used to operate lock
- @param success A block invoked when passcode is deleted
- @param failure A block invoked when the operation fails
- */
-+ (void)deletePasscode:(NSString *)passcode
-              lockData:(NSString *)lockData
-               success:(TTSucceedBlock)success
-               failure:(TTFailedBlock)failure;
-
-/**
- Moddify passcode or passcode valid date
-
- @param passcode The passcode need to be modified
- @param newPasscode The new passcode is used to replace first passcode. If you just want to modify valid date, the new passcode should be nil. New passcode is limited to 4 - 9 digits
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param lockData The lock data string used to operate lock
- @param success A block invoked when passcode is modified
- @param failure A block invoked when the operation fails
- */
-+ (void)modifyPasscode:(NSString *)passcode
-           newPasscode:(NSString *)newPasscode
-             startDate:(long long)startDate
-               endDate:(long long)endDate
-              lockData:(NSString *)lockData
-               success:(TTSucceedBlock)success
-               failure:(TTFailedBlock)failure;
 
 #pragma mark - IC card
 
@@ -605,23 +594,6 @@ Set Hotel Data
 						 progress:(TTAddICProgressBlock)progress
 						  success:(TTAddICSucceedBlock)success
 						  failure:(TTFailedBlock)failure;
-
-/**
- Recover IC card
-
- @param cardNumber The card number you want to recover
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param lockData The lock data string used to operate lock
- @param success A block invoked when card is recovered
- @param failure A block invoked when the operation fails
- */
-+ (void)recoverICCardNumber:(NSString *)cardNumber
-                  startDate:(long long)startDate
-                    endDate:(long long)endDate
-                   lockData:(NSString *)lockData
-                    success:(TTAddICSucceedBlock)success
-                    failure:(TTFailedBlock)failure;
 
 /**
  Modify cyclic IC card valid date
@@ -660,19 +632,6 @@ Set Hotel Data
                    failure:(TTFailedBlock)failure;
 
 /**
- Report Loss Card
-
- @param cardNumber The card number you want to report loss
- @param lockData The lock data string used to operate lock
- @param success A block invoked when card is reported loss
- @param failure A block invoked when the operation fails
- */
-+ (void)reportLossCard:(NSString *)cardNumber
-			  lockData:(NSString *)lockData
-			   success:(TTSucceedBlock)success
-			   failure:(TTFailedBlock)failure;
-
-/**
  Clear all IC cards
 
  @param lockData The lock data string used to operate lock
@@ -694,6 +653,24 @@ Set Hotel Data
 + (void)getAllValidICCardsWithLockData:(NSString *)lockData
                                success:(TTGetAllICCardsSucceedBlock)success
                                failure:(TTFailedBlock)failure;
+
+
+/**
+ Recover IC card
+
+ @param cardNumber The card number you want to recover
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when card is recovered
+ @param failure A block invoked when the operation fails
+ */
++ (void)recoverICCardNumber:(NSString *)cardNumber
+				  startDate:(long long)startDate
+					endDate:(long long)endDate
+				   lockData:(NSString *)lockData
+					success:(TTAddICSucceedBlock)success
+					failure:(TTFailedBlock)failure;
 
 
 #pragma mark - Fingerprint
@@ -721,44 +698,6 @@ Set Hotel Data
 							  progress:(TTAddFingerprintProgressBlock)progress
 							   success:(TTAddFingerprintSucceedBlock)success
 							   failure:(TTFailedBlock)failure;
-
-/**
- Add new fingerprint by  writing fingerprint data to the lock
-
- @param fingerprintData The fingerprint data is obtained by the fingerprint collector
- @param tempFingerprintNumber tempFingerprintNumber
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param lockData The lock data string used to operate lock
- @param success A block invoked when fingerprint is added
- @param failure A block invoked when the operation fails
- */
-+ (void)writeFingerprintData:(NSString *)fingerprintData
-       tempFingerprintNumber:(NSString *)tempFingerprintNumber
-                   startDate:(long long)startDate
-                     endData:(long long)endDate
-                    lockData:(NSString *)lockData
-                     success:(TTAddFingerprintSucceedBlock)success
-                     failure:(TTFailedBlock)failure;
-
-
-/**
- Recover Fingerprint
-
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
- @param fingerprintNum The fingerprint number you want to recover
- @param lockData The lock data string used to operate lock
- @param success A block invoked when fingerprint is recovered
- @param failure A block invoked when the operation fails
- */
-+ (void)recoverFingerprintWithStartDate:(long long)startDate
-                                endDate:(long long)endDate
-                         fingerprintNum:(NSString*)fingerprintNum
-                               lockData:(NSString *)lockData
-                                success:(TTAddFingerprintSucceedBlock)success
-                                failure:(TTFailedBlock)failure;
-
 
 /**
  Modify cyclic fingerprint valid date
@@ -820,8 +759,156 @@ Set Hotel Data
                                     success:(TTGetAllFingerprintsSucceedBlock)success
                                     failure:(TTFailedBlock)failure;
 
+/**
+ Recover Fingerprint
 
-#pragma mark - Lift
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param fingerprintNum The fingerprint number you want to recover
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when fingerprint is recovered
+ @param failure A block invoked when the operation fails
+ */
++ (void)recoverFingerprintWithStartDate:(long long)startDate
+								endDate:(long long)endDate
+						 fingerprintNum:(NSString*)fingerprintNum
+							   lockData:(NSString *)lockData
+								success:(TTAddFingerprintSucceedBlock)success
+								failure:(TTFailedBlock)failure;
+
+/**
+ Add new fingerprint by  writing fingerprint data to the lock
+
+ @param fingerprintData The fingerprint data is obtained by the fingerprint collector
+ @param tempFingerprintNumber tempFingerprintNumber
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when fingerprint is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)writeFingerprintData:(NSString *)fingerprintData
+	   tempFingerprintNumber:(NSString *)tempFingerprintNumber
+				   startDate:(long long)startDate
+					 endData:(long long)endDate
+					lockData:(NSString *)lockData
+					 success:(TTAddFingerprintSucceedBlock)success
+					 failure:(TTFailedBlock)failure;
+
+
+#pragma mark - NB-IoT
+
+/**
+ Set the lock nb-iot
+
+ @param serverAddress The server ip
+ @param portNumber The server port
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the lock nb-iot is set
+ @param failure A block invoked when the operation fails
+ */
++ (void)setNBServerAddress:(NSString *)serverAddress
+				portNumber:(NSString *)portNumber
+				  lockData:(NSString *)lockData
+				   success:(TTGetElectricQuantitySucceedBlock)success
+				   failure:(TTFailedBlock)failure;
+
+/**
+Set NB Awake Modes
+ 
+@param awakeModes enum TTNBAwakeMode ,such as @[TTNBAwakeModeKeypad,TTNBAwakeModeCard,TTNBAwakeModeFingerprint]
+				  awakeModes.count == 0, means no awake mode
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setNBAwakeModes:(NSArray <NSNumber *> *)awakeModes
+			   lockData:(NSString *)lockData
+				success:(TTSucceedBlock)success
+				failure:(TTFailedBlock)failure;
+
+/**
+Get NB Awake Modes
+ 
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)getNBAwakeModesWithLockData:(NSString *)lockData
+							success:(TTGetNBAwakeModesSuccessdBlock)success
+							failure:(TTFailedBlock)failure;
+
+/**
+Set NB Awake Modes
+ 
+@param awakeTimes awakeTimes.count must <= 10 ,awakeTimes.count == 0 means delete awakeTimes.
+				  type enum TTNBAwakeTimeType, minutes means minutes from 0 clock or time interval
+				  such as,@[@{@"type":@(TTNBAwakeTimeTypePoint),@"minutes":@100}]
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setNBAwakeTimes:(NSArray<NSDictionary *> *)awakeTimes
+			   lockData:(NSString *)lockData
+				success:(TTSucceedBlock)success
+				failure:(TTFailedBlock)failure;
+
+/**
+Get NB Awake Times
+ 
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)getNBAwakeTimesWithLockData:(NSString *)lockData
+							success:(TTGetNBAwakeTimesSuccessdBlock)success
+							failure:(TTFailedBlock)failure;
+
+
+#pragma mark - Hotel
+
+/**
+ Set Hotel Card Sector
+ @param sector  connect with comma symbol,Such as, sector = @"1,4,16" means First, fourth and sixteenth sectors can use.
+ sector = @"" means all sectors can use. The sector value range is 1 - 16.
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+ */
++ (void)setHotelCardSector:(NSString *)sector
+				  lockData:(NSString *)lockData
+				   success:(TTSucceedBlock)success
+				   failure:(TTFailedBlock)failure;
+
+/**
+Set Hotel Data
+
+@param hotelInfo hotel Info
+@param buildingNumber building Number
+@param floorNumber floor Number
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation succeeds
+@param failure A block invoked when the operation fails
+*/
++ (void)setHotelDataWithHotelInfo:(NSString *)hotelInfo
+				   buildingNumber:(int)buildingNumber
+					  floorNumber:(int)floorNumber
+						 lockData:(NSString *)lockData
+						  success:(TTSucceedBlock)success
+						  failure:(TTFailedBlock)failure;
+
+/**
+ Report Loss Card
+
+ @param cardNumber The card number you want to report loss
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when card is reported loss
+ @param failure A block invoked when the operation fails
+ */
++ (void)reportLossCard:(NSString *)cardNumber
+			  lockData:(NSString *)lockData
+			   success:(TTSucceedBlock)success
+			   failure:(TTFailedBlock)failure;
 
 /**
 Activate Lift Floors
@@ -863,62 +950,6 @@ Set Lift Work Mode
 					failure:(TTFailedBlock)failure;
 
 
-#pragma mark - NB Awake
-
-/**
-Set NB Awake Modes
- 
-@param awakeModes enum TTNBAwakeMode ,such as @[TTNBAwakeModeKeypad,TTNBAwakeModeCard,TTNBAwakeModeFingerprint]
-                  awakeModes.count == 0, means no awake mode
-@param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
-@param failure A block invoked when the operation fails
-*/
-+ (void)setNBAwakeModes:(NSArray <NSNumber *> *)awakeModes
-			   lockData:(NSString *)lockData
-				success:(TTSucceedBlock)success
-				failure:(TTFailedBlock)failure;
-
-/**
-Get NB Awake Modes
- 
-@param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
-@param failure A block invoked when the operation fails
-*/
-+ (void)getNBAwakeModesWithLockData:(NSString *)lockData
-							success:(TTGetNBAwakeModesSuccessdBlock)success
-							failure:(TTFailedBlock)failure;
-
-/**
-Set NB Awake Modes
- 
-@param awakeTimes awakeTimes.count must <= 10 ,awakeTimes.count == 0 means delete awakeTimes.
-                  type enum TTNBAwakeTimeType, minutes means minutes from 0 clock or time interval
-                  such as,@[@{@"type":@(TTNBAwakeTimeTypePoint),@"minutes":@100}]
-@param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
-@param failure A block invoked when the operation fails
-*/
-+ (void)setNBAwakeTimes:(NSArray<NSDictionary *> *)awakeTimes
-			   lockData:(NSString *)lockData
-				success:(TTSucceedBlock)success
-				failure:(TTFailedBlock)failure;
-
-/**
-Get NB Awake Times
- 
-@param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
-@param failure A block invoked when the operation fails
-*/
-+ (void)getNBAwakeTimesWithLockData:(NSString *)lockData
-							success:(TTGetNBAwakeTimesSuccessdBlock)success
-							failure:(TTFailedBlock)failure;
-
-
-#pragma mark - Power Saver
-
 /**
 Set Power Saver Work Mode
  
@@ -945,125 +976,74 @@ Set Power Saver Controlable Lock
 										success:(TTSucceedBlock)success
 										failure:(TTFailedBlock)failure;
 
-/**
- Get Unlock Direction
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
- @param failure A block invoked when the operation fails
-*/
-+ (void)getUnlockDirectionWithLockData:(NSString *)lockData
-							   success:(TTGetUnlockDirectionSuccessdBlock)success
-							   failure:(TTFailedBlock)failure;
-
-/**
- Set Unlock Direction
- @param direction TTUnlockDirection
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
- @param failure A block invoked when the operation fails
-*/
-+ (void)setUnlockDirection:(TTUnlockDirection)direction
-				  lockData:(NSString *)lockData
-				   success:(TTSucceedBlock)success
-				   failure:(TTFailedBlock)failure;
-
-/**
- Get Accessory Electric Quantity
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
- @param failure A block invoked when the operation fails
-*/
-+ (void)getAccessoryElectricQuantityWithType:(TTAccessoryType)type
-								accessoryMac:(NSString *)accessoryMac
-									lockData:(NSString *)lockData
-									 success:(TTGetAccessoryElectricQuantitySuccessdBlock)success
-									 failure:(TTFailedBlock)failure;
-
-
-#pragma mark - DoorSensor
-+ (void)setDoorSensorLockingSwitchOn:(BOOL)on
-                            lockData:(NSString *)lockData
-                             success:(TTSucceedBlock)success
-                             failure:(TTFailedBlock)failure;
-
-+ (void)getDoorSensorLockingSwitchStateWithLockData:(NSString *)lockData
-                                            success:(TTGetSwitchStateSuccessBlock)success
-                                            failure:(TTFailedBlock)failure;
-
-+ (void)getDoorSensorStateWithLockData:(NSString *)lockData
-                               success:(TTGetSwitchStateSuccessBlock)success
-                               failure:(TTFailedBlock)failure;
-
-#pragma mark - Wristband
-+ (void)setWristbandKey:(NSString *)wristbandKey passcode:(NSString *)passcode lockData:(NSString *)lockData success:(TTSucceedBlock)success failure:(TTFailedBlock)failure;
-
-+ (void)setWristbandKey:(NSString *)wristbandKey isOpen:(BOOL)isOpen success:(TTSucceedBlock)success failure:(TTFailedBlock)failure;
-+ (void)setWristbandRssi:(int)rssi success:(TTSucceedBlock)success failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData
                                 success:(TTGetSpecialValueSucceedBlock)success
-                                failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,Use getLockFeatureValue")));
+                                failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use getLockFeatureValue");
 
 + (void)setLockFreezeStateWithOn:(BOOL)on
                         lockData:(NSString *)lockData
                          success:(TTSucceedBlock)success
-                         failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setLockConfig")));
+                         failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,setLockConfig");
 
 + (void)getLockFreezeStateWithLockData:(NSString *)lockData
                                success:(TTGetLockConfigSuccessBlock)success
-                               failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,getLockConfig")));
+                               failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,getLockConfig");
 
 + (void)setAudioSwitchOn:(BOOL)on
                 lockData:(NSString *)lockData
                  success:(TTSucceedBlock)success
-                 failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setLockConfig")));
+                 failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,setLockConfig");
 
 + (void)getAudioSwitchWithLockData:(NSString *)lockData
                            success:(TTGetLockConfigSuccessBlock)success
-                           failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,getLockConfig")));
+                           failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,getLockConfig");
 
 + (void)setPasscodeVisibleSwitchOn:(BOOL)on
                           lockData:(NSString *)lockData
                            success:(TTSucceedBlock)success
-                           failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setLockConfig")));
+                           failure:(TTFailedBlock)failure  DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,setLockConfig");
 
 + (void)getPasscodeVisibleSwitchWithLockData:(NSString *)lockData
                                      success:(TTGetLockConfigSuccessBlock)success
-                                     failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,getLockConfig")));
+                                     failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,getLockConfig");
 
 + (void)setHotelCardSectorWithSectorArr:(NSArray <NSNumber *>*)sectorArr
 							   lockData:(NSString *)lockData
 								success:(TTSucceedBlock)success
-								failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.0,setHotelCardSector")));
+								failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,setHotelCardSector");
 
 + (void)addFingerprintStartDate:(long long)startDate
 						endDate:(long long)endDate
 					   lockData:(NSString *)lockData
 					   progress:(TTAddFingerprintProgressBlock)progress
 						success:(TTAddFingerprintSucceedBlock)success
-						failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,addFingerprintWithCyclicConfig")));
+						failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,addFingerprintWithCyclicConfig");
 
 + (void)modifyFingerprintValidityPeriodWithFingerprintNumber:(NSString *)fingerprintNumber
 												   startDate:(long long)startDate
 													 endDate:(long long)endDate
 													lockData:(NSString *)lockData
 													 success:(TTSucceedBlock)success
-													 failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,modifyFingerprintValidityPeriodWithCyclicConfig")));
+													 failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,modifyFingerprintValidityPeriodWithCyclicConfig");
 
 + (void)addICCardStartDate:(long long)startDate
 				   endDate:(long long)endDate
 				  lockData:(NSString *)lockData
 				  progress:(TTAddICProgressBlock)progress
 				   success:(TTAddICSucceedBlock)success
-				   failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,addICCardWithCyclicConfig")));
+				   failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,addICCardWithCyclicConfig");
 
 + (void)modifyICCardValidityPeriodWithCardNumber:(NSString *)cardNumber
 									   startDate:(long long)startDate
 										 endDate:(long long)endDate
 										lockData:(NSString *)lockData
 										 success:(TTSucceedBlock)success
-										 failure:(TTFailedBlock)failure __attribute__((deprecated("SDK3.1.5,modifyICCardValidityPeriodWithCyclicConfig")));
+										 failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,modifyICCardValidityPeriodWithCyclicConfig");
 
++ (void)getLockVersionWithWithLockMac:(NSString *)lockMac
+							  success:(TTGetLockVersionSucceedBlock)success
+							  failure:(TTFailedBlock)failure DEPRECATED_MSG_ATTRIBUTE("SDK3.1.5,getLockVersion");
 @end
 

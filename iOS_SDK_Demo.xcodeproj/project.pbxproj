@@ -470,15 +470,15 @@
 		FCA6446622A8EF260062463E /* G2 */ = {
 			isa = PBXGroup;
 			children = (
-				FCA6446722A8EF260062463E /* Upgrade */,
+				FCA6446D22A8EF260062463E /* ChooseGatewayViewController.h */,
+				FCA6447122A8EF260062463E /* ChooseGatewayViewController.m */,
+				FCA6447022A8EF260062463E /* ChooseSSIDView.h */,
+				FCA6446C22A8EF260062463E /* ChooseSSIDView.m */,
+				FCA6446E22A8EF260062463E /* Gateway2AddViewController.h */,
 				FCA6446A22A8EF260062463E /* Gateway2AddViewController.m */,
 				FCA6446B22A8EF260062463E /* GuideGatewayViewController.h */,
-				FCA6446C22A8EF260062463E /* ChooseSSIDView.m */,
-				FCA6446D22A8EF260062463E /* ChooseGatewayViewController.h */,
-				FCA6446E22A8EF260062463E /* Gateway2AddViewController.h */,
 				FCA6446F22A8EF260062463E /* GuideGatewayViewController.m */,
-				FCA6447022A8EF260062463E /* ChooseSSIDView.h */,
-				FCA6447122A8EF260062463E /* ChooseGatewayViewController.m */,
+				FCA6446722A8EF260062463E /* Upgrade */,
 			);
 			path = G2;
 			sourceTree = "<group>";

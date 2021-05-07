@@ -116,19 +116,11 @@
       
     }
     if (self.bottomBtn.tag == 101) {
-        [TTLock getLockSystemInfoWithLockData:self.lockModel.lockData success:^(TTSystemInfoModel *systemModel) {
-            NSString * modelNum = systemModel.modelNum;
-            NSString * hardwareRevision = systemModel.hardwareRevision;
-            NSString * firmwareRevision = systemModel.firmwareRevision;
-            [TTLock getLockSpecialValueWithLockData:self.lockModel.lockData success:^(long long specialValue) {
-                [self initDataWithModelNum:modelNum hardwareRevision:hardwareRevision firmwareRevision:firmwareRevision specialValue:specialValue];;
-            } failure:^(TTError errorCode, NSString *errorMsg) {
-                 [self.view showToast:errorMsg];
-            }];
-        } failure:^(TTError errorCode, NSString *errorMsg) {
-            [self.view showToast:errorMsg];
-        }];
-        
+		[TTLock getLockSystemInfoWithLockData:self.lockModel.lockData success:^(TTSystemInfoModel *systemModel) {
+			[self initDataWithLockData:systemModel.lockData];
+		} failure:^(TTError errorCode, NSString *errorMsg) {
+			[self.view showToast:errorMsg];
+		}];
     }
 
     if (self.bottomBtn.tag == 105) {
@@ -136,20 +128,16 @@
     }
 }
 
-- (void)initDataWithModelNum:(NSString*)modelNum
-            hardwareRevision:(NSString*)hardwareRevision
-            firmwareRevision:(NSString*)firmwareRevision
-              specialValue:(long long)specialValue{
-    
-    [NetUtil lockUpgradeRecheckWithLockId:self.lockModel.lockId modelNum:modelNum hardwareRevision:hardwareRevision firmwareRevision:firmwareRevision specialValue:specialValue completion:^(id info, NSError *error) {
-        if (error == nil && [info isKindOfClass:[NSDictionary class]]) {
-            [self.view hideToast];
-            
-            _updateModel =   [FirmwareUpdateModel  mj_objectWithKeyValues:info];
-            [self reloadView];
-            
-        }
-    }];
+- (void)initDataWithLockData:(NSString *)lockData{
+	[NetUtil lockUpgradeRecheckWithLockId:self.lockModel.lockId lockData:lockData completion:^(id info, NSError *error) {
+		if (error == nil && [info isKindOfClass:[NSDictionary class]]) {
+			[self.view hideToast];
+			_updateModel =   [FirmwareUpdateModel  mj_objectWithKeyValues:info];
+			[self reloadView];
+			
+		}
+	}];
+   
 }
 
 - (void)reloadView{

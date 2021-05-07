@@ -62,7 +62,7 @@ UIKIT_EXTERN NSString * const  TTErrorMessageInvalidParameter;
 typedef NS_ENUM(NSInteger, TTError)
 {
    
-    TTErrorHadReseted = 0,
+    TTErrorHadReseted = 0x00,
     TTErrorCRCError = 0x01,
     TTErrorNoPermisstion = 0x02,
     TTErrorWrongAdminCode = 0x03,

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTDFUMacros.h"
+#import <TTLockDFU/TTDFUMacros.h>
 
 @interface TTGatewayDFU : NSObject
 

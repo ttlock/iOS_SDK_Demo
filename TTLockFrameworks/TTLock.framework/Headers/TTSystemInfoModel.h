@@ -19,6 +19,8 @@
 @property (nonatomic,strong) NSString * nbCardNumber;
 @property (nonatomic,strong) NSString * nbRssi;
 
+@property (nonatomic, strong) NSString *lockData;
+
 @end
 
 

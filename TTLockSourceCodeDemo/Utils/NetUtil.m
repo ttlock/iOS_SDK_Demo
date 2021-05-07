@@ -443,17 +443,11 @@ static NSString *const AppDomain = @"AppDomain";
 
 
 +(void)lockUpgradeRecheckWithLockId:(NSNumber*)lockId
-                   modelNum:(NSString*)modelNum
-           hardwareRevision:(NSString*)hardwareRevision
-           firmwareRevision:(NSString*)firmwareRevision
-               specialValue:(long long)specialValue
+						   lockData:(NSString *)lockData
                  completion:(RequestBlock) completion{
     NSMutableDictionary *parame = [NetUtil initParame];
     parame[@"lockId"] = lockId ;
-    if (specialValue != -1) parame[@"specialValue"] = @(specialValue);
-    if (modelNum.length>0) parame[@"modelNum"] = modelNum;
-    if (hardwareRevision.length>0) parame[@"hardwareRevision"] = hardwareRevision;
-    if (firmwareRevision.length>0) parame[@"firmwareRevision"] =  firmwareRevision;
+	parame[@"lockData"] = lockData;
     [NetUtil apiPost:@"lock/upgradeRecheck" parameters:parame completion:completion];
     
 }

@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTGatewayMacro.h"
+#import <TTLock/TTGatewayMacro.h>
 
 @interface TTGateway : NSObject
 /**
  *  Get the name of the wireless network SSID for the current connection.
-    If returned nil, the current mobile phone is not connected to the wireless network.
+    If returned nil, the current mobile phone is not connected to the wireless network
+ *  (Need to open location permissions After iOS13).
  */
 + (NSString *)getSSID;
 

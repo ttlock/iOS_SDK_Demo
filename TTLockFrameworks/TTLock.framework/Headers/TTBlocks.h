@@ -12,7 +12,7 @@
 #ifndef TTBlocks_h
 #define TTBlocks_h
 
-#import "TTMacros.h"
+#import <TTLock/TTMacros.h>
 
 
 @class TTScanModel;
@@ -38,7 +38,6 @@ typedef void(^TTGetLockTimeSucceedBlock)(long long lockTimestamp);
 typedef void(^TTGetLockVersionSucceedBlock)(NSDictionary *lockVersion);
 typedef void(^TTGetLockSystemSucceedBlock)(TTSystemInfoModel *systemModel);
 typedef void(^TTGetLockAllPasscodeSucceedBlock)(NSString *passcodes);
-typedef void(^TTGetLockPasscodeDataSucceedBlock)(NSString *passcodeData);
 typedef void(^TTGetAutomaticLockingPeriodicTimeSucceedBlock)(int currentTime, int minTime, int maxTime);
 
 typedef void(^TTAddICProgressBlock)(TTAddICState state);
@@ -70,6 +69,6 @@ typedef void(^TTGetUnlockDirectionSuccessdBlock)(TTUnlockDirection direction);
 
 typedef void(^TTGetAccessoryElectricQuantitySuccessdBlock)(NSInteger electricQuantity, long long updateDate);
 
-typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) __attribute__((deprecated("SDK3.1.0,Use TTGetFeatureValueSucceedBlock")));
+typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 
 #endif /* TTBlocks_h */

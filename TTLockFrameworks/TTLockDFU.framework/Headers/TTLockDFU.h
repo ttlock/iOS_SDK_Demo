@@ -1,11 +1,11 @@
 
 //  Created by TTLock on 2017/8/9.
 //  Copyright © 2017年 TTLock. All rights reserved.
-//  version:3.1.0
+//  version:3.1.1
 
 #import <Foundation/Foundation.h>
-#import "TTDFUMacros.h"
-#import "TTGatewayDFU.h"
+#import <TTLockDFU/TTDFUMacros.h>
+#import <TTLockDFU/TTGatewayDFU.h>
 
 @interface TTLockDFU : NSObject
 

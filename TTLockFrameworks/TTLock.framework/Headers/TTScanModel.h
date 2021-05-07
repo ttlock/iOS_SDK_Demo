@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTMacros.h"
+#import <TTLock/TTMacros.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -107,11 +107,8 @@ typedef void(^RequestBlock)(id info, NSError* error);
                        completion:(RequestBlock) completion;
 
 +(void)lockUpgradeRecheckWithLockId:(NSNumber*)lockId
-                           modelNum:(NSString*)modelNum
-                   hardwareRevision:(NSString*)hardwareRevision
-                   firmwareRevision:(NSString*)firmwareRevision
-                       specialValue:(long long)specialValue
-                         completion:(RequestBlock) completion;
+						   lockData:(NSString *)lockData
+				 completion:(RequestBlock) completion;
 
 +(void)getRecoverDataWithClientId:(NSString*)clientId
                       accessToken:(NSString*)accessToken
