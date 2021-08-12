@@ -374,8 +374,8 @@ typedef NS_ENUM(NSInteger,LockAction) {
         case LockActionGetLockSwitchSate:
         {
        
-            [TTLock getLockSwitchStateWithLockData:_lockModel.lockData success:^(TTLockSwitchState state) {
-                [self showToastAndLog:[NSString stringWithFormat:@"Success \n TLockSwitchState: %ld", (long)state]];
+            [TTLock getLockSwitchStateWithLockData:_lockModel.lockData success:^(TTLockSwitchState lockSwitchState, TTDoorSensorState doorSensorState) {
+                [self showToastAndLog:[NSString stringWithFormat:@"Success \n TLockSwitchState: %ld", (long)lockSwitchState]];
             } failure:^(TTError errorCode, NSString *errorMsg) {
                 [self showToastAndLog:errorMsg];
             }];

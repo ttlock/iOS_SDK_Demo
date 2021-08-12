@@ -238,16 +238,13 @@ typedef NS_ENUM(NSInteger,TTLockSwitchState)
  *
  *  @discussion Door Sensor State
  *
- *  @constant TTDoorSensorStateOff    No door sensor was detected
- *  @constant TTDoorSensorStateOn     Detection of door sensor
- *
  */
 typedef NS_ENUM(NSInteger,TTDoorSensorState)
 {
-    TTDoorSensorStateOff = 0,
-    TTDoorSensorStateOn = 1,
+	TTDoorSensorStateOpen = 0,
+	TTDoorSensorStateClose = 1,
+	TTDoorSensorStateUnknown = 2,
 };
-
 /*!
  *  @enum AddICState
  *
@@ -384,6 +381,10 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
 	TTLockFeatureValueRecoverCyclePasscode = 40,
 	TTLockFeatureValueWirelessKeyFob = 41,
 	TTLockFeatureValueGetAccessoryElectricQuantity = 42,
+	TTLockFeatureValueSoundVolume = 43,
+	TTLockFeatureValueQRCode = 44,
+	TTLockFeatureValueSensorState = 45,
+	TTLockFeatureValuePassageModeAutoUnlock = 46,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -393,6 +394,7 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTTamperAlert,
     TTResetButton,
     TTPrivacyLock,
+	TTPassageModeAutoUnlock
 };
 
 /*!
@@ -434,6 +436,16 @@ typedef NS_ENUM(int, TTUnlockDirection) {
 typedef NS_ENUM(int, TTAccessoryType) {
 	TTAccessoryTypeWirelessKeypad = 1,
 	TTAccessoryTypeWirelessKeyFob
+};
+
+typedef NS_ENUM(int, TTSoundVolume) {
+	TTSoundVolumeOn = -1,
+	TTSoundVolumeOff = 0,
+	TTSoundVolumeFirstLevel = 1,
+	TTSoundVolumeSecondLevel = 2,
+	TTSoundVolumeThirdLevel = 3,
+	TTSoundVolumeFourthLevel = 4,
+	TTSoundVolumeFifthLevel = 5,
 };
 
 @end

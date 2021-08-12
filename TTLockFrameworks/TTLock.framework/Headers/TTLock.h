@@ -5,14 +5,13 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.1.8
+//  version:3.1.9
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
 #import <TTLock/TTGateway.h>
 #import <TTLock/TTGatewayMacro.h>
 #import <TTLock/TTGatewayScanModel.h>
-#import <TTLock/TTSystemInfoModel.h>
 #import <TTLock/TTMacros.h>
 #import <TTLock/TTScanModel.h>
 #import <TTLock/TTSystemInfoModel.h>
@@ -379,6 +378,27 @@ Set Lock Config
 									 success:(TTGetAccessoryElectricQuantitySuccessdBlock)success
 									 failure:(TTFailedBlock)failure;
 
+/**
+ Set Lock Sound
+ @param soundVolume TTSoundVolume
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+*/
++ (void)setLockSoundWithSoundVolume:(TTSoundVolume)soundVolume
+						   lockData:(NSString *)lockData
+							success:(TTSucceedBlock)success
+							failure:(TTFailedBlock)failure;
+
+/**
+ Get Lock Sound
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+*/
++ (void)getLockSoundWithLockData:(NSString *)lockData
+						 success:(TTGetLockSoundSuccessdBlock)success
+						 failure:(TTFailedBlock)failure;
 
 #pragma mark - Lock upgrade
 

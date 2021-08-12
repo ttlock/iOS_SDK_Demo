@@ -49,7 +49,7 @@ typedef void(^TTAddFingerprintSucceedBlock)(NSString *fingerprintNumber);
 typedef void(^TTGetAllFingerprintsSucceedBlock)(NSString *allFingerprintsJsonString);
 
 typedef void(^TTGetSwitchStateSuccessBlock)(BOOL isOn);
-typedef void(^TTGetLockStatusSuccessBlock)(TTLockSwitchState state);
+typedef void(^TTGetLockStatusSuccessBlock)(TTLockSwitchState lockSwitchState, TTDoorSensorState doorSensorState);
 
 typedef void(^TTGetPassageModelSuccessBlock)(NSString *passageModes);
 
@@ -68,6 +68,8 @@ typedef void(^TTGetNBAwakeTimesSuccessdBlock)(NSArray <NSDictionary*> *awakeTime
 typedef void(^TTGetUnlockDirectionSuccessdBlock)(TTUnlockDirection direction);
 
 typedef void(^TTGetAccessoryElectricQuantitySuccessdBlock)(NSInteger electricQuantity, long long updateDate);
+
+typedef void(^TTGetLockSoundSuccessdBlock)(TTSoundVolume soundVolume);
 
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 

@@ -45,6 +45,7 @@
 		80F19A32A16C86DCFE35CDBD /* Pods_iOS_SDK_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976EC5982C8F3FCCDE92ED32 /* Pods_iOS_SDK_Demo.framework */; };
 		FC24AB562273071500EC47E7 /* FirmwareUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */; };
 		FC3533BF26453FE90036602A /* TTLock.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FC3533BE26453FE90036602A /* TTLock.podspec */; };
+		FC3533C626454DC70036602A /* TTLockDFU.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FC3533C526454DC70036602A /* TTLockDFU.podspec */; };
 		FC7EFF7D2281B1FF0003EF81 /* TTLockDFU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; };
 		FC7EFF802281B2110003EF81 /* TTLockGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */; };
 		FC8D1C0B22768DAC002E21D0 /* GatewayLockListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */; };
@@ -147,6 +148,7 @@
 		FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmwareUpdateModel.m; sourceTree = "<group>"; };
 		FC24AB552273071500EC47E7 /* FirmwareUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmwareUpdateModel.h; sourceTree = "<group>"; };
 		FC3533BE26453FE90036602A /* TTLock.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TTLock.podspec; sourceTree = "<group>"; };
+		FC3533C526454DC70036602A /* TTLockDFU.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TTLockDFU.podspec; sourceTree = "<group>"; };
 		FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockDFU.framework; sourceTree = "<group>"; };
 		FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockGateway.framework; sourceTree = "<group>"; };
 		FC8D1C0922768DAC002E21D0 /* GatewayLockListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayLockListModel.h; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 		FC7EFEF5228195360003EF81 /* TTLockFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC3533C526454DC70036602A /* TTLockDFU.podspec */,
 				FC3533BE26453FE90036602A /* TTLock.podspec */,
 				FC94D9D6228266820035BB07 /* TTLock.framework */,
 				FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */,
@@ -570,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F7AD0C12280027C002A7B1A /* Localizable.strings in Resources */,
+				FC3533C626454DC70036602A /* TTLockDFU.podspec in Resources */,
 				FC3533BF26453FE90036602A /* TTLock.podspec in Resources */,
 				4FF3A0EF226EA59800340C8A /* Info.plist in Resources */,
 				4F27C255226EA12A000FB7CF /* LaunchScreen.storyboard in Resources */,
