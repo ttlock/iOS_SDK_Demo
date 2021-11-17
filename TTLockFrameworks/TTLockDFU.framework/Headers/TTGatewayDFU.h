@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TTLockDFU/TTDFUMacros.h>
+#import "TTDFUMacros.h"
 
 @interface TTGatewayDFU : NSObject
 
@@ -22,10 +22,12 @@
 
 - (void)retryEnterUpgradeModebyNet;
 - (void)retryEnterUpgradeModebyBluetooth;
+- (void)endUpgrade;
 
-- (void)pauseUpgrade;
-- (void)restartUpgrade;
-- (BOOL)stopUpgrade;
-- (BOOL)paused;
+- (void)pauseUpgrade DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9,getLockVersion");
+- (void)restartUpgrade DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9,getLockVersion");
+- (BOOL)paused DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9,getLockVersion");
+- (BOOL)stopUpgrade DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9,getLockVersion");;
+
 @end
 

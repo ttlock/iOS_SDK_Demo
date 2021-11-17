@@ -28,7 +28,8 @@ typedef NS_ENUM( NSInteger, UpgradeErrorCode) {
     UpgradeErrorCodeEnterUpgradeState = 6,
     UpgradeErrorCodeUpgradeLockFail = 7,
     UpgradeOprationPreparingError = 8,
-    UpgradeOprationGetSpecialValueError = 9
+    UpgradeOprationGetSpecialValueError = 9,
+    UpgradeErrorCodeUpgradeFail = 10,
 };
 
 typedef void(^TTLockDFUSuccessBlock)(UpgradeOpration type ,NSInteger process);

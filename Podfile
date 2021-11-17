@@ -6,7 +6,6 @@ pod 'Masonry'
 pod 'AFNetworking'
 pod 'MJExtension'
 pod 'IQKeyboardManager'
-pod 'iOSDFULibrary','~> 4.3.0'
-pod 'ZIPFoundation','~> 0.9.8'
+pod 'iOSDFULibrary','4.11.0'
 pod 'MBProgressHUD'
 end

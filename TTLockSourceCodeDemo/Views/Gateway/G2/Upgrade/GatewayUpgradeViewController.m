@@ -22,6 +22,11 @@
 
 @implementation GatewayUpgradeViewController
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[TTGatewayDFU shareInstance] endUpgrade];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = LS(@"Gateway upgrade");
@@ -175,12 +180,9 @@
     return _offlineBtn;
 }
 - (void)offlineBtnClick{
+    //如果不在升级中，需将网关重新上电
+    [self.view showToastLoading:@"需将网关重新上电"];
     
-     if (![[TTGatewayDFU shareInstance]paused]) {
-         //如果不在升级中，需将网关重新上电
-         [self.view showToastLoading:@"需将网关重新上电"];
-     }
-  
     [[TTGatewayDFU shareInstance]retryEnterUpgradeModebyBluetooth];
     self.retryBtn.hidden = YES;
     self.offlineBtn.hidden = YES;

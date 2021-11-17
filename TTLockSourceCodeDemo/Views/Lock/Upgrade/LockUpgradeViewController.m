@@ -28,6 +28,11 @@
     return self;
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[TTLockDFU shareInstance] endUpgrade];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = LS(@"Lock upgrade");

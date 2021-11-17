@@ -14,41 +14,42 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - iOSDFULibrary (4.4.2):
-    - ZIPFoundation (= 0.9.9)
+  - iOSDFULibrary (4.11.0):
+    - ZIPFoundation (= 0.9.11)
   - IQKeyboardManager (6.2.1)
   - Masonry (1.1.0)
   - MBProgressHUD (1.1.0)
   - MJExtension (3.0.16)
-  - ZIPFoundation (0.9.9)
+  - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
   - AFNetworking
-  - iOSDFULibrary
+  - iOSDFULibrary (= 4.11.0)
   - IQKeyboardManager
   - Masonry
   - MBProgressHUD
   - MJExtension
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
-    - iOSDFULibrary
     - IQKeyboardManager
     - Masonry
     - MBProgressHUD
     - MJExtension
+  trunk:
+    - iOSDFULibrary
     - ZIPFoundation
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  iOSDFULibrary: 7f25ff33edd65f7d23bf6ebe4827723509ac091b
+  iOSDFULibrary: ca2a4da1f1680fe4957b0a33ad605c9e10f7ae7c
   IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJExtension: 54dbbf6ee728f1a88e9aad904353d007831c7847
-  ZIPFoundation: 89df685c971926b0323087952320bdfee9f0b6ef
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: ae0b3825caf2315ae70b4237417cb7122f3735b8
+PODFILE CHECKSUM: 43ac36a1d68c49dba6c986a0aebc4a044461c184
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.3

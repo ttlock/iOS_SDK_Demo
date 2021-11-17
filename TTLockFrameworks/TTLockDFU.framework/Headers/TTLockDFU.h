@@ -1,11 +1,12 @@
 
 //  Created by TTLock on 2017/8/9.
 //  Copyright © 2017年 TTLock. All rights reserved.
-//  version:3.1.8
+//  version:3.1.9
 
 #import <Foundation/Foundation.h>
-#import <TTLockDFU/TTDFUMacros.h>
-#import <TTLockDFU/TTGatewayDFU.h>
+#import "TTDFUMacros.h"
+#import "TTGatewayDFU.h"
+#import <TTLock/TTLock.h>
 
 @interface TTLockDFU : NSObject
 
@@ -21,18 +22,19 @@
  When you receive a failBlock, you can call this method to retry
  */
 - (void)retry;
-/**
- Do not support instructions to enter the upgrade, enter the password, upgrade again.
- */
-- (void)upgradeLockWithEnterPassword;
-- (void)pauseUpgrade; 
-- (void)restartUpgrade;
-- (BOOL)stopUpgrade;
-- (BOOL)paused;
+
+- (void)endUpgrade;
 
 //only do dfu operation
 - (void)startDfuWithFirmwarePackage:(NSString *_Nonnull)firmwarePackage
                            lockData:(NSString *_Nonnull)lockData
                        successBlock:(TTLockDFUSuccessBlock _Nullable )sblock
                           failBlock:(TTLockDFUFailBlock _Nullable )fblock;
+
+- (void)upgradeLockWithEnterPassword DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9");
+- (void)pauseUpgrade DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9");
+- (void)restartUpgrade DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9");
+- (BOOL)stopUpgrade DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9");
+- (BOOL)paused DEPRECATED_MSG_ATTRIBUTE("SDK3.1.9");
+
 @end
