@@ -38,8 +38,8 @@ static NSString *const AppDomain = @"AppDomain";
     AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
     AFHTTPSessionManager *manager = [NetUtil apiRequestSeesion:serializer];
     [serializer requestWithMethod:@"POST" URLString:url parameters:parameters error:nil];
-    
-    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+    [manager POST:url parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSError *error = nil;
         id valueData = [self apiResponseParse:responseObject error:&error];
@@ -558,7 +558,7 @@ static NSString *const AppDomain = @"AppDomain";
     AFHTTPSessionManager *manager = [NetUtil apiRequestSeesion:serializer];
     NSURLRequest *request = [serializer requestWithMethod:@"POST" URLString:url parameters:parameters error:nil];
     
-    [manager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager POST:url parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSError *error = nil;
         id valueData = [self apiResponseParse:responseObject error:&error];
@@ -592,7 +592,7 @@ static NSString *const AppDomain = @"AppDomain";
     AFHTTPSessionManager *manager = [NetUtil apiRequestSeesion:serializer];
     NSURLRequest *request = [serializer requestWithMethod:@"GET" URLString:url parameters:parameters error:nil];
     
-    [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:url parameters:parameters headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSError *error = nil;
         id valueData = [self apiResponseParse:responseObject error:&error];
      

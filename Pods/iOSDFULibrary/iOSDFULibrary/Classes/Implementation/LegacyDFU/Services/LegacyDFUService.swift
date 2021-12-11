@@ -141,13 +141,13 @@ import CoreBluetooth
         let peripheral = service.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         // Discover DFU characteristics
         logger.v("Discovering characteristics in DFU Service...")
         logger.d("peripheral.discoverCharacteristics(nil, for: \(uuidHelper.legacyDFUService.uuidString))")
         
-        peripheral.discoverCharacteristics(nil, for: service)
+        peripheral?.discoverCharacteristics(nil, for: service)
     }
     
     /**
@@ -173,8 +173,8 @@ import CoreBluetooth
         // (otherwise the device would be useless...)
         // Note: On iOS the Generic Access and Generic Attribute services (nor HID Service)
         //       are not returned during service discovery.
-        let services = service.peripheral.services!
-        if services.count == 1 {
+        let services = service.peripheral?.services
+        if services?.count == 1 {
             return false
         }
         // If there are more services than just DFU Service, the state is uncertain

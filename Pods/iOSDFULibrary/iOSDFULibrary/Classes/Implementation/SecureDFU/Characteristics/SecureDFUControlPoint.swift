@@ -98,25 +98,25 @@ internal enum SecureDFURequest {
     var data : Data {
         switch self {
         case .createDataObject(let aSize):
-            var data = Data([SecureDFUOpCode.createObject.code, SecureDFUProcedureType.data.rawValue])
+            var data = Data(bytes: [SecureDFUOpCode.createObject.code, SecureDFUProcedureType.data.rawValue])
             data += aSize.littleEndian
             return data
         case .createCommandObject(let aSize):
-            var data = Data([SecureDFUOpCode.createObject.code, SecureDFUProcedureType.command.rawValue])
+            var data = Data(bytes: [SecureDFUOpCode.createObject.code, SecureDFUProcedureType.command.rawValue])
             data += aSize.littleEndian
             return data
         case .readCommandObjectInfo:
-            return Data([SecureDFUOpCode.readObjectInfo.code, SecureDFUProcedureType.command.rawValue])
+            return Data(bytes: [SecureDFUOpCode.readObjectInfo.code, SecureDFUProcedureType.command.rawValue])
         case .readDataObjectInfo:
-            return Data([SecureDFUOpCode.readObjectInfo.code, SecureDFUProcedureType.data.rawValue])
+            return Data(bytes: [SecureDFUOpCode.readObjectInfo.code, SecureDFUProcedureType.data.rawValue])
         case .setPacketReceiptNotification(let aSize):
-            var data = Data([SecureDFUOpCode.setPRNValue.code])
+            var data = Data(bytes: [SecureDFUOpCode.setPRNValue.code])
             data += aSize.littleEndian
             return data
         case .calculateChecksumCommand:
-            return Data([SecureDFUOpCode.calculateChecksum.code])
+            return Data(bytes: [SecureDFUOpCode.calculateChecksum.code])
         case .executeCommand:
-            return Data([SecureDFUOpCode.execute.code])
+            return Data(bytes: [SecureDFUOpCode.execute.code])
         }
     }
 
@@ -193,9 +193,9 @@ internal struct SecureDFUResponse {
             switch self.requestOpCode {
             case .some(.readObjectInfo):
                 // The correct reponse for Read Object Info has additional 12 bytes: Max Object Size, Offset and CRC
-                let maxSize : UInt32 = data.asValue(offset: 3)
-                let offset  : UInt32 = data.asValue(offset: 7)
-                let crc     : UInt32 = data.asValue(offset: 11)
+                let maxSize : UInt32 = data.subdata(in: 3  ..<  7).withUnsafeBytes { $0.pointee }
+                let offset  : UInt32 = data.subdata(in: 7  ..< 11).withUnsafeBytes { $0.pointee }
+                let crc     : UInt32 = data.subdata(in: 11 ..< 15).withUnsafeBytes { $0.pointee }
                 
                 self.maxSize = maxSize
                 self.offset  = offset
@@ -203,8 +203,8 @@ internal struct SecureDFUResponse {
                 self.error   = nil
             case .some(.calculateChecksum):
                 // The correct reponse for Calculate Checksum has additional 8 bytes: Offset and CRC
-                let offset : UInt32 = data.asValue(offset: 3)
-                let crc    : UInt32 = data.asValue(offset: 7)
+                let offset : UInt32 = data.subdata(in: 3  ..<  7).withUnsafeBytes { $0.pointee }
+                let crc    : UInt32 = data.subdata(in: 7  ..< 11).withUnsafeBytes { $0.pointee }
                 
                 self.maxSize = 0
                 self.offset  = offset
@@ -286,8 +286,8 @@ internal struct SecureDFUPacketReceiptNotification {
             return nil
         }
         
-        let offset : UInt32 = data.asValue(offset: 3)
-        let crc    : UInt32 = data.asValue(offset: 7)
+        let offset : UInt32 = data.subdata(in: 3  ..<  7).withUnsafeBytes { $0.pointee }
+        let crc    : UInt32 = data.subdata(in: 7  ..< 11).withUnsafeBytes { $0.pointee }
 
         self.offset = offset
         self.crc = crc
@@ -334,16 +334,16 @@ internal class SecureDFUControlPoint : NSObject, CBPeripheralDelegate, DFUCharac
         self.report   = report
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         let controlPointUUID = characteristic.uuid.uuidString
         
         logger.v("Enabling notifications for \(controlPointUUID)...")
         logger.d("peripheral.setNotifyValue(true, for: \(controlPointUUID))")
-        peripheral.setNotifyValue(true, for: characteristic)
+        peripheral?.setNotifyValue(true, for: characteristic)
     }
     
     /**
@@ -361,16 +361,16 @@ internal class SecureDFUControlPoint : NSObject, CBPeripheralDelegate, DFUCharac
         self.report   = report
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         let controlPointUUID = characteristic.uuid.uuidString
         
         logger.v("Writing to characteristic \(controlPointUUID)...")
         logger.d("peripheral.writeValue(0x\(request.data.hexString), for: \(controlPointUUID), type: .withResponse)")
-        peripheral.writeValue(request.data, for: characteristic, type: .withResponse)
+        peripheral?.writeValue(request.data, for: characteristic, type: .withResponse)
     }
     
     /**
@@ -388,16 +388,16 @@ internal class SecureDFUControlPoint : NSObject, CBPeripheralDelegate, DFUCharac
         self.report   = report
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         let controlPointUUID = characteristic.uuid.uuidString
         
         logger.v("Writing to characteristic \(controlPointUUID)...")
         logger.d("peripheral.writeValue(0x\(request.data.hexString), for: \(controlPointUUID), type: .withResponse)")
-        peripheral.writeValue(request.data, for: characteristic, type: .withResponse)
+        peripheral?.writeValue(request.data, for: characteristic, type: .withResponse)
     }
     
     /**
@@ -416,10 +416,10 @@ internal class SecureDFUControlPoint : NSObject, CBPeripheralDelegate, DFUCharac
         self.report  = report
 
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         logger.a("Uploading firmware...")
         logger.v("Sending firmware to DFU Packet characteristic...")

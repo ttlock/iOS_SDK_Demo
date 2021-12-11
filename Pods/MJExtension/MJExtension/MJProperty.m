@@ -10,6 +10,7 @@
 #import "MJFoundation.h"
 #import "MJExtensionConst.h"
 #import <objc/message.h>
+#include "TargetConditionals.h"
 
 @interface MJProperty()
 @property (strong, nonatomic) NSMutableDictionary *propertyKeysDict;
@@ -73,7 +74,19 @@
 - (id)valueForObject:(id)object
 {
     if (self.type.KVCDisabled) return [NSNull null];
-    return [object valueForKey:self.name];
+    
+    id value = [object valueForKey:self.name];
+    
+    // 32位BOOL类型转换json后成Int类型
+    /** https://github.com/CoderMJLee/MJExtension/issues/545 */
+    // 32 bit device OR 32 bit Simulator
+#if defined(__arm__) || (TARGET_OS_SIMULATOR && !__LP64__)
+    if (self.type.isBoolType) {
+        value = @([(NSNumber *)value boolValue]);
+    }
+#endif
+    
+    return value;
 }
 
 /**
@@ -134,7 +147,7 @@
     if ([originKey isKindOfClass:[NSString class]]) { // 字符串类型的key
         NSArray *propertyKeys = [self propertyKeysWithStringKey:originKey];
         if (propertyKeys.count) {
-            [self setPorpertyKeys:@[propertyKeys] forClass:c];
+            [self setPropertyKeys:@[propertyKeys] forClass:c];
         }
     } else if ([originKey isKindOfClass:[NSArray class]]) {
         NSMutableArray *keyses = [NSMutableArray array];
@@ -145,13 +158,13 @@
             }
         }
         if (keyses.count) {
-            [self setPorpertyKeys:keyses forClass:c];
+            [self setPropertyKeys:keyses forClass:c];
         }
     }
 }
 
 /** 对应着字典中的多级key */
-- (void)setPorpertyKeys:(NSArray *)propertyKeys forClass:(Class)c
+- (void)setPropertyKeys:(NSArray *)propertyKeys forClass:(Class)c
 {
     if (propertyKeys.count == 0) return;
     NSString *key = NSStringFromClass(c);

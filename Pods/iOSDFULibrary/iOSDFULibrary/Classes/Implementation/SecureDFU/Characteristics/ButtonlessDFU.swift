@@ -23,11 +23,8 @@
 import CoreBluetooth
 
 internal enum ButtonlessDFUOpCode : UInt8 {
-    /// Jump from the main application to Secure DFU bootloader (DFU mode).
     case enterBootloader = 0x01
-    /// Set a new advertisement name when jumping to Secure DFU bootloader (DFU mode).
     case setName         = 0x02
-    /// The response code.
     case responseCode    = 0x20
     
     var code: UInt8 {
@@ -37,27 +34,15 @@ internal enum ButtonlessDFUOpCode : UInt8 {
 
 
 internal enum ButtonlessDFUResultCode : UInt8 {
-    /// The operation completed successfully.
     case success            = 0x01
-    /// The provided opcode was invalid.
     case opCodeNotSupported = 0x02
-    /// The operation failed.
     case operationFailed    = 0x04
-    /// The requested advertisement name was invalid (empty or too long). Only available without bond support.
-    case invalidAdvName     = 0x05
-    /// The request was rejected due to an ongoing asynchronous operation.
-    case busy               = 0x06
-    /// The request was rejected because no bond was created.
-    case notBonded          = 0x07
     
     var description: String {
         switch self {
         case .success:            return "Success"
         case .opCodeNotSupported: return "Operation not supported"
         case .operationFailed:    return "Operation failed"
-        case .invalidAdvName:     return "Invalid advertisment name"
-        case .busy:               return "Busy"
-        case .notBonded:          return "Device not bonded"
         }
     }
     
@@ -73,9 +58,9 @@ internal enum ButtonlessDFURequest {
     var data : Data {
         switch self {
         case .enterBootloader:
-            return Data([ButtonlessDFUOpCode.enterBootloader.code])
+            return Data(bytes: [ButtonlessDFUOpCode.enterBootloader.code])
         case .set(let name):
-            var data = Data([ButtonlessDFUOpCode.setName.code])
+            var data = Data(bytes: [ButtonlessDFUOpCode.setName.code])
             data += UInt8(name.lengthOfBytes(using: String.Encoding.utf8))
             data += name.utf8
             return data
@@ -165,10 +150,10 @@ internal class ButtonlessDFU : NSObject, CBPeripheralDelegate, DFUCharacteristic
         self.report  = report
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         if characteristic.properties.contains(.indicate) {
             logger.v("Enabling indications for \(characteristic.uuid.uuidString)...")
@@ -176,7 +161,7 @@ internal class ButtonlessDFU : NSObject, CBPeripheralDelegate, DFUCharacteristic
             logger.v("Enabling notifications for \(characteristic.uuid.uuidString)...")
         }
         logger.d("peripheral.setNotifyValue(true, for: \(characteristic.uuid.uuidString))")
-        peripheral.setNotifyValue(true, for: characteristic)
+        peripheral?.setNotifyValue(true, for: characteristic)
     }
     
     /**
@@ -193,16 +178,16 @@ internal class ButtonlessDFU : NSObject, CBPeripheralDelegate, DFUCharacteristic
         self.report  = report
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         let buttonlessUUID = characteristic.uuid.uuidString
         
         logger.v("Writing to characteristic \(buttonlessUUID)...")
         logger.d("peripheral.writeValue(0x\(request.data.hexString), for: \(buttonlessUUID), type: .withResponse)")
-        peripheral.writeValue(request.data, for: characteristic, type: .withResponse)
+        peripheral?.writeValue(request.data, for: characteristic, type: .withResponse)
     }
     
     // MARK: - Peripheral Delegate callbacks

@@ -1,0 +1,8 @@
+${PODS_ROOT}/Target Support Files/Pods-iOS_SDK_Demo/Pods-iOS_SDK_Demo-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework
+${BUILT_PRODUCTS_DIR}/iOSDFULibrary/iOSDFULibrary.framework

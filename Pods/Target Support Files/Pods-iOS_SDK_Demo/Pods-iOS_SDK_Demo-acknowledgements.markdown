@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## AFNetworking
 
-Copyright (c) 2011-2016 Alamofire Software Foundation (http://alamofire.org/)
+Copyright (c) 2011-2020 Alamofire Software Foundation (http://alamofire.org/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -51,7 +51,7 @@ SOFTWARE.
 
 ## MBProgressHUD
 
-Copyright © 2009-2016 Matej Bukovinski
+Copyright © 2009-2020 Matej Bukovinski
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -120,7 +120,7 @@ THE SOFTWARE.
 
 MIT License
 
-Copyright (c) 2017 Thomas Zoechling
+Copyright (c) 2017-2021 Thomas Zoechling (https://www.peakstep.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,7 +41,6 @@
 		4FCF8FE02272B4C500ABA614 /* RoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FDF2272B4C500ABA614 /* RoundCornerButton.m */; };
 		4FCF8FE62272DF9D00ABA614 /* GatewayTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FE52272DF9D00ABA614 /* GatewayTypeTableViewController.m */; };
 		4FCF8FE92272F99D00ABA614 /* GatewayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FE82272F99D00ABA614 /* GatewayModel.m */; };
-		4FF3A0EF226EA59800340C8A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF3A0EE226EA59800340C8A /* Info.plist */; };
 		80F19A32A16C86DCFE35CDBD /* Pods_iOS_SDK_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976EC5982C8F3FCCDE92ED32 /* Pods_iOS_SDK_Demo.framework */; };
 		FC24AB562273071500EC47E7 /* FirmwareUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */; };
 		FC3533BF26453FE90036602A /* TTLock.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FC3533BE26453FE90036602A /* TTLock.podspec */; };
@@ -136,7 +135,6 @@
 		4FCF8FE52272DF9D00ABA614 /* GatewayTypeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayTypeTableViewController.m; sourceTree = "<group>"; };
 		4FCF8FE72272F99D00ABA614 /* GatewayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayModel.h; sourceTree = "<group>"; };
 		4FCF8FE82272F99D00ABA614 /* GatewayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayModel.m; sourceTree = "<group>"; };
-		4FF3A0EE226EA59800340C8A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66026471FCA3E154C8DE3C75 /* Pods-TTLockSourceCodeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTLockSourceCodeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTLockSourceCodeDemo/Pods-TTLockSourceCodeDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		7515659158804CFCB9B58328 /* Pods-TTLockSourceCodeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTLockSourceCodeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTLockSourceCodeDemo/Pods-TTLockSourceCodeDemo.release.xcconfig"; sourceTree = "<group>"; };
 		9583F189A7394FDEAFC9B19E /* Pods-iOS_SDK_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_SDK_Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_SDK_Demo/Pods-iOS_SDK_Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 				4FC7DEDF226F054500CFEEEA /* Vendor */,
 				4F27C1E0226EA12A000FB7CF /* Assets.xcassets */,
 				4F27C22D226EA12A000FB7CF /* Categories */,
-				4FF3A0EE226EA59800340C8A /* Info.plist */,
 				4F27C1EF226EA12A000FB7CF /* LaunchScreen.storyboard */,
 				4F27C1F3226EA12A000FB7CF /* main.m */,
 				4F7AD0C32280027C002A7B1A /* Localizable.strings */,
@@ -575,7 +572,6 @@
 				4F7AD0C12280027C002A7B1A /* Localizable.strings in Resources */,
 				FC3533C626454DC70036602A /* TTLockDFU.podspec in Resources */,
 				FC3533BF26453FE90036602A /* TTLock.podspec in Resources */,
-				4FF3A0EF226EA59800340C8A /* Info.plist in Resources */,
 				4F27C255226EA12A000FB7CF /* LaunchScreen.storyboard in Resources */,
 				4F27C24E226EA12A000FB7CF /* Assets.xcassets in Resources */,
 			);
@@ -612,28 +608,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOS_SDK_Demo/Pods-iOS_SDK_Demo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/ZIPFoundation/ZIPFoundation.framework",
-				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary/iOSDFULibrary.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_SDK_Demo/Pods-iOS_SDK_Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZIPFoundation.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-iOS_SDK_Demo/Pods-iOS_SDK_Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -774,7 +753,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -828,7 +807,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -845,7 +824,7 @@
 				CODE_SIGN_ENTITLEMENTS = TTLockSourceCodeDemo/TTLockSourceCodeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W384X4TB6S;
+				DEVELOPMENT_TEAM = 8UTQX5G9VG;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -898,7 +877,7 @@
 					"\"iOSDFULibrary\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TTLock.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grewon.demotest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -915,7 +894,7 @@
 				CODE_SIGN_ENTITLEMENTS = TTLockSourceCodeDemo/TTLockSourceCodeDemo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W384X4TB6S;
+				DEVELOPMENT_TEAM = 8UTQX5G9VG;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -968,7 +947,7 @@
 					"\"iOSDFULibrary\"",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = TTLock.Demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.grewon.demotest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

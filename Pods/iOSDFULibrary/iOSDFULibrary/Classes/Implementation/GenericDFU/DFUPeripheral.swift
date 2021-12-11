@@ -184,7 +184,7 @@ internal class BaseDFUPeripheral<TD : BasePeripheralDelegate> : NSObject, BaseDF
             stateAsString = "Unauthorized"
         case .unsupported:
             stateAsString = "Unsupported"
-        default:
+        case .unknown:
             stateAsString = "Unknown"
         }
         logger.d("[Callback] Central Manager did update state to: \(stateAsString)")

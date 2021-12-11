@@ -63,25 +63,25 @@ internal enum Request {
     var data : Data {
         switch self {
         case .jumpToBootloader:
-            return Data([DFUOpCode.startDfu.code, FIRMWARE_TYPE_APPLICATION])
+            return Data(bytes: [DFUOpCode.startDfu.code, FIRMWARE_TYPE_APPLICATION])
         case .startDfu(let type):
-            return Data([DFUOpCode.startDfu.code, type])
+            return Data(bytes: [DFUOpCode.startDfu.code, type])
         case .startDfu_v1:
-            return Data([DFUOpCode.startDfu.code])
+            return Data(bytes: [DFUOpCode.startDfu.code])
         case .initDfuParameters(let req):
-            return Data([DFUOpCode.initDfuParameters.code, req.code])
+            return Data(bytes: [DFUOpCode.initDfuParameters.code, req.code])
         case .initDfuParameters_v1:
-            return Data([DFUOpCode.initDfuParameters.code])
+            return Data(bytes: [DFUOpCode.initDfuParameters.code])
         case .receiveFirmwareImage:
-            return Data([DFUOpCode.receiveFirmwareImage.code])
+            return Data(bytes: [DFUOpCode.receiveFirmwareImage.code])
         case .validateFirmware:
-            return Data([DFUOpCode.validateFirmware.code])
+            return Data(bytes: [DFUOpCode.validateFirmware.code])
         case .activateAndReset:
-            return Data([DFUOpCode.activateAndReset.code])
+            return Data(bytes: [DFUOpCode.activateAndReset.code])
         case .reset:
-            return Data([DFUOpCode.reset.code])
+            return Data(bytes: [DFUOpCode.reset.code])
         case .packetReceiptNotificationRequest(let number):
-            var data = Data([DFUOpCode.packetReceiptNotificationRequest.code])
+            var data = Data(bytes: [DFUOpCode.packetReceiptNotificationRequest.code])
             data += number.littleEndian
             return data
         }
@@ -169,8 +169,8 @@ internal struct PacketReceiptNotification {
         // in SDK 5.2.0.39364 the bytesReveived value in a PRN packet is 16-bit long, instad of 32-bit.
         // However, the packet is still 5 bytes long and the two last bytes are 0x00-00.
         // This has to be taken under consideration when comparing number of bytes sent and received as
-        // the latter counter may rewind if fw size is > 0xFFFF bytes (LegacyDFUService:L446).
-        let bytesReceived: UInt32 = data.asValue(offset: 1)
+        // the latter counter may rewind if fw size is > 0xFFFF bytes (LegacyDFUService:L372).
+        let bytesReceived: UInt32 = data.subdata(in: 1 ..< 4).withUnsafeBytes { $0.pointee }
         self.bytesReceived = bytesReceived
     }
 }
@@ -213,14 +213,14 @@ internal struct PacketReceiptNotification {
         self.report  = report
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         logger.v("Enabling notifications for \(characteristic.uuid.uuidString)...")
         logger.d("peripheral.setNotifyValue(true, for: \(characteristic.uuid.uuidString))")
-        peripheral.setNotifyValue(true, for: characteristic)
+        peripheral?.setNotifyValue(true, for: characteristic)
     }
     
     /**
@@ -239,10 +239,10 @@ internal struct PacketReceiptNotification {
         self.resetSent = false
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
         
         switch request {
         case .initDfuParameters(let req):
@@ -260,7 +260,7 @@ internal struct PacketReceiptNotification {
         }
         logger.v("Writing to characteristic \(characteristic.uuid.uuidString)...")
         logger.d("peripheral.writeValue(0x\(request.data.hexString), for: \(characteristic.uuid.uuidString), type: .withResponse)")
-        peripheral.writeValue(request.data, for: characteristic, type: .withResponse)
+        peripheral?.writeValue(request.data, for: characteristic, type: .withResponse)
     }
     
     /**
@@ -282,10 +282,10 @@ internal struct PacketReceiptNotification {
         self.uploadStartTime = CFAbsoluteTimeGetCurrent()
         
         // Get the peripheral object
-        let peripheral = characteristic.service.peripheral
+        let peripheral = characteristic.service?.peripheral
         
         // Set the peripheral delegate to self
-        peripheral.delegate = self
+        peripheral?.delegate = self
     }
     
     // MARK: - Peripheral Delegate callbacks

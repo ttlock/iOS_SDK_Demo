@@ -140,7 +140,7 @@ internal class SecureDFUExecutor : DFUExecutor, SecureDFUPeripheralDelegate {
     }
     
     func peripheralDidReceiveInitPacket() {
-        logger.a(String(format: "Command object sent (CRC = %08X)", crc32(data: firmware.initPacket!)))
+        logger.a(String(format: "Command object sent (CRC = %08X)", CRC32(data: firmware.initPacket!).crc))
         
         // Init Packet sent. Let's check the CRC before executing it.
         peripheral.sendCalculateChecksumCommand() // -> peripheralDidSendChecksum(...) will be called
@@ -371,7 +371,7 @@ internal class SecureDFUExecutor : DFUExecutor, SecureDFUPeripheralDelegate {
         }
         // Get data form 0 up to the offset the peripheral has reproted
         let offsetData : Data = (data.subdata(in: 0 ..< Int(offset)))
-        let calculatedCRC = crc32(data: offsetData)
+        let calculatedCRC = CRC32(data: offsetData).crc
         
         // This returns true if the current data packet's CRC matches the current firmware's packet CRC
         return calculatedCRC == crc
