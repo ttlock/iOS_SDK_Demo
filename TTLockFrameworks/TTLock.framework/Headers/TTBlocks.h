@@ -12,7 +12,7 @@
 #ifndef TTBlocks_h
 #define TTBlocks_h
 
-#import <TTLock/TTMacros.h>
+#import "TTMacros.h"
 
 
 @class TTScanModel;
@@ -70,6 +70,10 @@ typedef void(^TTGetUnlockDirectionSuccessdBlock)(TTUnlockDirection direction);
 typedef void(^TTGetAccessoryElectricQuantitySuccessdBlock)(NSInteger electricQuantity, long long updateDate);
 
 typedef void(^TTGetLockSoundSuccessdBlock)(TTSoundVolume soundVolume);
+
+//wifiArr: [{"SSID":"name"}]
+typedef void(^TTScanWifiSuccessdBlock)(BOOL isFinished, NSArray *wifiArr);
+typedef void(^TTGetWifiInfoSuccessdBlock)(NSString *wifiMac, NSInteger wifiRssi);
 
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 

@@ -104,6 +104,7 @@ typedef NS_ENUM(NSInteger, TTError)
 
 typedef NS_ENUM(NSInteger, TTControlAction)
 {
+    TTControlActionRemoteStop = 0x00,
     TTControlActionUnlock = 0x01,
     TTControlActionLock = 0x02,
     TTControlActionlPause = 0x04,
@@ -356,7 +357,6 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueGatewayUnlock = 10,
     TTLockFeatureValueLockFreeze = 11,
     TTLockFeatureValueCyclePassword = 12,
-    TTLockFeatureValueDoorSensor = 13,
     TTLockFeatureValueRemoteUnlockSwicth = 14,
     TTLockFeatureValueAudioSwitch = 15,
     TTLockFeatureValueNBIoT = 16,
@@ -385,6 +385,13 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
 	TTLockFeatureValueQRCode = 44,
 	TTLockFeatureValueSensorState = 45,
 	TTLockFeatureValuePassageModeAutoUnlock = 46,
+    TTLockFeatureValueDoorSensor = 50,
+    TTLockFeatureValueDoorSensorAlert = 51,
+    TTLockFeatureValueSensitivity = 52,
+    TTLockFeatureValueFace = 53,
+    TTLockFeatureValueCpuCard = 55,
+    TTLockFeatureValueWifiLock = 56,
+    TTLockFeatureValueWifiLockStaticIP = 58,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -394,7 +401,8 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTTamperAlert,
     TTResetButton,
     TTPrivacyLock,
-	TTPassageModeAutoUnlock
+	TTPassageModeAutoUnlock,
+    TTWifiPowerSavingMode
 };
 
 /*!
