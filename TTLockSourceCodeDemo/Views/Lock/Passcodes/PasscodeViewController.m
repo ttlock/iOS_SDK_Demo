@@ -89,14 +89,14 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
 
 - (void)visiblePasscodeAction:(UISwitch *)visibleSwitch{
     
-    BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionPasscodeVisible];
+    BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValuePasscodeVisible];
     if (!suportFunction) {
         [self showToastAndLog:TTErrorMessageInvalidCommand];
         return;
     }
     
     [self.view showToastLoading];
-    [TTLock setPasscodeVisibleSwitchOn:visibleSwitch.isOn lockData:_lockModel.lockData success:^{
+    [TTLock setLockConfigWithType:TTPasscodeVisible on:visibleSwitch.isOn lockData:_lockModel.lockData success:^{
         [self showToastAndLog:[NSString stringWithFormat:@"Set switch %@",visibleSwitch.isOn ?  @"On":@"Close"]];
     } failure:^(TTError errorCode, NSString *errorMsg) {
         [self showToastAndLog:errorMsg];
@@ -144,7 +144,7 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (action == PasscodeActionGetAdminPasscode) {
-        BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionGetAdminPasscode];
+        BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueGetAdminPasscode];
         if (!suportFunction) {
             [self showToastAndLog:TTErrorMessageInvalidCommand];
             return;
@@ -231,8 +231,7 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
     }else if (action == PasscodeActionSetPasscodeVisibleSwitch){
         
     }else if (action == PasscodeActionGetPasscodeVisibleSwitch){
-        
-        BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionPasscodeVisible];
+        BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValuePasscodeVisible];
         if (!suportFunction) {
             [self showToastAndLog:TTErrorMessageInvalidCommand];
             return;

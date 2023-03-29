@@ -90,7 +90,7 @@
     long long startDate = _permanentDate ? 0 : _fingerprintModel.startDate;
     long long endDate = _permanentDate ? 0 : _fingerprintModel.endDate;
     [self.view showToastLoading];
-    [TTLock addFingerprintStartDate:startDate endDate:endDate lockData:_lockModel.lockData progress:^(int currentCount, int totalCount) {
+    [TTLock addFingerprintWithCyclicConfig:nil startDate:startDate endDate:endDate lockData:_lockModel.lockData progress:^(int currentCount, int totalCount) {
         NSString *text = [NSString stringWithFormat:LS(@"Remaining compressions: %ld"),(long)totalCount-currentCount];
         [self.view showToast:text];
     } success:^(NSString *fingerprintNumber) {
@@ -121,7 +121,7 @@
     long long startDate = _permanentDate ? 0 : _fingerprintModel.startDate;
     long long endDate = _permanentDate ? 0 : _fingerprintModel.endDate;
     [self.view showToastLoading];
-    [TTLock modifyFingerprintValidityPeriodWithFingerprintNumber:_fingerprintModel.fingerprintNumber startDate:startDate endDate:endDate lockData:_lockModel.lockData success:^{
+    [TTLock modifyFingerprintValidityPeriodWithCyclicConfig:nil fingerprintNumber:_fingerprintModel.fingerprintNumber startDate:startDate endDate:endDate lockData:_lockModel.lockData success:^{
         [NetUtil modifyFingerprintId:self.fingerprintModel.fingerprintId startDate:startDate endDate:endDate byGateway:NO completion:^(id info, NSError *error) {
             if (error) {
                 [self.view showToastError:error];

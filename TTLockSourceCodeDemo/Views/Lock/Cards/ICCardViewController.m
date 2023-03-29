@@ -93,8 +93,7 @@
     [self.view showToastLoading];
     long long startDate = _permanentDate ? 0 : _cardModel.startDate;
     long long endDate = _permanentDate ? 0 : _cardModel.endDate;
-    [TTLock addICCardStartDate:startDate endDate:endDate lockData:_lockModel.lockData progress:^(TTAddICState state) {
-        
+    [TTLock addICCardWithCyclicConfig:nil startDate:startDate endDate:endDate lockData:_lockModel.lockData progress:^(TTAddICState state) {
         NSString *text = [NSString stringWithFormat:@"state:%ld",(long)state];
         [self.view showToast:text];
     } success:^(NSString *cardNumber) {
@@ -109,7 +108,6 @@
                 [self.navigationController popViewControllerAnimated:YES];
             }];
         }];
-        
     } failure:^(TTError errorCode, NSString *errorMsg) {
         [self.view showToast:errorMsg];
     }];
@@ -128,7 +126,7 @@
     [self.view showToastLoading];
     long long startDate = _permanentDate ? 0 : _cardModel.startDate;
     long long endDate = _permanentDate ? 0 : _cardModel.endDate;
-    [TTLock modifyICCardValidityPeriodWithCardNumber:_cardModel.cardNumber startDate:startDate endDate:endDate lockData:_lockModel.lockData success:^{
+    [TTLock modifyICCardValidityPeriodWithCyclicConfig:nil cardNumber:_cardModel.cardNumber startDate:startDate endDate:endDate lockData:_lockModel.lockData success:^{
         [NetUtil modifyCardId:self.cardModel.cardId startDate:startDate endDate:endDate byGateway:NO completion:^(id info, NSError *error) {
             if (error) {
                 [self.view showToastError:error];

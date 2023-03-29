@@ -145,14 +145,14 @@ typedef NS_ENUM(NSInteger,LockAction) {
 }
 
 - (void)audioSwitchAction:(UISwitch *)audioSwitch{
-    BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionAudioSwitch];
+    BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueAudioSwitch] ;
     if (!suportFunction) {
         [self showToastAndLog:TTErrorMessageInvalidCommand];
         return;
     }
     
     [self.view showToastLoading];
-    [TTLock setAudioSwitchOn:audioSwitch.isOn lockData:_lockModel.lockData success:^{
+    [TTLock setLockConfigWithType:TTLockSound on:audioSwitch.isOn lockData:_lockModel.lockData success:^{
         [self showToastAndLog:LS(@"Success")];
     } failure:^(TTError errorCode, NSString *errorMsg) {
         [self showToastAndLog:errorMsg];
@@ -160,7 +160,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
 }
 
 - (void)remotUnlockSwitchAction:(UISwitch *)remotUnlockSwitch{
-    BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionRemoteUnlockSwicth];
+    BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueRemoteUnlockSwicth] ;
     if (!suportFunction) {
         [self showToastAndLog:TTErrorMessageInvalidCommand];
         return;
@@ -233,8 +233,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             break;
         case LockActionPasscode:
         {
-            BOOL suportFunction = ([TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionPasscode]
-            || [TTUtil lockFeatureValue:_lockModel.wirelessKeypadFeatureValue suportFunction:TTLockFeatureValuePasscode]);
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValuePasscode] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -246,7 +245,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             break;
         case LockActionICCard:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionICCard];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueICCard] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -258,7 +257,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             break;
         case LockActionFingerprint:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionFingerprint];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueFingerprint] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -286,7 +285,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             break;
         case LockActionWirelessKeypad:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionWirelessKeypad];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueWirelessKeypad] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -331,7 +330,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
         
         case LockActionSetNB:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionNBIoT];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueNBIoT] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -362,12 +361,12 @@ typedef NS_ENUM(NSInteger,LockAction) {
             break;
         case LockActionGetSpecialValue:
         {
-            [TTLock getLockSpecialValueWithLockData:_lockModel.lockData success:^(long long specialValue) {
-                NSString *text = [NSString stringWithFormat:@"Success\n SpecialValue:%lld",specialValue];
-                [self showToastAndLog:text];
+            [TTLock getLockFeatureValueWithLockData:_lockModel.lockData success:^(NSString *lockData) {
+                [self showToastAndLog:@"Success"];
             } failure:^(TTError errorCode, NSString *errorMsg) {
                 [self showToastAndLog:errorMsg];
             }];
+          
         }
             break;
             
@@ -384,8 +383,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             
         case LockActionSetAutomaticLockingPeriodicTime:
         {
-            
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionAutoLock];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueAutoLock] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -401,7 +399,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             
         case LockActionGetAutomaticLockingPeriodicTime:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionAutoLock];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueAutoLock] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -420,7 +418,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             
         case LockActionGetRemoteUnlcokSwitch:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionRemoteUnlockSwicth];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueRemoteUnlockSwicth] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;
@@ -439,7 +437,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
             
         case LockActionGetAudio:
         {
-            BOOL suportFunction = [TTUtil lockSpecialValue:_lockModel.specialValue suportFunction:TTLockSpecialFunctionAudioSwitch];
+            BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueAudioSwitch] ;
             if (!suportFunction) {
                 [self showToastAndLog:TTErrorMessageInvalidCommand];
                 return;

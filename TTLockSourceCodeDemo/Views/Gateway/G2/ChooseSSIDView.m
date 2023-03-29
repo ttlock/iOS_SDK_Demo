@@ -118,7 +118,7 @@
     cell.textLabel.text = dic[@"SSID"];
     int rssi =  [dic[@"RSSI"] intValue];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"rssi:%d",rssi];
-    cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

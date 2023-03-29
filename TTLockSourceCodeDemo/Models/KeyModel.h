@@ -16,9 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger userType;
 @property (nonatomic, assign) NSInteger keyStatus;
 @property (nonatomic, assign) NSInteger lockFlagPos;
-@property (nonatomic,strong) NSString * remarks;
-@property (nonatomic, retain) NSString *noKeyPwd;
-@property (nonatomic, retain) NSString *deletePwd;
+@property (nonatomic, strong) NSString * remarks;
+@property (nonatomic, strong) NSString *deletePwd;
 @property (nonatomic, assign) BOOL keyRight;
 @property (nonatomic, assign) NSInteger remoteEnable;
 
