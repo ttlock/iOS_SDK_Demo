@@ -2,12 +2,7 @@
 ttlock-developers-email-list@googlegroups.com
 
 ## Minimum iOS Target:
-iOS 9.0
-
-
-## Minimum Xcode Version: 
-Xcode 10.2 
-
+iOS 11.0
 
 ## Installation
 
