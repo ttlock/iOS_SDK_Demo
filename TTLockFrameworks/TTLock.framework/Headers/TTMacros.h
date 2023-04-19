@@ -42,6 +42,8 @@ UIKIT_EXTERN NSString * const  TTErrorMessageInFreezeMode;
 UIKIT_EXTERN NSString * const  TTErrorMessageInvalidClientPara;
 UIKIT_EXTERN NSString * const  TTErrorMessageLockIsLocked;
 UIKIT_EXTERN NSString * const  TTErrorMessageRecordNotExist;
+UIKIT_EXTERN NSString * const  TTErrorMessageWrongSSID;
+UIKIT_EXTERN NSString * const  TTErrorMessageWrongWifiPassword;
 UIKIT_EXTERN NSString * const  TTErrorMessageBluetoothPoweredOff;
 UIKIT_EXTERN NSString * const  TTErrorMessageConnectionTimeout;
 UIKIT_EXTERN NSString * const  TTErrorMessageDisconnection;
@@ -93,6 +95,8 @@ typedef NS_ENUM(NSInteger, TTError)
     TTErrorInvalidClientPara = 0x1D,
     TTErrorLockIsLocked = 0x1E,
     TTErrorRecordNotExist = 0x1F,
+    TTErrorWrongSSID = 0x25,
+    TTErrorWrongWifiPassword = 0x26,
     
     TTErrorBluetoothPoweredOff = 0x61,
     TTErrorConnectionTimeout = 0x62,
@@ -309,6 +313,7 @@ typedef NS_ENUM(NSInteger,TTDeviceInfoType) {
     TTDeviceInfoTypeOfNbNodeId = 8,
     TTDeviceInfoTypeOfNbCardNumber = 9,
     TTDeviceInfoTypeOfNbRssi = 10,
+    TTDeviceInfoTypeOfPasscodeKeyNumber = 12,
 };
 
 typedef NS_ENUM(long long, TTLockSpecialFunction)
@@ -375,6 +380,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValuePrivacyLock = 30,
     TTLockFeatureValueDeadLock = 32,
     TTLockFeatureValueCyclicCardOrFingerprint = 34,
+    TTLockFeatureValueUnlockDirection = 36,
 	TTLockFeatureValueFingerVein = 37,
 	TTLockFeatureValueBle5G = 38,
 	TTLockFeatureValueNBAwake = 39,
@@ -392,6 +398,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueCpuCard = 55,
     TTLockFeatureValueWifiLock = 56,
     TTLockFeatureValueWifiLockStaticIP = 58,
+    TTLockFeatureValuePasscodeKeyNumber = 60,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -443,7 +450,8 @@ typedef NS_ENUM(int, TTUnlockDirection) {
 
 typedef NS_ENUM(int, TTAccessoryType) {
 	TTAccessoryTypeWirelessKeypad = 1,
-	TTAccessoryTypeWirelessKeyFob
+	TTAccessoryTypeWirelessKeyFob,
+    TTAccessoryTypeDoorSensor
 };
 
 typedef NS_ENUM(int, TTSoundVolume) {

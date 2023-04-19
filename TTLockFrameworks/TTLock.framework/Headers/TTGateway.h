@@ -71,4 +71,9 @@
  */
 + (void)upgradeGatewayWithGatewayMac:(NSString *)gatewayMac block:(TTGatewayBlock)block;
 
+/**
+ Call tihis after connect gateway successfully
+ */
++ (NSString *)getNetworkMac;
+
 @end

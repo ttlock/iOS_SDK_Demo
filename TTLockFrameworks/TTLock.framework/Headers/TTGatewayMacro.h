@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, TTGatewayStatus){
     TTGatewayFail = 1,
     TTGatewayWrongSSID = 3,
     TTGatewayWrongWifiPassword = 4,
+    TTGatewayInvalidCommand = 6,
 	TTGatewayTimeout = 7,
 	TTGatewayNoSIM = 8,
 	TTGatewayNoPlugCable = 9,
