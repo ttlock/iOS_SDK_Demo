@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.2.3
+//  version:3.2.4
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -1181,6 +1181,19 @@ Config Ip
                       lockData:(NSString *)lockData
                        success:(TTSucceedBlock)success
                        failure:(TTFailedBlock)failure;
+
+/**
+ Get the lock log Parallel
+
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the lock log is got
+ @param failure A block invoked when the operation fails
+ */
++ (void)getOperationLogParallelWithLockData:(NSString *)lockData
+                        success:(TTGetLockOperateRecordSucceedBlock)success
+                        failure:(TTFailedBlock)failure;
+
+
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData

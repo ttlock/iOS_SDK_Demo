@@ -12,7 +12,6 @@
 #import "LoginViewController.h"
 #import "NavigationController.h"
 
-
 @interface AppDelegate ()
 
 @end

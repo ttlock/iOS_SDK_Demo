@@ -382,7 +382,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueCyclicCardOrFingerprint = 34,
     TTLockFeatureValueUnlockDirection = 36,
 	TTLockFeatureValueFingerVein = 37,
-	TTLockFeatureValueBle5G = 38,
+	TTLockFeatureValueBle5G = 38,   //Telink
 	TTLockFeatureValueNBAwake = 39,
 	TTLockFeatureValueRecoverCyclePasscode = 40,
 	TTLockFeatureValueWirelessKeyFob = 41,
