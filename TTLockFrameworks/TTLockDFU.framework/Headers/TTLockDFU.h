@@ -1,7 +1,7 @@
 
 //  Created by TTLock on 2017/8/9.
 //  Copyright © 2017年 TTLock. All rights reserved.
-//  version:3.1.9
+//  version:3.2.4
 
 #import <Foundation/Foundation.h>
 #import "TTDFUMacros.h"
