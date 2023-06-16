@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.2.4
+//  version:3.2.6
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -60,6 +60,12 @@
  Stop Bluetooth scanning
  */
 + (void)stopScan;
+
+/**
+ Cancel Operations
+ Cancel an active or pending connection to peripheral. Note that this is non-blocking, and any CBPeripheral commands that are still pending to peripheral may or may not complete.
+ */
++ (void)cancelOperationsWithLockMac:(NSString *)lockMac;
 
 #pragma mark - Lock basic operation
 /**

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name          = "TTLock"
-s.version       = "3.2.4"
+s.version       = "3.2.6"
 s.summary       = "TTLock SDK for iOS."
 s.homepage      = "https://github.com/ttlock/iOS_SDK_Demo"
 s.license       = { :type => "MIT", :file => "LICENSE" }
