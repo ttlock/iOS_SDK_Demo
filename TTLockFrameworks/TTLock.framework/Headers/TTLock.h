@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.2.7
+//  version:3.2.9
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -20,6 +20,7 @@
 #import "TTWirelessKeypadScanModel.h"
 #import "TTWirelessKeyFob.h"
 #import "TTWirelessKeyFobScanModel.h"
+#import "TTDoorSensor.h"
 
 @interface TTLock : NSObject
 /**
