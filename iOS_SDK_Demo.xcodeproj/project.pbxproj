@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,17 +37,16 @@
 		4FC7DEEB226F056C00CFEEEA /* DateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7DEE7226F056C00CFEEEA /* DateHelper.m */; };
 		4FC7DEEC226F056C00CFEEEA /* KMDatePickerDateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FC7DEE8226F056C00CFEEEA /* KMDatePickerDateModel.m */; };
 		4FCF8FD42272A0FB00ABA614 /* GatewayTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FD32272A0FB00ABA614 /* GatewayTableViewController.m */; };
-		4FCF8FD72272B16700ABA614 /* Gateway1AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FD62272B16700ABA614 /* Gateway1AddViewController.m */; };
 		4FCF8FE02272B4C500ABA614 /* RoundCornerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FDF2272B4C500ABA614 /* RoundCornerButton.m */; };
 		4FCF8FE62272DF9D00ABA614 /* GatewayTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FE52272DF9D00ABA614 /* GatewayTypeTableViewController.m */; };
 		4FCF8FE92272F99D00ABA614 /* GatewayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FCF8FE82272F99D00ABA614 /* GatewayModel.m */; };
 		4FF3A0EF226EA59800340C8A /* Info-demo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FF3A0EE226EA59800340C8A /* Info-demo.plist */; };
 		80F19A32A16C86DCFE35CDBD /* Pods_iOS_SDK_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 976EC5982C8F3FCCDE92ED32 /* Pods_iOS_SDK_Demo.framework */; };
+		FC228ECC2B3C25D20054B665 /* TTLockDFU.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC228ECB2B3C25D20054B665 /* TTLockDFU.xcframework */; };
 		FC24AB562273071500EC47E7 /* FirmwareUpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */; };
 		FC3533BF26453FE90036602A /* TTLock.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FC3533BE26453FE90036602A /* TTLock.podspec */; };
 		FC3533C626454DC70036602A /* TTLockDFU.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FC3533C526454DC70036602A /* TTLockDFU.podspec */; };
-		FC7EFF7D2281B1FF0003EF81 /* TTLockDFU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */; };
-		FC7EFF802281B2110003EF81 /* TTLockGateway.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */; };
+		FC7E12D82B440D1B009BB391 /* TTLock.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC7E12D72B440D1B009BB391 /* TTLock.xcframework */; };
 		FC8D1C0B22768DAC002E21D0 /* GatewayLockListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */; };
 		FCA6445B22A8ED1F0062463E /* KeypadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445122A8ED1E0062463E /* KeypadViewController.m */; };
 		FCA6445C22A8ED1F0062463E /* KeypadAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6445422A8ED1E0062463E /* KeypadAddViewController.m */; };
@@ -64,7 +63,6 @@
 		FCA6447922A8EFE40062463E /* KeypadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA6447822A8EFE40062463E /* KeypadModel.m */; };
 		FCC800BE2275AEB300A5C9B8 /* GateWayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800BD2275AEB300A5C9B8 /* GateWayDetailViewController.m */; };
 		FCC800C12275B43800A5C9B8 /* GatewayListLockTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC800C02275B43800A5C9B8 /* GatewayListLockTableViewController.m */; };
-		FCD92B052879195300D1FCE6 /* TTLock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC94D9D6228266820035BB07 /* TTLock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +126,6 @@
 		4FC7DEE8226F056C00CFEEEA /* KMDatePickerDateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDatePickerDateModel.m; sourceTree = "<group>"; };
 		4FCF8FD22272A0FB00ABA614 /* GatewayTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayTableViewController.h; sourceTree = "<group>"; };
 		4FCF8FD32272A0FB00ABA614 /* GatewayTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayTableViewController.m; sourceTree = "<group>"; };
-		4FCF8FD52272B16700ABA614 /* Gateway1AddViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gateway1AddViewController.h; sourceTree = "<group>"; };
-		4FCF8FD62272B16700ABA614 /* Gateway1AddViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gateway1AddViewController.m; sourceTree = "<group>"; };
 		4FCF8FDE2272B4C500ABA614 /* RoundCornerButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoundCornerButton.h; sourceTree = "<group>"; };
 		4FCF8FDF2272B4C500ABA614 /* RoundCornerButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoundCornerButton.m; sourceTree = "<group>"; };
 		4FCF8FE42272DF9D00ABA614 /* GatewayTypeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayTypeTableViewController.h; sourceTree = "<group>"; };
@@ -145,15 +141,14 @@
 		B137C2C10E2CA29C8E6C966F /* Pods-TTLockManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTLockManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTLockManager/Pods-TTLockManager.release.xcconfig"; sourceTree = "<group>"; };
 		D6D9C1B0CFD0988EECBF3369 /* Pods-TTLockManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTLockManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTLockManager/Pods-TTLockManager.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B911AF83DA639756DCA506 /* Pods-iOS_SDK_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_SDK_Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS_SDK_Demo/Pods-iOS_SDK_Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		FC228ECB2B3C25D20054B665 /* TTLockDFU.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TTLockDFU.xcframework; sourceTree = "<group>"; };
 		FC24AB542273071500EC47E7 /* FirmwareUpdateModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirmwareUpdateModel.m; sourceTree = "<group>"; };
 		FC24AB552273071500EC47E7 /* FirmwareUpdateModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirmwareUpdateModel.h; sourceTree = "<group>"; };
 		FC3533BE26453FE90036602A /* TTLock.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TTLock.podspec; sourceTree = "<group>"; };
 		FC3533C526454DC70036602A /* TTLockDFU.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TTLockDFU.podspec; sourceTree = "<group>"; };
-		FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockDFU.framework; sourceTree = "<group>"; };
-		FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLockGateway.framework; sourceTree = "<group>"; };
+		FC7E12D72B440D1B009BB391 /* TTLock.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = TTLock.xcframework; sourceTree = "<group>"; };
 		FC8D1C0922768DAC002E21D0 /* GatewayLockListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GatewayLockListModel.h; sourceTree = "<group>"; };
 		FC8D1C0A22768DAC002E21D0 /* GatewayLockListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GatewayLockListModel.m; sourceTree = "<group>"; };
-		FC94D9D6228266820035BB07 /* TTLock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TTLock.framework; sourceTree = "<group>"; };
 		FCA6445122A8ED1E0062463E /* KeypadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeypadViewController.m; sourceTree = "<group>"; };
 		FCA6445222A8ED1E0062463E /* KeypadAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadAddViewController.h; sourceTree = "<group>"; };
 		FCA6445322A8ED1E0062463E /* KeypadAddGuide2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeypadAddGuide2ViewController.h; sourceTree = "<group>"; };
@@ -192,9 +187,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC7EFF802281B2110003EF81 /* TTLockGateway.framework in Frameworks */,
-				FCD92B052879195300D1FCE6 /* TTLock.framework in Frameworks */,
-				FC7EFF7D2281B1FF0003EF81 /* TTLockDFU.framework in Frameworks */,
+				FC7E12D82B440D1B009BB391 /* TTLock.xcframework in Frameworks */,
+				FC228ECC2B3C25D20054B665 /* TTLockDFU.xcframework in Frameworks */,
 				80F19A32A16C86DCFE35CDBD /* Pods_iOS_SDK_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,7 +371,6 @@
 				FCC800BF2275B43800A5C9B8 /* GatewayListLockTableViewController.h */,
 				FCC800C02275B43800A5C9B8 /* GatewayListLockTableViewController.m */,
 				FCA6446622A8EF260062463E /* G2 */,
-				FCC800B022756D1000A5C9B8 /* G1 */,
 			);
 			path = Gateway;
 			sourceTree = "<group>";
@@ -447,11 +440,10 @@
 		FC7EFEF5228195360003EF81 /* TTLockFrameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC228ECB2B3C25D20054B665 /* TTLockDFU.xcframework */,
+				FC7E12D72B440D1B009BB391 /* TTLock.xcframework */,
 				FC3533C526454DC70036602A /* TTLockDFU.podspec */,
 				FC3533BE26453FE90036602A /* TTLock.podspec */,
-				FC94D9D6228266820035BB07 /* TTLock.framework */,
-				FC7EFF7E2281B20A0003EF81 /* TTLockGateway.framework */,
-				FC7EFF7C2281B1FF0003EF81 /* TTLockDFU.framework */,
 			);
 			path = TTLockFrameworks;
 			sourceTree = "<group>";
@@ -496,15 +488,6 @@
 				FCA6446922A8EF260062463E /* GatewayUpgradeViewController.m */,
 			);
 			path = Upgrade;
-			sourceTree = "<group>";
-		};
-		FCC800B022756D1000A5C9B8 /* G1 */ = {
-			isa = PBXGroup;
-			children = (
-				4FCF8FD52272B16700ABA614 /* Gateway1AddViewController.h */,
-				4FCF8FD62272B16700ABA614 /* Gateway1AddViewController.m */,
-			);
-			path = G1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -663,7 +646,6 @@
 				FCA6445C22A8ED1F0062463E /* KeypadAddViewController.m in Sources */,
 				4F27C25A226EA12A000FB7CF /* UserModel.m in Sources */,
 				4F27C266226EA12A000FB7CF /* KeyViewController.m in Sources */,
-				4FCF8FD72272B16700ABA614 /* Gateway1AddViewController.m in Sources */,
 				FCA6446222A8ED400062463E /* HomeViewController.m in Sources */,
 				4F27C254226EA12A000FB7CF /* NetUtil.m in Sources */,
 				FCA6445E22A8ED1F0062463E /* KeypadTableViewController.m in Sources */,
@@ -831,7 +813,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W384X4TB6S;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
-				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TTLockFrameworks",
@@ -844,7 +825,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.2.9;
+				MARKETING_VERSION = 3.3.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -898,7 +879,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W384X4TB6S;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
-				EXCLUDED_ARCHS = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TTLockFrameworks",
@@ -911,7 +891,7 @@
 					"@executable_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				MARKETING_VERSION = 3.2.9;
+				MARKETING_VERSION = 3.3.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"$(inherited)",

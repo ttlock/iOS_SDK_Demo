@@ -7,7 +7,6 @@
 //
 
 #import "GatewayTypeTableViewController.h"
-#import "Gateway1AddViewController.h"
 #import "GuideGatewayViewController.h"
 
 @interface GatewayTypeTableViewController ()
@@ -29,7 +28,7 @@
 }
 
 - (void)setupData{
-    _dataArray = @[@{@"G1":@"G1"},@{@"G2":@"G2"}];
+    _dataArray = @[@{@"G2":@"G2"}];
 }
 
 #pragma mark - Table view data source
@@ -49,12 +48,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0) {
-        Gateway1AddViewController *vc = [[Gateway1AddViewController alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else{
-        GuideGatewayViewController *vc = [GuideGatewayViewController new];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+    
+    GuideGatewayViewController *vc = [GuideGatewayViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

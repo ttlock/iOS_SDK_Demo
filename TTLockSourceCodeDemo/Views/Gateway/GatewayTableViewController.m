@@ -70,7 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GatewayModel *gatewayModel = _dataArray[indexPath.row];
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    NSString *imageName = gatewayModel.gatewayVersion == GatewayG2 ? @"G2" : @"G1";
+    NSString *imageName = @"G2" ;
     cell.imageView.image = [UIImage imageNamed:imageName];
     cell.textLabel.text = gatewayModel.gatewayName;
     cell.detailTextLabel.text = gatewayModel.isOnline ? LS(@"Online") : LS(@"Offline");
