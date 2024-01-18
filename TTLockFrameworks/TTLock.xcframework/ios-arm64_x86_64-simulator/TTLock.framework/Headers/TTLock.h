@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.3.0
+//  version:3.3.1
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -1200,6 +1200,18 @@ Config Ip
                         success:(TTGetLockOperateRecordSucceedBlock)success
                         failure:(TTFailedBlock)failure;
 
+/**
+ Reset lock by code
+
+ @param resetCode Reset Code
+ @param lockMac lock Mac
+ @param success A block invoked when the lock log is got
+ @param failure A block invoked when the operation fails
+ */
++ (void)resetLockByCodeWithResetCode:(NSString *)resetCode
+                           lockMac:(NSString *)lockMac
+                            success:(TTSucceedBlock)success
+                            failure:(TTFailedBlock)failure;
 
 
 #pragma mark - deprecated

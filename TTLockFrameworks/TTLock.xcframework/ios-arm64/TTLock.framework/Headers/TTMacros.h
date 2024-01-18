@@ -42,6 +42,7 @@ UIKIT_EXTERN NSString * const  TTErrorMessageInFreezeMode;
 UIKIT_EXTERN NSString * const  TTErrorMessageInvalidClientPara;
 UIKIT_EXTERN NSString * const  TTErrorMessageLockIsLocked;
 UIKIT_EXTERN NSString * const  TTErrorMessageRecordNotExist;
+UIKIT_EXTERN NSString * const  TTErrorMessageInvalidParam;
 UIKIT_EXTERN NSString * const  TTErrorMessageWrongSSID;
 UIKIT_EXTERN NSString * const  TTErrorMessageWrongWifiPassword;
 UIKIT_EXTERN NSString * const  TTErrorMessageBluetoothPoweredOff;
@@ -89,6 +90,7 @@ typedef NS_ENUM(NSInteger, TTError)
     TTErrorInvalidParaLength = 0x17,
     TTErrorCardNotExist =    0x18,
     TTErrorFingerprintDuplication =    0x19,
+    TTErrorInvalidParam =    0x20,
     TTErrorFingerprintNotExist = 0x1A,
     TTErrorInvalidCommand = 0x1B,
     TTErrorInFreezeMode = 0x1C,
@@ -399,6 +401,18 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueWifiLock = 56,
     TTLockFeatureValueWifiLockStaticIP = 58,
     TTLockFeatureValuePasscodeKeyNumber = 60,
+    TTLockFeatureValueMeariCamera = 61,
+    TTLockFeatureValueStandAloneActivation = 62,
+    TTLockFeatureValueDoubleAuth = 63,
+    TTLockFeatureValueAuthorizedUnlock = 64,
+    TTLockFeatureValueGatewayAuthorizedUnlock = 65,
+    TTLockFeatureValueNoEkeyUnlock = 66,
+    TTLockFeatureValueXiongMaiCamera = 67,
+    TTLockFeatureValueZhiAnPhotoFace = 69,
+    TTLockFeatureValuePalmVein = 70,
+    TTLockFeatureValueWifiArea = 71,
+    TTLockFeatureValueXiaoCaoCamera = 75,
+    TTLockFeatureValueResetLockByCode = 76,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
