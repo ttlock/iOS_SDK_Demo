@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.3.1
+//  version:3.3.2
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -1212,6 +1212,17 @@ Config Ip
                            lockMac:(NSString *)lockMac
                             success:(TTSucceedBlock)success
                             failure:(TTFailedBlock)failure;
+
+/**
+ Verify Lock,  after the lock send out sound and light, please touch the lock to complete the verification.
+ 
+ @param lockMac lock Mac
+ @param success A block invoked when the lock log is got
+ @param failure A block invoked when the operation fails
+ */
++ (void)verifyLockWithLockMac:(NSString *)lockMac
+                      success:(TTSucceedBlock)success
+                      failure:(TTFailedBlock)failure;
 
 
 #pragma mark - deprecated

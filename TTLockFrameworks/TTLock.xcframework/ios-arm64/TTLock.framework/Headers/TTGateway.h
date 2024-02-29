@@ -67,6 +67,11 @@
 + (void)configIpWithInfo:(NSDictionary *)info block:(TTGatewayBlock)block;
 
 /**
+ Config Apn
+ */
++ (void)configApn:(NSString *)apn block:(TTGatewayBlock)block;
+
+/**
  Enter gateway into upgrade mode
  */
 + (void)upgradeGatewayWithGatewayMac:(NSString *)gatewayMac block:(TTGatewayBlock)block;
