@@ -113,8 +113,12 @@
 - (void)bottomBtnClick{
     
     [self.view showToastLoading:nil];
+    [self startDfuWithType:TTGatewayDFUTypeByNet];
+}
+
+- (void)startDfuWithType:(TTGatewayDFUType)type {
     WS(weakSelf);
-    [[TTGatewayDFU shareInstance]startDfuWithClientId:TTAppkey accessToken:UserModel.userModel.accessToken gatewayId:self.gatewayModel.gatewayId gatewayMac:self.gatewayModel.gatewayMac successBlock:^(UpgradeOpration type, NSInteger process) {
+    [[TTGatewayDFU shareInstance]startDfuWithType:type clientId:TTAppkey accessToken:UserModel.userModel.accessToken gatewayId:self.gatewayModel.gatewayId gatewayMac:self.gatewayModel.gatewayMac successBlock:^(UpgradeOpration type, NSInteger process) {
         if (type == UpgradeOprationSuccess) {
             [weakSelf.view showToast:LS(@"Upgrade successed")];
            weakSelf.versionTitleLabel.text = LS(@"Already the latest version");
@@ -133,6 +137,7 @@
         
     }];
 }
+
 - (UIButton*)retryBtn{
     if (!_retryBtn) {
         UIButton *reStartBtn = [UIButton new];
@@ -155,7 +160,7 @@
 }
 - (void)retryBtnClick{
     [self.view showToastLoading:nil];
-    [[TTGatewayDFU shareInstance]retryEnterUpgradeModebyNet];
+    [self startDfuWithType:TTGatewayDFUTypeByNet];
     self.retryBtn.hidden = YES;
     self.offlineBtn.hidden = YES;
 }
@@ -181,9 +186,8 @@
 }
 - (void)offlineBtnClick{
     //如果不在升级中，需将网关重新上电
-    [self.view showToastLoading:@"需将网关重新上电"];
-    
-    [[TTGatewayDFU shareInstance]retryEnterUpgradeModebyBluetooth];
+    [self.view showToastLoading:@"Re connect the gateway power"];
+    [self startDfuWithType:TTGatewayDFUTypeByBluetooth];
     self.retryBtn.hidden = YES;
     self.offlineBtn.hidden = YES;
 }

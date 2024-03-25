@@ -54,6 +54,7 @@
     ginfoDic[@"uid"] = UserModel.userModel.uid;
     ginfoDic[@"userPwd"] = _userPwdTextField.text;
     ginfoDic[@"gatewayName"]= _gatewayNameTextField.text;
+    ginfoDic[@"gatewayVersion"]= @2; //@2 means G2,@3 means G3,@4 means G4
     [TTGateway initializeGatewayWithInfoDic:ginfoDic block:^(TTSystemInfoModel *systemInfoModel, TTGatewayStatus status) {
         
         if (status == TTGatewayNotConnect || status == TTGatewayDisconnect) {

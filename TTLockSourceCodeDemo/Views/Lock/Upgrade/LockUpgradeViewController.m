@@ -102,22 +102,8 @@
     
     [self.view showToastLoading:nil];
     if (self.bottomBtn.tag == 100) {
-        WS(weakSelf);
        
-            [[TTLockDFU shareInstance]startDfuWithClientId:TTAppkey accessToken:UserModel.userModel.accessToken lockId:self.lockModel.lockId lockData:self.lockModel.lockData successBlock:^(UpgradeOpration type, NSInteger process) {
-                if (type == UpgradeOprationSuccess) {
-                    weakSelf.bottomBtn.tag = 101;
-                    [weakSelf.view showToast:LS(@"Upgrade successed")];
-                    [weakSelf.bottomBtn setTitle:LS(@"Check for updates") forState:UIControlStateNormal];
-                    return ;
-                }
-                [weakSelf.view showToastLoading:[NSString stringWithFormat:@"successBlock type%ld process%ld",(long)type,(long)process]];
-            } failBlock:^(UpgradeOpration type, UpgradeErrorCode code) {
-                weakSelf.bottomBtn.tag = 105;
-                [weakSelf.bottomBtn setTitle:LS(@"Retry") forState:UIControlStateNormal];
-                [weakSelf.view showToast:[NSString stringWithFormat:@"failBlock UpgradeOpration%ld UpgradeErrorCode%ld ",(long)type,(long)code]];
-            }];
-     
+        [self startDfu];
       
     }
     if (self.bottomBtn.tag == 101) {
@@ -129,8 +115,26 @@
     }
 
     if (self.bottomBtn.tag == 105) {
-        [[TTLockDFU shareInstance] retry];
+        [self startDfu];
     }
+}
+
+- (void)startDfu {
+    WS(weakSelf);
+   
+    [[TTLockDFU shareInstance]startDfuWithClientId:TTAppkey accessToken:UserModel.userModel.accessToken lockId:self.lockModel.lockId lockData:self.lockModel.lockData successBlock:^(UpgradeOpration type, NSInteger process) {
+        if (type == UpgradeOprationSuccess) {
+            weakSelf.bottomBtn.tag = 101;
+            [weakSelf.view showToast:LS(@"Upgrade successed")];
+            [weakSelf.bottomBtn setTitle:LS(@"Check for updates") forState:UIControlStateNormal];
+            return ;
+        }
+        [weakSelf.view showToastLoading:[NSString stringWithFormat:@"successBlock type%ld process%ld",(long)type,(long)process]];
+    } failBlock:^(UpgradeOpration type, UpgradeErrorCode code) {
+        weakSelf.bottomBtn.tag = 105;
+        [weakSelf.bottomBtn setTitle:LS(@"Retry") forState:UIControlStateNormal];
+        [weakSelf.view showToast:[NSString stringWithFormat:@"failBlock UpgradeOpration%ld UpgradeErrorCode%ld ",(long)type,(long)code]];
+    }];
 }
 
 - (void)initDataWithLockData:(NSString *)lockData{
