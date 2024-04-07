@@ -75,6 +75,8 @@ typedef void(^TTGetLockSoundSuccessdBlock)(TTSoundVolume soundVolume);
 typedef void(^TTScanWifiSuccessdBlock)(BOOL isFinished, NSArray *wifiArr);
 typedef void(^TTGetWifiInfoSuccessdBlock)(NSString *wifiMac, NSInteger wifiRssi);
 
+typedef void(^TTAngleSucceedBlock)(NSInteger angle);
+
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 
 #endif /* TTBlocks_h */

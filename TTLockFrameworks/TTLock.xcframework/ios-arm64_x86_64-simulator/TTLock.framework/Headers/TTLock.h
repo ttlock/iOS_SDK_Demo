@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.3.4
+//  version:3.3.5
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -306,7 +306,7 @@
 Set Light Time
 @param time      Light Time
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setLightTime:(int)time
@@ -317,7 +317,7 @@ Set Light Time
 Get Light Time
 
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)getLightTimeWithLockData:(NSString *)lockData
@@ -329,7 +329,7 @@ Set Lock Config
 @param type  TTLockConfigType
 @param on  switch on or off
 @param lockData The lock data string used to operate lock
-@param success A block invoked when when the operation succeeds
+@param success A block invoked when when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setLockConfigWithType:(TTLockConfigType)type
@@ -342,7 +342,7 @@ Set Lock Config
  
  @param type      TTLockConfigType
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)getLockConfigWithType:(TTLockConfigType)type
@@ -354,7 +354,7 @@ Set Lock Config
  Set Unlock Direction
  @param direction TTUnlockDirection
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
 */
 + (void)setUnlockDirection:(TTUnlockDirection)direction
@@ -365,7 +365,7 @@ Set Lock Config
 /**
  Get Unlock Direction
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
 */
 + (void)getUnlockDirectionWithLockData:(NSString *)lockData
@@ -377,7 +377,7 @@ Set Lock Config
  @param type TTAccessoryType
  @param accessoryMac the Mac of  accessory
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
 */
 + (void)getAccessoryElectricQuantityWithType:(TTAccessoryType)type
@@ -390,7 +390,7 @@ Set Lock Config
  Set Lock Sound
  @param soundVolume TTSoundVolume
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
 */
 + (void)setLockSoundWithSoundVolume:(TTSoundVolume)soundVolume
@@ -401,7 +401,7 @@ Set Lock Config
 /**
  Get Lock Sound
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
 */
 + (void)getLockSoundWithLockData:(NSString *)lockData
@@ -849,7 +849,7 @@ Set Lock Config
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)addWirelessKeyFobWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
@@ -872,7 +872,7 @@ Set Lock Config
  @param startDate The time when it becomes valid
  @param endDate The time when it is expired
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)modifyWirelessKeyFobValidityPeriodWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
@@ -888,7 +888,7 @@ Set Lock Config
 
  @param keyFobMac key Fob Mac
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)deleteWirelessKeyFobWithKeyFobMac:(NSString *)keyFobMac
@@ -901,7 +901,7 @@ Set Lock Config
  Clear  Wireless Key Fobs
 
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)clearWirelessKeyFobsWithLockData:(NSString *)lockData
@@ -932,7 +932,7 @@ Set NB Awake Modes
 @param awakeModes enum TTNBAwakeMode ,such as @[TTNBAwakeModeKeypad,TTNBAwakeModeCard,TTNBAwakeModeFingerprint]
 				  awakeModes.count == 0, means no awake mode
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setNBAwakeModes:(NSArray <NSNumber *> *)awakeModes
@@ -944,7 +944,7 @@ Set NB Awake Modes
 Get NB Awake Modes
  
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)getNBAwakeModesWithLockData:(NSString *)lockData
@@ -958,7 +958,7 @@ Set NB Awake Modes
 				  type enum TTNBAwakeTimeType, minutes means minutes from 0 clock or time interval
 				  such as,@[@{@"type":@(TTNBAwakeTimeTypePoint),@"minutes":@100}]
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setNBAwakeTimes:(NSArray<NSDictionary *> *)awakeTimes
@@ -970,7 +970,7 @@ Set NB Awake Modes
 Get NB Awake Times
  
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)getNBAwakeTimesWithLockData:(NSString *)lockData
@@ -985,7 +985,7 @@ Get NB Awake Times
  @param sector  connect with comma symbol,Such as, sector = @"1,4,16" means First, fourth and sixteenth sectors can use.
  sector = @"" means all sectors can use. The sector value range is 1 - 16.
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation succeeds
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)setHotelCardSector:(NSString *)sector
@@ -1000,7 +1000,7 @@ Set Hotel Data
 @param buildingNumber building Number
 @param floorNumber floor Number
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setHotelDataWithHotelInfo:(NSString *)hotelInfo
@@ -1028,7 +1028,7 @@ Activate Lift Floors
  
 @param floors lift floors,connect with comma symbol,such as: @"1,2,3"
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)activateLiftFloors:(NSString *)floors
@@ -1041,7 +1041,7 @@ Set Lift Controlable Floors
  
 @param floors lift floors,connect with comma symbol,such as: @"1,2,3"
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setLiftControlableFloors:(NSString *)floors
@@ -1054,7 +1054,7 @@ Set Lift Work Mode
  
 @param workMode TTLiftWorkMode
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setLiftWorkMode:(TTLiftWorkMode)workMode
@@ -1068,7 +1068,7 @@ Set Power Saver Work Mode
  
 @param workMode TTPowerSaverWorkMode
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setPowerSaverWorkMode:(TTPowerSaverWorkMode)workMode
@@ -1081,7 +1081,7 @@ Set Power Saver Controlable Lock
  
 @param lockMac the controlable lock mac, @"" or nil means no control Lock
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setPowerSaverControlableLockWithLockMac:(NSString *)lockMac
@@ -1095,7 +1095,7 @@ Set Power Saver Controlable Lock
 Scan Wifi
  
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)scanWifiWithLockData:(NSString *)lockData
@@ -1107,7 +1107,7 @@ Config Wifi
 @param SSID wifi name
 @param wifiPassword wifi password
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)configWifiWithSSID:(NSString *)SSID
@@ -1120,7 +1120,7 @@ Config Server
 @param serverAddress set @"" if you use our default server @"wifilock.ttlock.com"
 @param portNumber set @"" if you use our default server @"4999"
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)configServerWithServerAddress:(NSString *)serverAddress
@@ -1138,7 +1138,7 @@ Config Ip
  preferredDns (option)  such as 0.0.0.0
  alternateDns (option)  such as 0.0.0.0
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)configIpWithInfo:(NSDictionary *)info
@@ -1148,7 +1148,7 @@ Config Ip
 /**
  Get Wifi Info
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)getWifiInfoWithLockData:(NSString *)lockData
@@ -1159,7 +1159,7 @@ Config Ip
  Add Door Sensor
 @param doorSensorMac door Sensor Mac
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)addDoorSensorWithDoorSensorMac:(NSString *)doorSensorMac
@@ -1170,7 +1170,7 @@ Config Ip
 /**
  Clear Door Sensor
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)clearDoorSensorWithLockData:(NSString *)lockData
@@ -1181,7 +1181,7 @@ Config Ip
  Set Door Sensor Alert Time
 @param time  Alert Time
 @param lockData The lock data string used to operate lock
-@param success A block invoked when the operation succeeds
+@param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)setDoorSensorAlertTime:(int)time
@@ -1193,7 +1193,7 @@ Config Ip
  Get the lock log Parallel
 
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the lock log is got
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)getOperationLogParallelWithLockData:(NSString *)lockData
@@ -1205,7 +1205,7 @@ Config Ip
 
  @param resetCode Reset Code
  @param lockMac lock Mac
- @param success A block invoked when the lock log is got
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)resetLockByCodeWithResetCode:(NSString *)resetCode
@@ -1217,13 +1217,86 @@ Config Ip
  Verify Lock,  after the lock send out sound and light, please touch the lock to complete the verification.
  
  @param lockMac lock Mac
- @param success A block invoked when the lock log is got
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)verifyLockWithLockMac:(NSString *)lockMac
                       success:(TTSucceedBlock)success
                       failure:(TTFailedBlock)failure;
 
+#pragma mark - Stick Lock
+
+/**
+ Set Unlock Angle
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful, , angle value -180 到 180
+ @param failure A block invoked when the operation fails
+ */
++ (void)setUnlockAngleWithLockData:(NSString *)lockData
+                           success:(TTAngleSucceedBlock)success
+                           failure:(TTFailedBlock)failure;
+
+/**
+ Set Lock Angle
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful, , angle value -180 到 180
+ @param failure A block invoked when the operation fails
+ */
++ (void)setLockAngleWithLockData:(NSString *)lockData
+                         success:(TTAngleSucceedBlock)success
+                         failure:(TTFailedBlock)failure;
+
+/**
+ Set Auto Angle
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful, angle value -180 到 180
+ @param failure A block invoked when the operation fails
+ */
++ (void)setAutoAngleWithLockData:(NSString *)lockData
+                         success:(TTAngleSucceedBlock)success
+                         failure:(TTFailedBlock)failure;
+
+/**
+ Control Latch Bolt
+ 
+ @param isControl " Yes" is control, "No" is no control
+ @param driveTme   if set 0, means automatically determined by lock  (Unit millisecond)
+ @param keepTime   if set 0, means is 3 second (Unit second)
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)controlLatchBoltWithIsControl:(BOOL)isControl
+                             driveTme:(int)driveTme
+                             keepTime:(int)keepTime
+                             lockData:(NSString *)lockData
+                              success:(TTSucceedBlock)success
+                              failure:(TTFailedBlock)failure;
+
+/**
+ Get Angle
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful, angle value -180 到 180
+ @param failure A block invoked when the operation fails
+ */
++ (void)getAngleWithLockData:(NSString *)lockData
+                     success:(TTAngleSucceedBlock)success
+                     failure:(TTFailedBlock)failure;
+
+/**
+ Auto Set Unlock Direction
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)autoSetUnlockDirectionWithLockData:(NSString *)lockData
+                                   success:(TTSucceedBlock)success
+                                   failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData

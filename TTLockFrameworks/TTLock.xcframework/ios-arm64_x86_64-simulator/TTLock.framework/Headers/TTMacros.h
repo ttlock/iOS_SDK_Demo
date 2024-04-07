@@ -413,6 +413,10 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueWifiArea = 71,
     TTLockFeatureValueXiaoCaoCamera = 75,
     TTLockFeatureValueResetLockByCode = 76,
+    TTLockFeatureValueAutoSetAngle = 78,
+    TTLockFeatureValueManualSetAngle = 79,
+    TTLockFeatureValueControlLatchBolt = 80,
+    TTLockFeatureValueAutoSetUnlockDirection = 81,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
