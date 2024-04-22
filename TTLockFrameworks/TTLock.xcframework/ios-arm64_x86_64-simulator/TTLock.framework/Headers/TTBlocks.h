@@ -75,6 +75,16 @@ typedef void(^TTGetLockSoundSuccessdBlock)(TTSoundVolume soundVolume);
 typedef void(^TTScanWifiSuccessdBlock)(BOOL isFinished, NSArray *wifiArr);
 typedef void(^TTGetWifiInfoSuccessdBlock)(NSString *wifiMac, NSInteger wifiRssi);
 
+typedef void(^TTAddFaceProgressBlock)(TTAddFaceState state, TTFaceErrorCode faceErrorCode);
+typedef void(^TTAddFaceSucceedBlock)(NSString *faceNumber);
+typedef void(^TTGetAllValidFacesSucceedBlock)(NSString *allFacesJsonString);
+
+typedef void(^TTAddPalmVeinProgressBlock)(TTAddPalmVeinState state, TTPalmVeinErrorCode errorCode);
+typedef void(^TTAddPalmVeinSucceedBlock)(NSString *palmVeinNumber);
+typedef void(^TTGetAllValidPalmVeinsSucceedBlock)(NSString *allPalmVeinsJsonString);
+
+typedef void(^TTGetSensitivitySuccessBlock) (TTSensitivityValue value);
+
 typedef void(^TTAngleSucceedBlock)(NSInteger angle);
 
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");

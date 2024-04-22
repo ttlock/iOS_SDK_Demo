@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.3.6
+//  version:3.3.8
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -611,7 +611,7 @@ Set Lock Config
  @param startDate The time when it becomes valid, If it's a permanent key, set 0
  @param endDate The time when it is expired, If it's a permanent key, set 0
  @param lockData The lock data string used to operate lock
- @param progress A block invoked when card is adding
+ @param progress A block invoked when  adding
  @param success A block invoked when card is added
  @param failure A block invoked when the operation fails
  */
@@ -1188,6 +1188,221 @@ Config Ip
                       lockData:(NSString *)lockData
                        success:(TTSucceedBlock)success
                        failure:(TTFailedBlock)failure;
+
+#pragma mark - Face
+
+/**
+ Add Face
+
+ @param cyclicConfig  null array @[] , means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid, If it's a permanent key, set 0
+ @param endDate The time when it is expired, If it's a permanent key, set 0
+ @param lockData The lock data string used to operate lock
+ @param progress A block invoked when adding
+ @param success A block invoked when face is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)addFaceWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+                      startDate:(long long)startDate
+                        endDate:(long long)endDate
+                       lockData:(NSString *)lockData
+                       progress:(TTAddFaceProgressBlock)progress
+                        success:(TTAddFaceSucceedBlock)success
+                        failure:(TTFailedBlock)failure;
+
+/**
+ Modify  face valid date
+
+ @param cyclicConfig null array @[] , means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param faceNumber The face number you want to modify
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when face is modified
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyFaceValidityWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+                                faceNumber:(NSString *)faceNumber
+                                 startDate:(long long)startDate
+                                   endDate:(long long)endDate
+                                  lockData:(NSString *)lockData
+                                   success:(TTSucceedBlock)success
+                                   failure:(TTFailedBlock)failure;
+
+/**
+ Delete Face
+
+ @param faceNumber The face number you want to delete
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when face is deleted
+ @param failure A block invoked when the operation fails
+ */
++ (void)deleteFaceNumber:(NSString *)faceNumber
+                  lockData:(NSString *)lockData
+                   success:(TTSucceedBlock)success
+                   failure:(TTFailedBlock)failure;
+
+/**
+ Clear all faces
+
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when all faces are cleared
+ @param failure A block invoked when the operation fails
+ */
++ (void)clearFaceWithLockData:(NSString *)lockData
+                      success:(TTSucceedBlock)success
+                      failure:(TTFailedBlock)failure;
+
+
+/**
+ Get all valid faces
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when all valid faces are got
+ @param failure A block invoked when the operation fails
+ */
++ (void)getAllValidFacesWithLockData:(NSString *)lockData
+                             success:(TTGetAllValidFacesSucceedBlock)success
+                             failure:(TTFailedBlock)failure;
+
+
+/**
+ Add  face feature data
+
+ @param featureData The face feature data you want to add
+ @param cyclicConfig   null array @[] , means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid, If it's a permanent key, set 0
+ @param endDate The time when it is expired, If it's a permanent key, set 0
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when face is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)addFaceFeatureData:(NSString *)featureData
+              cyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+                 startDate:(long long)startDate
+                   endDate:(long long)endDate
+                  lockData:(NSString *)lockData
+                   success:(TTAddFaceSucceedBlock)success
+                   failure:(TTFailedBlock)failure;
+
+#pragma mark - Palm Vein
+
+/**
+ Add Palm Vein
+
+ @param cyclicConfig  null array @[] , means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid, If it's a permanent key, set 0
+ @param endDate The time when it is expired, If it's a permanent key, set 0
+ @param lockData The lock data string used to operate lock
+ @param progress A block invoked when adding
+ @param success A block invoked when palm vein is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)addPalmVeinWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+                          startDate:(long long)startDate
+                            endDate:(long long)endDate
+                           lockData:(NSString *)lockData
+                           progress:(TTAddPalmVeinProgressBlock)progress
+                            success:(TTAddPalmVeinSucceedBlock)success
+                            failure:(TTFailedBlock)failure;
+
+/**
+ Modify  Palm Vein valid date
+ 
+ @param cyclicConfig null array @[] , means no cyclic
+ weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+ startTime The time when it becomes valid (minutes from 0 clock)
+ endTime  The time when it is expired (minutes from 0 clock)
+ such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param palmVeinNumber The palm vein number you want to modify
+ @param startDate The time when it becomes valid
+ @param endDate The time when it is expired
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when palm vein is modified
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyPalmVeinValidityWithCyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+                                palmVeinNumber:(NSString *)palmVeinNumber
+                                     startDate:(long long)startDate
+                                       endDate:(long long)endDate
+                                      lockData:(NSString *)lockData
+                                       success:(TTSucceedBlock)success
+                                       failure:(TTFailedBlock)failure;
+
+/**
+ Delete Palm Vein
+
+ @param palmVeinNumber The palm vein number you want to delete
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when palm vein number is deleted
+ @param failure A block invoked when the operation fails
+ */
++ (void)deletePalmVeinNumber:(NSString *)palmVeinNumber
+                    lockData:(NSString *)lockData
+                     success:(TTSucceedBlock)success
+                     failure:(TTFailedBlock)failure;
+
+/**
+ Clear all palm veins
+
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when all palm veins are cleared
+ @param failure A block invoked when the operation fails
+ */
++ (void)clearPalmVeinWithLockData:(NSString *)lockData
+                          success:(TTSucceedBlock)success
+                          failure:(TTFailedBlock)failure;
+
+
+/**
+ Get all valid palm veins
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when all valid palm veins are got
+ @param failure A block invoked when the operation fails
+ */
++ (void)getAllValidPalmVeinsWithLockData:(NSString *)lockData
+                                 success:(TTGetAllValidPalmVeinsSucceedBlock)success
+                                 failure:(TTFailedBlock)failure;
+
+
+/**
+ Set Sensitivity
+ @param value TTSensitivityValue
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+*/
++ (void)setSensitivityWithValue:(TTSensitivityValue)value
+                           lockData:(NSString *)lockData
+                            success:(TTSucceedBlock)success
+                            failure:(TTFailedBlock)failure;
+
+/**
+ Get Sensitivity
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+*/
++ (void)getSensitivityWithLockData:(NSString *)lockData
+                         success:(TTGetSensitivitySuccessBlock)success
+                         failure:(TTFailedBlock)failure;
 
 /**
  Get the lock log Parallel

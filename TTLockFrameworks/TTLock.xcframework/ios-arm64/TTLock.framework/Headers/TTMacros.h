@@ -482,4 +482,59 @@ typedef NS_ENUM(int, TTSoundVolume) {
 	TTSoundVolumeFifthLevel = 5,
 };
 
+typedef NS_ENUM(NSInteger,TTAddFaceState)
+{
+    TTAddFaceStateSuccess = 1,
+    TTAddFaceStateCanStartAdd = 2,
+    TTAddFaceStateError = 3,
+};
+
+typedef NS_ENUM(NSInteger,TTAddPalmVeinState)
+{
+    TTAddPalmVeinStateSuccess = 1,
+    TTAddPalmVeinStateCanStartAdd = 2,
+    TTAddPalmVeinStateError = 3,
+};
+
+typedef NS_ENUM(int, TTSensitivityValue) {
+    TTSensitivityValueOff = 0,
+    TTSensitivityValueLow = 1,
+    TTSensitivityValueMedium = 2,
+    TTSensitivityValueHigh = 3,
+};
+
+typedef NS_ENUM(int, TTFaceErrorCode) {
+    TTFaceErrorCodeNoFaceDetected = 1,
+    TTFaceErrorCodeTooCloseToTheTop = 2,
+    TTFaceErrorCodeTooCloseToTheBottom = 3,
+    TTFaceErrorCodeTooCloseToTheLeft = 4,
+    TTFaceErrorCodeTooCloseToTheRight = 5,
+    TTFaceErrorCodeTooFarAway = 6,
+    TTFaceErrorCodeTooClose = 7,
+    TTFaceErrorCodeEyebrowsCovered = 8,
+    TTFaceErrorCodeEyesCovered = 9,
+    TTFaceErrorCodeFaceCovered = 10,
+    TTFaceErrorCodeWrongFaceDirection = 11,
+    TTFaceErrorCodeEyeOpeningDetected = 12,
+    TTFaceErrorCodeEyesClosedStatus = 13,
+    TTFaceErrorCodeFailedToDetectEye = 14,
+    TTFaceErrorCodeNeedTurnHeadToLeft = 15,
+    TTFaceErrorCodeNeedTurnHeadToRight = 16,
+    TTFaceErrorCodeNeedRaiseHead = 17,
+    TTFaceErrorCodeNeedLowerHead = 18,
+    TTFaceErrorCodeNeedTiltHeadToLeft = 19,
+    TTFaceErrorCodeNeedTiltHeadToRight = 20,
+};
+
+typedef NS_ENUM(int, TTPalmVeinErrorCode) {
+    TTPalmVeinErrorNoPalm = 1,
+    TTPalmVeinErrorRectConfidenceLow = 2,
+    TTPalmVeinErrorLandmarkConfidenceLow = 3,
+    TTPalmVeinErrorAngleRoll = 4,
+    TTPalmVeinErrorAngleLean = 5,
+    TTPalmVeinErrorPlamBlock = 6,
+    TTPalmVeinErrorPlamBlur = 7,
+    TTPalmVeinErrorPlamBack = 8,
+};
+
 @end
