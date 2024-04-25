@@ -537,4 +537,10 @@ typedef NS_ENUM(int, TTPalmVeinErrorCode) {
     TTPalmVeinErrorPlamBack = 8,
 };
 
+typedef NS_ENUM(int, TTAutoUnlockDirection) {
+    TTAutoUnlockDirectionFail,
+    TTAutoUnlockDirectionLeft,
+    TTAutoUnlockDirectionRight
+};
+
 @end

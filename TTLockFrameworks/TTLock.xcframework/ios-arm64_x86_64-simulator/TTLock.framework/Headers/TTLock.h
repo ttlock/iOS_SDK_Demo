@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.3.8
+//  version:3.3.9
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -1510,7 +1510,7 @@ Config Ip
  @param failure A block invoked when the operation fails
  */
 + (void)autoSetUnlockDirectionWithLockData:(NSString *)lockData
-                                   success:(TTSucceedBlock)success
+                                   success:(TTAutoUnlockDirectionSucceedBlock)success
                                    failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated

@@ -87,6 +87,8 @@ typedef void(^TTGetSensitivitySuccessBlock) (TTSensitivityValue value);
 
 typedef void(^TTAngleSucceedBlock)(NSInteger angle);
 
+typedef void(^TTAutoUnlockDirectionSucceedBlock)(TTAutoUnlockDirection state);
+
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 
 #endif /* TTBlocks_h */
