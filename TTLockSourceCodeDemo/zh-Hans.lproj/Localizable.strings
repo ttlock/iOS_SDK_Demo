@@ -94,9 +94,8 @@
 "Account password" = "账号密码";
 "Please enter your account password" = "请输入你的账号密码";
 "Empty data" = "信息不能为空";
-"Press and hold the gateway reset button. When the red and green lights flash alternately, click “Add”" = "长按网关重置键，红、绿灯交替闪烁时，点击”添加“";
 "Next" = "下一步";
-"After the gateway is powered back on, click ”Add“" = "网关重新通电后，点击“添加”";
+"After the gateway is powered back on, click ”Next“" = "网关重新通电后，点击“下一步”";
 "WiFi name error" = "WiFi名称错误";
 "WiFi password error" = "WiFi密码错误";
 "Connection timed out, exited add mode" = "连接超时，已退出添加模式";

@@ -32,7 +32,7 @@
     UILabel *describeLabel = [UILabel new];
     describeLabel.numberOfLines = 0;
     describeLabel.textAlignment = NSTextAlignmentCenter;
-    describeLabel.text = LS(@"After the gateway is powered back on, click ”Add“");
+    describeLabel.text = LS(@"After the gateway is powered back on, click ”Next“");
     [self.view addSubview:describeLabel];
     
     RoundCornerButton *nextButton = [RoundCornerButton buttonWithTitle:LS(@"Next") cornerRadius:4 borderWidth:0.5];
