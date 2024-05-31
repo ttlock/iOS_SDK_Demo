@@ -26,11 +26,11 @@
 		</data>
 		<key>ios-arm64/TTLock.framework/Headers/TTLock.h</key>
 		<data>
-		EPLpL+D4RZtUolv0Xpk8MzJziLI=
+		ISQ0/27DUYInHXkEngHPQimVOPw=
 		</data>
 		<key>ios-arm64/TTLock.framework/Headers/TTMacros.h</key>
 		<data>
-		KR1ofbkkiqz1y2Ovj+oSohXF4Is=
+		mH5y3h1RyNNCP0cEyYm1eHwmwSk=
 		</data>
 		<key>ios-arm64/TTLock.framework/Headers/TTScanModel.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>ios-arm64/TTLock.framework/Info.plist</key>
 		<data>
-		TvgDkmoEonxGQwmL3PuLJzxQ4Ck=
+		1pQ2swEc+RM1FZKJD1M8p3ZPp0o=
 		</data>
 		<key>ios-arm64/TTLock.framework/Modules/module.modulemap</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>ios-arm64/TTLock.framework/TTLock</key>
 		<data>
-		lYE+p3RdVqRzF/wBGK4HrPJs3WE=
+		P5p7mNSuzuX+zEuImSCD+SCeqpw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTBlocks.h</key>
 		<data>
@@ -98,11 +98,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTLock.h</key>
 		<data>
-		EPLpL+D4RZtUolv0Xpk8MzJziLI=
+		ISQ0/27DUYInHXkEngHPQimVOPw=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTMacros.h</key>
 		<data>
-		KR1ofbkkiqz1y2Ovj+oSohXF4Is=
+		mH5y3h1RyNNCP0cEyYm1eHwmwSk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTScanModel.h</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Info.plist</key>
 		<data>
-		NNA8l1sBlxjG+R1Fxor2GlklIno=
+		Er1QRdsiqjPDcTHm32D85f8Rs5k=
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Modules/module.modulemap</key>
 		<data>
@@ -146,7 +146,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/TTLock</key>
 		<data>
-		cYpW/Rg0NOpqzqhphMfKxW5c5NA=
+		gz0PryMNJyDrPKWYSbf/4CzaDjY=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -210,22 +210,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EPLpL+D4RZtUolv0Xpk8MzJziLI=
+			ISQ0/27DUYInHXkEngHPQimVOPw=
 			</data>
 			<key>hash2</key>
 			<data>
-			26Pf6OfjUJR92PiIKd0uvGr3SzeEaWoQZFTw69WAuUQ=
+			QUPaJS/Mhrq1yFlcy8c+E6I3q7k7BH8pfJQoFvII/yw=
 			</data>
 		</dict>
 		<key>ios-arm64/TTLock.framework/Headers/TTMacros.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KR1ofbkkiqz1y2Ovj+oSohXF4Is=
+			mH5y3h1RyNNCP0cEyYm1eHwmwSk=
 			</data>
 			<key>hash2</key>
 			<data>
-			n7l5cQnAPPf9L4SZUbcJ+GStrOVr7MISZ2EuyfMTNYo=
+			1cGV04ePwCUrBHDi50EdcdSh9DrHmfyaAAZITGmxHtY=
 			</data>
 		</dict>
 		<key>ios-arm64/TTLock.framework/Headers/TTScanModel.h</key>
@@ -309,11 +309,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TvgDkmoEonxGQwmL3PuLJzxQ4Ck=
+			1pQ2swEc+RM1FZKJD1M8p3ZPp0o=
 			</data>
 			<key>hash2</key>
 			<data>
-			IRjodYwUmpegDDC8bA3o85NVoAdgyQcqcRjwyUl/anE=
+			+RZIp6s7/PI8BMPTjrUBCVIPggm7Y2ynGmiGWeMxoWM=
 			</data>
 		</dict>
 		<key>ios-arm64/TTLock.framework/Modules/module.modulemap</key>
@@ -342,11 +342,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lYE+p3RdVqRzF/wBGK4HrPJs3WE=
+			P5p7mNSuzuX+zEuImSCD+SCeqpw=
 			</data>
 			<key>hash2</key>
 			<data>
-			26wiCMkmWvb1utXRVTGfa7gfFabeaEcIeyWD0DhT4OM=
+			AffVTB7o64kTKNiDd8lKyzUfQ9u40eb/yy6OTrNuGhU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTBlocks.h</key>
@@ -408,22 +408,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EPLpL+D4RZtUolv0Xpk8MzJziLI=
+			ISQ0/27DUYInHXkEngHPQimVOPw=
 			</data>
 			<key>hash2</key>
 			<data>
-			26Pf6OfjUJR92PiIKd0uvGr3SzeEaWoQZFTw69WAuUQ=
+			QUPaJS/Mhrq1yFlcy8c+E6I3q7k7BH8pfJQoFvII/yw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTMacros.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KR1ofbkkiqz1y2Ovj+oSohXF4Is=
+			mH5y3h1RyNNCP0cEyYm1eHwmwSk=
 			</data>
 			<key>hash2</key>
 			<data>
-			n7l5cQnAPPf9L4SZUbcJ+GStrOVr7MISZ2EuyfMTNYo=
+			1cGV04ePwCUrBHDi50EdcdSh9DrHmfyaAAZITGmxHtY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Headers/TTScanModel.h</key>
@@ -507,11 +507,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NNA8l1sBlxjG+R1Fxor2GlklIno=
+			Er1QRdsiqjPDcTHm32D85f8Rs5k=
 			</data>
 			<key>hash2</key>
 			<data>
-			y7VphHpbH5L2FBqGUegjFxxrfi1CT4ZdjHxFSvafPUI=
+			gwUHeqcnIg8yoXSG5phSco//q1Ppl9euxtNMzES4aKo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/TTLock.framework/Modules/module.modulemap</key>
@@ -540,11 +540,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cYpW/Rg0NOpqzqhphMfKxW5c5NA=
+			gz0PryMNJyDrPKWYSbf/4CzaDjY=
 			</data>
 			<key>hash2</key>
 			<data>
-			wVzY7x8e4QlNm7mTNLtvmAEezF7MMSS3ofUbNGpBAl8=
+			cKrZ1dV7FQPwBQ1/mVfxGo5M0YsvCdUqwikuneZX49U=
 			</data>
 		</dict>
 	</dict>

@@ -1,7 +1,7 @@
 
 //  Created by TTLock on 2017/8/9.
 //  Copyright © 2017年 TTLock. All rights reserved.
-//  version:3.3.4
+//  version:3.4.0
 
 #import <Foundation/Foundation.h>
 #import "TTDFUMacros.h"
@@ -21,7 +21,7 @@
 
 - (void)endUpgrade;
 
-//only do dfu operation
+//only do dfu operation, SDK will set the lock to enter upgrade mode and upgrade it,
 - (void)startDfuWithFirmwarePackage:(NSString *_Nonnull)firmwarePackage
                            lockData:(NSString *_Nonnull)lockData
                        successBlock:(TTLockDFUSuccessBlock _Nullable )sblock

@@ -504,6 +504,7 @@ typedef NS_ENUM(int, TTSensitivityValue) {
 };
 
 typedef NS_ENUM(int, TTFaceErrorCode) {
+    TTFaceErrorCodeNoError = 0,
     TTFaceErrorCodeNoFaceDetected = 1,
     TTFaceErrorCodeTooCloseToTheTop = 2,
     TTFaceErrorCodeTooCloseToTheBottom = 3,
