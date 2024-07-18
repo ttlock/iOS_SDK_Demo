@@ -427,7 +427,8 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTResetButton,
     TTPrivacyLock,
 	TTPassageModeAutoUnlock,
-    TTWifiPowerSavingMode
+    TTWifiPowerSavingMode,
+    TTDoubleAuth
 };
 
 /*!
