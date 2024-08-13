@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.4.2
+//  version:3.4.3
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -1473,23 +1473,6 @@ Config Ip
 + (void)setAutoAngleWithLockData:(NSString *)lockData
                          success:(TTAngleSucceedBlock)success
                          failure:(TTFailedBlock)failure;
-
-/**
- Control Latch Bolt
- 
- @param isControl " Yes" is control, "No" is no control
- @param driveTme   if set 0, means automatically determined by lock  (Unit millisecond)
- @param keepTime   if set 0, means is 3 second (Unit second)
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation is successful
- @param failure A block invoked when the operation fails
- */
-+ (void)controlLatchBoltWithIsControl:(BOOL)isControl
-                             driveTme:(int)driveTme
-                             keepTime:(int)keepTime
-                             lockData:(NSString *)lockData
-                              success:(TTSucceedBlock)success
-                              failure:(TTFailedBlock)failure;
 
 /**
  Get Angle
