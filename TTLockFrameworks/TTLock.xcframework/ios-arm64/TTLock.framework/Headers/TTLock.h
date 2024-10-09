@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.4.4
+//  version:3.4.5
 
 #import <Foundation/Foundation.h>
 #import "TTBlocks.h"
@@ -1495,6 +1495,30 @@ Config Ip
 + (void)autoSetUnlockDirectionWithLockData:(NSString *)lockData
                                    success:(TTAutoUnlockDirectionSucceedBlock)success
                                    failure:(TTFailedBlock)failure;
+
+/**
+ Get Motor Drive Time
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)getMotorDriveTimeWithLockData:(NSString *)lockData
+                              success:(TTGetMotorDriveTimeSuccessBlock)success
+                              failure:(TTFailedBlock)failure;
+
+/**
+ Set Motor Drive Time
+ @param driveTime  value range: 0 - 65535,  unit: millisecond
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)setMotorDriveTime:(int)driveTime
+                 lockData:(NSString *)lockData
+                  success:(TTSucceedBlock)success
+                  failure:(TTFailedBlock)failure;
+
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData
