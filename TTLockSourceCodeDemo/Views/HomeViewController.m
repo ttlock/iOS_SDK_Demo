@@ -24,7 +24,7 @@
 
 - (void)setupView{
     self.title = @"TTLock demo";
-    
+   
     UIButton *lockButton = [self setupButtonTitle:LS(@"Lock") selector:@selector(lockButtonClick:)];
     UIButton *gatewayButton = [self setupButtonTitle:LS(@"Gateway") selector:@selector(gatewayButtonClick:)];
     

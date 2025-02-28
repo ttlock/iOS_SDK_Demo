@@ -7,7 +7,64 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTGatewayMacro.h"
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "TTSystemInfoModel.h"
+
+typedef NS_ENUM(NSInteger,TTGatewayType) {
+    TTGateWayTypeG2 = 2,
+    TTGateWayTypeG3,
+    TTGateWayTypeG4,
+    TTGateWayTypeG5,
+};
+
+@interface TTGatewayScanModel : NSObject
+
+@property (nonatomic, strong) NSString *gatewayName;
+@property (nonatomic, strong) NSString *gatewayMac;
+@property (nonatomic, assign) BOOL isDfuMode;
+@property (nonatomic, strong) CBPeripheral *peripheral;
+@property (nonatomic, assign) NSInteger RSSI;
+@property (nonatomic, assign) TTGatewayType type;
+
+@end
+
+@interface TTGatewayMacro : NSObject
+
+#pragma mark --- G2
+typedef NS_ENUM(NSInteger, TTGatewayConnectStatus){
+    TTGatewayConnectTimeout,
+    TTGatewayConnectSuccess,
+    TTGatewayConnectFail,
+};
+
+typedef NS_ENUM(NSInteger, TTGatewayStatus){
+    TTGatewaySuccess = 0,
+    TTGatewayFail = 1,
+    TTGatewayWrongSSID = 3,
+    TTGatewayWrongWifiPassword = 4,
+    TTGatewayInvalidCommand = 6,
+    TTGatewayTimeout = 7,
+    TTGatewayNoSIM = 8,
+    TTGatewayNoPlugCable = 9,
+    TTGatewayWrongCRC = -1,
+    TTGatewayWrongAeskey = -2,
+    TTGatewayNotConnect = -3,
+    TTGatewayDisconnect = -4,
+    TTGatewayFailConfigRouter = -5,
+    TTGatewayFailConfigServer = -6,
+    TTGatewayFailConfigAccount = -7,
+    TTGatewayFailConfigIP = -8,
+    TTGatewayFailInvaildIP = -9,
+};
+
+typedef void(^TTGatewayScanBlock)(TTGatewayScanModel *model);
+typedef void(^TTGatewayConnectBlock)(TTGatewayConnectStatus connectStatus);
+//wifiArr: [{"SSID":"ssid"}]
+typedef void(^TTGatewayScanWiFiBlock)(BOOL isFinished, NSArray *WiFiArr,TTGatewayStatus status);
+typedef void(^TTGatewayBlock)(TTGatewayStatus status);
+typedef void(^TTInitializeGatewayBlock)(TTSystemInfoModel *systemInfoModel,TTGatewayStatus status);
+
+@end
 
 @interface TTGateway : NSObject
 /**
@@ -46,10 +103,10 @@
  initialize Gateway
 
  @param infoDic  @{@"SSID": xxx, @"wifiPwd": xxx, @"uid": xxx ,@"userPwd": xxx, @"gatewayName": xxx, @"gatewayVersion": @2, @"serverAddress":xxx, @"portNumber":xxx}
-                 SSID  G2 require, G3 G4 not require
-                 wifiPwd  G2 require, G3 G4 not require
+                 SSID  G2 G5 require, G3 G4 not require
+                 wifiPwd  G2 G5 require, G3 G4 not require
                  gatewayName  Cannot exceed 48 bytes, exceeding will be truncated
-				 gatewayVersion @2 means G2,@3 means G3,@4 means G4
+				 gatewayVersion @2 means G2,@3 means G3,@4 means G4,@5 means G5
                  option  @"serverAddress",@"portNumber"
  */
 + (void)initializeGatewayWithInfoDic:(NSDictionary *)infoDic block:(TTInitializeGatewayBlock)block;
@@ -77,7 +134,7 @@
 + (void)upgradeGatewayWithGatewayMac:(NSString *)gatewayMac block:(TTGatewayBlock)block;
 
 /**
- Call tihis after connect gateway successfully, only G2 & G3 have networkMac
+ Call tihis after connect gateway successfully
  */
 + (NSString *)getNetworkMac;
 

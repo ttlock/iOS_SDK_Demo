@@ -7,8 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TTWirelessKeyFobScanModel.h"
 #import "TTSystemInfoModel.h"
+
+@interface TTWirelessKeyFobScanModel : NSObject
+
+@property (nonatomic, strong) NSString *keyFobName;
+@property (nonatomic, strong) NSString *keyFobMac;
+@property (nonatomic, assign) NSInteger RSSI;
+
+@end
 
 typedef enum {
 	TTKeyFobSuccess = 0,

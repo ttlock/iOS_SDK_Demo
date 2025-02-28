@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger RSSI;
 @property (nonatomic, assign) NSInteger oneMeterRSSI;
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSDictionary *advertisementData;
 
 - (instancetype)initWithInfoDic:(NSDictionary *)infoDic;
 

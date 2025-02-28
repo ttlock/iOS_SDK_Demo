@@ -5,22 +5,19 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.4.5
+//  version:3.4.8
 
 #import <Foundation/Foundation.h>
-#import "TTBlocks.h"
-#import "TTGateway.h"
-#import "TTGatewayMacro.h"
-#import "TTGatewayScanModel.h"
-#import "TTMacros.h"
-#import "TTScanModel.h"
-#import "TTSystemInfoModel.h"
-#import "TTUtil.h"
-#import "TTWirelessKeypad.h"
-#import "TTWirelessKeypadScanModel.h"
-#import "TTWirelessKeyFob.h"
-#import "TTWirelessKeyFobScanModel.h"
-#import "TTDoorSensor.h"
+#import <TTLock/TTBlocks.h>
+#import <TTLock/TTGateway.h>
+#import <TTLock/TTMacros.h>
+#import <TTLock/TTScanModel.h>
+#import <TTLock/TTSystemInfoModel.h>
+#import <TTLock/TTUtil.h>
+#import <TTLock/TTWirelessKeypad.h>
+#import <TTLock/TTWirelessKeyFob.h>
+#import <TTLock/TTDoorSensor.h>
+#import <TTLock/TTElectricMeter.h>
 
 @interface TTLock : NSObject
 /**
@@ -166,7 +163,7 @@
                                 failure:(TTFailedBlock)failure;
 
 /**
- Get the lock system infomation
+ Get the lock system infomation (this method also can get the newest featurevalue)
 
  @param lockData The lock data string used to operate lock
  @param success A block invoked when the lock system infomation is got
@@ -601,7 +598,7 @@ Set Lock Config
 #pragma mark - IC card
 
 /**
- Add cyclic IC card
+ Add  IC card
 
  @param cyclicConfig  null array @[] , means no cyclic
                      weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
@@ -1519,6 +1516,30 @@ Config Ip
                   success:(TTSucceedBlock)success
                   failure:(TTFailedBlock)failure;
 
+/**
+ Modify Lock FeatureValue
+ @param types  enum  TTSupportFeature , such as @[TTSupportFeatureFingerprint,TTSupportFeatureCard,TTSupportFeaturePasscode]
+  @[] (types.count == 0), means none of them are supported
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful. if you want to get newest lockData, please call method "getLockSystemInfo".
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyLockFeatureValueWithTypes:(NSArray <NSNumber *>*)types
+                               lockData:(NSString *)lockData
+                                success:(TTSucceedBlock)success
+                                failure:(TTFailedBlock)failure;
+
+/**
+ Modify Lock Name Prefix
+ @param lockNamePrefix   prefix
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful. if you want to get newest lockData, please call method "getLockSystemInfo".
+ @param failure A block invoked when the operation fails
+ */
++ (void)modifyLockNamePrefix:(NSString *)lockNamePrefix
+                    lockData:(NSString *)lockData
+                     success:(TTSucceedBlock)success
+                     failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData
