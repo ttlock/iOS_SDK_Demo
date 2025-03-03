@@ -144,18 +144,18 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error);
 
 /*
  @param mac The mac of the electric meter
- @param chargeAmount recharge amount
- @param chargeKwh degree of recharged electricity
+ @param rechargeAmount recharge amount
+ @param rechargeKwh degree of recharged electricity
  @param url such as "https:...v3/executeCommand"
  */
-+ (void)chargeWithMac:(NSString *)mac
-         chargeAmount:(NSString *)chargeAmount
-            chargeKwh:(NSString *)chargeKwh
-                  url:(NSString *)url
-             clientId:(NSString *)clientId
-          accessToken:(NSString *)accessToken
-              success:(TTElectricMeterSuccessBlock)success
-              failure:(TTElectricMeterFailBlock)failure;
++ (void)rechargeWithMac:(NSString *)mac
+         rechargeAmount:(NSString *)rechargeAmount
+            rechargeKwh:(NSString *)rechargeKwh
+                    url:(NSString *)url
+               clientId:(NSString *)clientId
+            accessToken:(NSString *)accessToken
+                success:(TTElectricMeterSuccessBlock)success
+                failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
