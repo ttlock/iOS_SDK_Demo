@@ -40,6 +40,10 @@ typedef void(^TTElectricMeterScanBlock)(TTElectricMeterModel *model);
 typedef void(^TTElectricMeterSuccessBlock)(void);
 typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error);
 
++ (void)setClientParamWithUrl:(NSString *)url
+                     clientId:(NSString *)clientId
+                  accessToken:(NSString *)accessToken;
+
 + (void)startScanWithSuccess:(TTElectricMeterScanBlock)success
                      failure:(TTElectricMeterFailBlock)failure;
 + (void)stopScan;
@@ -52,143 +56,97 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error);
 + (void)cancelConnectWithMac:(NSString *)mac;
 
 /*
- @param mac The mac of the electric meter
- @param name The name of the electric meter
- @param mode work Mode, 0: Postpaid, 1: Prepaid
- @param price electricity price
- @param url such as "https:...v3/executeCommand"
+ @param info @{@"mac": @"xxx", @"name": @"xxx", @"payMode": @"xxx", @"price": @"xxx"}
+ mac NSString  The mac of the electric meter
+ name NSString The name of the electric meter
+ payMode NSString  0: Postpaid, 1: Prepaid
+ price NSString electricity price
  */
-+ (void)addWithMac:(NSString *)mac
-              name:(NSString *)name
-              mode:(NSInteger)mode
-             price:(NSString *)price
-               url:(NSString *)url
-          clientId:(NSString *)clientId
-       accessToken:(NSString *)accessToken
++ (void)addWithInfo:(NSDictionary *)info
            success:(TTElectricMeterSuccessBlock)success
            failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
- @param url such as "https:...v3/executeCommand"
  */
 + (void)deleteWithMac:(NSString *)mac
-                  url:(NSString *)url
-             clientId:(NSString *)clientId
-          accessToken:(NSString *)accessToken
               success:(TTElectricMeterSuccessBlock)success
               failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
  @param powerOn 0: power off, 1: power on
- @param url such as "https:...v3/executeCommand"
  */
 + (void)setPowerOnOffWithMac:(NSString *)mac
                      powerOn:(BOOL)powerOn
-                         url:(NSString *)url
-                    clientId:(NSString *)clientId
-                 accessToken:(NSString *)accessToken
                      success:(TTElectricMeterSuccessBlock)success
                      failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
  @param remainderKwh remaining electricity
- @param url such as "https:...v3/executeCommand"
  */
 + (void)setRemainingElectricityWithMac:(NSString *)mac
                           remainderKwh:(NSInteger)remainderKwh
-                                   url:(NSString *)url
-                              clientId:(NSString *)clientId
-                           accessToken:(NSString *)accessToken
                                success:(TTElectricMeterSuccessBlock)success
                                failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
- @param url such as "https:...v3/executeCommand"
  */
 + (void)clearRemainingElectricityWithMac:(NSString *)mac
-                                     url:(NSString *)url
-                                clientId:(NSString *)clientId
-                             accessToken:(NSString *)accessToken
                                  success:(TTElectricMeterSuccessBlock)success
                                  failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
- @param url such as "https:...v3/executeCommand"
  */
 + (void)readDataWithMac:(NSString *)mac
-                    url:(NSString *)url
-               clientId:(NSString *)clientId
-            accessToken:(NSString *)accessToken
                 success:(TTElectricMeterSuccessBlock)success
                 failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
- @param mode work Mode, 0: Postpaid, 1: Prepaid
+ @param payMode 0: Postpaid, 1: Prepaid
  @param price electricity price
- @param url such as "https:...v3/executeCommand"
  */
-+ (void)setWorkModeWithMac:(NSString *)mac
-                      mode:(NSInteger)mode
-                     price:(NSString *)price
-                       url:(NSString *)url
-                  clientId:(NSString *)clientId
-               accessToken:(NSString *)accessToken
-                   success:(TTElectricMeterSuccessBlock)success
-                   failure:(TTElectricMeterFailBlock)failure;
++ (void)setPayModeWithMac:(NSString *)mac
+                  payMode:(NSInteger)payMode
+                    price:(NSString *)price
+                  success:(TTElectricMeterSuccessBlock)success
+                  failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
  @param rechargeAmount recharge amount
  @param rechargeKwh degree of recharged electricity
- @param url such as "https:...v3/executeCommand"
  */
 + (void)rechargeWithMac:(NSString *)mac
          rechargeAmount:(NSString *)rechargeAmount
             rechargeKwh:(NSString *)rechargeKwh
-                    url:(NSString *)url
-               clientId:(NSString *)clientId
-            accessToken:(NSString *)accessToken
                 success:(TTElectricMeterSuccessBlock)success
                 failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
  @param maxPower max Power
- @param url such as "https:...v3/executeCommand"
  */
 + (void)setMaxPowerWithMac:(NSString *)mac
                   maxPower:(NSInteger)maxPower
-                       url:(NSString *)url
-                  clientId:(NSString *)clientId
-               accessToken:(NSString *)accessToken
                    success:(TTElectricMeterSuccessBlock)success
                    failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
- @param url such as "https:...v3/executeCommand"
  */
 + (void)getFeatureValueWithMac:(NSString *)mac
-                           url:(NSString *)url
-                      clientId:(NSString *)clientId
-                   accessToken:(NSString *)accessToken
                        success:(TTElectricMeterSuccessBlock)success
                        failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
- @param url such as "https:...v3/executeCommand"
  */
 + (void)enterUpgradeModeWithMac:(NSString *)mac
-                            url:(NSString *)url
-                       clientId:(NSString *)clientId
-                    accessToken:(NSString *)accessToken
                         success:(TTElectricMeterSuccessBlock)success
                         failure:(TTElectricMeterFailBlock)failure;
 
