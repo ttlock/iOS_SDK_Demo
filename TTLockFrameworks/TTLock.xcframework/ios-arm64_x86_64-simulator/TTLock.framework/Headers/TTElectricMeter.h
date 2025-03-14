@@ -34,11 +34,13 @@ typedef NS_ENUM (NSInteger, TTElectricMeterError) {
     TTElectricMeterConnectTimeout,
     TTElectricMeterDisconnect,
     TTElectricMeterNetError,
+    TTElectricMeterRequestServerError,
+    TTElectricMeterExistedInServer,
 };
 
 typedef void(^TTElectricMeterScanBlock)(TTElectricMeterModel *model);
 typedef void(^TTElectricMeterSuccessBlock)(void);
-typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error);
+typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *errorMsg);
 
 + (void)setClientParamWithUrl:(NSString *)url
                      clientId:(NSString *)clientId
@@ -56,11 +58,11 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error);
 + (void)cancelConnectWithMac:(NSString *)mac;
 
 /*
- @param info @{@"mac": @"xxx", @"name": @"xxx", @"payMode": @"xxx", @"price": @"xxx"}
- mac NSString  The mac of the electric meter
- name NSString The name of the electric meter
- payMode NSString  0: Postpaid, 1: Prepaid
- price NSString electricity price
+ @param info @{@"mac": @"xxx", @"number": @"xxx", @"payMode": @"xxx", @"price": @"xxx"}
+ mac The mac of the electric meter
+ number The name of the electric meter
+ payMode  0: Postpaid, 1: Prepaid
+ price electricity price
  */
 + (void)addWithInfo:(NSDictionary *)info
            success:(TTElectricMeterSuccessBlock)success
