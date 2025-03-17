@@ -89,7 +89,7 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *er
  @param remainderKwh remaining electricity
  */
 + (void)setRemainingElectricityWithMac:(NSString *)mac
-                          remainderKwh:(NSInteger)remainderKwh
+                          remainderKwh:(NSString *)remainderKwh
                                success:(TTElectricMeterSuccessBlock)success
                                failure:(TTElectricMeterFailBlock)failure;
 
