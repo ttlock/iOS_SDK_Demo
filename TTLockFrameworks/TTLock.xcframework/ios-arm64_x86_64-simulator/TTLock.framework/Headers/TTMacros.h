@@ -417,6 +417,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueManualSetAngle = 79,
     TTLockFeatureValueControlLatchBolt = 80,
     TTLockFeatureValueAutoSetUnlockDirection = 81,
+    TTLockFeatureValueWifiPowerSavingTime = 83,
     TTLockFeatureValueMultifunctionalKeypad = 84,
     TTLockFeatureValuePublicMode = 86,
     TTLockFeatureValueLowBatteryAutoUnlock = 87,
