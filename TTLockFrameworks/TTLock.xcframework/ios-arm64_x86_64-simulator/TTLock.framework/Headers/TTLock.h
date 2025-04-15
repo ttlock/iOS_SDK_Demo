@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.4.6
+//  version:3.4.8
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -509,8 +509,8 @@ Set Lock Config
 
  @param passcode The passcode need to be modified
  @param newPasscode The new passcode is used to replace first passcode. If you just want to modify valid date, the new passcode should be nil. New passcode is limited to 4 - 9 digits
- @param startDate The time when it becomes valid
- @param endDate The time when it is expired
+ @param startDate The time when it becomes valid,  startDate =-1 && endDate == -1  means not modifying the validity period
+ @param endDate The time when it is expired,  startDate =-1 && endDate == -1  means not modifying the validity period
  @param lockData The lock data string used to operate lock
  @param success A block invoked when passcode is modified
  @param failure A block invoked when the operation fails
@@ -1143,7 +1143,7 @@ Config Ip
                  success:(TTSucceedBlock)success
                  failure:(TTFailedBlock)failure;
 /**
- Get Wifi Info
+Get Wifi Info
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
@@ -1151,6 +1151,44 @@ Config Ip
 + (void)getWifiInfoWithLockData:(NSString *)lockData
                         success:(TTGetWifiInfoSuccessdBlock)success
                         failure:(TTFailedBlock)failure;
+
+/**
+Get Wifi Power Saving Time
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation is successful
+@param failure A block invoked when the operation fails
+*/
++ (void)getWifiPowerSavingTimeWithLockData:(NSString *)lockData
+                                   success:(TTGetWifiPowerSavingTimeBlock)success
+                                   failure:(TTFailedBlock)failure;
+
+/**
+Config Wifi Power Saving Time
+@param weekDays    1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday， such as @[@1,@3,@6,@7]
+@param startDate The time when it becomes valid (minutes from 0 clock)
+@param endDate  The time when it is expired (minutes from 0 clock)
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation is successful
+@param failure A block invoked when the operation fails
+*/
++ (void)configWifiPowerSavingTimeWithWeekDays:(NSArray <NSNumber *> *)weekDays
+                                    startDate:(int)startDate
+                                      endDate:(int)endDate
+                                     lockData:(NSString *)lockData
+                                      success:(TTSucceedBlock)success
+                                      failure:(TTFailedBlock)failure;
+
+/**
+Clear Wifi Power Saving Time
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation is successful
+@param failure A block invoked when the operation fails
+*/
++ (void)clearWifiPowerSavingTimeWithLockData:(NSString *)lockData
+                                     success:(TTSucceedBlock)success
+                                     failure:(TTFailedBlock)failure;
+
+#pragma mark - Door Sensor
 
 /**
  Add Door Sensor
