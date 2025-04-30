@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.4.8
+//  version:3.5.0
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -18,6 +18,7 @@
 #import <TTLock/TTWirelessKeyFob.h>
 #import <TTLock/TTDoorSensor.h>
 #import <TTLock/TTElectricMeter.h>
+#import <TTLock/TTWaterMeter.h>
 
 @interface TTLock : NSObject
 /**

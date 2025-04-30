@@ -20,6 +20,9 @@
 @property (nonatomic,strong) NSString *nbRssi;
 //support TTLockFeatureValuePasscodeKeyNumber
 @property (nonatomic,strong) NSString *passcodeKeyNumber;
+//support TTLockFeatureValueAuthCode
+@property (nonatomic,strong) NSString *uuid;
+@property (nonatomic,strong) NSString *authCode;
 
 @property (nonatomic, strong) NSString *lockData;
 

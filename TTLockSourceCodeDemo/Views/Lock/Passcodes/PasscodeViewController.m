@@ -89,7 +89,7 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
 
 - (void)visiblePasscodeAction:(UISwitch *)visibleSwitch{
     
-    BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValuePasscodeVisible];
+    BOOL suportFunction = [TTUtil isSupportFeature:TTLockFeatureValuePasscodeVisible lockData:self.lockModel.lockData];
     if (!suportFunction) {
         [self showToastAndLog:TTErrorMessageInvalidCommand];
         return;
@@ -144,7 +144,7 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (action == PasscodeActionGetAdminPasscode) {
-        BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValueGetAdminPasscode];
+        BOOL suportFunction = [TTUtil isSupportFeature:TTLockFeatureValueGetAdminPasscode lockData:self.lockModel.lockData];
         if (!suportFunction) {
             [self showToastAndLog:TTErrorMessageInvalidCommand];
             return;
@@ -231,7 +231,7 @@ typedef NS_ENUM(NSInteger,PasscodeAction) {
     }else if (action == PasscodeActionSetPasscodeVisibleSwitch){
         
     }else if (action == PasscodeActionGetPasscodeVisibleSwitch){
-        BOOL suportFunction = [TTUtil lockFeatureValue:self.lockModel.lockData suportFunction:TTLockFeatureValuePasscodeVisible];
+        BOOL suportFunction = [TTUtil isSupportFeature:TTLockFeatureValuePasscodeVisible lockData:self.lockModel.lockData];
         if (!suportFunction) {
             [self showToastAndLog:TTErrorMessageInvalidCommand];
             return;

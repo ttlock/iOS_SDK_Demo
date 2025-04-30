@@ -316,6 +316,9 @@ typedef NS_ENUM(NSInteger,TTDeviceInfoType) {
     TTDeviceInfoTypeOfNbCardNumber = 9,
     TTDeviceInfoTypeOfNbRssi = 10,
     TTDeviceInfoTypeOfPasscodeKeyNumber = 12,
+    TTDeviceInfoTypeOfCameraSerialNumber = 13,
+    TTDeviceInfoTypeOfUuid = 14,
+    TTDeviceInfoTypeOfAuthCode = 15,
 };
 
 typedef NS_ENUM(long long, TTLockSpecialFunction)
@@ -424,6 +427,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueMotorDriveTime = 88,
     TTLockFeatureValueModifyFeatureValue = 89,
     TTLockFeatureValueModifyLockNamePrefix = 90,
+    TTLockFeatureValueAuthCode = 92,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {

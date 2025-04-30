@@ -88,11 +88,11 @@ If you want to get log and set time immediately after unlocking, you can do the 
 ```
 ### How to use FeatureValue
 ```objective-c
- BOOL isSupportPasscode = [TTUtil lockFeatureValue:_lockModel.lockData suportFunction:TTLockFeatureValuePasscode];
+ BOOL isSupportPasscode = [TTUtil isSupportFeature:TTLockFeatureValuePasscode lockData:_lockModel.lockData];
 ```
 ```objective-c
- BOOL isSupportICCard = [TTUtil lockFeatureValue:_lockModel.lockData suportFunction:TTLockFeatureValueICCard];
+ BOOL isSupportICCard = [TTUtil isSupportFeature:TTLockFeatureValueICCard lockData:_lockModel.lockData];
 ```
 ```objective-c
- BOOL isSupportFingerprint = [TTUtil lockFeatureValue:_lockModel.lockData suportFunction:TTLockFeatureValueFingerprint];
+ BOOL isSupportFingerprint = [TTUtil isSupportFeature:TTLockFeatureValueFingerprint lockData:_lockModel.lockData];
 ```
