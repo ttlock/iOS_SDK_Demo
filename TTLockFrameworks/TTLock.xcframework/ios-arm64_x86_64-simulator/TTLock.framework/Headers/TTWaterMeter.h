@@ -134,7 +134,7 @@ typedef void(^TTWaterMeterFailBlock)(TTWaterMeterError error, NSString *errorMsg
  @param mac The mac of the water meter
  @param totalM3 total water
  */
-+ (void)seTotalUsageWithMac:(NSString *)mac
++ (void)setTotalUsageWithMac:(NSString *)mac
                     totalM3:(NSString *)totalM3
                     success:(TTWaterMeterSuccessBlock)success
                     failure:(TTWaterMeterFailBlock)failure;
