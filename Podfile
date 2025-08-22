@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '12.0'
 use_frameworks!
 inhibit_all_warnings!
 
@@ -7,6 +7,6 @@ pod 'Masonry'
 pod 'AFNetworking'
 pod 'MJExtension'
 pod 'IQKeyboardManager'
-pod 'iOSDFULibrary','4.11.0'
+pod 'iOSDFULibrary','4.14.0'
 pod 'MBProgressHUD'
 end

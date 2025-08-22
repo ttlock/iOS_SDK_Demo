@@ -1,3 +1,14 @@
+# Device Firmware Update application
+
+DFU application allows to flash new firmware on the DK. The process has three steps:
+1. Selecting zip file with an appropriate firmware.
+2. Selecting BLE device with open bootloader.
+3. Starting firmware upload.
+
+Settings screen allows to change the DFU library parameters used for uploading firmawre.
+
+<img src="App/fastlane/screenshots/en-US/iPhone 8 Plus-01Devices.png" width="300"> <img src="App/fastlane/screenshots/en-US/iPhone 8 Plus-02Settings.png" width="300">
+
 # iOS DFU Library
 
 [![Version](http://img.shields.io/cocoapods/v/iOSDFULibrary.svg)](http://cocoapods.org/pods/iOSDFULibrary)
@@ -24,39 +35,39 @@ pod install
 
 - Open the newly created `.xcworkspace`
 
-- Import the library to any of your classes by using `import iOSDFULibrary` and begin working on your project
+- Import the library to any of your classes by using `import NordicDFU` and begin working on your project
 
 
 **For Carthage:**
 
 - Create a new **Cartfile** in your project's root with the following contents
 
-```ogld
-github "NordicSemiconductor/IOS-Pods-DFU-Library" ~> x.y //Replace x.y with your required version
+```
+github "NordicSemiconductor/IOS-DFU-Library" ~> x.y // Replace x.y with your required version
 ```
 
 - Build with carthage
 
 ```sh
-carthage update --platform iOS //also OSX platform is available for macOS builds
+carthage update --use-xcframeworks --platform iOS // other supported platforms: macOS, tvOS, watchOS
 ```
 
 - Carthage will build the **iOSDFULibrary.framework** and **ZipFramework.framework** files in **Carthage/Build/**, 
-you may now copy all those files to your project and use the library, additionally, carthade also builds **\*.dsym** files 
+you may now copy all those files to your project and use the library, additionally, carthage also builds **\*.dsym** files 
 if you need to resymbolicate crash logs. you may want to keep those files bundled with your builds for future use.
 
 **For Swift Package Manager:**
 
 ```swift
-// swift-tools-version:5.4
+// swift-tools-version:5.6
 import PackageDescription
 
 let package = Package(
   name: "<Your Product Name>",
   dependencies: [
     .package(
-      url: "https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library", 
-      .upToNextMajor(from: "<Desired Version, e.g. 4.11.0>")
+      url: "https://github.com/NordicSemiconductor/IOS-DFU-Library", 
+      .upToNextMajor(from: "<Desired Version>")
     )
   ],
   targets: [.target(name: "<Your Target Name>", dependencies: ["NordicDFU"])]
@@ -65,7 +76,7 @@ let package = Package(
 
 ---
 
-### Device Firmware Update (DFU)
+## Device Firmware Update (DFU)
 
 The nRF5x Series chips are flash-based SoCs, and as such they represent the most flexible solution available. 
 A key feature of the nRF5x Series and their associated software architecture and S-Series SoftDevices is the 
@@ -88,7 +99,7 @@ In order the DFU to work with iOS, the target device MUST have the **Service Cha
 Indicate property in the **Generic Attribute** service. Without this characteristic iOS will assume that services of
 this device will never change and will not invalidate them after switching to DFU bootloader mode.
 
-##### Service Changed characteristic behaviour:
+##### Service Changed characteristic behavior:
 
 - On paired devices a change of the attribute table must be indicated using an indication to the Service Changed characteristic. 
 iOS automatically enables the CCC and handles this indication and performs a service discovery. 
@@ -100,7 +111,7 @@ This indication is handled correctly in Legacy DFU since SDK 8.0.
 - The Secure DFU implementation from SDK 12 does not support bonding (experimental buttonless sample does not 
 pass bond information when switching to DFU bootloader mode and the bootloader does not send S-C indication). 
 As a workaround, the bootloader starts to advertise with MAC address incremented by 1, so from the phone's perspective 
-it's a completly new device and a fresh service discovery will be done. When your new firmware is going to change 
+it's a completely new device and a fresh service discovery will be done. When your new firmware is going to change 
 the list of services you may consider adding another 1 to the MAC address for the new application to make sure 
 the cache will not conflict (unless the device is not bonded and you have Service Changed characteristic, then no 
 caching is used as written above). Be aware, that adding 1 to a public address is not possible (unless you register a new one). 
@@ -115,21 +126,21 @@ indication when entered DFU mode and app mode. For bonded devices it is recommen
 
 ---
 
-### Documentation
+## Documentation
 
-See the [documentation](documentation.md) for more information.
+See the [documentation](https://nordicsemiconductor.github.io/IOS-DFU-Library/documentation/nordicdfu) for more information.
 
 ---
 
-### Requirements
+## Requirements
 
 The library is compatible with nRF51 and nRF52 devices with S-Series Soft Device and the DFU Bootloader flashed on. 
 
 ---
 
-### DFU History
+## DFU History
 
-#### Legacy DFU
+### Legacy DFU
 
 * **SDK 4.3.0** - First version of DFU over Bluetooth Smart. DFU supports Application update.
 * **SDK 6.1.0** - DFU Bootloader supports Soft Device and Bootloader update. As the updated Bootloader may be dependent on the new Soft Device, those two may be sent and installed together.
@@ -142,30 +153,32 @@ The library is compatible with nRF51 and nRF52 devices with S-Series Soft Device
 - Buttonless update support for bonded devices 
 - sharing the LTK between an app and the bootloader.
 
-#### Secure DFU
+### Secure DFU
 
 * **SDK 12.0.0** - New Secure DFU has been released. This library is fully backwards compatible so supports both the new and legacy DFU.
 * **SDK 13.0.0** - Buttonless DFU (still experimental) uses different UUIDs. No bond sharing supported. Bootloader will use address +1.
 * **SDK 14.0.0** - Buttonless DFU no longer experimental. New buttonless characteristic added for bonded devices (requires bond, cache cleaning relies on Service Changed indication).
 * **SDK 15.0.0** - Support for higher MTUs added.
 
-This library is fully backwards compatible and supports both the new and legacy DFU. The experimental buttonless DFU service from SDK 12 is supported since version 1.1.0. Due to the fact, that this experimental service from SDK 12 is not safe, you have to set [enableUnsafeExperimentalButtonlessServiceInSecureDfu](https://github.com/NordicSemiconductor/IOS-Pods-DFU-Library/blob/master/iOSDFULibrary/Classes/Implementation/DFUServiceInitiator.swift#L296) to true to enable it, this is off by default. Read the method documentation for details. It is recommended to use the Buttonless service from SDK 13 (for non-bonded devices, or 14 for bonded). Both are supported since DFU Library 1.3.0.
+This library is fully backwards compatible and supports both the new and legacy DFU. The experimental buttonless DFU service from SDK 12 is supported since version 1.1.0. Due to the fact, that this experimental service from SDK 12 is not safe, you have to set [enableUnsafeExperimentalButtonlessServiceInSecureDfu](https://github.com/NordicSemiconductor/IOS-DFU-Library/blob/master/iOSDFULibrary/Classes/Implementation/DFUServiceInitiator.swift#L296) to true to enable it, this is off by default. Read the method documentation for details. It is recommended to use the Buttonless service from SDK 13 (for non-bonded devices, or 14 for bonded). Both are supported since DFU Library 1.3.0.
 
 Check platform folders for mode details about compatibility for each library.
 
+## Other frameworks
+
 ### React Native
 
-An unofficial library for both iOS and Android that is based on this library is available for React Native: [react-native-nordic-dfu](https://github.com/Pilloxa/react-native-nordic-dfu)
+An unofficial library for both iOS and Android that is based on this library is available for React Native: [react-native-nordic-dfu](https://github.com/Salt-PepperEngineering/react-native-nordic-dfu)
 
 ### Flutter
 
 A library for both iOS and Android that is based on this library is available for Flutter: 
-[flutter-nordic-dfu](https://github.com/fengqiangboy/flutter-nordic-dfu) 
+[nordic_dfu](https://pub.dev/packages/nordic_dfu)
 
 ### Xamarin
 
 Simple binding library for iOS is available on nuget:
-[Laerdal.Xamarin.Dfu.iOS](https://www.nuget.org/packages/Laerdal.Xamarin.Dfu.iOS/)
+[Laerdal.Dfu](https://www.nuget.org/packages/Laerdal.Dfu/)
 
 ---
 

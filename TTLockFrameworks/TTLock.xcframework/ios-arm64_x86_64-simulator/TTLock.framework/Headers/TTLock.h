@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.5.0
+//  version:3.5.2
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1087,7 +1087,7 @@ Set Power Saver Controlable Lock
 										success:(TTSucceedBlock)success
 										failure:(TTFailedBlock)failure;
 
-#pragma mark - Wifi Lock
+#pragma mark - Wifi/Camera Lock
 
 /**
 Scan Wifi
@@ -1188,6 +1188,22 @@ Clear Wifi Power Saving Time
 + (void)clearWifiPowerSavingTimeWithLockData:(NSString *)lockData
                                      success:(TTSucceedBlock)success
                                      failure:(TTFailedBlock)failure;
+
+/**
+Config Camera Lock Wifi
+@param SSID wifi name
+@param wifiPassword wifi password
+@param secCode  device security code
+@param lockData The lock data string used to operate lock
+@param success A block invoked when the operation is successful
+@param failure A block invoked when the operation fails
+*/
++ (void)configCameraLockWifiWithSSID:(NSString *)SSID
+                        wifiPassword:(NSString *)wifiPassword
+                             secCode:(NSString *)secCode
+                            lockData:(NSString *)lockData
+                             success:(TTConfigCameraLockWifiBlock)success
+                             failure:(TTFailedBlock)failure;
 
 #pragma mark - Door Sensor
 
@@ -1572,13 +1588,27 @@ Clear Wifi Power Saving Time
  Modify Lock Name Prefix
  @param lockNamePrefix   prefix
  @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation is successful. if you want to get newest lockData, please call method "getLockSystemInfo".
+ @param success A block invoked when the operation is successful
  @param failure A block invoked when the operation fails
  */
 + (void)modifyLockNamePrefix:(NSString *)lockNamePrefix
                     lockData:(NSString *)lockData
                      success:(TTSucceedBlock)success
                      failure:(TTFailedBlock)failure;
+
+/**
+ Config Gateway Account
+ @param infoDic   @{@"uid": xxx ,@"userPwd": xxx, @"gatewayName": xxx, @"gatewayVersion": @0}
+          gatewayName  Cannot exceed 48 length, exceeding will be truncated
+          gatewayVersion @0 means wifi power saver
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)configGatewayAccountWithInfoDic:(NSDictionary *)infoDic
+                               lockData:(NSString *)lockData
+                                success:(TTSucceedBlock)success
+                                failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData

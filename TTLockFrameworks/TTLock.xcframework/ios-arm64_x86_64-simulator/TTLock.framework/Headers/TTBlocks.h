@@ -12,7 +12,7 @@
 #ifndef TTBlocks_h
 #define TTBlocks_h
 
-#import "TTMacros.h"
+#import <TTLock/TTMacros.h>
 
 
 @class TTScanModel;
@@ -92,6 +92,8 @@ typedef void(^TTAutoUnlockDirectionSucceedBlock)(TTAutoUnlockDirection state);
 typedef void(^TTGetMotorDriveTimeSuccessBlock) (int time);
 
 typedef void(^TTGetWifiPowerSavingTimeBlock)(NSString *timesJsonString);
+
+typedef void(^TTConfigCameraLockWifiBlock)(NSString *cameraSerialNumber, NSString *wifiMac, NSInteger wifiRssi);
 
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 
