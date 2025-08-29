@@ -428,6 +428,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueModifyLockNamePrefix = 90,
     TTLockFeatureValueAuthCode = 92,
     TTLockFeatureValuePowerSaverSupportWifi = 96,
+    TTLockFeatureValueWorkingTime = 107
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {

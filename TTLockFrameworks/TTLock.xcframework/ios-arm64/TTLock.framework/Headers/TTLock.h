@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.5.2
+//  version:3.5.4
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1606,6 +1606,21 @@ Config Camera Lock Wifi
  @param failure A block invoked when the operation fails
  */
 + (void)configGatewayAccountWithInfoDic:(NSDictionary *)infoDic
+                               lockData:(NSString *)lockData
+                                success:(TTSucceedBlock)success
+                                failure:(TTFailedBlock)failure;
+
+/**
+ set Lock Working Time
+
+ @param startDate The time when it becomes valid, unit: millisecond
+ @param endDate The time when it is expired, unit: millisecond
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)setLockWorkingTimeWithStartDate:(long long)startDate
+                                endDate:(long long)endDate
                                lockData:(NSString *)lockData
                                 success:(TTSucceedBlock)success
                                 failure:(TTFailedBlock)failure;
