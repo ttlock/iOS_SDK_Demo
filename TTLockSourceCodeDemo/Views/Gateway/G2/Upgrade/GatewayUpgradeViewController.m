@@ -9,7 +9,7 @@
 #import "GatewayUpgradeViewController.h"
 #import "FirmwareUpdateModel.h"
 #import "UserModel.h"
-#import <TTLockDFU/TTLockDFU.h>
+#import <TTLockDFU/TTDeviceDFU.h>
 
 @interface GatewayUpgradeViewController ()
 @property (nonatomic, strong)FirmwareUpdateModel *updateModel;
@@ -24,7 +24,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[TTGatewayDFU shareInstance] endUpgrade];
+    [[TTDeviceDFU shareInstance] endUpgrade];
 }
 
 - (void)viewDidLoad {
@@ -113,28 +113,29 @@
 - (void)bottomBtnClick{
     
     [self.view showToastLoading:nil];
-    [self startDfuWithType:TTGatewayDFUTypeByNet];
+    [self startDfuWithType:TTDeviceTypeGatewayByNet];
 }
 
-- (void)startDfuWithType:(TTGatewayDFUType)type {
+- (void)startDfuWithType:(TTDeviceType)type {
     WS(weakSelf);
-    [[TTGatewayDFU shareInstance]startDfuWithType:type clientId:TTAppkey accessToken:UserModel.userModel.accessToken gatewayId:self.gatewayModel.gatewayId gatewayMac:self.gatewayModel.gatewayMac successBlock:^(UpgradeOpration type, NSInteger process) {
+    TTDeviceDFUModel *model = [TTDeviceDFUModel new];
+    model.type = type;
+    model.deviceMac = self.gatewayModel.gatewayMac;
+    model.deviceId = self.gatewayModel.gatewayId.longValue;
+    [[TTDeviceDFU shareInstance] startDfuWithClientId:TTAppkey accessToken:UserModel.userModel.accessToken deviceModel:model successBlock:^(UpgradeOpration type, NSInteger process) {
         if (type == UpgradeOprationSuccess) {
             [weakSelf.view showToast:LS(@"Upgrade successed")];
-           weakSelf.versionTitleLabel.text = LS(@"Already the latest version");
-           weakSelf.bottomBtn.hidden = YES;
+            weakSelf.versionTitleLabel.text = LS(@"Already the latest version");
+            weakSelf.bottomBtn.hidden = YES;
             return ;
         }
         [weakSelf.view showToastLoading:[NSString stringWithFormat:@"successBlock type%ld process%ld",(long)type,(long)process]];
-       
     } failBlock:^(UpgradeOpration type, UpgradeErrorCode code) {
-
         weakSelf.retryBtn.hidden = NO;
         weakSelf.offlineBtn.hidden = NO;
         weakSelf.bottomBtn.hidden = YES;
         
         [weakSelf.view showToast:[NSString stringWithFormat:@"failBlock UpgradeOpration%ld UpgradeErrorCode%ld ",(long)type,(long)code]];
-        
     }];
 }
 
@@ -160,7 +161,7 @@
 }
 - (void)retryBtnClick{
     [self.view showToastLoading:nil];
-    [self startDfuWithType:TTGatewayDFUTypeByNet];
+    [self startDfuWithType:TTDeviceTypeGatewayByNet];
     self.retryBtn.hidden = YES;
     self.offlineBtn.hidden = YES;
 }
@@ -187,7 +188,7 @@
 - (void)offlineBtnClick{
     //如果不在升级中，需将网关重新上电
     [self.view showToastLoading:@"Re connect the gateway power"];
-    [self startDfuWithType:TTGatewayDFUTypeByBluetooth];
+    [self startDfuWithType:TTDeviceTypeGatewayByBluetooth];
     self.retryBtn.hidden = YES;
     self.offlineBtn.hidden = YES;
 }

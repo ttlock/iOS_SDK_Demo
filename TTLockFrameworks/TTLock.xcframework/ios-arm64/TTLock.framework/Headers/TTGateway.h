@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger,TTGatewayType) {
     TTGateWayTypeG3,
     TTGateWayTypeG4,
     TTGateWayTypeG5,
+    TTGateWayTypeG6,
 };
 
 @interface TTGatewayScanModel : NSObject

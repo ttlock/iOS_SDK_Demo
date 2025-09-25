@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.5.4
+//  version:3.5.6
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1611,7 +1611,7 @@ Config Camera Lock Wifi
                                 failure:(TTFailedBlock)failure;
 
 /**
- set Lock Working Time
+ Set Lock Working Time
 
  @param startDate The time when it becomes valid, unit: millisecond
  @param endDate The time when it is expired, unit: millisecond

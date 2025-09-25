@@ -24,6 +24,11 @@ typedef enum {
 	TTKeyFobConnectTimeout = -2,
 }TTKeyFobStatus;
 
+typedef NS_ENUM(NSInteger,TTKeyFobFeatureValue) {
+    TTKeyFobFeatureValueOnMicro = 0,
+    TTKeyFobFeatureValueAuthCode = 1,
+};
+
 @interface TTWirelessKeyFob : NSObject
 
 typedef void(^TTKeyFobScanBlock)(TTWirelessKeyFobScanModel *model);
@@ -53,6 +58,8 @@ typedef void(^TTGetLockSystemInfoBlock)(TTKeyFobStatus status,TTSystemInfoModel 
 + (void)enterUpgradeModeWithKeyFobMac:(NSString *)keyFobMac
                              lockData:(NSString*)lockData
                                 block:(TTEnterUpgradeModeBlock)block;
+
++ (BOOL)supportFunction:(TTKeyFobFeatureValue)function featureValue:(NSString *)featureValue;
 
 + (void)initializeWithKeyFobMac:(NSString *)keyFobMac
 						lockData:(NSString*)lockData

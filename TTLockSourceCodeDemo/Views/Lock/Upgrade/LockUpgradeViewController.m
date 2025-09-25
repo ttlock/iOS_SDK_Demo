@@ -9,7 +9,7 @@
 #import "LockUpgradeViewController.h"
 #import "FirmwareUpdateModel.h"
 #import "UserModel.h"
-#import <TTLockDFU/TTLockDFU.h>
+#import <TTLockDFU/TTDeviceDFU.h>
 
 @interface LockUpgradeViewController ()
 @property (nonatomic, strong) LockModel *lockModel;
@@ -30,7 +30,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[TTLockDFU shareInstance] endUpgrade];
+    [[TTDeviceDFU shareInstance] endUpgrade];
 }
 
 - (void)viewDidLoad {
@@ -120,9 +120,13 @@
 }
 
 - (void)startDfu {
+    TTDeviceDFUModel *model = [TTDeviceDFUModel new];
+    model.type = TTDeviceTypeLock;
+    model.deviceMac = self.lockModel.lockMac;
+    model.deviceId = self.lockModel.lockId.longValue;
+    model.lockData = self.lockModel.lockData;
     WS(weakSelf);
-   
-    [[TTLockDFU shareInstance]startDfuWithClientId:TTAppkey accessToken:UserModel.userModel.accessToken lockId:self.lockModel.lockId lockData:self.lockModel.lockData successBlock:^(UpgradeOpration type, NSInteger process) {
+    [[TTDeviceDFU shareInstance] startDfuWithClientId:TTAppkey accessToken:UserModel.userModel.accessToken deviceModel:model successBlock:^(UpgradeOpration type, NSInteger process) {
         if (type == UpgradeOprationSuccess) {
             weakSelf.bottomBtn.tag = 101;
             [weakSelf.view showToast:LS(@"Upgrade successed")];

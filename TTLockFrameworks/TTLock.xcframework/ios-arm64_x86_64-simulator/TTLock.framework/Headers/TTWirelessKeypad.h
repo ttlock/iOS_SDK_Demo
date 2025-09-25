@@ -138,6 +138,10 @@ typedef void(^TTKeypadFailBlock)(TTKeypadStatus status);
                      success:(TTAddICSucceedBlock)success
                  lockFailure:(TTFailedBlock)lockFailure;
 
++ (void)enterUpgradeModeWithKeypadMac:(NSString *)keypadMac
+                              success:(TTKeypadSuccessBlock)success
+                              failure:(TTKeypadFailBlock)failure;
+
 #pragma mark -- Passcode Keypad
 /**
  initialize Passcode Keypad

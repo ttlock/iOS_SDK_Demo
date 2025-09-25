@@ -1,5 +1,5 @@
 framework module TTLockDFU {
-  umbrella header "TTLockDFU.h"
+  umbrella header "TTDeviceDFU.h"
   export *
 
   module * { export * }
