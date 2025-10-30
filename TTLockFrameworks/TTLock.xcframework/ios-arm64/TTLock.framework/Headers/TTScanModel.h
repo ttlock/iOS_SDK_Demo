@@ -30,4 +30,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@interface TTWorkingModeTimeModel : NSObject
+
+// The time when it becomes valid (minutes from 0 clock)
+@property (nonatomic, assign) int startTime;
+// The time when it becomes valid (minutes from 0 clock)
+@property (nonatomic, assign) int endTime;
+// 是否全天：1-是、2-否
+@property (nonatomic, assign) int isAllDay;
+// weekDays：1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+@property (nonatomic, strong) NSArray <NSNumber *>*weekDays;
+
+@end
+
 NS_ASSUME_NONNULL_END

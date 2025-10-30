@@ -23,6 +23,9 @@
 //support TTLockFeatureValueAuthCode
 @property (nonatomic,strong) NSString *uuid;
 @property (nonatomic,strong) NSString *authCode;
+// matter gateway
+@property (nonatomic,strong) NSString *mtCode;
+@property (nonatomic,strong) NSString *pinCode;
 
 @property (nonatomic, strong) NSString *lockData;
 

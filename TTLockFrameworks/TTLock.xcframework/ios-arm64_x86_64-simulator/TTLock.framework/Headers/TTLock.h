@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.5.6
+//  version:3.5.8
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1624,6 +1624,21 @@ Config Camera Lock Wifi
                                lockData:(NSString *)lockData
                                 success:(TTSucceedBlock)success
                                 failure:(TTFailedBlock)failure;
+
+/**
+ Set working Mode
+
+ @param workingMode  1: work all day   2: not work all day  3: Custom
+ @param cyclicConfig  when  workingMode ==3, this value is valid
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)setWorkingMode:(int)workingMode
+          cyclicConfig:(NSArray <TTWorkingModeTimeModel *> *)cyclicConfig
+              lockData:(NSString *)lockData
+               success:(TTSucceedBlock)success
+               failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData
