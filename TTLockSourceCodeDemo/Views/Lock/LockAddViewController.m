@@ -20,8 +20,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    [TTLock stopScan];
     [NSRunLoop cancelPreviousPerformRequestsWithTarget:self];
 }
 

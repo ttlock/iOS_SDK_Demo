@@ -95,6 +95,8 @@ typedef void(^TTGetWifiPowerSavingTimeBlock)(NSString *timesJsonString);
 
 typedef void(^TTConfigCameraLockWifiBlock)(NSString *cameraSerialNumber, NSString *wifiMac, NSInteger wifiRssi);
 
+typedef void(^TTGetAllValidQrCodesSucceedBlock)(NSString *allQrCodesJsonString);
+
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 
 #endif /* TTBlocks_h */

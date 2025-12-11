@@ -429,7 +429,10 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueAuthCode = 92,
     TTLockFeatureValuePowerSaverSupportWifi = 96,
     TTLockFeatureValueWorkingMode = 98,
-    TTLockFeatureValueWorkingTime = 107
+    TTLockFeatureValueWorkingTime = 107,
+    TTLockFeatureValueCustomQRCode = 108,
+    TTLockFeatureValueSecurityM1Card = 109,
+    TTLockFeatureValueYiShengPhotoFace = 110,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -444,6 +447,7 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTDoubleAuth,
     TTPublicMode,
     TTLowBatteryAutoUnlock,
+    TTSecurityM1Card,
 };
 
 /*!
