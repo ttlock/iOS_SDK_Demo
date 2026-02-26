@@ -12,18 +12,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TTElectricMeterModel : NSObject
 
+@property (nonatomic, assign) NSInteger type;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *mac;
 @property (nonatomic, assign) NSInteger RSSI;
 @property (nonatomic, assign) BOOL isInited;
 @property (nonatomic, assign) long long scanTime; // Unit: millisecond
+@property (nonatomic, strong) NSString *executeResponse;
 
+// Only when type == 1, the following values exist
 @property (nonatomic, assign) BOOL onOff; // 0: power off, 1: power on
 @property (nonatomic, assign) NSInteger payMode; // 0: Postpaid, 1: Prepaid
 @property (nonatomic, strong) NSString *totalKwh;
 @property (nonatomic, strong) NSString *remainderKwh;
 @property (nonatomic, strong) NSString *voltage;
 @property (nonatomic, strong) NSString *electricCurrent;
+
+@end
+
+@interface TTElectricMeterAddResult : NSObject
+
+@property (nonatomic, assign) NSInteger electricMeterId;
 
 @end
 
@@ -40,6 +49,7 @@ typedef NS_ENUM (NSInteger, TTElectricMeterError) {
 
 typedef void(^TTElectricMeterScanBlock)(TTElectricMeterModel *model);
 typedef void(^TTElectricMeterSuccessBlock)(void);
+typedef void(^TTElectricMeterAddSuccessBlock)(TTElectricMeterAddResult *result);
 typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *errorMsg);
 
 + (void)setClientParamWithUrl:(NSString *)url
@@ -64,9 +74,9 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *er
  payMode  0: Postpaid, 1: Prepaid
  price electricity price
  */
-+ (void)addWithInfo:(NSDictionary *)info
-           success:(TTElectricMeterSuccessBlock)success
-           failure:(TTElectricMeterFailBlock)failure;
++ (void)addElectricMeterWithInfo:(NSDictionary *)info
+                         success:(TTElectricMeterAddSuccessBlock)success
+                         failure:(TTElectricMeterFailBlock)failure;
 
 /*
  @param mac The mac of the electric meter
@@ -151,6 +161,10 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *er
 + (void)enterUpgradeModeWithMac:(NSString *)mac
                         success:(TTElectricMeterSuccessBlock)success
                         failure:(TTElectricMeterFailBlock)failure;
+
++ (void)addWithInfo:(NSDictionary *)info
+           success:(TTElectricMeterSuccessBlock)success
+           failure:(TTElectricMeterFailBlock)failure DEPRECATED_MSG_ATTRIBUTE("Use addElectricMeter:success:failure: instead");
 
 @end
 

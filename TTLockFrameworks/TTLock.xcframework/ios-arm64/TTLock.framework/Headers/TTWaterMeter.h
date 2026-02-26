@@ -12,12 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TTWaterMeterModel : NSObject
 
+@property (nonatomic, assign) NSInteger type;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *mac;
 @property (nonatomic, assign) NSInteger RSSI;
 @property (nonatomic, assign) BOOL isInited;
 @property (nonatomic, assign) long long scanTime; // Unit: millisecond
+@property (nonatomic, strong) NSString *executeResponse;
 
+// Only when type == 1, the following values exist
 @property (nonatomic, assign) NSInteger onOff; // 0: water off, 1: water on
 @property (nonatomic, assign) NSInteger payMode; // 0: Postpaid, 1: Prepaid
 @property (nonatomic, strong) NSString *totalM3;
@@ -25,6 +28,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger magneticInterference;
 @property (nonatomic, assign) NSInteger waterValveFailure;
 @property (nonatomic, assign) NSInteger electricQuantity;
+
+@end
+
+@interface TTWaterMeterAddResult : NSObject
+
+@property (nonatomic, assign) NSInteger waterMeterId;
+@property (nonatomic, strong) NSString *featureValue;
+
+@end
+
+@interface TTWaterDeviceInfoModel : NSObject
+
+@property (nonatomic,strong) NSString *modelNum;
+@property (nonatomic,strong) NSString *hardwareRevision;
+@property (nonatomic,strong) NSString *firmwareRevision;
+// Cat One
+@property (nonatomic, copy) NSString *catOneOperator;
+@property (nonatomic, copy) NSString *catOneNodeId;
+@property (nonatomic, copy) NSString *catOneCardNumber;
+@property (nonatomic, copy) NSString *catOneRssi;
+@property (nonatomic, copy) NSString *catOneImsi;
 
 @end
 
@@ -39,9 +63,15 @@ typedef NS_ENUM (NSInteger, TTWaterMeterError) {
     TTWaterMeterExistedInServer,
 };
 
+typedef NS_ENUM(NSInteger,TTWaterMeterFeature) {
+    TTWaterMeterFeatureCatOne = 0,
+};
+
 typedef void(^TTWaterMeterScanBlock)(TTWaterMeterModel *model);
 typedef void(^TTWaterMeterSuccessBlock)(void);
+typedef void(^TTWaterMeterAddSuccessBlock)(TTWaterMeterAddResult *result);
 typedef void(^TTWaterMeterFailBlock)(TTWaterMeterError error, NSString *errorMsg);
+typedef void(^TTWaterMeterGetDeviceInfoBlock)(TTWaterDeviceInfoModel *model);
 
 + (void)setClientParamWithUrl:(NSString *)url
                      clientId:(NSString *)clientId
@@ -65,9 +95,9 @@ typedef void(^TTWaterMeterFailBlock)(TTWaterMeterError error, NSString *errorMsg
  payMode  0: Postpaid, 1: Prepaid
  price water price
  */
-+ (void)addWithInfo:(NSDictionary *)info
-           success:(TTWaterMeterSuccessBlock)success
-           failure:(TTWaterMeterFailBlock)failure;
++ (void)addWaterMeterWithInfo:(NSDictionary *)info
+                      success:(TTWaterMeterAddSuccessBlock)success
+                      failure:(TTWaterMeterFailBlock)failure;
 
 /*
  @param mac The mac of the water meter
@@ -146,6 +176,25 @@ typedef void(^TTWaterMeterFailBlock)(TTWaterMeterError error, NSString *errorMsg
                        success:(TTWaterMeterSuccessBlock)success
                        failure:(TTWaterMeterFailBlock)failure;
 
++ (void)resetWithMac:(NSString *)mac
+             success:(TTWaterMeterSuccessBlock)success
+             failure:(TTWaterMeterFailBlock)failure;
+
++ (void)getDeviceInfoWithMac:(NSString *)mac
+                     success:(TTWaterMeterGetDeviceInfoBlock)success
+                     failure:(TTWaterMeterFailBlock)failure;
+
++ (void)configApnWithMac:(NSString *)mac
+                     apn:(NSString *)apn
+                 success:(TTWaterMeterSuccessBlock)success
+                 failure:(TTWaterMeterFailBlock)failure;
+
++ (void)configServerWithMac:(NSString *)mac
+              serverAddress:(NSString *)serverAddress
+                 portNumber:(NSString *)portNumber
+                    success:(TTWaterMeterSuccessBlock)success
+                    failure:(TTWaterMeterFailBlock)failure;
+
 /*
  @param mac The mac of the water meter
  */
@@ -153,6 +202,11 @@ typedef void(^TTWaterMeterFailBlock)(TTWaterMeterError error, NSString *errorMsg
                         success:(TTWaterMeterSuccessBlock)success
                         failure:(TTWaterMeterFailBlock)failure;
 
++ (BOOL)supportFunction:(TTWaterMeterFeature)function featureValue:(NSString *)featureValue;
+
++ (void)addWithInfo:(NSDictionary *)info
+           success:(TTWaterMeterSuccessBlock)success
+           failure:(TTWaterMeterFailBlock)failure DEPRECATED_MSG_ATTRIBUTE("Use addWaterMeterWithInfo:success:failure: instead");
 
 @end
 

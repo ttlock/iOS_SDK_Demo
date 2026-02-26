@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.6.0
+//  version:3.6.2
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -19,6 +19,7 @@
 #import <TTLock/TTDoorSensor.h>
 #import <TTLock/TTElectricMeter.h>
 #import <TTLock/TTWaterMeter.h>
+#import <TTLock/TTStandaloneDoorSensor.h>
 
 @interface TTLock : NSObject
 /**
@@ -1193,14 +1194,12 @@ Clear Wifi Power Saving Time
 Config Camera Lock Wifi
 @param SSID wifi name
 @param wifiPassword wifi password
-@param secCode  device security code
 @param lockData The lock data string used to operate lock
 @param success A block invoked when the operation is successful
 @param failure A block invoked when the operation fails
 */
 + (void)configCameraLockWifiWithSSID:(NSString *)SSID
                         wifiPassword:(NSString *)wifiPassword
-                             secCode:(NSString *)secCode
                             lockData:(NSString *)lockData
                              success:(TTConfigCameraLockWifiBlock)success
                              failure:(TTFailedBlock)failure;
