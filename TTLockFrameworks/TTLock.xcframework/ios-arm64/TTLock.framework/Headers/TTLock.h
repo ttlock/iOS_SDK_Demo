@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.6.3
+//  version:3.6.4
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1724,6 +1724,18 @@ Config Camera Lock Wifi
 + (void)getAllValidQrCodesWithLockData:(NSString *)lockData
                                success:(TTGetAllValidQrCodesSucceedBlock)success
                                failure:(TTFailedBlock)failure;
+
++ (void)setPasscodeAttributesWithPasscode:(NSString *)passcode
+                               attributes:(TTPasscodeAttributes *)attributes
+                                 lockData:(NSString *)lockData
+                                  success:(TTSucceedBlock)success
+                                  failure:(TTFailedBlock)failure;
+
++ (void)setCardAttributesWithCardNumber:(NSString *)cardNumber
+                             attributes:(TTCardAttributes *)attributes
+                               lockData:(NSString *)lockData
+                                success:(TTSucceedBlock)success
+                                failure:(TTFailedBlock)failure;
 
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData

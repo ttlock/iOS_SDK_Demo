@@ -427,6 +427,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueMotorDriveTime = 88,
     TTLockFeatureValueModifyFeatureValue = 89,
     TTLockFeatureValueModifyLockNamePrefix = 90,
+    TTLockFeatureValuePasscodeWithOpenPrivacyLock = 91,
     TTLockFeatureValueAuthCode = 92,
     TTLockFeatureValueUnauthorizedAttemptAlert = 93,
     TTLockFeatureValueLinkLock = 94,
@@ -442,6 +443,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueCustomQRCode = 108,
     TTLockFeatureValueSecurityM1Card = 109,
     TTLockFeatureValueYiShengPhotoFace = 110,
+    TTLockFeatureValueSetUserAttributes = 120,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {

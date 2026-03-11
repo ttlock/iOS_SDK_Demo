@@ -31,4 +31,16 @@
 
 @end
 
+@interface TTPasscodeAttributes : NSObject
 
+@property (nonatomic, assign) BOOL isAdminPasscode;
+@property (nonatomic, assign) BOOL canOpenPrivacyLock;
+
+@end
+
+@interface TTCardAttributes : NSObject
+
+@property (nonatomic, assign) BOOL isAdminCard;
+@property (nonatomic, assign) BOOL canOpenPrivacyLock;
+
+@end
