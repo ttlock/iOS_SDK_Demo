@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.6.4
+//  version:3.6.6
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
