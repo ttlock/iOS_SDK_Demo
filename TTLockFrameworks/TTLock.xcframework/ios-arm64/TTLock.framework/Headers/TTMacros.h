@@ -401,6 +401,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueDoorSensorAlert = 51,
     TTLockFeatureValueSensitivity = 52,
     TTLockFeatureValueFace = 53,
+    TTLockFeatureValueMotorTorque = 54,
     TTLockFeatureValueCpuCard = 55,
     TTLockFeatureValueWifiLock = 56,
     TTLockFeatureValueWifiLockStaticIP = 58,
@@ -443,8 +444,10 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueCustomQRCode = 108,
     TTLockFeatureValueSecurityM1Card = 109,
     TTLockFeatureValueYiShengPhotoFace = 110,
+    TTLockFeatureValueHideSleepMode = 117,
     TTLockFeatureValueSemiAutomaticModeControl = 119,
     TTLockFeatureValueSetUserAttributes = 120,
+    TTLockFeatureValueProofCapture = 126,
     
 };
 
@@ -461,7 +464,8 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTPublicMode,
     TTLowBatteryAutoUnlock,
     TTSecurityM1Card,
-    TTSemiAutomaticModeControl
+    TTSemiAutomaticModeControl,
+    TTProofCapture
 };
 
 /*!

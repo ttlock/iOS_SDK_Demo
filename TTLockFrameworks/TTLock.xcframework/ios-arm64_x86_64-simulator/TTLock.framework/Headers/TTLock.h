@@ -1737,6 +1737,31 @@ Config Camera Lock Wifi
                                 success:(TTSucceedBlock)success
                                 failure:(TTFailedBlock)failure;
 
+/**
+ Set Latch Bolt
+ 
+ @param driveLevel  Drive level (valid range: 1 - 20)
+               0:  no control
+               -1:  do not modify
+ @param keepTime    Keep time (valid range: 2 - 10)
+              -1:  do not modify
+ */
++ (void)setLatchBoltWithDriveLevel:(int)driveLevel
+                          keepTime:(int)keepTime
+                          lockData:(NSString *)lockData
+                           success:(TTSucceedBlock)success
+                           failure:(TTFailedBlock)failure;
+/**
+ Set Motor Torque Level
+ 
+ @param level  valid range: 1 - 10
+ */
++ (void)setMotorTorqueLevel:(int)level
+                   lockData:(NSString *)lockData
+                    success:(TTSucceedBlock)success
+                    failure:(TTFailedBlock)failure;
+
+
 #pragma mark - deprecated
 + (void)getLockSpecialValueWithLockData:(NSString *)lockData
                                 success:(TTGetSpecialValueSucceedBlock)success
