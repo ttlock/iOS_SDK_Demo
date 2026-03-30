@@ -33,6 +33,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TTElectricMeterAddResult : NSObject
 
 @property (nonatomic, assign) NSInteger electricMeterId;
+@property (nonatomic, strong) NSString *featureValue;
+
+@end
+
+@interface TTElectricDeviceInfoModel : NSObject
+
+@property (nonatomic,strong) NSString *modelNum;
+@property (nonatomic,strong) NSString *hardwareRevision;
+@property (nonatomic,strong) NSString *firmwareRevision;
+// Cat One
+@property (nonatomic, copy) NSString *catOneOperator;
+@property (nonatomic, copy) NSString *catOneNodeId;
+@property (nonatomic, copy) NSString *catOneCardNumber;
+@property (nonatomic, copy) NSString *catOneRssi;
+@property (nonatomic, copy) NSString *catOneImsi;
 
 @end
 
@@ -47,10 +62,15 @@ typedef NS_ENUM (NSInteger, TTElectricMeterError) {
     TTElectricMeterExistedInServer,
 };
 
+typedef NS_ENUM(NSInteger,TTElectricMeterFeature) {
+    TTElectricMeterFeatureCatOne = 0,
+};
+
 typedef void(^TTElectricMeterScanBlock)(TTElectricMeterModel *model);
 typedef void(^TTElectricMeterSuccessBlock)(void);
 typedef void(^TTElectricMeterAddSuccessBlock)(TTElectricMeterAddResult *result);
 typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *errorMsg);
+typedef void(^TTElectricMeterGetDeviceInfoBlock)(TTElectricDeviceInfoModel *model);
 
 + (void)setClientParamWithUrl:(NSString *)url
                      clientId:(NSString *)clientId
@@ -155,12 +175,34 @@ typedef void(^TTElectricMeterFailBlock)(TTElectricMeterError error, NSString *er
                        success:(TTElectricMeterSuccessBlock)success
                        failure:(TTElectricMeterFailBlock)failure;
 
++ (void)resetWithMac:(NSString *)mac
+             success:(TTElectricMeterSuccessBlock)success
+             failure:(TTElectricMeterFailBlock)failure;
+
++ (void)getDeviceInfoWithMac:(NSString *)mac
+                     success:(TTElectricMeterGetDeviceInfoBlock)success
+                     failure:(TTElectricMeterFailBlock)failure;
+
++ (void)configApnWithMac:(NSString *)mac
+                     apn:(NSString *)apn
+                 success:(TTElectricMeterSuccessBlock)success
+                 failure:(TTElectricMeterFailBlock)failure;
+
++ (void)configServerWithMac:(NSString *)mac
+              serverAddress:(NSString *)serverAddress
+                 portNumber:(NSString *)portNumber
+                    success:(TTElectricMeterSuccessBlock)success
+                    failure:(TTElectricMeterFailBlock)failure;
+
 /*
  @param mac The mac of the electric meter
  */
 + (void)enterUpgradeModeWithMac:(NSString *)mac
                         success:(TTElectricMeterSuccessBlock)success
                         failure:(TTElectricMeterFailBlock)failure;
+
++ (BOOL)supportFunction:(TTElectricMeterFeature)function featureValue:(NSString *)featureValue;
+
 
 + (void)addWithInfo:(NSDictionary *)info
            success:(TTElectricMeterSuccessBlock)success
