@@ -64,6 +64,7 @@ typedef NS_ENUM (NSInteger, TTElectricMeterError) {
 
 typedef NS_ENUM(NSInteger,TTElectricMeterFeature) {
     TTElectricMeterFeatureCatOne = 0,
+    TTElectricMeterFeatureTelink = 1,
 };
 
 typedef void(^TTElectricMeterScanBlock)(TTElectricMeterModel *model);

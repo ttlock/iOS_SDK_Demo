@@ -4,7 +4,7 @@
 //
 //  Created by Juanny on 2025/9/23.
 //  Copyright © 2025 Sciener. All rights reserved.
-//  version:3.5.6
+//  version:3.6.8
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTLock.h>
