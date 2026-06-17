@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import <MJExtension/MJExtension.h>
 
 #define TTLockURL @"https://api.ttlock.com.cn/v3"

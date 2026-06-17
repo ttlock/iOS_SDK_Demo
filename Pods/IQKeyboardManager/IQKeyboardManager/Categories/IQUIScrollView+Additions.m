@@ -1,7 +1,7 @@
 //
-// IQUIScrollView+Additions.m
-// https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-16 Iftekhar Qurashi.
+//  IQUIScrollView+Additions.m
+//  https://github.com/hackiftekhar/IQKeyboardManager
+//  Copyright (c) 2013-24 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,9 +21,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import "IQUIScrollView+Additions.h"
 #import <objc/runtime.h>
 
+#import "IQUIScrollView+Additions.h"
+
+NS_EXTENSION_UNAVAILABLE_IOS("Unavailable in extension")
 @implementation UIScrollView (Additions)
 
 -(void)setShouldIgnoreScrollingAdjustment:(BOOL)shouldIgnoreScrollingAdjustment
@@ -38,6 +40,18 @@
     return [shouldIgnoreScrollingAdjustment boolValue];
 }
 
+-(void)setShouldIgnoreContentInsetAdjustment:(BOOL)shouldIgnoreContentInsetAdjustment
+{
+    objc_setAssociatedObject(self, @selector(shouldIgnoreContentInsetAdjustment), @(shouldIgnoreContentInsetAdjustment), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+-(BOOL)shouldIgnoreContentInsetAdjustment
+{
+    NSNumber *shouldIgnoreContentInsetAdjustment = objc_getAssociatedObject(self, @selector(shouldIgnoreContentInsetAdjustment));
+    
+    return [shouldIgnoreContentInsetAdjustment boolValue];
+}
+
 -(void)setShouldRestoreScrollViewContentOffset:(BOOL)shouldRestoreScrollViewContentOffset
 {
     objc_setAssociatedObject(self, @selector(shouldRestoreScrollViewContentOffset), @(shouldRestoreScrollViewContentOffset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -49,5 +63,103 @@
     
     return [shouldRestoreScrollViewContentOffset boolValue];
 }
+
+@end
+
+NS_EXTENSION_UNAVAILABLE_IOS("Unavailable in extension")
+@implementation UITableView (PreviousNextIndexPath)
+
+-(nullable NSIndexPath*)previousIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+{
+    NSInteger previousRow = indexPath.row - 1;
+    NSInteger previousSection = indexPath.section;
+    
+    //Fixing indexPath
+    if (previousRow < 0)
+    {
+        previousSection -= 1;
+        
+        if (previousSection >= 0)
+        {
+            previousRow = [self numberOfRowsInSection:previousSection]-1;
+        }
+    }
+    
+    if (previousRow >= 0 && previousSection >= 0)
+    {
+        return [NSIndexPath indexPathForRow:previousRow inSection:previousSection];
+    }
+    
+    return nil;
+}
+
+//-(nullable NSIndexPath*)nextIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+//{
+//    NSInteger nextRow = indexPath.row + 1;
+//    NSInteger nextSection = indexPath.section;
+//
+//    //Fixing indexPath
+//    if (nextRow >= [self numberOfRowsInSection:nextSection])
+//    {
+//        nextRow = 0;
+//        nextSection += 1;
+//    }
+//
+//    if (self.numberOfSections > nextSection && [self numberOfRowsInSection:nextSection] > nextRow)
+//    {
+//        return [NSIndexPath indexPathForItem:nextRow inSection:nextSection];
+//    }
+//
+//    return nil;
+//}
+//
+@end
+
+NS_EXTENSION_UNAVAILABLE_IOS("Unavailable in extension")
+@implementation UICollectionView (PreviousNextIndexPath)
+
+-(nullable NSIndexPath*)previousIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+{
+    NSInteger previousRow = indexPath.row - 1;
+    NSInteger previousSection = indexPath.section;
+    
+    //Fixing indexPath
+    if (previousRow < 0)
+    {
+        previousSection -= 1;
+        
+        if (previousSection >= 0)
+        {
+            previousRow = [self numberOfItemsInSection:previousSection]-1;
+        }
+    }
+    
+    if (previousRow >= 0 && previousSection >= 0)
+    {
+        return [NSIndexPath indexPathForItem:previousRow inSection:previousSection];
+    }
+    
+    return nil;
+}
+
+//-(nullable NSIndexPath*)nextIndexPathOfIndexPath:(nonnull NSIndexPath*)indexPath
+//{
+//    NSInteger nextRow = indexPath.row + 1;
+//    NSInteger nextSection = indexPath.section;
+//    
+//    //Fixing indexPath
+//    if (nextRow >= [self numberOfItemsInSection:nextSection])
+//    {
+//        nextRow = 0;
+//        nextSection += 1;
+//    }
+//    
+//    if (self.numberOfSections > nextSection && [self numberOfItemsInSection:nextSection] > nextRow)
+//    {
+//        return [NSIndexPath indexPathForItem:nextRow inSection:nextSection];
+//    }
+//    
+//    return nil;
+//}
 
 @end

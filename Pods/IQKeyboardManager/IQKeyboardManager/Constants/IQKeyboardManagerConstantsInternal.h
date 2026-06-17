@@ -1,7 +1,7 @@
 //
-// IQKeyboardManagerConstantsInternal.h
-// https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-16 Iftekhar Qurashi.
+//  IQKeyboardManagerConstantsInternal.h
+//  https://github.com/hackiftekhar/IQKeyboardManager
+//  Copyright (c) 2013-24 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,5 @@
 #ifndef IQKeyboardManagerConstantsInternal_h
 #define IQKeyboardManagerConstantsInternal_h
 
-
-#define IQ_IS_IOS10_OR_GREATER ([[NSProcessInfo processInfo] operatingSystemVersion].majorVersion >= 10)
 
 #endif
