@@ -12,7 +12,7 @@
 #ifndef TTBlocks_h
 #define TTBlocks_h
 
-#import <TTLock/TTMacros.h>
+#import "TTMacros.h"
 
 
 @class TTScanModel;
@@ -96,6 +96,9 @@ typedef void(^TTGetWifiPowerSavingTimeBlock)(NSString *timesJsonString);
 typedef void(^TTConfigCameraLockWifiBlock)(NSString *cameraSerialNumber, NSString *wifiMac, NSInteger wifiRssi);
 
 typedef void(^TTGetAllValidQrCodesSucceedBlock)(NSString *allQrCodesJsonString);
+
+// types enum TTUnauthorizedAttemptAlertType
+typedef void(^TTGetUnauthorizedAttemptAlertBlock)(NSArray <NSNumber *>* types, int attemptAlertCount, int lockoutDuration);
 
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 

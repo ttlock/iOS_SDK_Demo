@@ -226,6 +226,7 @@ typedef NS_ENUM(NSInteger,LockAction) {
     switch (action) {
         case LockActionEkey:
         {
+
             KeyViewController *vc = [[KeyViewController alloc] initWithLockModel:_lockModel];
             vc.title = cell.textLabel.text;
             [self.navigationController pushViewController:vc animated:YES];

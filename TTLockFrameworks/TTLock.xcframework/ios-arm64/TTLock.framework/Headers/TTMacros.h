@@ -51,7 +51,7 @@ UIKIT_EXTERN NSString * const  TTErrorMessageDisconnection;
 UIKIT_EXTERN NSString * const  TTErrorMessageLockIsBusy;
 UIKIT_EXTERN NSString * const  TTErrorMessageWrongLockData;
 UIKIT_EXTERN NSString * const  TTErrorMessageInvalidParameter;
-
+UIKIT_EXTERN NSString * const  TTErrorMessageRecordExisted;
 
 #define RSSI_SETTING_MAX -65    //Corresponding unlocking distance :0.5m
 #define RSSI_SETTING_MIN -140
@@ -99,6 +99,7 @@ typedef NS_ENUM(NSInteger, TTError)
     TTErrorRecordNotExist = 0x1F,
     TTErrorWrongSSID = 0x25,
     TTErrorWrongWifiPassword = 0x26,
+    TTErrorRecordExist = 0x27,
     
     TTErrorBluetoothPoweredOff = 0x61,
     TTErrorConnectionTimeout = 0x62,
@@ -448,7 +449,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueSemiAutomaticModeControl = 119,
     TTLockFeatureValueSetUserAttributes = 120,
     TTLockFeatureValueProofCapture = 126,
-    
+    TTLockFeatureValueHumanPresenceSensor = 128,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -465,7 +466,8 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTLowBatteryAutoUnlock,
     TTSecurityM1Card,
     TTSemiAutomaticModeControl,
-    TTProofCapture
+    TTProofCapture,
+    TTPublicModeLedFlash,
 };
 
 /*!
@@ -485,7 +487,8 @@ typedef NS_ENUM(int, TTLiftWorkMode) {
 typedef NS_ENUM(int, TTPowerSaverWorkMode) {
 	TTPowerSaverWorkModeAllCards,
 	TTPowerSaverWorkModeHotelCard,
-	TTPowerSaverWorkModeRoomCard
+	TTPowerSaverWorkModeRoomCard,
+    TTPowerSaverWorkModeAutoGetPower,
 };
 
 typedef NS_ENUM(NSInteger, TTNBAwakeMode) {
@@ -586,6 +589,12 @@ typedef NS_ENUM(int, TTSupportFeature) {
     TTSupportFeatureFingerprint = 0,
     TTSupportFeatureCard = 1,
     TTSupportFeaturePasscode = 2
+};
+
+typedef NS_ENUM(NSInteger, TTUnauthorizedAttemptAlertType){
+    TTUnauthorizedAttemptAlertTypeFingerprint = 0,
+    TTUnauthorizedAttemptAlertTypeCard = 1,
+    TTUnauthorizedAttemptAlertTypePasscode = 2
 };
 
 @end

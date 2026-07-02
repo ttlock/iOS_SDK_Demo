@@ -4,7 +4,7 @@
 //
 //  Created by Juanny on 2025/9/23.
 //  Copyright © 2025 Sciener. All rights reserved.
-//  version:3.6.8
+//  version:3.6.12
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTLock.h>
@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger,TTDeviceType) {
     TTDeviceTypeKeypad,
     TTDeviceTypeRemote,
     TTDeviceTypeDoorSensor,
+    TTDeviceTypeHumanPresenceSensor,
 };
 
 @interface TTDeviceDFUModel : NSObject
