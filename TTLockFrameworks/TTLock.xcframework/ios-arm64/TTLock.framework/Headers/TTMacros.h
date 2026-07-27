@@ -232,7 +232,7 @@ typedef NS_ENUM(NSInteger,TTOprationType)
  *  @constant LockStateLock       Lock
  *  @constant LockStateUnlock     Unlock
  *  @constant LockStateUnknown    Unknown
- *  @constant LockStateUnlockHasCar  Unlock，Has Car
+ *  @constant TTLockSwitchStateDeadLock  Dead Lock
  *
  */
 typedef NS_ENUM(NSInteger,TTLockSwitchState)
@@ -445,11 +445,24 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueCustomQRCode = 108,
     TTLockFeatureValueSecurityM1Card = 109,
     TTLockFeatureValueYiShengPhotoFace = 110,
+    TTLockFeatureValueYiNuoPhotoFace = 112,
+    TTLockFeatureValueSetAlias = 114,
     TTLockFeatureValueHideSleepMode = 117,
     TTLockFeatureValueSemiAutomaticModeControl = 119,
     TTLockFeatureValueSetUserAttributes = 120,
+    TTLockFeatureValueUrlFace = 124,
     TTLockFeatureValueProofCapture = 126,
     TTLockFeatureValueHumanPresenceSensor = 128,
+};
+
+typedef NS_ENUM(NSUInteger, TTAliasType) {
+    TTAliasTypeFingerprint = 0x01,
+    TTAliasTypeCard = 0x02,
+    TTAliasTypeWirelessKeyFob = 0x03,
+    TTAliasTypeFace = 0x04,
+    TTAliasTypePalmVein = 0x05,
+    TTAliasTypePasscode = 0x06,
+    TTAliasTypeQrCode = 0x07,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {

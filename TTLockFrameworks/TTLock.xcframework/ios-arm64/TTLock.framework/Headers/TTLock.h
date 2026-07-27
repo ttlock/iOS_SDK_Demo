@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.6.12
+//  version:3.6.14
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1338,7 +1338,6 @@ Config Camera Lock Wifi
                              success:(TTGetAllValidFacesSucceedBlock)success
                              failure:(TTFailedBlock)failure;
 
-
 /**
  Add  face feature data
 
@@ -1360,6 +1359,46 @@ Config Camera Lock Wifi
                    endDate:(long long)endDate
                   lockData:(NSString *)lockData
                    success:(TTAddFaceSucceedBlock)success
+                   failure:(TTFailedBlock)failure;
+
+/**
+ Add face by image URL
+
+ @param url Face image URL
+ @param cyclicConfig   null array @[] , means no cyclic
+                     weekDay  1~7,1 means Monday，2 means  Tuesday ,...,7 means Sunday
+                     startTime The time when it becomes valid (minutes from 0 clock)
+                     endTime  The time when it is expired (minutes from 0 clock)
+                     such as @[@{@"weekDay":@1,@"startTime":@10,@"endTime":@100},@{@"weekDay":@2,@"startTime":@10,@"endTime":@100}]
+ @param startDate The time when it becomes valid, If it's a permanent key, set 0
+ @param endDate The time when it is expired, If it's a permanent key, set 0
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when face is added
+ @param failure A block invoked when the operation fails
+ */
++ (void)addFaceUrl:(NSString *)url
+      cyclicConfig:(NSArray <NSDictionary *> *)cyclicConfig
+         startDate:(long long)startDate
+           endDate:(long long)endDate
+          lockData:(NSString *)lockData
+           success:(TTAddFaceSucceedBlock)success
+           failure:(TTFailedBlock)failure;
+
+/**
+ Set  alias 
+
+ @param type Alias type: fingerprint, card, face, etc.
+ @param credentialId Credential identifier (face number, card number, passcode, etc.)
+ @param alias Alias string
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)setAliasWithType:(TTAliasType)type
+            credentialId:(NSString *)credentialId
+                   alias:(NSString *)alias
+                  lockData:(NSString *)lockData
+                   success:(TTSucceedBlock)success
                    failure:(TTFailedBlock)failure;
 
 #pragma mark - Palm Vein

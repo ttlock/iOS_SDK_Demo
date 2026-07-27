@@ -4,7 +4,7 @@
 //
 //  Created by Juanny on 2025/9/23.
 //  Copyright © 2025 Sciener. All rights reserved.
-//  version:3.6.12
+//  version:3.6.14
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTLock.h>
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSInteger,TTDeviceType) {
 @property (nonatomic, strong) NSString *lockData;
 // Keypad need to set this value
 @property (nonatomic, assign) NSInteger slotNumber;
-// Remote need to set this value , if the remote has featureValue
+// Remote(if the remote has featureValue), WaterMeter, ElectricMeter need to set this value
 @property (nonatomic, strong) NSString *featureValue;
 
 @end
