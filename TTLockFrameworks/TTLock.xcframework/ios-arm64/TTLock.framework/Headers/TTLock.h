@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.6.14
+//  version:3.6.16
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -1610,6 +1610,30 @@ Config Camera Lock Wifi
 + (void)getMotorDriveTimeWithLockData:(NSString *)lockData
                               success:(TTGetMotorDriveTimeSuccessBlock)success
                               failure:(TTFailedBlock)failure;
+
+/**
+ Get WiFi module firmware version
+ Require feature: TTLockFeatureValueWifiFirmwareVersion
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)getWifiFirmwareVersionWithLockData:(NSString *)lockData
+                                   success:(TTGetFirmwareVersionSucceedBlock)success
+                                   failure:(TTFailedBlock)failure;
+
+/**
+ Get motor drive board firmware version
+ Require feature: TTLockFeatureValueMotorDriveBoardFirmwareVersion
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)getMotorDriveBoardFirmwareVersionWithLockData:(NSString *)lockData
+                                              success:(TTGetFirmwareVersionSucceedBlock)success
+                                              failure:(TTFailedBlock)failure;
 
 /**
  Set Motor Drive Time

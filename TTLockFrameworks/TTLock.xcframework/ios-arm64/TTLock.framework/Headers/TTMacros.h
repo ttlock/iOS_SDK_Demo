@@ -321,6 +321,12 @@ typedef NS_ENUM(NSInteger,TTDeviceInfoType) {
     TTDeviceInfoTypeOfCameraSerialNumber = 13,
     TTDeviceInfoTypeOfUuid = 14,
     TTDeviceInfoTypeOfAuthCode = 15,
+    TTDeviceInfoTypeOfSupplierNumber1 = 16,
+    TTDeviceInfoTypeOfSupplierNumber2 = 17,
+    TTDeviceInfoTypeOfSupplierNumber3 = 18,
+    TTDeviceInfoTypeOfWifiFirmwareVersion = 19,
+    TTDeviceInfoTypeOfMotorDriveBoardFirmwareVersion = 20,
+    TTDeviceInfoTypeOfFaceFeatureDataType = 21,
 };
 
 typedef NS_ENUM(long long, TTLockSpecialFunction)
@@ -440,6 +446,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueCatOne = 100,
     TTLockFeatureValueDoorForceOpenAlert = 102,
     TTLockFeatureValueZhiAnSecondGenerationPhotoFace = 103,
+    TTLockFeatureValueWifiFirmwareVersion = 104,
     TTLockFeatureValueSecondDeadLock = 106,
     TTLockFeatureValueWorkingTime = 107,
     TTLockFeatureValueCustomQRCode = 108,
@@ -450,7 +457,9 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueHideSleepMode = 117,
     TTLockFeatureValueSemiAutomaticModeControl = 119,
     TTLockFeatureValueSetUserAttributes = 120,
+    TTLockFeatureValueMotorDriveBoardFirmwareVersion = 122,
     TTLockFeatureValueUrlFace = 124,
+    TTLockFeatureValueFaceFeatureDataType = 132,
     TTLockFeatureValueProofCapture = 126,
     TTLockFeatureValueHumanPresenceSensor = 128,
 };
