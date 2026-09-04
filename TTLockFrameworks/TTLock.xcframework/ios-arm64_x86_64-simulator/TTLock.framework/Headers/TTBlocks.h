@@ -90,6 +90,7 @@ typedef void(^TTAngleSucceedBlock)(NSInteger angle);
 typedef void(^TTAutoUnlockDirectionSucceedBlock)(TTAutoUnlockDirection state);
 
 typedef void(^TTGetMotorDriveTimeSuccessBlock) (int time);
+typedef void(^TTGetBluetoothAdvertisingIntervalSuccessBlock)(float interval);
 typedef void(^TTGetFirmwareVersionSucceedBlock)(NSString *firmwareVersion);
 
 typedef void(^TTGetWifiPowerSavingTimeBlock)(NSString *timesJsonString);

@@ -440,7 +440,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueUnauthorizedAttemptAlert = 93,
     TTLockFeatureValueLinkLock = 94,
     TTLockFeatureValuePowerSaverSupportWifi = 96,
-    TTLockFeatureValueAdvertisingInterval = 97,
+    TTLockFeatureValueBluetoothAdvertisingInterval = 97,
     TTLockFeatureValueWorkingMode = 98,
     TTLockFeatureValueSupplierNumber = 99,
     TTLockFeatureValueCatOne = 100,

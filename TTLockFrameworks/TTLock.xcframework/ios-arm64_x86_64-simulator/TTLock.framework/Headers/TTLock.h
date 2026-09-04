@@ -1648,6 +1648,31 @@ Config Camera Lock Wifi
                   failure:(TTFailedBlock)failure;
 
 /**
+ Set Bluetooth Advertising Interval
+ Require feature: TTLockFeatureValueBluetoothAdvertisingInterval
+ @param interval value range: 0.1 - 1, unit: second
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)setBluetoothAdvertisingInterval:(float)interval
+                               lockData:(NSString *)lockData
+                                success:(TTSucceedBlock)success
+                                failure:(TTFailedBlock)failure;
+
+/**
+ Get Bluetooth Advertising Interval
+ Require feature: TTLockFeatureValueBluetoothAdvertisingInterval
+ 
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)getBluetoothAdvertisingIntervalWithLockData:(NSString *)lockData
+                                            success:(TTGetBluetoothAdvertisingIntervalSuccessBlock)success
+                                            failure:(TTFailedBlock)failure;
+
+/**
  Modify Lock FeatureValue
  @param types  enum  TTSupportFeature , such as @[TTSupportFeatureFingerprint,TTSupportFeatureCard,TTSupportFeaturePasscode]
   @[] (types.count == 0), means none of them are supported
