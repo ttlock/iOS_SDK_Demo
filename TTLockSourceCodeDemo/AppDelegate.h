@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)configureWindowForScene:(UIWindowScene *)windowScene;
+
 - (void)showLoginViewController;
 
 - (void)showHomeViewController;

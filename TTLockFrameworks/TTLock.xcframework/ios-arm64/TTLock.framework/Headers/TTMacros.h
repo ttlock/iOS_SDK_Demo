@@ -327,6 +327,7 @@ typedef NS_ENUM(NSInteger,TTDeviceInfoType) {
     TTDeviceInfoTypeOfWifiFirmwareVersion = 19,
     TTDeviceInfoTypeOfMotorDriveBoardFirmwareVersion = 20,
     TTDeviceInfoTypeOfFaceFeatureDataType = 21,
+    TTDeviceInfoTypeOfFingerprintFeatureDataType = 22,
 };
 
 typedef NS_ENUM(long long, TTLockSpecialFunction)
@@ -423,6 +424,7 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueWifiArea = 71,
     TTLockFeatureValueXiaoCaoCamera = 75,
     TTLockFeatureValueResetLockByCode = 76,
+    TTLockFeatureValueThirdDevice = 77,
     TTLockFeatureValueAutoSetAngle = 78,
     TTLockFeatureValueManualSetAngle = 79,
     TTLockFeatureValueControlLatchBolt = 80,
@@ -456,15 +458,17 @@ typedef NS_ENUM(NSInteger,TTLockFeatureValue) {
     TTLockFeatureValueSetAlias = 114,
     TTLockFeatureValueHideSleepMode = 117,
     TTLockFeatureValueSemiAutomaticModeControl = 119,
-    TTLockFeatureValueSetUserAttributes = 120,
+    TTLockFeatureValueSetOpenTypeAttributes = 120,
     TTLockFeatureValueMotorDriveBoardFirmwareVersion = 122,
     TTLockFeatureValueUrlFace = 124,
-    TTLockFeatureValueFaceFeatureDataType = 132,
     TTLockFeatureValueProofCapture = 126,
     TTLockFeatureValueHumanPresenceSensor = 128,
+    TTLockFeatureValueFaceFeatureDataType = 132,
+    TTLockFeatureValueFingerprintFeatureDataType = 133,
+    TTLockFeatureValuePowerSaverConstantPowerSupply = 134,
 };
 
-typedef NS_ENUM(NSUInteger, TTAliasType) {
+typedef NS_ENUM(NSInteger, TTAliasType) {
     TTAliasTypeFingerprint = 0x01,
     TTAliasTypeCard = 0x02,
     TTAliasTypeWirelessKeyFob = 0x03,
@@ -472,6 +476,16 @@ typedef NS_ENUM(NSUInteger, TTAliasType) {
     TTAliasTypePalmVein = 0x05,
     TTAliasTypePasscode = 0x06,
     TTAliasTypeQrCode = 0x07,
+};
+
+typedef NS_ENUM(NSInteger, TTOpenTypeCredential) {
+    TTOpenTypeCredentialPasscode = 1,
+    TTOpenTypeCredentialCard,
+    TTOpenTypeCredentialFingerprint,
+    TTOpenTypeCredentialFace,
+    TTOpenTypeCredentialPalmVein,
+    TTOpenTypeCredentialRemote, // WirelessKeyFob
+    TTOpenTypeCredentialQrCode,
 };
 
 typedef NS_ENUM(NSInteger ,TTLockConfigType) {
@@ -490,6 +504,7 @@ typedef NS_ENUM(NSInteger ,TTLockConfigType) {
     TTSemiAutomaticModeControl,
     TTProofCapture,
     TTPublicModeLedFlash,
+    TTPowerSaverCareMode,
 };
 
 /*!

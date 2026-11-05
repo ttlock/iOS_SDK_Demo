@@ -116,6 +116,16 @@ typedef void(^TTHumanPresenceSensorFailBlock)(TTHumanPresenceSensorError error, 
                    sensorFailure:(TTHumanPresenceSensorFailBlock)sensorFailure;
 
 /**
+ Set Environment Self-Learning  ( Only human presence sensor must be nearby )
+ @param sensorMac  sensor Mac
+ @param success  A block invoked when the operation is successful
+ @param sensorFailure  By sensor, a block invoked when the operation fails
+ */
++ (void)setEnvironmentSelfLearningWithSensorMac:(NSString *)sensorMac
+                                         success:(TTHumanPresenceSensorSuccessBlock)success
+                                   sensorFailure:(TTHumanPresenceSensorFailBlock)sensorFailure;
+
+/**
  Enter Upgrade Mode  ( Only human presence sensor must be nearby )
  @param sensorMac  sensor Mac
  @param success  A block invoked when the operation is successful

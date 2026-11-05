@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SceneDelegate.h"
 #import "UserModel.h"
 #import "HomeViewController.h"
 #import "LoginViewController.h"
@@ -25,20 +26,26 @@
         NSLog(@"##############  TTLock is working, bluetooth state: %ld  ##############",(long)state);
     }];
     
-    [self showWindowRootViewController];
     return YES;
 }
 
-- (void)showWindowRootViewController{
-    _window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+- (void)configureWindowForScene:(UIWindowScene *)windowScene {
+    _window = [[UIWindow alloc] initWithWindowScene:windowScene];
     _window.backgroundColor = UIColor.whiteColor;
-    [_window makeKeyAndVisible];
-    
     if ([UserModel isLogin]) {
         [self showHomeViewController];
-    }else{
+    } else {
         [self showLoginViewController];
     }
+    [_window makeKeyAndVisible];
+}
+
+#pragma mark - UISceneSession lifecycle
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+    UISceneConfiguration *configuration = [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+    configuration.delegateClass = [SceneDelegate class];
+    return configuration;
 }
 
 - (void)showLoginViewController{

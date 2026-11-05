@@ -15,12 +15,11 @@ DEPENDENCIES:
   - MJExtension (~> 3.0.17)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Masonry
-    - MBProgressHUD
   trunk:
     - iOSDFULibrary
     - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
     - MJExtension
     - ZIPFoundation
 
@@ -32,6 +31,6 @@ SPEC CHECKSUMS:
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
   ZIPFoundation: d170fa8e270b2a32bef9dcdcabff5b8f1a5deced
 
-PODFILE CHECKSUM: 706398eadf42cb24382eb94728a928d4f3cb5b4d
+PODFILE CHECKSUM: 1b801b8aec60722b092dfdf7014f5abbfe38f773
 
 COCOAPODS: 1.15.2

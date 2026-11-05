@@ -102,6 +102,8 @@ typedef void(^TTGetAllValidQrCodesSucceedBlock)(NSString *allQrCodesJsonString);
 // types enum TTUnauthorizedAttemptAlertType
 typedef void(^TTGetUnauthorizedAttemptAlertBlock)(NSArray <NSNumber *>* types, int attemptAlertCount, int lockoutDuration);
 
+typedef void(^TTGetThirdDeviceResultSucceedBlock)(NSString *deviceMac);
+
 typedef void(^TTGetSpecialValueSucceedBlock)(long long specialValue) DEPRECATED_MSG_ATTRIBUTE("SDK3.1.0,Use TTGetFeatureValueSucceedBlock");
 
 #endif /* TTBlocks_h */

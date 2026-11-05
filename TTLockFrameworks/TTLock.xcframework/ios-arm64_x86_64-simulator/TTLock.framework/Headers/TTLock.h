@@ -5,7 +5,7 @@
 //  Created by Jinbo Lu on 2019/4/23.
 //  Copyright © 2019 Sciener. All rights reserved.
 
-//  version:3.6.16
+//  version:3.7.0
 
 #import <Foundation/Foundation.h>
 #import <TTLock/TTBlocks.h>
@@ -597,7 +597,6 @@ Set Lock Config
                                           success:(TTGetPasscodeVerificationParamsSucceedBlock)success
                                           failure:(TTFailedBlock)failure;
 
-
 #pragma mark - IC card
 
 /**
@@ -705,7 +704,6 @@ Set Lock Config
                              lockData:(NSString *)lockData
                               success:(TTAddICSucceedBlock)success
                               failure:(TTFailedBlock)failure;
-
 
 #pragma mark - Fingerprint
 
@@ -835,7 +833,7 @@ Set Lock Config
 					 success:(TTAddFingerprintSucceedBlock)success
 					 failure:(TTFailedBlock)failure;
 
-#pragma mark - Key Fob
+#pragma mark - Remote / Key Fob
 
 /**
  Add Wireless Key Fob
@@ -1384,23 +1382,6 @@ Config Camera Lock Wifi
            success:(TTAddFaceSucceedBlock)success
            failure:(TTFailedBlock)failure;
 
-/**
- Set  alias 
-
- @param type Alias type: fingerprint, card, face, etc.
- @param credentialId Credential identifier (face number, card number, passcode, etc.)
- @param alias Alias string
- @param lockData The lock data string used to operate lock
- @param success A block invoked when the operation is successful
- @param failure A block invoked when the operation fails
- */
-+ (void)setAliasWithType:(TTAliasType)type
-            credentialId:(NSString *)credentialId
-                   alias:(NSString *)alias
-                  lockData:(NSString *)lockData
-                   success:(TTSucceedBlock)success
-                   failure:(TTFailedBlock)failure;
-
 #pragma mark - Palm Vein
 
 /**
@@ -1825,18 +1806,6 @@ Config Camera Lock Wifi
                                success:(TTGetAllValidQrCodesSucceedBlock)success
                                failure:(TTFailedBlock)failure;
 
-+ (void)setPasscodeAttributesWithPasscode:(NSString *)passcode
-                               attributes:(TTPasscodeAttributes *)attributes
-                                 lockData:(NSString *)lockData
-                                  success:(TTSucceedBlock)success
-                                  failure:(TTFailedBlock)failure;
-
-+ (void)setCardAttributesWithCardNumber:(NSString *)cardNumber
-                             attributes:(TTCardAttributes *)attributes
-                               lockData:(NSString *)lockData
-                                success:(TTSucceedBlock)success
-                                failure:(TTFailedBlock)failure;
-
 /**
  Set Latch Bolt
  
@@ -1876,6 +1845,82 @@ Config Camera Lock Wifi
 + (void)getUnauthorizedAttemptAlertWithLockData:(NSString *)lockData
                                         success:(TTGetUnauthorizedAttemptAlertBlock)success
                                         failure:(TTFailedBlock)failure;
+
+#pragma mark - Open type credential
+
+/**
+ Set alias for a credential (passcode, card, fingerprint, face, palm vein, remote (wireless key fob), QR code, etc.)
+
+ @param type Alias type: fingerprint, card, face, etc.
+ @param credentialId Credential identifier (face number, card number, passcode, etc.)
+ @param alias Alias string
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation is successful
+ @param failure A block invoked when the operation fails
+ */
++ (void)setAliasWithType:(TTAliasType)type
+            credentialId:(NSString *)credentialId
+                   alias:(NSString *)alias
+                  lockData:(NSString *)lockData
+                   success:(TTSucceedBlock)success
+                   failure:(TTFailedBlock)failure;
+
+/**
+ Set open type credential attributes (privacy lock, unlock outside working time)
+
+ Requires lock feature TTLockFeatureValueSetOpenTypeAttributes.
+
+ @param type Credential type: passcode, card, fingerprint, face, palm vein, remote (wireless key fob), QR code
+ @param credentialId Passcode string, card number, fingerprint number, face number, palm vein number, remote MAC (AA:BB:CC:DD:EE:FF), or QR code number
+ @param attributes see TTOpenTypeAttributes
+ @param lockData The lock data string used to operate lock
+ @param success A block invoked when the operation succeeds
+ @param failure A block invoked when the operation fails
+ */
++ (void)setOpenTypeAttributesWithType:(TTOpenTypeCredential)type
+                                 credentialId:(NSString *)credentialId
+                                   attributes:(TTOpenTypeAttributes *)attributes
+                                     lockData:(NSString *)lockData
+                                      success:(TTSucceedBlock)success
+                                      failure:(TTFailedBlock)failure;
+
+#pragma mark -  Third-party Bluetooth device
+
+/**
+ Allow a third-party Bluetooth device to be added.
+
+ Requires lock feature TTLockFeatureValueThirdDevice.
+
+ @param startDate The time when it becomes valid, in milliseconds. 0 means permanent
+ @param endDate The time when it is expired, in milliseconds. 0 means permanent
+ @param allowUnlockPrivacyLock Whether the device can unlock the privacy lock
+ @param lockData The lock data string used to operate lock
+ */
++ (void)allowAddThirdDeviceWithStartDate:(long long)startDate
+                                 endDate:(long long)endDate
+                  allowUnlockPrivacyLock:(BOOL)allowUnlockPrivacyLock
+                                lockData:(NSString *)lockData
+                                 success:(TTSucceedBlock)success
+                                 failure:(TTFailedBlock)failure;
+
+/**
+ Get the third-party device added after allowAddThirdDevice.
+
+ @param success deviceMac is AA:BB:CC:DD:EE:FF
+ */
++ (void)getThirdDeviceResultWithLockData:(NSString *)lockData
+                                 success:(TTGetThirdDeviceResultSucceedBlock)success
+                                 failure:(TTFailedBlock)failure;
+
+/**
+ Delete one third-party Bluetooth device.
+
+ @param deviceMac Device MAC, AA:BB:CC:DD:EE:FF
+ */
++ (void)deleteThirdDeviceWithDeviceMac:(NSString *)deviceMac
+                              lockData:(NSString *)lockData
+                               success:(TTSucceedBlock)success
+                               failure:(TTFailedBlock)failure;
 
 
 #pragma mark - deprecated

@@ -31,16 +31,10 @@
 
 @end
 
-@interface TTPasscodeAttributes : NSObject
 
-@property (nonatomic, assign) BOOL isAdminPasscode;
+@interface TTOpenTypeAttributes : NSObject
+
 @property (nonatomic, assign) BOOL canOpenPrivacyLock;
-
-@end
-
-@interface TTCardAttributes : NSObject
-
-@property (nonatomic, assign) BOOL isAdminCard;
-@property (nonatomic, assign) BOOL canOpenPrivacyLock;
+@property (nonatomic, assign) BOOL canOpenOutOfWorkingTime;
 
 @end
